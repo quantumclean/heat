@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="HEAT">
+    <meta name="theme-color" content="#ffffff" id="theme-color-meta">
+    <title>HEAT — Civic Signal Map | Plainfield, NJ</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🔥</text></svg>">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <h1>🔥 HEAT</h1>
+            <div class="header-controls">
+                <button id="theme-toggle" class="glass-btn" title="Toggle Light/Dark Mode">🌙</button>
+                <button id="location-btn" class="glass-btn" title="Use My Location">📍</button>
+            </div>
+        </div>
+        <p class="subtitle">Civic Signal Map — Plainfield, NJ</p>
+        
+        <!-- Your Location (if detected) -->
+        <div id="user-location" class="location-badge hidden">
+            <span>📍 Your area: <strong id="user-zip">--</strong></span>
+        </div>
+        
+        <div class="signal-summary">
+            <strong>What changed:</strong> Attention on immigration topics <span id="trend-summary">is increasing</span> 
+            based on aggregated public records. Signals stabilize over 24+ hours to reduce noise.
+        </div>
+        
+        <!-- Trust & Safety Badge -->
+        <div class="trust-badge glass-card">
+            <div>🔒 Zero tracking • 🗺️ ZIP-only • ⏱️ 24hr delay • 👥 Aggregate only</div>
+            <div style="font-size: 0.75rem; margin-top: 0.5rem;">Last updated: <strong id="last-updated">Loading...</strong></div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Quick Stats Dashboard - Clickable Cards -->
+        <section id="quick-dashboard" class="dashboard-grid">
+            <div class="dash-card glass-card" data-target="map-section">
+                <div class="dash-icon">🗺️</div>
+                <div class="dash-value" id="dash-clusters">--</div>
+                <div class="dash-label">Active Signals</div>
+                <div class="dash-ring"></div>
+            </div>
+            <div class="dash-card glass-card" data-target="timeline-section">
+                <div class="dash-icon">📈</div>
+                <div class="dash-value" id="dash-trend">--</div>
+                <div class="dash-label">Trend</div>
+                <div class="dash-ring"></div>
+            </div>
+            <div class="dash-card glass-card" data-target="keywords-section">
+                <div class="dash-icon">💬</div>
+                <div class="dash-value" id="dash-keywords">--</div>
+                <div class="dash-label">Top Keywords</div>
+                <div class="dash-ring"></div>
+            </div>
+            <div class="dash-card glass-card intensity-card" data-target="clusters-section">
+                <div class="dash-icon">🔥</div>
+                <div class="dash-value"><span id="dash-intensity">--</span></div>
+                <div class="dash-label">Heat Level</div>
+                <div class="intensity-bar">
+                    <div class="intensity-fill" id="intensity-fill"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mobile Submit Button -->
+        <a href="submit.html" class="submit-signal-btn glass-btn" title="Submit Signal">✍️</a>
+        
+        <section id="map-section" class="content-section">
+            <div class="section-header">
+                <h2>📍 Signal Density by Area</h2>
+                <div class="btn-group">
+                    <button id="toggle-heatmap" class="glass-btn">🔥 Heatmap</button>
+                    <button id="toggle3d" class="glass-btn">🌐 3D</button>
+                </div>
+            </div>
+            <p class="section-note">
+                Circles show where public attention clusters. Size and color indicate pattern strength.
+            </p>
+            <div id="map" class="glass-card"></div>
+            
+            <!-- Timeline Slider Controls -->
+            <div class="timeline-slider-container glass-card">
+                <div class="timeline-header">
+                    <span>🕐 Timeline View</span>
+                    <span id="slider-current" class="accent-text">Current</span>
+                </div>
+                <div class="timeline-controls">
+                    <span id="slider-start" class="muted-text">Start</span>
+                    <input type="range" id="date-range-slider" />
+                    <span id="slider-end" class="muted-text">End</span>
+                    <button id="timeline-play-btn" class="play-btn">▶ Play</button>
+                </div>
+                <p class="timeline-hint">Drag slider to see cluster activity over time, or press Play to animate.</p>
+            </div>
+            
+            <!-- Improved Legend with Dynamic Indicators -->
+            <div class="legend glass-card">
+                <div class="legend-item" data-level="low">
+                    <div class="legend-dot low pulse"></div>
+                    <div class="legend-info">
+                        <span class="legend-label">Quiet</span>
+                        <span class="legend-desc">1-2 signals</span>
+                    </div>
+                </div>
+                <div class="legend-item" data-level="medium">
+                    <div class="legend-dot medium pulse"></div>
+                    <div class="legend-info">
+                        <span class="legend-label">Active</span>
+                        <span class="legend-desc">3-5 signals</span>
+                    </div>
+                </div>
+                <div class="legend-item" data-level="high">
+                    <div class="legend-dot high pulse"></div>
+                    <div class="legend-info">
+                        <span class="legend-label">Elevated</span>
+                        <span class="legend-desc">6+ signals</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="timeline-section">
+            <h2>📊 Attention Over Time</h2>
+            <p class="section-note">
+                Weekly view of when immigration topics surface in public discourse.
+            </p>
+            <div class="trend-indicators">
+                <span id="trend-direction" class="trend-badge">—</span>
+                <span id="burst-indicator" class="burst-badge hidden">🔥 Burst Detected</span>
+            </div>
+            <div class="chart-container">
+                <canvas id="timeline-chart"></canvas>
+            </div>
+        </section>
+        
+        <section id="keywords-section">
+            <h2>🏷️ Top Keywords</h2>
+            <p class="section-note">
+                Most frequent terms extracted from public records (Snaptrends-style keyword extraction).
+            </p>
+            <div id="keyword-cloud" class="keyword-cloud">
+                <p class="loading">Loading keywords...</p>
+            </div>
+            <div id="category-distribution" class="category-grid"></div>
+        </section>
+        
+        <section id="clusters-section">
+            <h2>💬 Current Attention Clusters</h2>
+            <p class="section-note">
+                Topics receiving sustained focus across multiple sources. 24-hour stabilization applied.
+            </p>
+            <div id="cluster-cards">
+                <p class="loading">Loading clusters...</p>
+            </div>
+        </section>
+        
+        <section id="sources-section">
+            <h2>📚 Data Sources</h2>
+            <ul>
+                <li>Local news archives (NJ.com, TAPinto Plainfield, Courier News)</li>
+                <li>City council meeting minutes</li>
+                <li>Advocacy organization reports (ACLU NJ, NJ Alliance for Immigrant Justice)</li>
+                <li>Public statements and press releases</li>
+            </ul>
+            <div class="transparency">
+                <p><strong>Last updated:</strong> <span id="last-updated">—</span></p>
+                <p>All data is from public sources. 24-hour stabilization applied.</p>
+                <p>Identities are never stored.</p>
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                    <a href="#" class="donate-btn" style="display: inline-block; background: var(--accent); color: #000; padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none;">💝 Support HEAT</a>
+                    <span style="color: var(--muted); font-size: 0.875rem; margin-left: 1rem;">Help keep this tool free and independent</span>
+                </div>
+            </div>
+        </section>
+        
+        <section id="resources-section">
+            <h2>🔗 Community Resources</h2>
+            <ul>
+                <li><a href="https://www.aclu-nj.org/know-your-rights" target="_blank" rel="noopener">Know Your Rights (ACLU NJ)</a></li>
+                <li><a href="https://www.immigrantjusticenj.org/" target="_blank" rel="noopener">NJ Alliance for Immigrant Justice</a></li>
+                <li><a href="https://www.plainfieldnj.gov/" target="_blank" rel="noopener">City of Plainfield Official Website</a></li>
+            </ul>
+        </section>
+        
+        <section id="about-section">
+            <h2>ℹ️ About This Tool</h2>
+            <div class="about-content">
+                <p>
+                    <strong>HEAT</strong> helps you notice when public attention shifts—early, calmly, 
+                    and without turning people into data points.
+                </p>
+                
+                <div class="comparison-box">
+                    <div class="comparison-item this-is">
+                        <h4>What HEAT Shows</h4>
+                        <ul>
+                            <li>When attention shifts</li>
+                            <li>How patterns persist</li>
+                            <li>Where focus intensifies</li>
+                            <li>Whether trends strengthen or fade</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item design-note">
+                        <h4>Design Choices</h4>
+                        <ul>
+                            <li>24-hour stabilization filters noise</li>
+                            <li>Aggregation protects individuals</li>
+                            <li>ZIP-level only (no addresses)</li>
+                            <li>Public sources only</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p class="about-note">
+                    Unlike systems optimized for speed and alerts, HEAT intentionally 
+                    buffers and clusters public records to reveal <em>when and where 
+                    issues become socially salient</em> — a tool for interpretation, 
+                    not surveillance.
+                </p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>
+                <strong>HEAT</strong> — Historical & Emerging Attention Tracker
+            </p>
+            <p class="tagline">
+                Delayed, aggregated semantic mapping of collective civic attention.
+            </p>
+            <div class="footer-principles">
+                <span>� Pattern detection</span>
+                <span>🕐 24hr stabilization</span>
+                <span>📍 ZIP-level precision</span>
+                <span>🔒 Identities never stored</span>
+            </div>
+            <div style="margin: 1.5rem 0; padding: 1rem; background: var(--bg-lighter); border-radius: 8px;">
+                <strong style="color: var(--accent);">Access Tiers</strong>
+                <div style="display: flex; gap: 1.5rem; margin-top: 0.75rem; flex-wrap: wrap; justify-content: center;">
+                    <span style="color: var(--muted);">📌 You are viewing: <strong style="color: var(--text);">Tier 0 (Public)</strong></span>
+                    <a href="submit.html" style="color: var(--accent); text-decoration: none;">✍️ Submit Signal</a>
+                    <a href="contributor.html" style="color: var(--success); text-decoration: none;">📬 Contributor Dashboard</a>
+                </div>
+            </div>
+            <p class="footer-note">
+                This reflects patterns in public attention. You decide how to contextualize it.
+            </p>
+            <p class="meta">
+                Built with care for community safety. Open source.
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

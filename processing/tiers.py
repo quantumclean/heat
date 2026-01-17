@@ -3,6 +3,7 @@ Tiered Access System for HEAT
 Generates separate data exports for each audience tier.
 """
 import json
+import re
 import pandas as pd
 from datetime import datetime, timedelta
 from pathlib import Path
