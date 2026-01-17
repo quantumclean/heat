@@ -1,0 +1,92 @@
+name: Deploy HEAT to S3
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 */6 * * *'  # Update data every 6 hours
+  workflow_dispatch:  # Manual trigger
+
+env:
+  AWS_REGION: us-east-1
+  S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run HEAT Pipeline
+        run: |
+          echo "=== Step 1: RSS Scraper ==="
+          python processing/rss_scraper.py
+          
+          echo "=== Step 2: Ingest ==="
+          python processing/ingest.py
+          
+          echo "=== Step 3: Cluster ==="
+          python processing/cluster.py
+          
+          echo "=== Step 4: NLP Analysis ==="
+          python processing/nlp_analysis.py
+          
+          echo "=== Step 5: Buffer ==="
+          python processing/buffer.py
+          
+          echo "=== Step 6: Export Static ==="
+          python processing/export_static.py
+          
+          echo "=== Step 7: Alerts ==="
+          python processing/alerts.py
+          
+          echo "=== Step 8: Tiers ==="
+          python processing/tiers.py
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Sync to S3
+        run: |
+          aws s3 sync build/ s3://${{ env.S3_BUCKET }}/ \
+            --delete \
+            --cache-control "max-age=300" \
+            --exclude "*.map"
+          
+          # Set longer cache for static assets
+          aws s3 cp s3://${{ env.S3_BUCKET }}/ s3://${{ env.S3_BUCKET }}/ \
+            --recursive \
+            --exclude "*" \
+            --include "*.css" \
+            --include "*.js" \
+            --cache-control "max-age=86400" \
+            --metadata-directive REPLACE
+
+      - name: Invalidate CloudFront (optional)
+        if: env.CLOUDFRONT_DISTRIBUTION_ID != ''
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
+
+env:
+  AWS_REGION: us-east-1
+  S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
+  CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
