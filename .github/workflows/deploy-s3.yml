@@ -10,6 +10,7 @@ on:
 env:
   AWS_REGION: us-east-1
   S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
+  CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
 jobs:
   update-and-deploy:
@@ -85,8 +86,3 @@ jobs:
           aws cloudfront create-invalidation \
             --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
-
-env:
-  AWS_REGION: us-east-1
-  S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
-  CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
