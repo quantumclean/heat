@@ -74,8 +74,8 @@ def export_for_static_site():
     if GOVERNANCE_AVAILABLE:
         gov = GovernanceLayer()
         
-        # Apply governance transformations to clusters
-        clusters = gov.apply_governance(clusters)
+        # Apply governance transformations to clusters (standalone function)
+        clusters = apply_governance(clusters)
         
         # Generate silence context for ZIPs with no data
         all_zips = {"07060", "07062", "07063"}
@@ -87,7 +87,7 @@ def export_for_static_site():
         }
         
         # Generate governance report for transparency
-        governance_report = gov.generate_governance_report(clusters)
+        governance_report = gov.generate_governance_report()
         
         print(f"Applied governance: {len(clusters)} clusters processed")
         if governance_report.get("flags"):

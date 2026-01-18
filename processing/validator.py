@@ -180,38 +180,89 @@ class DataValidator:
             return {"status": "fail", "reason": str(e)}
     
     def _check_forbidden_words(self) -> Dict:
-        """Ensure no forbidden words in public outputs."""
+        """
+        Ensure no forbidden words in HEAT-generated content.
+        
+        Context-aware validation:
+        - Forbidden in HEAT-generated text (alerts, HEAT descriptions)
+        - Allowed in source content (news summaries, extracted keywords, URLs)
+        
+        Rationale: News articles may contain these words legitimately.
+        HEAT must not create surveillance-like messaging.
+        """
         print("[3/8] Checking forbidden words...")
         
         try:
             forbidden_found = []
             
-            # Check clusters.json
-            clusters_path = BUILD_DIR / "data" / "clusters.json"
-            if clusters_path.exists():
-                with open(clusters_path, 'r') as f:
-                    content = f.read().lower()
+            # Check alerts.json (all HEAT-generated content)
+            alerts_path = PROCESSED_DIR / "alerts.json"
+            if alerts_path.exists():
+                with open(alerts_path, 'r') as f:
+                    alerts_data = json.load(f)
                 
-                for word in FORBIDDEN_ALERT_WORDS:
-                    if word.lower() in content:
-                        forbidden_found.append(f"clusters.json contains '{word}'")
+                # alerts.json is an array of alert objects
+                if isinstance(alerts_data, list):
+                    alerts_list = alerts_data
+                else:
+                    alerts_list = alerts_data.get("alerts", [])
+                
+                # Check alert messages and titles
+                for alert in alerts_list:
+                    alert_text = json.dumps({
+                        "title": alert.get("title", ""),
+                        "body": alert.get("body", ""),
+                        "message": alert.get("message", ""),
+                    }).lower()
+                    
+                    for word in FORBIDDEN_ALERT_WORDS:
+                        if word.lower() in alert_text:
+                            forbidden_found.append(
+                                f"alerts.json alert '{alert.get('class', 'unknown')}' contains '{word}'"
+                            )
             
-            # Check tier0_public.json
+            # Check tier0_public.json HEAT-generated fields only
             tier0_path = BUILD_DIR / "exports" / "tier0_public.json"
             if tier0_path.exists():
                 with open(tier0_path, 'r') as f:
-                    content = f.read().lower()
+                    tier0_data = json.load(f)
+                
+                # Check HEAT metadata (not cluster content from news)
+                heat_metadata = {
+                    "description": tier0_data.get("description", ""),
+                    "tier": tier0_data.get("tier", ""),
+                }
+                metadata_text = json.dumps(heat_metadata).lower()
                 
                 for word in FORBIDDEN_ALERT_WORDS:
-                    if word.lower() in content:
-                        forbidden_found.append(f"tier0_public.json contains '{word}'")
+                    if word.lower() in metadata_text:
+                        forbidden_found.append(f"tier0_public.json metadata contains '{word}'")
+            
+            # Check weekly digest (HEAT-generated summaries)
+            digest_path = BUILD_DIR / "exports" / "weekly_digest.json"
+            if digest_path.exists():
+                with open(digest_path, 'r') as f:
+                    digest_data = json.load(f)
+                
+                digest_text = json.dumps({
+                    "summary": digest_data.get("summary", ""),
+                    "trend_label": digest_data.get("trend_label", "")
+                }).lower()
+                
+                for word in FORBIDDEN_ALERT_WORDS:
+                    if word.lower() in digest_text:
+                        forbidden_found.append(f"weekly_digest.json contains '{word}'")
             
             if forbidden_found:
-                self._fail(f"Forbidden words found in public outputs")
+                self._fail(f"Forbidden words found in HEAT-generated content")
                 return {"status": "fail", "violations": forbidden_found[:10]}
             
             self._pass()
-            return {"status": "pass", "words_checked": len(FORBIDDEN_ALERT_WORDS)}
+            return {
+                "status": "pass", 
+                "words_checked": len(FORBIDDEN_ALERT_WORDS),
+                "note": "News summaries and extracted keywords are exempt"
+            }
             
         except Exception as e:
             self._fail(f"Forbidden words check error: {e}")
