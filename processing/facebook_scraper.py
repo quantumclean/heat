@@ -24,8 +24,8 @@ import requests
 from bs4 import BeautifulSoup
 
 from config import (
-    BASE_DIR, RAW_DATA_DIR, PROCESSED_DIR,
-    PLAINFIELD_ZIPS, FORBIDDEN_ALERT_WORDS
+    BASE_DIR, RAW_DIR, PROCESSED_DIR,
+    TARGET_ZIPS, FORBIDDEN_ALERT_WORDS
 )
 
 
@@ -37,7 +37,7 @@ class FacebookCrowdsource:
     
     def __init__(self, access_token: Optional[str] = None):
         self.access_token = access_token
-        self.output_dir = RAW_DATA_DIR
+        self.output_dir = RAW_DIR
         self.collected_posts = []
         
         # Keywords to identify relevant posts
@@ -105,7 +105,16 @@ class FacebookCrowdsource:
         except Exception as e:
             print(f"Error scraping page: {e}")
         
-        return posts
+        # Convert to DataFrame and save
+        if posts:
+            df = pd.DataFrame(posts)
+            output_path = self.output_dir / f"facebook_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+            df.to_csv(output_path, index=False)
+            print(f"Saved {len(posts)} posts to: {output_path}")
+            return df
+        
+        print("No posts found (page may require login or no relevant content)")
+        return pd.DataFrame()
     
     def fetch_from_graph_api(self, page_id: str, limit: int = 50) -> List[Dict]:
         """
@@ -148,7 +157,15 @@ class FacebookCrowdsource:
         except Exception as e:
             print(f"Graph API error: {e}")
         
-        return posts
+        # Convert to DataFrame and save
+        if posts:
+            df = pd.DataFrame(posts)
+            output_path = self.output_dir / f"facebook_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+            df.to_csv(output_path, index=False)
+            print(f"Saved {len(posts)} posts to: {output_path}")
+            return df
+        
+        return pd.DataFrame()
     
     def import_from_csv(self, csv_path: str) -> List[Dict]:
         """
@@ -212,7 +229,16 @@ class FacebookCrowdsource:
         except Exception as e:
             print(f"CSV import error: {e}")
         
-        return posts
+        # Convert to DataFrame and save processed version
+        if posts:
+            df = pd.DataFrame(posts)
+            output_path = self.output_dir / f"facebook_processed_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+            df.to_csv(output_path, index=False)
+            print(f"Processed {len(posts)} posts and saved to: {output_path}")
+            return df
+        
+        print("No relevant posts found in CSV")
+        return pd.DataFrame()
     
     def _is_relevant(self, text: str) -> bool:
         """Check if text contains relevant keywords"""
@@ -306,43 +332,63 @@ class FacebookCrowdsource:
 
 
 def run_facebook_scraper():
-    """Run Facebook scraper with configured sources"""
+    """Run Facebook scraper with configured sources or CLI args"""
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="HEAT Facebook Crowdsource Scraper")
+    parser.add_argument("--url", help="Public Facebook page/group URL to scrape")
+    parser.add_argument("--csv", help="Path to CSV file with exported posts")
+    parser.add_argument("--group-id", help="Facebook group ID for Graph API")
+    parser.add_argument("--token", help="Facebook API access token")
+    
+    args = parser.parse_args()
+    
     print("=" * 50)
     print("HEAT Facebook Crowdsource Scraper")
     print("=" * 50)
     
-    # Check for existing CSV exports
-    csv_files = list(RAW_DATA_DIR.glob("facebook*.csv"))
-    
+    scraper = FacebookCrowdsource(access_token=args.token if args.token else None)
     sources = []
     
-    # Add any existing CSV exports
-    for csv_file in csv_files:
-        sources.append({
-            "type": "csv",
-            "path": str(csv_file)
-        })
-    
-    # Add example public page (customize this)
-    # sources.append({
-    #     "type": "public_page",
-    #     "url": "https://www.facebook.com/CityOfPlainfield"
-    # })
-    
-    if not sources:
-        print("\nNo Facebook sources configured.")
-        print("\nTo add sources:")
-        print("1. Export Facebook group posts to CSV and save to data/raw/")
-        print("2. Or add public page URLs to the sources list")
-        print("3. Or configure Graph API access token for group access")
+    # Handle CLI arguments
+    if args.url:
+        print(f"\n📄 Scraping public page/group: {args.url}")
+        df = scraper.scrape_public_page(args.url)
+        if not df.empty:
+            print(f"✓ Collected {len(df)} posts from {args.url}")
+        else:
+            print("⚠ No posts found (page may require login)")
         return
     
-    scraper = FacebookCrowdsource()
-    df = scraper.collect_all(sources)
+    if args.csv:
+        print(f"\n📁 Importing from CSV: {args.csv}")
+        df = scraper.import_from_csv(args.csv)
+        if not df.empty:
+            print(f"✓ Imported {len(df)} posts from CSV")
+        return
     
-    if not df.empty:
-        print(f"\n✓ Collected {len(df)} posts for processing")
-        print("Run the full pipeline to include in clustering")
+    if args.group_id and args.token:
+        print(f"\n🔐 Fetching from Graph API: Group {args.group_id}")
+        df = scraper.fetch_from_graph_api(args.group_id)
+        if not df.empty:
+            print(f"✓ Collected {len(df)} posts from group")
+        return
+    
+    # Default: Check for existing CSV exports
+    csv_files = list(RAW_DIR.glob("facebook*.csv"))
+    
+    if csv_files:
+        print(f"\nFound {len(csv_files)} existing CSV export(s)")
+        for csv_file in csv_files:
+            df = scraper.import_from_csv(str(csv_file))
+            if not df.empty:
+                print(f"✓ Processed {len(df)} posts from {csv_file.name}")
+        return
+    
+    print("\nNo sources provided. Usage:")
+    print("  python facebook_scraper.py --url <facebook_url>")
+    print("  python facebook_scraper.py --csv <path_to_csv>")
+    print("  python facebook_scraper.py --group-id <id> --token <token>")
 
 
 if __name__ == "__main__":
