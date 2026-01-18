@@ -1,11 +1,19 @@
 """
 Export processed data to static JSON for S3 deployment.
-Includes NLP analysis and heatmap data.
+Includes NLP analysis, heatmap data, and governance transformations.
 """
 import pandas as pd
 import json
 from pathlib import Path
 from datetime import datetime
+
+# Import governance layer for anti-gaming and uncertainty metadata
+try:
+    from governance import GovernanceLayer
+    GOVERNANCE_AVAILABLE = True
+except ImportError:
+    GOVERNANCE_AVAILABLE = False
+    print("WARNING: Governance layer not available. Exporting without governance checks.")
 
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 BUILD_DIR = Path(__file__).parent.parent / "build" / "data"
