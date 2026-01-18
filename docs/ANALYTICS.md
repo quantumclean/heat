@@ -187,3 +187,71 @@ Analytics data is automatically:
 ```
 Raw Data → Clustering → Advanced Analytics → Dashboard Data → Visualization
 ```
+
+**Schema**:
+```json
+{
+  "clusters": {
+    "type": "array",
+    "description": "Aggregated civic signal clusters",
+    "fields": {
+      "strength": "float - Time-weighted volume score (0-10)"
+    }
+  }
+}
+```
+
+### `advanced_analytics.json` Additions
+New section for graph-ready data:
+```json
+{
+  "graph_ready": {
+    "attention_timeline": {
+      "chart_type": "line_chart",
+      "data": [...],
+      "config": {
+        "axes": {"x": {"field": "week", "type": "temporal"}},
+        "colors": {"line": "#1a73e8"},
+        "interactions": {"tooltip": true, "zoom": true}
+      }
+    }
+  }
+}
+```
+
+### Interpretability
+New section for model transparency:
+```json
+{
+  "interpretability": {
+    "cluster_confidence": {
+      "explanation": "Average confidence is 59.6%, indicating moderate-low data quality...",
+      "confidence_factors": {
+        "source_diversity": 0.25,
+        "temporal_span": 0.20
+      },
+      "caveats": ["24-hour delay enforced", "Aggregation may obscure micro-patterns"]
+    }
+  }
+}
+```
+
+### Decision Framing
+New section for monitoring recommendations:
+```json
+{
+  "decision_framing": {
+    "monitoring_posture": {
+      "recommendations": [{
+        "priority": "routine",
+        "action": "Maintain current monitoring",
+        "rationale": "Event probability at 30.3% within normal range"
+      }],
+      "action_items": [
+        "Review cluster formation patterns weekly",
+        "Validate high-strength clusters manually"
+      ]
+    }
+  }
+}
+```
