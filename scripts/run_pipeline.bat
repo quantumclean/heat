@@ -73,10 +73,24 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo.
-echo [9/9] Generating tiered exports...
+echo [9/11] Generating tiered access exports...
 python processing\tiers.py
 if %ERRORLEVEL% NEQ 0 (
-    echo WARNING: Tiered export failed, continuing...
+    echo WARNING: Tiered exports failed, continuing...
+)
+
+echo.
+echo [10/11] Running advanced analytics (predictive + performance)...
+python processing\advanced_analytics.py
+if %ERRORLEVEL% NEQ 0 (
+    echo WARNING: Advanced analytics failed, continuing...
+)
+
+echo.
+echo [11/11] Generating dashboard visualizations...
+python processing\dashboard_generator.py
+if %ERRORLEVEL% NEQ 0 (
+    echo WARNING: Dashboard generation failed, continuing...
 )
 
 echo.
