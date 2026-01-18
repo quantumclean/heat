@@ -9,7 +9,7 @@ from datetime import datetime
 
 # Import governance layer for anti-gaming and uncertainty metadata
 try:
-    from governance import GovernanceLayer
+    from governance import GovernanceLayer, apply_governance
     GOVERNANCE_AVAILABLE = True
 except ImportError:
     GOVERNANCE_AVAILABLE = False
