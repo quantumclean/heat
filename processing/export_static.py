@@ -67,6 +67,32 @@ def export_for_static_site():
             "mediaLinks": urls[:5],  # Limit to 5 links per cluster
         })
     
+    # Apply governance layer (anti-gaming, uncertainty metadata)
+    governance_report = None
+    silence_context = None
+    
+    if GOVERNANCE_AVAILABLE:
+        gov = GovernanceLayer()
+        
+        # Apply governance transformations to clusters
+        clusters = gov.apply_governance(clusters)
+        
+        # Generate silence context for ZIPs with no data
+        all_zips = {"07060", "07062", "07063"}
+        active_zips = {c["zip"] for c in clusters}
+        inactive_zips = all_zips - active_zips
+        silence_context = {
+            zip_code: gov.generate_silence_context(zip_code) 
+            for zip_code in inactive_zips
+        }
+        
+        # Generate governance report for transparency
+        governance_report = gov.generate_governance_report(clusters)
+        
+        print(f"Applied governance: {len(clusters)} clusters processed")
+        if governance_report.get("flags"):
+            print(f"  Governance flags: {governance_report['flags']}")
+    
     # Load NLP analysis if available
     nlp_path = PROCESSED_DIR / "nlp_analysis.json"
     nlp_data = {}
@@ -76,11 +102,26 @@ def export_for_static_site():
         print(f"Loaded NLP analysis")
     
     with open(BUILD_DIR / "clusters.json", "w") as f:
-        json.dump({
+        output = {
             "generated_at": datetime.now().isoformat(),
             "clusters": clusters,
             "nlp": nlp_data,
-        }, f, indent=2)
+        }
+        
+        # Add governance metadata for transparency
+        if governance_report:
+            output["governance"] = {
+                "version": governance_report.get("governance_version", "1.0"),
+                "dynamic_thresholds_active": True,
+                "uncertainty_metadata_included": True,
+                "timestamp": governance_report.get("timestamp"),
+            }
+        
+        # Add silence context for ZIPs without visible data
+        if silence_context:
+            output["silence_context"] = silence_context
+        
+        json.dump(output, f, indent=2)
     
     print(f"Exported {len(clusters)} clusters to {BUILD_DIR / 'clusters.json'}")
     
