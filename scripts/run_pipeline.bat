@@ -108,11 +108,23 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo.
-echo [14/14] Running QC validation...
+echo [14/15] Running QC validation...
 python processing\validator.py
 if %ERRORLEVEL% NEQ 0 (
     echo ========================================
     echo ❌ VALIDATION FAILED - Review errors above
+    echo ========================================
+    pause
+    exit /b 1
+)
+
+echo.
+echo [15/15] Verifying ethical license compliance...
+python processing\compliance.py
+if %ERRORLEVEL% NEQ 0 (
+    echo ========================================
+    echo ❌ LICENSE COMPLIANCE FAILED
+    echo System does not meet HEAT Ethical Use License requirements
     echo ========================================
     pause
     exit /b 1
