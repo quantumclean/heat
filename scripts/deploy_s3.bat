@@ -11,7 +11,7 @@ REM --- CONFIGURATION ---
 REM Change this to your bucket name
 set BUCKET_NAME=heat-plainfield
 set REGION=us-east-1
-set CLOUDFRONT_ID=D18KXGBRVJLP8X
+set CLOUDFRONT_ID=E7LJPCZOG4PM9
 
 cd /d "%~dp0.."
 
