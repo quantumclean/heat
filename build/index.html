@@ -28,13 +28,28 @@
 <body>
     <header>
         <div class="header-top">
-            <h1>🔥 HEAT</h1>
+            <h1>🔥 HEAT <span class="version-tag">v4</span></h1>
             <div class="header-controls">
+                <select id="lang-select" class="lang-select" title="Language">
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="pt">🇧🇷 PT</option>
+                </select>
                 <button id="theme-toggle" class="glass-btn" title="Toggle Light/Dark Mode">🌙</button>
                 <button id="location-btn" class="glass-btn" title="Use My Location">📍</button>
             </div>
         </div>
-        <p class="subtitle">Civic Signal Map — Plainfield, NJ</p>
+        <p class="subtitle" data-i18n="subtitle">Civic Signal Map — Plainfield, NJ</p>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Search ZIP, street, or topic..." autocomplete="off">
+                <button id="search-clear" class="search-clear hidden">✕</button>
+            </div>
+            <div id="search-results" class="search-results hidden"></div>
+        </div>
         
         <!-- Your Location (if detected) -->
         <div id="user-location" class="location-badge hidden">
@@ -48,8 +63,8 @@
         
         <!-- Trust & Safety Badge -->
         <div class="trust-badge glass-card">
-            <div>🔒 Zero tracking • 🗺️ ZIP-only • ⏱️ 24hr delay • 👥 Aggregate only</div>
-            <div style="font-size: 0.75rem; margin-top: 0.5rem;">Last updated: <strong id="last-updated">Loading...</strong></div>
+            <div data-i18n="trustNote">🔒 Zero tracking • 🗺️ ZIP-only • ⏱️ 24hr delay • 👥 Aggregate only</div>
+            <div style="font-size: 0.75rem; margin-top: 0.5rem;"><span data-i18n="lastUpdated">Last updated</span>: <strong id="last-updated">Loading...</strong></div>
         </div>
     </header>
     
@@ -59,25 +74,25 @@
             <div class="dash-card glass-card" data-target="map-section">
                 <div class="dash-icon">🗺️</div>
                 <div class="dash-value" id="dash-clusters">--</div>
-                <div class="dash-label">Active Signals</div>
+                <div class="dash-label" data-i18n="activeClusters">Active Signals</div>
                 <div class="dash-ring"></div>
             </div>
             <div class="dash-card glass-card" data-target="timeline-section">
                 <div class="dash-icon">📈</div>
                 <div class="dash-value" id="dash-trend">--</div>
-                <div class="dash-label">Trend</div>
+                <div class="dash-label" data-i18n="trend">Trend</div>
                 <div class="dash-ring"></div>
             </div>
             <div class="dash-card glass-card" data-target="keywords-section">
                 <div class="dash-icon">💬</div>
                 <div class="dash-value" id="dash-keywords">--</div>
-                <div class="dash-label">Top Keywords</div>
+                <div class="dash-label" data-i18n="keywords">Top Keywords</div>
                 <div class="dash-ring"></div>
             </div>
             <div class="dash-card glass-card intensity-card" data-target="clusters-section">
                 <div class="dash-icon">🔥</div>
                 <div class="dash-value"><span id="dash-intensity">--</span></div>
-                <div class="dash-label">Heat Level</div>
+                <div class="dash-label" data-i18n="intensity">Heat Level</div>
                 <div class="intensity-bar">
                     <div class="intensity-fill" id="intensity-fill"></div>
                 </div>

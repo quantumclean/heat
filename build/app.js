@@ -7,12 +7,99 @@
 const PLAINFIELD_CENTER = [40.6137, -74.4154];
 const PLAINFIELD_ZOOM = 13;
 
-// ZIP code approximate centers for Plainfield area
-const ZIP_COORDS = {
-    "07060": [40.6137, -74.4154],  // Central Plainfield
-    "07062": [40.6280, -74.4050],  // North Plainfield area
-    "07063": [40.5980, -74.4280],  // South Plainfield area
+// ZIP code enhanced boundaries for precise positioning
+const ZIP_BOUNDARIES = {
+    "07060": {
+        center: [40.6137, -74.4154],
+        bounds: { n: 40.6250, s: 40.6020, e: -74.4000, w: -74.4350 }
+    },
+    "07062": {
+        center: [40.6280, -74.4050],
+        bounds: { n: 40.6400, s: 40.6160, e: -74.3900, w: -74.4200 }
+    },
+    "07063": {
+        center: [40.5980, -74.4280],
+        bounds: { n: 40.6100, s: 40.5860, e: -74.4100, w: -74.4450 }
+    }
 };
+
+// Major street coordinates for precise cluster placement
+const STREET_COORDS = {
+    "front street": { lat: 40.6145, lng: -74.4185, zip: "07060" },
+    "park avenue": { lat: 40.6180, lng: -74.4120, zip: "07060" },
+    "watchung avenue": { lat: 40.6200, lng: -74.4080, zip: "07060" },
+    "south avenue": { lat: 40.6050, lng: -74.4180, zip: "07060" },
+    "plainfield avenue": { lat: 40.6160, lng: -74.4200, zip: "07060" },
+    "west front street": { lat: 40.6140, lng: -74.4230, zip: "07060" },
+    "east front street": { lat: 40.6148, lng: -74.4100, zip: "07060" },
+    "somerset street": { lat: 40.6195, lng: -74.4145, zip: "07062" },
+    "green brook road": { lat: 40.6280, lng: -74.4050, zip: "07062" },
+    "grove street": { lat: 40.6240, lng: -74.4080, zip: "07062" },
+    "leland avenue": { lat: 40.6050, lng: -74.4250, zip: "07063" },
+    "woodland avenue": { lat: 40.5990, lng: -74.4300, zip: "07063" },
+    "clinton avenue": { lat: 40.6020, lng: -74.4220, zip: "07063" },
+    "terrill road": { lat: 40.5960, lng: -74.4320, zip: "07063" },
+    "west 7th street": { lat: 40.6180, lng: -74.4200, zip: "07060" },
+    "west 4th street": { lat: 40.6155, lng: -74.4180, zip: "07060" },
+    "2nd street": { lat: 40.6135, lng: -74.4150, zip: "07060" },
+    "3rd street": { lat: 40.6145, lng: -74.4160, zip: "07060" },
+    "central avenue": { lat: 40.6170, lng: -74.4130, zip: "07060" },
+    "madison avenue": { lat: 40.6100, lng: -74.4140, zip: "07060" }
+};
+
+// Legacy ZIP_COORDS for backward compatibility
+const ZIP_COORDS = {
+    "07060": [40.6137, -74.4154],
+    "07062": [40.6280, -74.4050],
+    "07063": [40.5980, -74.4280],
+};
+
+// ============================================
+// Intelligent Cluster Positioning
+// ============================================
+
+/**
+ * Get precise coordinates for a cluster based on text content
+ * Looks for street mentions and distributes within ZIP bounds
+ */
+function getClusterCoordinates(cluster) {
+    const zip = String(cluster.zip).padStart(5, '0');
+    const zipData = ZIP_BOUNDARIES[zip];
+    
+    if (!zipData) {
+        return PLAINFIELD_CENTER;
+    }
+    
+    // Check if cluster text mentions a street
+    const text = (cluster.summary || cluster.representative_text || '').toLowerCase();
+    
+    for (const [street, streetData] of Object.entries(STREET_COORDS)) {
+        if (text.includes(street) && streetData.zip === zip) {
+            // Small jitter around street location
+            const jitter = () => (Math.random() - 0.5) * 0.002;
+            return [streetData.lat + jitter(), streetData.lng + jitter()];
+        }
+    }
+    
+    // No street match - distribute based on cluster ID within ZIP bounds
+    const seed = cluster.id || Math.random() * 100;
+    const bounds = zipData.bounds;
+    
+    // Create deterministic but varied position using cluster ID
+    const latRange = bounds.n - bounds.s;
+    const lngRange = bounds.e - bounds.w;
+    
+    // Use golden ratio for better distribution
+    const phi = 1.618033988749895;
+    const latOffset = ((seed * phi) % 1) * latRange * 0.6;
+    const lngOffset = (((seed * phi * phi) % 1)) * lngRange * 0.6;
+    
+    // Position within 60% of bounds, centered
+    const lat = bounds.s + latRange * 0.2 + latOffset;
+    const lng = bounds.w + lngRange * 0.2 + lngOffset;
+    
+    return [lat, lng];
+}
 
 // Globals
 let map;
@@ -21,13 +108,151 @@ let timelineData = null;
 let keywordsData = null;
 let is3DMode = false;
 let clusterMarkers = [];
+let currentLanguage = 'en';
+
+// ============================================
+// i18n Translations
+// ============================================
+
+const TRANSLATIONS = {
+    en: {
+        title: "HEAT — Civic Signal Map",
+        subtitle: "Delayed civic attention patterns for Plainfield, NJ",
+        searchPlaceholder: "Search ZIP, street, or topic...",
+        activeClusters: "Active Clusters",
+        trend: "Trend",
+        keywords: "Keywords", 
+        intensity: "Intensity",
+        timeline: "Timeline",
+        clusters: "Attention Clusters",
+        resources: "Resources",
+        about: "About",
+        knowYourRights: "Know Your Rights",
+        emergency: "Emergency Resources",
+        submitInfo: "Submit Info",
+        noResults: "No results found",
+        tryAgain: "Try a different search",
+        zipCode: "ZIP Code",
+        street: "Street",
+        cluster: "Cluster",
+        signals: "signals",
+        high: "High",
+        medium: "Medium", 
+        low: "Low",
+        active: "Active",
+        recent: "Recent",
+        past: "Past",
+        lastUpdated: "Last updated",
+        noClusters: "No active attention clusters at this time.",
+        interpretationNote: "This map shows aggregated public attention patterns, not real-time events.",
+        trustNote: "24hr delay • Community sourced • Not surveillance"
+    },
+    es: {
+        title: "HEAT — Mapa de Señales Cívicas",
+        subtitle: "Patrones de atención cívica retardada para Plainfield, NJ",
+        searchPlaceholder: "Buscar código postal, calle o tema...",
+        activeClusters: "Clústeres Activos",
+        trend: "Tendencia",
+        keywords: "Palabras Clave",
+        intensity: "Intensidad",
+        timeline: "Cronología",
+        clusters: "Clústeres de Atención",
+        resources: "Recursos",
+        about: "Acerca de",
+        knowYourRights: "Conozca Sus Derechos",
+        emergency: "Recursos de Emergencia",
+        submitInfo: "Enviar Información",
+        noResults: "No se encontraron resultados",
+        tryAgain: "Intente una búsqueda diferente",
+        zipCode: "Código Postal",
+        street: "Calle",
+        cluster: "Clúster",
+        signals: "señales",
+        high: "Alto",
+        medium: "Medio",
+        low: "Bajo",
+        active: "Activo",
+        recent: "Reciente",
+        past: "Pasado",
+        lastUpdated: "Última actualización",
+        noClusters: "No hay clústeres de atención activos en este momento.",
+        interpretationNote: "Este mapa muestra patrones de atención pública agregados, no eventos en tiempo real.",
+        trustNote: "24h retraso • Fuente comunitaria • No vigilancia"
+    },
+    pt: {
+        title: "HEAT — Mapa de Sinais Cívicos",
+        subtitle: "Padrões atrasados de atenção cívica para Plainfield, NJ",
+        searchPlaceholder: "Pesquisar CEP, rua ou tópico...",
+        activeClusters: "Clusters Ativos",
+        trend: "Tendência",
+        keywords: "Palavras-chave",
+        intensity: "Intensidade",
+        timeline: "Cronologia",
+        clusters: "Clusters de Atenção",
+        resources: "Recursos",
+        about: "Sobre",
+        knowYourRights: "Conheça Seus Direitos",
+        emergency: "Recursos de Emergência",
+        submitInfo: "Enviar Informação",
+        noResults: "Nenhum resultado encontrado",
+        tryAgain: "Tente uma pesquisa diferente",
+        zipCode: "CEP",
+        street: "Rua",
+        cluster: "Cluster",
+        signals: "sinais",
+        high: "Alto",
+        medium: "Médio",
+        low: "Baixo",
+        active: "Ativo",
+        recent: "Recente",
+        past: "Passado",
+        lastUpdated: "Última atualização",
+        noClusters: "Não há clusters de atenção ativos no momento.",
+        interpretationNote: "Este mapa mostra padrões agregados de atenção pública, não eventos em tempo real.",
+        trustNote: "24h atraso • Fonte comunitária • Não vigilância"
+    }
+};
+
+function t(key) {
+    return TRANSLATIONS[currentLanguage]?.[key] || TRANSLATIONS['en'][key] || key;
+}
+
+function setLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('heat-language', lang);
+    updateUILanguage();
+}
+
+function updateUILanguage() {
+    // Update text elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = t(key);
+    });
+    
+    // Update placeholder attributes
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        el.placeholder = t(key);
+    });
+    
+    // Re-render clusters with new language
+    if (clustersData) {
+        renderClusters();
+    }
+}
 
 // ============================================
 // Initialization
 // ============================================
 
 document.addEventListener("DOMContentLoaded", async () => {
+    // Load saved language
+    currentLanguage = localStorage.getItem('heat-language') || 'en';
+    
     initThemeToggle();
+    initLanguageSelector();
+    initSearch();
     initMap();
     await loadData();
     renderMap();
@@ -42,7 +267,199 @@ document.addEventListener("DOMContentLoaded", async () => {
     initHeatmapLayer();
     initDashboardClicks();
     initGeolocation();
+    initCollapsibleSections();
+    updateUILanguage();
 });
+
+// ============================================
+// Language Selector
+// ============================================
+
+function initLanguageSelector() {
+    const langSelect = document.getElementById('lang-select');
+    if (langSelect) {
+        langSelect.value = currentLanguage;
+        langSelect.addEventListener('change', (e) => {
+            setLanguage(e.target.value);
+        });
+    }
+}
+
+// ============================================
+// Search Functionality
+// ============================================
+
+function initSearch() {
+    const searchInput = document.getElementById('search-input');
+    const searchClear = document.getElementById('search-clear');
+    const searchResults = document.getElementById('search-results');
+    
+    if (!searchInput) return;
+    
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim();
+        
+        // Toggle clear button
+        if (searchClear) {
+            searchClear.classList.toggle('hidden', query.length === 0);
+        }
+        
+        if (query.length < 2) {
+            if (searchResults) searchResults.classList.add('hidden');
+            return;
+        }
+        
+        performSearch(query);
+    });
+    
+    searchInput.addEventListener('focus', (e) => {
+        if (e.target.value.length >= 2) {
+            performSearch(e.target.value.trim());
+        }
+    });
+    
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-container') && searchResults) {
+            searchResults.classList.add('hidden');
+        }
+    });
+    
+    if (searchClear) {
+        searchClear.addEventListener('click', () => {
+            searchInput.value = '';
+            searchClear.classList.add('hidden');
+            if (searchResults) searchResults.classList.add('hidden');
+        });
+    }
+}
+
+function performSearch(query) {
+    const results = [];
+    const q = query.toLowerCase();
+    
+    // Search ZIPs
+    Object.keys(ZIP_BOUNDARIES).forEach(zip => {
+        if (zip.includes(q)) {
+            results.push({
+                type: 'zip',
+                label: `ZIP ${zip}`,
+                icon: '📍',
+                data: { zip }
+            });
+        }
+    });
+    
+    // Search streets
+    Object.keys(STREET_COORDS).forEach(street => {
+        if (street.includes(q)) {
+            const streetData = STREET_COORDS[street];
+            results.push({
+                type: 'street',
+                label: street.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+                icon: '🛣️',
+                data: { lat: streetData.lat, lng: streetData.lng }
+            });
+        }
+    });
+    
+    // Search clusters
+    if (clustersData?.clusters) {
+        clustersData.clusters.forEach(cluster => {
+            const summary = (cluster.summary || '').toLowerCase();
+            if (summary.includes(q)) {
+                results.push({
+                    type: 'cluster',
+                    label: `Cluster #${cluster.id}: ${cluster.summary.substring(0, 40)}...`,
+                    icon: '🔥',
+                    data: { cluster }
+                });
+            }
+        });
+    }
+    
+    renderSearchResults(results);
+}
+
+function renderSearchResults(results) {
+    const container = document.getElementById('search-results');
+    if (!container) return;
+    
+    if (results.length === 0) {
+        container.innerHTML = `
+            <div class="search-no-results">
+                ${t('noResults')}
+                <small>${t('tryAgain')}</small>
+            </div>
+        `;
+        container.classList.remove('hidden');
+        return;
+    }
+    
+    container.innerHTML = results.slice(0, 8).map(result => `
+        <div class="search-result-item" data-type="${result.type}" data-result='${JSON.stringify(result.data)}'>
+            <span class="result-icon">${result.icon}</span>
+            <span class="result-label">${result.label}</span>
+            <span class="result-type">${t(result.type === 'zip' ? 'zipCode' : result.type)}</span>
+        </div>
+    `).join('');
+    
+    // Add click handlers
+    container.querySelectorAll('.search-result-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const type = item.dataset.type;
+            const data = JSON.parse(item.dataset.result);
+            handleSearchSelect(type, data);
+            container.classList.add('hidden');
+        });
+    });
+    
+    container.classList.remove('hidden');
+}
+
+function handleSearchSelect(type, data) {
+    if (!map) return;
+    
+    if (type === 'zip') {
+        const zipData = ZIP_BOUNDARIES[data.zip];
+        if (zipData) {
+            map.flyTo(zipData.center, 15, { duration: 0.8 });
+        }
+    } else if (type === 'street') {
+        map.flyTo([data.lat, data.lng], 16, { duration: 0.8 });
+    } else if (type === 'cluster') {
+        const coords = getClusterCoordinates(data.cluster);
+        map.flyTo(coords, 15, { duration: 0.8 });
+        
+        // Highlight the cluster card
+        const card = document.querySelector(`[data-cluster-id="${data.cluster.id}"]`);
+        if (card) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            card.classList.add('highlighted');
+            setTimeout(() => card.classList.remove('highlighted'), 2000);
+        }
+    }
+}
+
+// ============================================
+// Collapsible Sections
+// ============================================
+
+function initCollapsibleSections() {
+    document.querySelectorAll('.section-header.clickable').forEach(header => {
+        header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.expand-icon');
+            
+            if (content?.classList.contains('section-content')) {
+                content.classList.toggle('collapsed');
+                if (icon) {
+                    icon.textContent = content.classList.contains('collapsed') ? '▼' : '▲';
+                }
+            }
+        });
+    });
+}
 
 // ============================================
 // Theme Toggle (Light/Dark Mode)
@@ -280,13 +697,8 @@ function renderMap() {
 }
 
 function addClusterMarker(cluster) {
-    // Normalize ZIP code to 5 digits for lookup
-    const zip5 = String(cluster.zip).padStart(5, '0');
-    const coords = ZIP_COORDS[zip5] || ZIP_COORDS[cluster.zip] || PLAINFIELD_CENTER;
-    
-    // Add some jitter to prevent exact overlaps
-    const jitter = () => (Math.random() - 0.5) * 0.005;
-    const markerCoords = [coords[0] + jitter(), coords[1] + jitter()];
+    // Use intelligent positioning based on cluster content
+    const coords = getClusterCoordinates(cluster);
     
     // Size based on cluster size and strength
     const baseRadius = 15;
@@ -307,7 +719,7 @@ function addClusterMarker(cluster) {
         fillColor = "#34a853";
     }
     
-    const marker = L.circleMarker(markerCoords, {
+    const marker = L.circleMarker(coords, {
         radius: radius,
         fillColor: fillColor,
         color: color,
