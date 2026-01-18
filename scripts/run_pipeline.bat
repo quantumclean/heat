@@ -87,10 +87,24 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo.
-echo [11/11] Generating dashboard visualizations...
+echo [11/13] Generating dashboard visualizations...
 python processing\dashboard_generator.py
 if %ERRORLEVEL% NEQ 0 (
     echo WARNING: Dashboard generation failed, continuing...
+)
+
+echo.
+echo [12/13] Generating portable intelligence artifacts...
+python processing\intelligence_exports.py
+if %ERRORLEVEL% NEQ 0 (
+    echo WARNING: Intelligence export failed, continuing...
+)
+
+echo.
+echo [13/13] Legacy tiered exports (backward compatibility)...
+python processing\tiers.py
+if %ERRORLEVEL% NEQ 0 (
+    echo WARNING: Legacy tiered export failed, continuing...
 )
 
 echo.
@@ -99,7 +113,11 @@ echo Pipeline complete!
 echo ========================================
 echo.
 echo Static files: build\data\
-echo Tier exports: build\exports\
+echo Intelligence artifacts: build\exports\
+echo   - intelligence_civic_attention.json (self-describing, graph-ready)
+echo   - intelligence_system_performance.json (metrics + interpretability)
+echo   - intelligence_geographic.json (geospatial + decision framing)
+echo Legacy tier exports: build\exports\
 echo   - tier0_public.json    (delayed, aggregated)
 echo   - tier1_contributor.json (pattern alerts)
 echo   - tier2_moderator.json (admin review)
