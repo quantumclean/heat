@@ -9,8 +9,9 @@ echo.
 
 REM --- CONFIGURATION ---
 REM Change this to your bucket name
-set BUCKET_NAME=your-heat-map-bucket
+set BUCKET_NAME=heat-plainfield
 set REGION=us-east-1
+set CLOUDFRONT_ID=D18KXGBRVJLP8X
 
 cd /d "%~dp0.."
 
@@ -36,10 +37,28 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo.
+echo S3 sync complete! Invalidating CloudFront cache...
+echo.
+
+REM Invalidate CloudFront cache
+aws cloudfront create-invalidation ^
+    --distribution-id %CLOUDFRONT_ID% ^
+    --paths "/*"
+
+if %ERRORLEVEL% NEQ 0 (
+    echo WARNING: CloudFront invalidation failed!
+    echo Deployment succeeded but cache may not be updated immediately.
+    echo.
+) else (
+    echo CloudFront cache invalidated successfully!
+    echo.
+)
+
+echo.
 echo ========================================
 echo Deployment complete!
 echo.
 echo Your site is available at:
-echo http://%BUCKET_NAME%.s3-website-%REGION%.amazonaws.com
+echo https://d18kxgbrvjlp8x.cloudfront.net
 echo ========================================
 pause
