@@ -34,7 +34,7 @@ jobs:
       - name: Run HEAT Pipeline
         run: |
           echo "=== Step 1: RSS Scraper ==="
-          python processing/rss_scraper.py
+          python processing/rss_scraper.py || echo "RSS scraping failed, continuing..."
           
           echo "=== Step 2: Ingest ==="
           python processing/ingest.py
@@ -43,19 +43,39 @@ jobs:
           python processing/cluster.py
           
           echo "=== Step 4: NLP Analysis ==="
-          python processing/nlp_analysis.py
+          python processing/nlp_analysis.py || echo "NLP failed, continuing..."
           
-          echo "=== Step 5: Buffer ==="
+          echo "=== Step 5: Heatmap ==="
+          python processing/heatmap.py || echo "Heatmap failed, continuing..."
+          
+          echo "=== Step 6: Buffer ==="
           python processing/buffer.py
           
-          echo "=== Step 6: Export Static ==="
+          echo "=== Step 7: Export Static ==="
           python processing/export_static.py
           
-          echo "=== Step 7: Alerts ==="
-          python processing/alerts.py
+          echo "=== Step 8: Alerts ==="
+          python processing/alerts.py || echo "Alerts failed, continuing..."
           
-          echo "=== Step 8: Tiers ==="
-          python processing/tiers.py
+          echo "=== Step 9: Tiers ==="
+          python processing/tiers.py || echo "Tiers failed, continuing..."
+          
+          echo "=== Step 10: Advanced Analytics ==="
+          python processing/advanced_analytics.py || echo "Analytics failed, continuing..."
+          
+          echo "=== Step 11: Dashboard ==="
+          python processing/dashboard_generator.py || echo "Dashboard failed, continuing..."
+          
+          echo "=== Step 12: Intelligence Exports ==="
+          python processing/intelligence_exports.py || echo "Intel failed, continuing..."
+          
+          echo "=== Step 13: QC Validation ==="
+          python processing/validator.py
+          if [ $? -ne 0 ]; then
+            echo "❌ VALIDATION FAILED - Check logs"
+            exit 1
+          fi
+          echo "✅ All QC checks passed"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4

@@ -101,15 +101,26 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo.
-echo [13/13] Legacy tiered exports (backward compatibility)...
+echo [13/14] Legacy tiered exports (backward compatibility)...
 python processing\tiers.py
 if %ERRORLEVEL% NEQ 0 (
     echo WARNING: Legacy tiered export failed, continuing...
 )
 
 echo.
+echo [14/14] Running QC validation...
+python processing\validator.py
+if %ERRORLEVEL% NEQ 0 (
+    echo ========================================
+    echo ❌ VALIDATION FAILED - Review errors above
+    echo ========================================
+    pause
+    exit /b 1
+)
+
+echo.
 echo ========================================
-echo Pipeline complete!
+echo Pipeline complete! ✅ All QC checks passed
 echo ========================================
 echo.
 echo Static files: build\data\
