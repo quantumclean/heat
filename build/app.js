@@ -843,6 +843,7 @@ async function loadData() {
 
 function renderClusters() {
     const container = document.getElementById("cluster-cards");
+    const silenceWarning = document.getElementById("silence-warning");
     
     if (!clustersData || !clustersData.clusters || clustersData.clusters.length === 0) {
         container.innerHTML = `
@@ -851,7 +852,16 @@ function renderClusters() {
                 <p><small>Clusters appear when multiple public sources reference similar topics.</small></p>
             </div>
         `;
+        // Show silence warning when no clusters visible
+        if (silenceWarning) {
+            silenceWarning.classList.add("visible");
+        }
         return;
+    }
+    
+    // Hide silence warning when clusters are visible
+    if (silenceWarning) {
+        silenceWarning.classList.remove("visible");
     }
     
     const html = clustersData.clusters.map(cluster => {
