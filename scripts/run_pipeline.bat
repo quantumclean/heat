@@ -9,6 +9,11 @@ echo.
 
 cd /d "%~dp0.."
 
+REM Activate virtual environment if it exists
+if exist ".venv\Scripts\activate.bat" (
+    call .venv\Scripts\activate.bat
+)
+
 echo [1/9] Fetching RSS feeds...
 python processing\rss_scraper.py
 if %ERRORLEVEL% NEQ 0 (
