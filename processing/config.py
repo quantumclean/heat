@@ -35,6 +35,17 @@ ZIP_CENTROIDS = {
 }
 
 # ============================================
+# Location Extraction Settings
+# ============================================
+LOCATION_CONFIDENCE_THRESHOLD = 0.5  # Minimum confidence to include location
+MANUAL_REVIEW_THRESHOLD = 0.7        # Below this needs human review
+
+# Location extraction is used to enrich records with geographic data
+# and ensure proper ZIP code assignment for clusters. Low-confidence
+# extractions are flagged for manual verification to prevent
+# misinformation about specific locations.
+
+# ============================================
 # RSS Feeds (Verified Sources)
 # ============================================
 RSS_FEEDS = {

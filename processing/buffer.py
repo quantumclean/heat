@@ -20,7 +20,7 @@ PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 MIN_CLUSTER_SIZE = 3          # At least 3 records per cluster
 MIN_SOURCES = 2               # MUST have 2+ distinct sources (corroboration)
 DELAY_HOURS = 24              # 24-hour delay before surfacing (minimum)
-MIN_VOLUME_SCORE = 1.0        # Minimum time-weighted volume score
+MIN_VOLUME_SCORE = 0.7        # Minimum time-weighted volume score (lowered to catch more events)
 
 # For Tier 0 (public), use stricter thresholds
 TIER0_DELAY_HOURS = 72        # 72-hour delay for public tier

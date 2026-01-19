@@ -2,7 +2,8 @@
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple HIG Viewport: viewport-fit=cover enables safe-area-inset support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -28,25 +29,44 @@
 <body>
     <header>
         <div class="header-top">
-            <h1>🔥 HEAT <span class="version-tag">v4</span></h1>
+            <div class="header-brand">
+                <img src="logo.svg" alt="HEAT" class="header-logo">
+                <h1>HEAT <span class="version-tag">v4</span></h1>
+            </div>
             <div class="header-controls">
                 <select id="lang-select" class="lang-select" title="Language">
-                    <option value="en">🇺🇸 EN</option>
-                    <option value="es">🇪🇸 ES</option>
-                    <option value="pt">🇧🇷 PT</option>
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                    <option value="pt">PT</option>
                 </select>
-                <button id="theme-toggle" class="glass-btn" title="Toggle Light/Dark Mode">🌙</button>
-                <button id="location-btn" class="glass-btn" title="Use My Location">📍</button>
+                <button id="theme-toggle" class="glass-btn" title="Toggle Light/Dark Mode">◐</button>
+                <button id="location-btn" class="glass-btn" title="Use My Location">⊙</button>
             </div>
         </div>
         <p class="subtitle" data-i18n="subtitle">Civic Signal Map — Plainfield, NJ</p>
         
+        <!-- Quick Region Navigation -->
+        <div class="region-nav">
+            <button class="region-btn glass-btn" data-region="north" title="North Jersey: Edison, Metuchen, New Brunswick">
+                <span class="region-label">North</span>
+                <small>Edison · Metuchen</small>
+            </button>
+            <button class="region-btn glass-btn active" data-region="central" title="Central Jersey: Plainfield, Piscataway, Somerset">
+                <span class="region-label">Central</span>
+                <small>Plainfield · Piscataway</small>
+            </button>
+            <button class="region-btn glass-btn" data-region="south" title="South Jersey: Trenton, Princeton">
+                <span class="region-label">South</span>
+                <small>Trenton · Princeton</small>
+            </button>
+        </div>
+        
         <!-- Search Bar -->
         <div class="search-container">
             <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Search ZIP, street, or topic..." autocomplete="off">
-                <button id="search-clear" class="search-clear hidden">✕</button>
+                <span class="search-icon">⌕</span>
+                <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Search ZIP or street..." autocomplete="off">
+                <button id="search-clear" class="search-clear hidden">×</button>
             </div>
             <div id="search-results" class="search-results hidden"></div>
         </div>
@@ -78,19 +98,19 @@
                 <div class="dash-ring"></div>
             </div>
             <div class="dash-card glass-card" data-target="timeline-section">
-                <div class="dash-icon">📈</div>
+                <div class="dash-icon">↗</div>
                 <div class="dash-value" id="dash-trend">--</div>
                 <div class="dash-label" data-i18n="trend">Trend</div>
                 <div class="dash-ring"></div>
             </div>
             <div class="dash-card glass-card" data-target="keywords-section">
-                <div class="dash-icon">💬</div>
+                <div class="dash-icon">⊞</div>
                 <div class="dash-value" id="dash-keywords">--</div>
-                <div class="dash-label" data-i18n="keywords">Top Keywords</div>
+                <div class="dash-label" data-i18n="keywords">Keywords</div>
                 <div class="dash-ring"></div>
             </div>
             <div class="dash-card glass-card intensity-card" data-target="clusters-section">
-                <div class="dash-icon">🔥</div>
+                <div class="dash-icon">▪</div>
                 <div class="dash-value"><span id="dash-intensity">--</span></div>
                 <div class="dash-label" data-i18n="intensity">Heat Level</div>
                 <div class="intensity-bar">
@@ -100,14 +120,14 @@
         </section>
         
         <!-- Mobile Submit Button -->
-        <a href="submit.html" class="submit-signal-btn glass-btn" title="Submit Signal">✍️</a>
+        <a href="submit.html" class="submit-signal-btn glass-btn" title="Submit Signal">+</a>
         
         <section id="map-section" class="content-section">
             <div class="section-header">
-                <h2>📍 Signal Density by Area</h2>
+                <h2>Signal Density by Area</h2>
                 <div class="btn-group">
-                    <button id="toggle-heatmap" class="glass-btn">🔥 Heatmap</button>
-                    <button id="toggle3d" class="glass-btn">🌐 3D</button>
+                    <button id="toggle-heatmap" class="glass-btn">Heatmap</button>
+                    <button id="toggle3d" class="glass-btn">3D</button>
                 </div>
             </div>
             <p class="section-note">
@@ -116,7 +136,7 @@
             
             <!-- Silence-as-Signal Warning -->
             <div class="silence-warning glass-card" id="silence-warning">
-                <div class="warning-icon">⚠️</div>
+                <div class="warning-icon">!</div>
                 <div class="warning-text">
                     <strong>No visible clusters ≠ No activity</strong><br>
                     <small>Data has 24-72hr delay. Absence of signals means thresholds not met, not confirmed safety.</small>
@@ -277,24 +297,98 @@
                 Delayed, aggregated semantic mapping of collective civic attention.
             </p>
             <div class="footer-principles">
-                <span>� Pattern detection</span>
-                <span>🕐 24hr stabilization</span>
-                <span>📍 ZIP-level precision</span>
-                <span>🔒 Identities never stored</span>
+                <span>Pattern detection</span>
+                <span>24hr stabilization</span>
+                <span>ZIP-level precision</span>
+                <span>Identities never stored</span>
             </div>
+            <!-- Resources -->
+            <div style="margin: 2rem 0; padding: 1.5rem; background: var(--bg-lighter); border-radius: 8px;">
+                <strong style="color: var(--accent); font-size: 1.1em;">Community Resources</strong>
+                <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="https://www.aclu.org/know-your-rights/immigration" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">ACLU — Know Your Rights (Immigration)</a>
+                    <a href="https://www.nilc.org" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">National Immigration Law Center (NILC)</a>
+                    <a href="https://www.informedimmigrant.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Informed Immigrant</a>
+                    <a href="https://www.immigrantdefenseproject.org" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Immigrant Defense Project</a>
+                    <a href="https://www.lawyerscommittee.org" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Lawyers' Committee for Civil Rights</a>
+                </div>
+            </div>
+            
+            <!-- Emergency Preparedness -->
+            <div style="margin: 2rem 0; padding: 1.5rem; background: var(--bg-lighter); border-radius: 8px;">
+                <strong style="color: var(--error); font-size: 1.1em;">Emergency Preparedness — Know Your Rights</strong>
+                <details style="margin-top: 1rem; cursor: pointer;">
+                    <summary style="font-weight: bold; color: var(--accent); padding: 0.5rem 0;">If ICE Approaches You at Home</summary>
+                    <ul style="margin: 0.75rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.7;">
+                        <li>You have the right to remain silent</li>
+                        <li>You do NOT have to open the door unless they have a warrant signed by a judge</li>
+                        <li>Ask to see the warrant through a window or under the door before opening</li>
+                        <li>A deportation warrant or administrative warrant is NOT enough to enter</li>
+                        <li>State clearly: "I do not consent to your entry or to any search of this home"</li>
+                        <li>Do not lie or show false documents — you can simply decline to answer</li>
+                    </ul>
+                </details>
+                <details style="margin-top: 0.5rem; cursor: pointer;">
+                    <summary style="font-weight: bold; color: var(--accent); padding: 0.5rem 0;">If Stopped in Public</summary>
+                    <ul style="margin: 0.75rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.7;">
+                        <li>Ask calmly: "Am I free to leave?" If yes, walk away</li>
+                        <li>You have the right to remain silent — you do not have to answer questions about where you were born or your immigration status</li>
+                        <li>You do not have to consent to a search of yourself or your belongings</li>
+                        <li>If you are not a U.S. citizen and do not have immigration documents, ask for a lawyer immediately</li>
+                        <li>Do not sign anything or make statements without legal counsel</li>
+                        <li>Carry a "Know Your Rights" card or contact information for a lawyer</li>
+                    </ul>
+                </details>
+                <details style="margin-top: 0.5rem; cursor: pointer;">
+                    <summary style="font-weight: bold; color: var(--accent); padding: 0.5rem 0;">Emergency Preparedness Kit</summary>
+                    <ul style="margin: 0.75rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.7;">
+                        <li>Keep copies of important documents (birth certificates, consular IDs, immigration paperwork) in a safe place</li>
+                        <li>Have an emergency contact list with family, friends, and immigration attorney numbers</li>
+                        <li>Consider creating a power of attorney for child care or financial decisions</li>
+                        <li>Print and carry a "Red Card" or "Know Your Rights" card from ACLU or NILC</li>
+                        <li>Have a family emergency plan and discuss it with children</li>
+                        <li>Know your A-number (alien registration number) if applicable</li>
+                    </ul>
+                </details>
+                <p style="margin-top: 1rem; font-size: 0.9em; color: var(--muted); font-style: italic;">
+                    This information is for educational purposes only and does not constitute legal advice. Consult an immigration attorney for guidance specific to your situation.
+                </p>
+            </div>
+            
+            <!-- Access Tiers -->
             <div style="margin: 1.5rem 0; padding: 1rem; background: var(--bg-lighter); border-radius: 8px;">
                 <strong style="color: var(--accent);">Access Tiers</strong>
                 <div style="display: flex; gap: 1.5rem; margin-top: 0.75rem; flex-wrap: wrap; justify-content: center;">
-                    <span style="color: var(--muted);">📌 You are viewing: <strong style="color: var(--text);">Tier 0 (Public)</strong></span>
-                    <a href="submit.html" style="color: var(--accent); text-decoration: none;">✍️ Submit Signal</a>
-                    <a href="contributor.html" style="color: var(--success); text-decoration: none;">📬 Contributor Dashboard</a>
+                    <span style="color: var(--muted);">You are viewing: <strong style="color: var(--text);">Tier 0 (Public)</strong></span>
+                    <a href="submit.html" style="color: var(--accent); text-decoration: none;">Submit Signal</a>
+                    <a href="contributor.html" style="color: var(--success); text-decoration: none;">Contributor Dashboard</a>
                 </div>
             </div>
+            
+            <!-- Disclaimer -->
+            <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(255,165,0,0.1); border-left: 3px solid var(--warning); border-radius: 4px;">
+                <strong style="color: var(--warning);">Disclaimer</strong>
+                <p style="margin-top: 0.75rem; font-size: 0.95em; line-height: 1.6; color: var(--muted);">
+                    HEAT aggregates publicly available information from news outlets, advocacy groups, and community submissions. 
+                    We make <strong>no claims</strong> about the accuracy, completeness, or verification of any specific events, locations, or individuals. 
+                    All data is delayed 24-72 hours and aggregated to ZIP-code level to protect privacy and reduce harm.
+                </p>
+                <p style="margin-top: 0.75rem; font-size: 0.95em; line-height: 1.6; color: var(--muted);">
+                    <strong>HEAT claims no ownership of source material.</strong> All rights to original news articles, reports, and content 
+                    remain with their respective publishers and contributors. This tool is provided for informational and educational purposes only. 
+                    Users are responsible for independently verifying information and making their own decisions.
+                </p>
+                <p style="margin-top: 0.75rem; font-size: 0.95em; line-height: 1.6; color: var(--muted);">
+                    Legal information provided is educational only and does not constitute legal advice. Consult a qualified immigration attorney for legal guidance.
+                </p>
+            </div>
+            
             <p class="footer-note">
                 This reflects patterns in public attention. You decide how to contextualize it.
             </p>
             <p class="meta">
-                Built with care for community safety. Open source.
+                © 2026 HEAT Project. All rights reserved.<br>
+                Licensed under HEAT Ethical Use License v1.0 — Built with care for community safety.
             </p>
         </div>
     </footer>

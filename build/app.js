@@ -3,7 +3,29 @@
  * Static frontend for aggregated public attention patterns
  */
 
-// Plainfield, NJ coordinates
+// Region definitions for quick navigation
+const REGIONS = {
+    north: {
+        name: "North Jersey",
+        center: [40.5187, -74.4121],  // Edison/Metuchen area
+        zoom: 11,
+        coverage: "Edison, Metuchen, New Brunswick, Woodbridge"
+    },
+    central: {
+        name: "Central Jersey",
+        center: [40.6137, -74.4154],  // Plainfield area
+        zoom: 13,
+        coverage: "Plainfield, Piscataway, Somerset, Dunellen"
+    },
+    south: {
+        name: "South Jersey",
+        center: [40.2171, -74.7429],  // Trenton area
+        zoom: 11,
+        coverage: "Trenton, Princeton, Hamilton, Lawrence"
+    }
+};
+
+// Plainfield, NJ coordinates (default/central)
 const PLAINFIELD_CENTER = [40.6137, -74.4154];
 const PLAINFIELD_ZOOM = 13;
 
@@ -253,6 +275,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     initThemeToggle();
     initLanguageSelector();
     initSearch();
+    setupRegionNavigation();  // Setup region buttons
     initMap();
     await loadData();
     renderMap();
@@ -1544,4 +1567,43 @@ function addHeatmapLayer() {
     });
     
     heatLayer = true;  // Flag that heatmap is active
+}
+
+// ============================================
+// Region Navigation
+// ============================================
+
+function setupRegionNavigation() {
+    const regionButtons = document.querySelectorAll('.region-btn');
+    
+    regionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const region = button.dataset.region;
+            const regionData = REGIONS[region];
+            
+            if (!regionData) return;
+            
+            // Update active state
+            regionButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Fly to region with smooth animation
+            map.flyTo(regionData.center, regionData.zoom, {
+                duration: 1.2,
+                easeLinearity: 0.25
+            });
+            
+            // Update subtitle with region context
+            const subtitle = document.querySelector('.subtitle');
+            if (subtitle) {
+                const originalText = subtitle.textContent;
+                subtitle.textContent = `${regionData.name} — ${regionData.coverage}`;
+                
+                // Restore after 5 seconds
+                setTimeout(() => {
+                    subtitle.textContent = originalText;
+                }, 5000);
+            }
+        });
+    });
 }
