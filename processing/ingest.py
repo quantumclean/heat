@@ -93,6 +93,36 @@ def run_ingestion():
             except Exception as e:
                 print(f"    Error reading {scraped_path.name}: {e}")
     
+    # Twitter files
+    twitter_files = list(RAW_DIR.glob("twitter_*.csv"))
+    if twitter_files:
+        print(f"\nIngesting {len(twitter_files)} twitter file(s)...")
+        for tw_path in twitter_files:
+            print(f"  Processing {tw_path.name}...")
+            try:
+                df = pd.read_csv(tw_path)
+                for _, row in df.iterrows():
+                    try:
+                        record = normalize_record(
+                            text=row.get("text", ""),
+                            source=row.get("source", "twitter"),
+                            zip_code=row.get("zip", "07060"),
+                            date=row.get("date", datetime.now().isoformat()),
+                        )
+                        # Preserve additional twitter fields
+                        for extra in [
+                            "id","category","url","tweet_id","tweet_url","author",
+                            "engagement","location_precision","media_count"
+                        ]:
+                            if extra in row:
+                                record[extra] = row[extra]
+                        all_records.append(record)
+                    except Exception as e:
+                        print(f"    Skipping row: {e}")
+                print(f"    → {len(df)} records")
+            except Exception as e:
+                print(f"    Error reading {tw_path.name}: {e}")
+
     # Historical data files
     historical_files = list(RAW_DIR.glob("historical_*.csv"))
     if historical_files:

@@ -1,4 +1,4 @@
-# HEAT — Civic Signal Aggregation Map
+# They Are Here — Civic Signal Aggregation Map
 
 A delayed, aggregated map of when ICE-related issues become a topic of collective attention in Plainfield, NJ — grounded in public records and opt-in community signals.
 

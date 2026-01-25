@@ -6,6 +6,7 @@ import pandas as pd
 import json
 from pathlib import Path
 from datetime import datetime
+from textwrap import shorten
 
 # Import governance layer for anti-gaming and uncertainty metadata
 try:
@@ -124,6 +125,50 @@ def export_for_static_site():
         json.dump(output, f, indent=2)
     
     print(f"Exported {len(clusters)} clusters to {BUILD_DIR / 'clusters.json'}")
+    
+    # Export latest news feed (buffered, ordered by last seen)
+    latest_items = []
+    if not clusters_df.empty:
+        clusters_df["latest_date"] = pd.to_datetime(clusters_df["latest_date"], errors="coerce")
+        sorted_clusters = clusters_df.sort_values("latest_date", ascending=False)
+        for _, row in sorted_clusters.head(12).iterrows():
+            sources = []
+            if isinstance(row.get("sources"), list):
+                sources = row.get("sources")
+            if isinstance(row.get("sources"), str):
+                try:
+                    sources = eval(row.get("sources"))
+                except Exception:
+                    sources = [row.get("sources")]
+            source_label = ", ".join([s for s in sources if s]) if sources else "Multiple sources"
+            urls = []
+            if "urls" in row and pd.notna(row["urls"]):
+                url_val = row["urls"]
+                if isinstance(url_val, str):
+                    try:
+                        urls = eval(url_val)
+                    except Exception:
+                        urls = [url_val]
+                elif isinstance(url_val, list):
+                    urls = url_val
+            latest_items.append({
+                "cluster_id": int(row.get("cluster_id", 0)),
+                "zip": str(row.get("primary_zip", "07060")).zfill(5),
+                "timestamp": row.get("latest_date").isoformat() if pd.notna(row.get("latest_date")) else None,
+                "headline": shorten(str(row.get("representative_text", "")).strip(), width=160, placeholder="…"),
+                "summary": str(row.get("representative_text", "")).strip(),
+                "source": source_label,
+                "priority": "high" if str(row.get("primary_zip", "")) == "07060" else "normal",
+                "strength": float(row.get("volume_score", 0)),
+                "size": int(row.get("size", 0)),
+                "urls": urls[:2],
+            })
+    with open(BUILD_DIR / "latest_news.json", "w") as f:
+        json.dump({
+            "generated_at": datetime.now().isoformat(),
+            "items": latest_items
+        }, f, indent=2)
+    print(f"Exported latest news feed ({len(latest_items)} items) to {BUILD_DIR / 'latest_news.json'}")
     
     # Export timeline.json (aggregate by week)
     records_path = PROCESSED_DIR / "all_records.csv"

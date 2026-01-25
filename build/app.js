@@ -1,10 +1,16 @@
 /**
- * HEAT — Civic Signal Map
+ * They Are Here — Civic Signal Map
  * Static frontend for aggregated public attention patterns
  */
 
 // Region definitions for quick navigation
 const REGIONS = {
+    statewide: {
+        name: "New Jersey",
+        center: [40.0583, -74.4057],  // NJ state center
+        zoom: 8,
+        coverage: "Statewide overview"
+    },
     north: {
         name: "North Jersey",
         center: [40.5187, -74.4121],  // Edison/Metuchen area
@@ -42,6 +48,19 @@ const ZIP_BOUNDARIES = {
     "07063": {
         center: [40.5980, -74.4280],
         bounds: { n: 40.6100, s: 40.5860, e: -74.4100, w: -74.4450 }
+    },
+    // Edison, NJ (approximate bounds for placement)
+    "08817": {
+        center: [40.5300, -74.3930],
+        bounds: { n: 40.5480, s: 40.5120, e: -74.3600, w: -74.4300 }
+    },
+    "08820": {
+        center: [40.5800, -74.3600],
+        bounds: { n: 40.5950, s: 40.5650, e: -74.3300, w: -74.3900 }
+    },
+    "08837": {
+        center: [40.5290, -74.3370],
+        bounds: { n: 40.5450, s: 40.5150, e: -74.3100, w: -74.3650 }
     }
 };
 
@@ -66,7 +85,12 @@ const STREET_COORDS = {
     "2nd street": { lat: 40.6135, lng: -74.4150, zip: "07060" },
     "3rd street": { lat: 40.6145, lng: -74.4160, zip: "07060" },
     "central avenue": { lat: 40.6170, lng: -74.4130, zip: "07060" },
-    "madison avenue": { lat: 40.6100, lng: -74.4140, zip: "07060" }
+    "madison avenue": { lat: 40.6100, lng: -74.4140, zip: "07060" },
+    // Edison POIs / streets (approximate)
+    "vineyard road": { lat: 40.5400, lng: -74.3770, zip: "08817" },
+    "route 1": { lat: 40.5350, lng: -74.4050, zip: "08817" },
+    "old post road": { lat: 40.5550, lng: -74.3700, zip: "08820" },
+    "raritan center": { lat: 40.5260, lng: -74.3370, zip: "08837" }
 };
 
 // Legacy ZIP_COORDS for backward compatibility
@@ -74,6 +98,10 @@ const ZIP_COORDS = {
     "07060": [40.6137, -74.4154],
     "07062": [40.6280, -74.4050],
     "07063": [40.5980, -74.4280],
+    // Edison
+    "08817": [40.5300, -74.3930],
+    "08820": [40.5800, -74.3600],
+    "08837": [40.5290, -74.3370],
 };
 
 // ============================================
@@ -86,14 +114,33 @@ const ZIP_COORDS = {
  */
 function getClusterCoordinates(cluster) {
     const zip = String(cluster.zip).padStart(5, '0');
-    const zipData = ZIP_BOUNDARIES[zip];
+    let zipData = ZIP_BOUNDARIES[zip];
     
     if (!zipData) {
-        return PLAINFIELD_CENTER;
+        // Heuristic: if text indicates Edison and we have Edison bounds, use them
+        const text = (cluster.summary || cluster.representative_text || '').toLowerCase();
+        const mentionsEdison = text.includes("edison");
+        const mentionsCostco = text.includes("costco") || text.includes("vineyard road");
+        if (mentionsEdison) {
+            const edisonZip = mentionsCostco ? "08817" : "08820"; // prefer 08817 for Costco
+            if (ZIP_BOUNDARIES[edisonZip]) {
+                zipData = ZIP_BOUNDARIES[edisonZip];
+            }
+        }
+        if (!zipData) {
+            return PLAINFIELD_CENTER;
+        }
     }
     
-    // Check if cluster text mentions a street
+    // Check if cluster text mentions a street or POI
     const text = (cluster.summary || cluster.representative_text || '').toLowerCase();
+
+    // Downtown Plainfield hinting
+    if (text.includes("downtown plainfield") && ZIP_BOUNDARIES["07060"]) {
+        const d = STREET_COORDS["front street"];
+        const jitter = () => (Math.random() - 0.5) * 0.002;
+        return [d.lat + jitter(), d.lng + jitter()];
+    }
     
     for (const [street, streetData] of Object.entries(STREET_COORDS)) {
         if (text.includes(street) && streetData.zip === zip) {
@@ -128,6 +175,8 @@ let map;
 let clustersData = null;
 let timelineData = null;
 let keywordsData = null;
+let latestNewsData = null;
+let alertsData = null;
 let is3DMode = false;
 let clusterMarkers = [];
 let currentLanguage = 'en';
@@ -138,7 +187,7 @@ let currentLanguage = 'en';
 
 const TRANSLATIONS = {
     en: {
-        title: "HEAT — Civic Signal Map",
+        title: "They Are Here — Civic Signal Map",
         subtitle: "Delayed civic attention patterns for Plainfield, NJ",
         searchPlaceholder: "Search ZIP, street, or topic...",
         activeClusters: "Active Clusters",
@@ -170,7 +219,7 @@ const TRANSLATIONS = {
         trustNote: "24hr delay • Community sourced • Not surveillance"
     },
     es: {
-        title: "HEAT — Mapa de Señales Cívicas",
+        title: "They Are Here — Mapa de Señales Cívicas",
         subtitle: "Patrones de atención cívica retardada para Plainfield, NJ",
         searchPlaceholder: "Buscar código postal, calle o tema...",
         activeClusters: "Clústeres Activos",
@@ -202,7 +251,7 @@ const TRANSLATIONS = {
         trustNote: "24h retraso • Fuente comunitaria • No vigilancia"
     },
     pt: {
-        title: "HEAT — Mapa de Sinais Cívicos",
+        title: "They Are Here — Mapa de Sinais Cívicos",
         subtitle: "Padrões atrasados de atenção cívica para Plainfield, NJ",
         searchPlaceholder: "Pesquisar CEP, rua ou tópico...",
         activeClusters: "Clusters Ativos",
@@ -278,6 +327,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupRegionNavigation();  // Setup region buttons
     initMap();
     await loadData();
+    renderLatestNews();
+    renderAlertsBanner();
     renderMap();
     renderClusters();
     renderTimeline();
@@ -547,6 +598,7 @@ function initGeolocation() {
                         userZipSpan.textContent = zip;
                         userLocationDiv.classList.remove("hidden");
                         highlightUserZip(zip);
+                        renderAlertsBanner(zip);
                         localStorage.setItem("heat-user-zip", zip);
                     }
                     locationBtn.textContent = "📍";
@@ -566,29 +618,27 @@ function initGeolocation() {
     if (savedZip) {
         userZipSpan.textContent = savedZip;
         userLocationDiv.classList.remove("hidden");
+        renderAlertsBanner(savedZip);
     }
 }
 
 function detectZipFromCoords(lat, lng) {
-    // Simple proximity check to Plainfield ZIPs
-    const zips = [
-        { zip: "07060", lat: 40.6137, lng: -74.4154 },
-        { zip: "07062", lat: 40.6280, lng: -74.4050 },
-        { zip: "07063", lat: 40.5980, lng: -74.4280 },
-    ];
+    // Proximity check against known ZIP centroids (Plainfield + Edison, extensible)
+    const zips = Object.entries(ZIP_COORDS).map(([zip, [zlat, zlng]]) => ({ zip, lat: zlat, lng: zlng }));
     
     let closest = null;
     let minDist = Infinity;
     
     zips.forEach(z => {
         const dist = Math.sqrt(Math.pow(lat - z.lat, 2) + Math.pow(lng - z.lng, 2));
-        if (dist < minDist && dist < 0.05) { // Within ~3.5 miles
+        if (dist < minDist) {
             minDist = dist;
             closest = z.zip;
         }
     });
     
-    return closest;
+    // Threshold ~0.2 degrees (~14 miles) to avoid wrong assignments
+    return minDist < 0.2 ? closest : null;
 }
 
 function highlightUserZip(zip) {
@@ -823,10 +873,12 @@ async function loadData() {
             ? 'https://heat-plainfield.s3.us-east-1.amazonaws.com/'
             : './';
         
-        const [clustersRes, timelineRes, keywordsRes] = await Promise.all([
+        const [clustersRes, timelineRes, keywordsRes, alertsRes, latestNewsRes] = await Promise.all([
             fetch(baseUrl + "data/clusters.json"),
             fetch(baseUrl + "data/timeline.json"),
             fetch(baseUrl + "data/keywords.json"),
+            fetch(baseUrl + "data/alerts.json"),
+            fetch(baseUrl + "data/latest_news.json"),
         ]);
         
         if (clustersRes.ok) {
@@ -853,11 +905,111 @@ async function loadData() {
             keywordsData = null;
         }
         
+        if (alertsRes.ok) {
+            alertsData = await alertsRes.json();
+            console.log("Loaded alerts:", alertsData);
+        } else {
+            console.warn("Could not load alerts.json");
+            alertsData = { alerts: [] };
+        }
+        
+        if (latestNewsRes.ok) {
+            latestNewsData = await latestNewsRes.json();
+            console.log("Loaded latest news:", latestNewsData);
+        } else {
+            console.warn("Could not load latest_news.json");
+            latestNewsData = { items: [] };
+        }
+        
     } catch (error) {
         console.error("Failed to load data:", error);
         clustersData = { clusters: [] };
         timelineData = { weeks: [] };
+        alertsData = { alerts: [] };
+        latestNewsData = { items: [] };
     }
+}
+
+// ============================================
+// Latest News & Alerts
+// ============================================
+
+function renderLatestNews() {
+    const list = document.getElementById("latest-news-list");
+    if (!list) return;
+    const items = latestNewsData?.items || [];
+    if (!items.length) {
+        list.innerHTML = `<div class="no-data">No qualified signals yet. Items appear after buffer thresholds are met.</div>`;
+        return;
+    }
+    const limited = items.slice(0, 8);
+    list.innerHTML = limited.map(item => {
+        const timeAgo = getRelativeTime(item.timestamp);
+        const source = item.source || "Multiple sources";
+        const linkBlock = (item.urls?.length)
+            ? `<div class="latest-news__links">${item.urls.slice(0,2).map(u => {
+                    try {
+                        const domain = new URL(u).hostname.replace('www.', '');
+                        return `<a href="${u}" target="_blank" rel="noopener">${domain}</a>`;
+                    } catch {
+                        return '';
+                    }
+                }).join('')}</div>`
+            : '';
+        return `
+            <article class="latest-news__item">
+                <div class="latest-news__meta">
+                    <span class="chip">ZIP ${item.zip}</span>
+                    <span class="chip ${item.priority === 'high' ? 'chip-danger' : 'chip-muted'}">${item.priority === 'high' ? 'Priority' : 'Buffered'}</span>
+                    <span class="latest-news__time">${timeAgo}</span>
+                </div>
+                <h3>${escapeHtml(item.headline || item.summary || 'Signal')}</h3>
+                <p class="latest-news__summary">${escapeHtml(item.summary || '')}</p>
+                <div class="latest-news__source">📰 ${escapeHtml(source)}</div>
+                ${linkBlock}
+            </article>
+        `;
+    }).join('');
+}
+
+function renderAlertsBanner(zipOverride = null) {
+    const banner = document.getElementById("location-alert");
+    const body = document.getElementById("location-alert-body");
+    if (!banner || !body) return;
+    
+    const alertList = alertsData?.alerts || alertsData?.cluster_alerts || [];
+    if (!alertList.length) {
+        banner.classList.add("hidden");
+        return;
+    }
+    
+    const zip = zipOverride || getUserZip();
+    
+    // Find matching alert: ZIP match, "any" ZIP, or first alert
+    let match = null;
+    if (zip) {
+        // Try to find ZIP-specific alert first
+        match = alertList.find(a => String(a.zip).padStart(5, '0') === String(zip).padStart(5, '0'));
+    }
+    
+    // Fall back to "any" alerts or first alert
+    if (!match) {
+        match = alertList.find(a => (a.zip || '').toLowerCase() === 'any') || alertList[0];
+    }
+    
+    if (!match) {
+        banner.classList.add("hidden");
+        return;
+    }
+    
+    const priorityLabel = match.priority === 'high' ? 'Priority' : match.type === 'pattern' ? 'Pattern' : 'Buffered';
+    body.textContent = `${priorityLabel}: ${match.title} — ${match.body}`;
+    banner.classList.remove("hidden");
+}
+
+function getUserZip() {
+    const stored = localStorage.getItem("heat-user-zip");
+    return stored ? String(stored).padStart(5, '0') : null;
 }
 
 // ============================================
@@ -1386,7 +1538,7 @@ function logEvent(eventName, data) {
 function exportEvents() {
     const events = JSON.parse(localStorage.getItem("heat_events") || "[]");
     
-    let text = "HEAT — Event Log\n";
+    let text = "They Are Here — Event Log\n";
     text += "=".repeat(50) + "\n\n";
     
     events.forEach(event => {

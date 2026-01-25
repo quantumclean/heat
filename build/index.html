@@ -7,9 +7,9 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="HEAT">
+    <meta name="apple-mobile-web-app-title" content="They Are Here">
     <meta name="theme-color" content="#ffffff" id="theme-color-meta">
-    <title>HEAT — Civic Signal Map | Plainfield, NJ</title>
+    <title>They Are Here — Civic Signal Map | Plainfield, NJ</title>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -30,8 +30,8 @@
     <header>
         <div class="header-top">
             <div class="header-brand">
-                <img src="logo.svg" alt="HEAT" class="header-logo">
-                <h1>HEAT <span class="version-tag">v4</span></h1>
+                <img src="logo.svg" alt="They Are Here" class="header-logo">
+                <h1>They Are Here <span class="version-tag">v4</span></h1>
             </div>
             <div class="header-controls">
                 <select id="lang-select" class="lang-select" title="Language">
@@ -47,6 +47,10 @@
         
         <!-- Quick Region Navigation -->
         <div class="region-nav">
+            <button class="region-btn glass-btn" data-region="statewide" title="All New Jersey">
+                <span class="region-label">Statewide</span>
+                <small>All NJ</small>
+            </button>
             <button class="region-btn glass-btn" data-region="north" title="North Jersey: Edison, Metuchen, New Brunswick">
                 <span class="region-label">North</span>
                 <small>Edison · Metuchen</small>
@@ -89,6 +93,21 @@
     </header>
     
     <main>
+        <div id="location-alert" class="alert-banner glass-card hidden" aria-live="polite">
+            <div class="alert-banner__label">Location Alert</div>
+            <div id="location-alert-body" class="alert-banner__body">No alerts for your area right now.</div>
+        </div>
+
+        <section id="latest-news" class="glass-card">
+            <div class="section-header">
+                <h2>Latest Qualified Signals</h2>
+                <p class="section-note">Buffered items from the most recent scrape (no real-time posts)</p>
+            </div>
+            <div id="latest-news-list" class="latest-news-list">
+                <p class="loading">Loading latest signals...</p>
+            </div>
+        </section>
+
         <!-- Quick Stats Dashboard - Clickable Cards -->
         <section id="quick-dashboard" class="dashboard-grid">
             <div class="dash-card glass-card" data-target="map-section">
@@ -234,7 +253,7 @@
                 <p>All data is from public sources. 24-hour stabilization applied.</p>
                 <p>Identities are never stored.</p>
                 <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
-                    <a href="#" class="donate-btn" style="display: inline-block; background: var(--accent); color: #000; padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none;">💝 Support HEAT</a>
+                    <a href="#" class="donate-btn" style="display: inline-block; background: var(--accent); color: #000; padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none;">💝 Support They Are Here</a>
                     <span style="color: var(--muted); font-size: 0.875rem; margin-left: 1rem;">Help keep this tool free and independent</span>
                 </div>
             </div>
@@ -253,7 +272,7 @@
             <h2>ℹ️ About This Tool</h2>
             <div class="about-content">
                 <p>
-                    <strong>HEAT</strong> helps you notice when public attention shifts—early, calmly, 
+                    <strong>They Are Here</strong> helps you notice when public attention shifts—early, calmly, 
                     and without turning people into data points.
                 </p>
                 

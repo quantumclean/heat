@@ -1,19 +1,27 @@
 """
-Alert Engine for HEAT
+Alert Engine for They Are Here
 Generates safe, pattern-level alerts using verbatim copy templates.
-Weekly digest format — no immediate notifications.
+Adds buffered cluster-level alerts for location-aware delivery.
 """
 import json
+import os
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 from pathlib import Path
+from textwrap import shorten
 
 from config import (
     ALERT_TEMPLATES, ALERT_SPIKE_THRESHOLD, ALERT_SUSTAINED_HOURS,
     ALERT_DECAY_THRESHOLD, FORBIDDEN_ALERT_WORDS,
     PROCESSED_DIR, BUILD_DIR, EXPORTS_DIR
 )
+
+try:
+    from notifier import send_sms_alerts, format_sms_message
+except ImportError:
+    send_sms_alerts = None
+    format_sms_message = None
 
 
 def validate_alert_text(text: str) -> tuple[bool, str]:
@@ -178,6 +186,45 @@ def generate_alerts(timeline_data: dict) -> list:
     return alerts
 
 
+def generate_cluster_alerts(clusters_df: pd.DataFrame) -> list:
+    """Generate buffered cluster-level alerts (post-buffer, ZIP-level)."""
+    alerts = []
+    if clusters_df.empty:
+        return alerts
+    for _, row in clusters_df.iterrows():
+        sources_raw = row.get("sources", [])
+        sources = []
+        if isinstance(sources_raw, list):
+            sources = sources_raw
+        elif isinstance(sources_raw, str):
+            try:
+                sources = eval(sources_raw)
+            except Exception:
+                sources = [sources_raw]
+        zip_code = str(row.get("primary_zip", "07060")).zfill(5)
+        summary = str(row.get("representative_text", "")).strip()
+        safe_summary = shorten(summary, width=200, placeholder="…") if summary else "Attention change detected"
+        is_valid, error = validate_alert_text(safe_summary)
+        if not is_valid:
+            print(f"Cluster alert skipped (validation): {error}")
+            continue
+        priority = "high" if zip_code == "07060" else "normal"
+        alerts.append({
+            "id": int(row.get("cluster_id", 0)),
+            "zip": zip_code,
+            "title": f"Attention in ZIP {zip_code}",
+            "body": safe_summary,
+            "priority": priority,
+            "tier": 2 if priority == "high" else 1,
+            "sources": sources,
+            "size": int(row.get("size", 0)),
+            "volume_score": float(row.get("volume_score", 0)),
+            "last_seen": row.get("latest_date"),
+            "generated_at": datetime.now().isoformat(),
+        })
+    return alerts
+
+
 def generate_weekly_digest(alerts: list, timeline_data: dict) -> dict:
     """
     Generate weekly digest for Tier 1 contributors.
@@ -234,7 +281,7 @@ def generate_weekly_digest(alerts: list, timeline_data: dict) -> dict:
 def run_alert_engine():
     """Main entry point for alert generation."""
     print("=" * 60)
-    print("HEAT Alert Engine")
+    print("They Are Here Alert Engine")
     print("=" * 60)
     
     # Load timeline data
@@ -262,6 +309,68 @@ def run_alert_engine():
     
     # Generate weekly digest
     digest = generate_weekly_digest(alerts, timeline_data)
+    
+    # Generate cluster-level alerts (buffered)
+    eligible_path = PROCESSED_DIR / "eligible_clusters.csv"
+    cluster_alerts = []
+    if eligible_path.exists():
+        eligible_df = pd.read_csv(eligible_path)
+        cluster_alerts = generate_cluster_alerts(eligible_df)
+        print(f"\nGenerated {len(cluster_alerts)} cluster-level alert(s)")
+    
+    # Combine and save alerts (pattern + cluster)
+    # Convert pattern alerts to frontend format
+    frontend_alerts = []
+    for pa in alerts:
+        frontend_alerts.append({
+            "id": f"pattern_{pa['class']}",
+            "zip": "any",  # Pattern alerts apply to all ZIPs
+            "title": pa["title"],
+            "body": pa["body"],
+            "priority": "normal",
+            "tier": 1,
+            "type": "pattern",
+            "class": pa["class"],
+            "generated_at": pa["generated_at"],
+        })
+    
+    # Add cluster alerts
+    frontend_alerts.extend(cluster_alerts)
+    
+    all_alerts = {
+        "generated_at": datetime.now().isoformat(),
+        "pattern_alerts": alerts,
+        "cluster_alerts": cluster_alerts,
+        "alerts": frontend_alerts,  # frontend reads this - combines both types
+    }
+    
+    (BUILD_DIR / "data").mkdir(parents=True, exist_ok=True)
+    with open(BUILD_DIR / "data" / "alerts.json", "w") as f:
+        json.dump(all_alerts, f, indent=2)
+    print(f"✓ Saved combined alerts: {BUILD_DIR / 'data' / 'alerts.json'}")
+    
+    # Optional: send SMS if notifier is available and env is configured
+    if send_sms_alerts and os.getenv("ENABLE_SMS_ALERTS") == "true":
+        # Send high-priority cluster alerts by default
+        priority_alerts = [a for a in cluster_alerts if a.get("priority") == "high"]
+        # If SEND_SMS_ON_REFRESH=true, send any alerts (pattern + cluster) safely
+        send_on_refresh = os.getenv("SEND_SMS_ON_REFRESH") == "true"
+        to_send = priority_alerts
+        if send_on_refresh:
+            # Convert pattern alerts to SMS-friendly format, assign zip="any"
+            pattern_sms = [
+                {
+                    "zip": "any",
+                    "priority": "normal",
+                    "body": pa.get("body", ""),
+                    "sources": [],
+                }
+                for pa in alerts
+            ]
+            to_send = priority_alerts + pattern_sms
+        if to_send:
+            print(f"\nSending {len(to_send)} alert(s) via SMS...")
+            send_sms_alerts(to_send)
     
     digest_path = EXPORTS_DIR / "weekly_digest.json"
     EXPORTS_DIR.mkdir(parents=True, exist_ok=True)

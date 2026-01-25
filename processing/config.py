@@ -20,18 +20,72 @@ for d in [RAW_DIR, PROCESSED_DIR, BUILD_DIR, EXPORTS_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
 # ============================================
-# Geographic Bounds (Plainfield, NJ)
+# Geographic Bounds - Multi-City Coverage
 # ============================================
+# Primary focus cities with their regions
+TARGET_CITIES = {
+    "plainfield": {
+        "state": "NJ",
+        "zips": ["07060", "07062", "07063"],
+        "center": (40.6137, -74.4154),
+        "radius_km": 5,
+    },
+    "edison": {
+        "state": "NJ",
+        "zips": ["08817", "08820", "08837"],
+        "center": (40.5300, -74.3930),
+        "radius_km": 6,
+    },
+    "hoboken": {
+        "state": "NJ",
+        "zips": ["07030"],
+        "center": (40.7350, -74.0303),
+        "radius_km": 3,
+    },
+    "trenton": {
+        "state": "NJ",
+        "zips": ["08608", "08609", "08610", "08611", "08618", "08619"],
+        "center": (40.2206, -74.7597),
+        "radius_km": 5,
+    },
+    "new_brunswick": {
+        "state": "NJ",
+        "zips": ["08901", "08902", "08903", "08906"],
+        "center": (40.4862, -74.4518),
+        "radius_km": 4,
+    },
+}
+
+# Primary focus location (default)
 TARGET_LOCATION = "Plainfield, NJ"
 TARGET_ZIPS = ["07060", "07062", "07063"]
 TARGET_CENTER = (40.6137, -74.4154)
 TARGET_RADIUS_KM = 10
 
-# ZIP code centroids
+# Comprehensive ZIP code centroids (all regions)
 ZIP_CENTROIDS = {
+    # Plainfield
     "07060": (40.6137, -74.4154),  # Central Plainfield
     "07062": (40.6280, -74.4050),  # North Plainfield
     "07063": (40.5980, -74.4280),  # South Plainfield
+    # Edison
+    "08817": (40.5300, -74.3930),  # Edison (Vineyard Rd / Route 1 area)
+    "08820": (40.5800, -74.3600),  # North Edison
+    "08837": (40.5290, -74.3370),  # Raritan Center / Edison
+    # Hoboken
+    "07030": (40.7350, -74.0303),  # Hoboken
+    # Trenton
+    "08608": (40.2206, -74.7597),  # Central Trenton
+    "08609": (40.2250, -74.7520),  # Trenton
+    "08610": (40.2180, -74.7650),  # Trenton
+    "08611": (40.2280, -74.7450),  # Trenton
+    "08618": (40.2120, -74.7750),  # Trenton
+    "08619": (40.2340, -74.7350),  # Trenton
+    # New Brunswick
+    "08901": (40.4862, -74.4518),  # Central New Brunswick
+    "08902": (40.4950, -74.4400),  # New Brunswick
+    "08903": (40.4750, -74.4600),  # New Brunswick
+    "08906": (40.4950, -74.4700),  # New Brunswick
 }
 
 # ============================================
@@ -46,61 +100,113 @@ MANUAL_REVIEW_THRESHOLD = 0.7        # Below this needs human review
 # misinformation about specific locations.
 
 # ============================================
-# RSS Feeds (Verified Sources)
+# RSS Feeds (Expanded Multi-City Coverage)
 # ============================================
 RSS_FEEDS = {
-    # Local News
+    # ===== PLAINFIELD, NJ =====
     "nj_com_union": {
         "url": "https://www.nj.com/arc/outboundfeeds/rss/category/news/union-county/?outputType=xml",
         "source": "NJ.com",
         "category": "news",
+        "cities": ["plainfield"],
     },
     "tapinto_plainfield": {
         "url": "https://www.tapinto.net/towns/plainfield/sections/government/articles.rss",
         "source": "TAPinto Plainfield",
         "category": "news",
+        "cities": ["plainfield"],
     },
     "tapinto_plainfield_police": {
         "url": "https://www.tapinto.net/towns/plainfield/sections/police-and-fire/articles.rss",
         "source": "TAPinto Plainfield",
         "category": "news",
+        "cities": ["plainfield"],
     },
-    # Google News (multiple searches for broader coverage)
-    "google_news_plainfield": {
-        "url": "https://news.google.com/rss/search?q=Plainfield+NJ+immigration&hl=en-US&gl=US&ceid=US:en",
+    "plainfield_city": {
+        "url": "https://www.plainfieldnj.gov/feed/",
+        "source": "City of Plainfield",
+        "category": "government",
+        "cities": ["plainfield"],
+    },
+    
+    # ===== HOBOKEN, NJ =====
+    "tapinto_hoboken": {
+        "url": "https://www.tapinto.net/towns/hoboken/sections/government/articles.rss",
+        "source": "TAPinto Hoboken",
+        "category": "news",
+        "cities": ["hoboken"],
+    },
+    "hoboken_official": {
+        "url": "https://hobokennj.gov/news/feed/",
+        "source": "City of Hoboken",
+        "category": "government",
+        "cities": ["hoboken"],
+    },
+    
+    # ===== TRENTON, NJ =====
+    "tapinto_trenton": {
+        "url": "https://www.tapinto.net/towns/trenton/sections/government/articles.rss",
+        "source": "TAPinto Trenton",
+        "category": "news",
+        "cities": ["trenton"],
+    },
+    "nj_com_mercer": {
+        "url": "https://www.nj.com/arc/outboundfeeds/rss/category/news/mercer-county/?outputType=xml",
+        "source": "NJ.com",
+        "category": "news",
+        "cities": ["trenton"],
+    },
+    "trenton_official": {
+        "url": "https://www.trentonnj.gov/feed/",
+        "source": "City of Trenton",
+        "category": "government",
+        "cities": ["trenton"],
+    },
+    
+    # ===== NEW BRUNSWICK, NJ =====
+    "tapinto_new_brunswick": {
+        "url": "https://www.tapinto.net/towns/new-brunswick/sections/government/articles.rss",
+        "source": "TAPinto New Brunswick",
+        "category": "news",
+        "cities": ["new_brunswick"],
+    },
+    "nj_com_middlesex": {
+        "url": "https://www.nj.com/arc/outboundfeeds/rss/category/news/middlesex-county/?outputType=xml",
+        "source": "NJ.com",
+        "category": "news",
+        "cities": ["new_brunswick"],
+    },
+    
+    # ===== MULTI-REGION COVERAGE =====
+    "google_news_nj_immigration": {
+        "url": "https://news.google.com/rss/search?q=New+Jersey+immigration&hl=en-US&gl=US&ceid=US:en",
         "source": "Google News",
         "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
     },
     "google_news_ice_nj": {
         "url": "https://news.google.com/rss/search?q=ICE+New+Jersey&hl=en-US&gl=US&ceid=US:en",
         "source": "Google News",
         "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
     },
     "google_news_ice_raids": {
         "url": "https://news.google.com/rss/search?q=ICE+raids+NJ&hl=en-US&gl=US&ceid=US:en",
         "source": "Google News",
         "category": "news",
-    },
-    "google_news_union_county": {
-        "url": "https://news.google.com/rss/search?q=Union+County+NJ+immigration&hl=en-US&gl=US&ceid=US:en",
-        "source": "Google News",
-        "category": "news",
-    },
-    "google_news_nj_deportation": {
-        "url": "https://news.google.com/rss/search?q=New+Jersey+deportation&hl=en-US&gl=US&ceid=US:en",
-        "source": "Google News",
-        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
     },
     "google_news_nj_sanctuary": {
         "url": "https://news.google.com/rss/search?q=New+Jersey+sanctuary+city&hl=en-US&gl=US&ceid=US:en",
         "source": "Google News",
         "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
     },
-    # Government
-    "plainfield_city": {
-        "url": "https://www.plainfieldnj.gov/feed/",
-        "source": "City of Plainfield",
-        "category": "government",
+    "google_news_nj_deportation": {
+        "url": "https://news.google.com/rss/search?q=New+Jersey+deportation&hl=en-US&gl=US&ceid=US:en",
+        "source": "Google News",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
     },
 }
 

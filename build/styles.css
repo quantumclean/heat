@@ -1,7 +1,7 @@
 /* ========================================
-   HEAT - Liquid Glass Design System (2026)
-   Following Apple's optical + fluid principles
-   ======================================== */
+    They Are Here - Liquid Glass Design System (2026)
+    Following Apple's optical + fluid principles
+    ======================================== */
 
 * {
     margin: 0;
@@ -236,6 +236,97 @@ header {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto 1.25rem;
+}
+
+/* Location alert + latest signals strip */
+.alert-banner {
+    max-width: 1200px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-left: 4px solid var(--accent);
+}
+
+.alert-banner__label {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.alert-banner__body {
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.alert-banner.hidden {
+    display: none;
+}
+
+.latest-news-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.latest-news__item {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 0.875rem;
+    background: var(--glass-bg);
+}
+
+.latest-news__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.35rem;
+}
+
+.latest-news__time {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.latest-news__summary {
+    color: var(--text-muted);
+    margin: 0.35rem 0;
+    line-height: 1.4;
+}
+
+.latest-news__source {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-top: 0.15rem;
+}
+
+.latest-news__links a {
+    margin-right: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: var(--bg-secondary);
+    color: var(--text);
+    font-size: 0.8rem;
+    border: 1px solid var(--glass-border);
+}
+
+.chip-muted {
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+}
+
+.chip-danger {
+    background: rgba(248, 81, 73, 0.15);
+    color: #f85149;
+    border-color: rgba(248, 81, 73, 0.35);
 }
 
 .header-brand {

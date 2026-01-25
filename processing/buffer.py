@@ -51,11 +51,30 @@ def apply_buffer(stats_df: pd.DataFrame, tier: int = 1) -> pd.DataFrame:
     
     delay_cutoff = now - timedelta(hours=delay_hours)
     
-    # Parse sources if it's a string
+    # Parse sources if it's a string (best-effort)
     if "sources" in stats_df.columns and stats_df["sources"].dtype == object:
         stats_df["sources"] = stats_df["sources"].apply(
             lambda x: eval(x) if isinstance(x, str) else x
         )
+
+    # Strengthen source corroboration by using clustered records when available
+    # This counts distinct source types (e.g., news, advocacy, council) per cluster.
+    # It avoids undercounting when stats_df['sources'] contains aggregator labels like 'Google News'.
+    source_count_map = None
+    clustered_path = PROCESSED_DIR / "clustered_records.csv"
+    if clustered_path.exists():
+        try:
+            rec_df = pd.read_csv(clustered_path)
+            # Normalize source labels: treat 'Google News' as 'news'
+            if "source" in rec_df.columns:
+                rec_df["source"] = rec_df["source"].astype(str).str.lower()
+                rec_df["source"] = rec_df["source"].replace({"google news": "news"})
+            # Group by cluster id to get distinct source type count
+            if "cluster" in rec_df.columns:
+                source_counts = rec_df.groupby("cluster")["source"].nunique()
+                source_count_map = source_counts.to_dict()
+        except Exception as e:
+            print(f"Warning: Could not compute source corroboration from clustered_records: {e}")
     
     # Apply filters with logging
     initial_count = len(stats_df)
@@ -66,8 +85,21 @@ def apply_buffer(stats_df: pd.DataFrame, tier: int = 1) -> pd.DataFrame:
     filter_log.append(f"Size >= {min_size}: {size_mask.sum()}/{initial_count}")
     
     # Source corroboration filter (CRITICAL for trust)
-    source_mask = stats_df["sources"].apply(len) >= MIN_SOURCES
-    filter_log.append(f"Sources >= {MIN_SOURCES}: {source_mask.sum()}/{initial_count}")
+    if source_count_map:
+        # Create a column with computed source counts; default to 0 when missing
+        stats_df["source_count"] = stats_df["cluster_id"].map(source_count_map).fillna(0).astype(int)
+        source_mask = stats_df["source_count"] >= MIN_SOURCES
+        filter_log.append(
+            f"Distinct source types >= {MIN_SOURCES}: {source_mask.sum()}/{initial_count}"
+        )
+    else:
+        # Fallback to using provided 'sources' list length
+        if "sources" in stats_df.columns:
+            source_mask = stats_df["sources"].apply(len) >= MIN_SOURCES
+        else:
+            # If no source info is available, fail safe by requiring size corroboration only
+            source_mask = pd.Series([False] * len(stats_df))
+        filter_log.append(f"Sources >= {MIN_SOURCES}: {source_mask.sum()}/{initial_count}")
     
     # Delay filter
     date_mask = pd.to_datetime(stats_df["latest_date"]).dt.tz_localize(None) < delay_cutoff.replace(tzinfo=None)
