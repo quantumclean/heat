@@ -7,9 +7,9 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="They Are Here">
+    <meta name="apple-mobile-web-app-title" content="HEAT — They Are Here">
     <meta name="theme-color" content="#ffffff" id="theme-color-meta">
-    <title>They Are Here — Civic Signal Map | Plainfield, NJ</title>
+    <title>HEAT — They Are Here | ICE Activity Attention Map | Plainfield, NJ</title>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -30,8 +30,8 @@
     <header>
         <div class="header-top">
             <div class="header-brand">
-                <img src="logo.svg" alt="They Are Here" class="header-logo">
-                <h1>They Are Here <span class="version-tag">v4</span></h1>
+                <img src="logo.svg" alt="HEAT — They Are Here" class="header-logo">
+                <h1>HEAT — They Are Here <span class="version-tag">v4</span></h1>
             </div>
             <div class="header-controls">
                 <select id="lang-select" class="lang-select" title="Language">
@@ -43,7 +43,7 @@
                 <button id="location-btn" class="glass-btn" title="Use My Location">⊙</button>
             </div>
         </div>
-        <p class="subtitle" data-i18n="subtitle">Civic Signal Map — Plainfield, NJ</p>
+        <p class="subtitle" data-i18n="subtitle">ICE Activity Attention Map — Plainfield, NJ</p>
         
         <!-- Quick Region Navigation -->
         <div class="region-nav">
@@ -69,9 +69,10 @@
         <div class="search-container">
             <div class="search-box">
                 <span class="search-icon">⌕</span>
-                <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Search ZIP or street..." autocomplete="off">
+                <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Search ZIP, street, or topic..." autocomplete="off">
                 <button id="search-clear" class="search-clear hidden">×</button>
             </div>
+            <div class="precision-note">Precision: ZIP-level only. Markers are placed within ZIP boundaries, never addresses.</div>
             <div id="search-results" class="search-results hidden"></div>
         </div>
         
@@ -79,15 +80,53 @@
         <div id="user-location" class="location-badge hidden">
             <span>📍 Your area: <strong id="user-zip">--</strong></span>
         </div>
-        
+
+        <!-- Quick Stats: Today / Yesterday -->
+        <div class="quick-stats glass-card">
+            <div class="quick-stat">
+                <span class="quick-stat-label">Today:</span>
+                <span class="quick-stat-value" id="stat-today">--</span>
+            </div>
+            <div class="quick-stat">
+                <span class="quick-stat-label">Yesterday:</span>
+                <span class="quick-stat-value" id="stat-yesterday">--</span>
+            </div>
+        </div>
+
+        <!-- Am I Safe? ZIP Check -->
+        <div class="am-i-safe glass-card">
+            <button id="safe-check-toggle" class="glass-btn safe-check-btn">🛡️ Am I Safe?</button>
+            <div id="safe-check-panel" class="safe-check-panel hidden">
+                <div class="safe-check-input">
+                    <input type="text" id="safe-check-zip" placeholder="Enter ZIP code" maxlength="5" pattern="[0-9]{5}">
+                    <button id="safe-check-go" class="glass-btn">Check</button>
+                </div>
+                <div id="safe-check-result" class="safe-check-result"></div>
+                <p class="safe-check-note">Shows ICE activity signals for the past 14 days in this ZIP. This is interpretive data — verify independently.</p>
+            </div>
+        </div>
+
         <div class="signal-summary">
-            <strong>What changed:</strong> Attention on immigration topics <span id="trend-summary">is increasing</span> 
-            based on aggregated public records. Signals stabilize over 24+ hours to reduce noise.
+            <strong>What changed:</strong> Attention on ICE activity topics <span id="trend-summary">is increasing</span>
+            based on vetted public and qualified community sources. Signals are buffered and released as soon as safety thresholds are met.
+        </div>
+
+        <div class="rolling-banner glass-card" aria-live="polite">
+            <div class="rolling-track">
+                <div class="rolling-item">Interpretive activity feed • patterns, not alerts • verify independently</div>
+                <div class="rolling-item">Shortest safe delay • ZIP-level precision only • no identities stored</div>
+                <div class="rolling-item">Vetted public sources load first • qualified community items labeled</div>
+                <div class="rolling-item">Rolling activity: ICE attention <span class="rolling-emphasis trend-summary-inline">is increasing</span></div>
+                <div class="rolling-item">Interpretive activity feed • patterns, not alerts • verify independently</div>
+                <div class="rolling-item">Shortest safe delay • ZIP-level precision only • no identities stored</div>
+                <div class="rolling-item">Vetted public sources load first • qualified community items labeled</div>
+                <div class="rolling-item">Rolling activity: ICE attention <span class="rolling-emphasis trend-summary-inline">is increasing</span></div>
+            </div>
         </div>
         
         <!-- Trust & Safety Badge -->
         <div class="trust-badge glass-card">
-            <div data-i18n="trustNote">🔒 Zero tracking • 🗺️ ZIP-only • ⏱️ 24hr delay • 👥 Aggregate only</div>
+            <div data-i18n="trustNote">🔒 No tracking • 🗺️ ZIP-only precision • ⏱️ Shortest safe delay • 🧬 No identities stored</div>
             <div style="font-size: 0.75rem; margin-top: 0.5rem;"><span data-i18n="lastUpdated">Last updated</span>: <strong id="last-updated">Loading...</strong></div>
         </div>
     </header>
@@ -100,8 +139,8 @@
 
         <section id="latest-news" class="glass-card">
             <div class="section-header">
-                <h2>Latest Qualified Signals</h2>
-                <p class="section-note">Buffered items from the most recent scrape (no real-time posts)</p>
+                <h2>Latest Qualified ICE Signals</h2>
+                <p class="section-note">Buffered items released after safety thresholds (no real-time posts)</p>
             </div>
             <div id="latest-news-list" class="latest-news-list">
                 <p class="loading">Loading latest signals...</p>
@@ -143,14 +182,14 @@
         
         <section id="map-section" class="content-section">
             <div class="section-header">
-                <h2>Signal Density by Area</h2>
+                <h2>ICE Activity Density by Area</h2>
                 <div class="btn-group">
                     <button id="toggle-heatmap" class="glass-btn">Heatmap</button>
                     <button id="toggle3d" class="glass-btn">3D</button>
                 </div>
             </div>
             <p class="section-note">
-                Circles show where public attention clusters. Size and color indicate pattern strength.
+                Circles show where ICE-activity attention clusters. Size and color indicate pattern strength.
             </p>
             
             <!-- Silence-as-Signal Warning -->
@@ -158,7 +197,7 @@
                 <div class="warning-icon">!</div>
                 <div class="warning-text">
                     <strong>No visible clusters ≠ No activity</strong><br>
-                    <small>Data has 24-72hr delay. Absence of signals means thresholds not met, not confirmed safety.</small>
+                    <small>Data is buffered to the shortest safe delay. Absence of signals means thresholds not met, not confirmed safety.</small>
                 </div>
             </div>
             
@@ -176,7 +215,7 @@
                     <span id="slider-end" class="muted-text">End</span>
                     <button id="timeline-play-btn" class="play-btn">▶ Play</button>
                 </div>
-                <p class="timeline-hint">Drag slider to see cluster activity over time, or press Play to animate.</p>
+                <p class="timeline-hint">Drag slider to see attention patterns over time, or press Play to animate.</p>
             </div>
             
             <!-- Improved Legend with Dynamic Indicators -->
@@ -206,9 +245,9 @@
         </section>
         
         <section id="timeline-section">
-            <h2>📊 Attention Over Time</h2>
+            <h2>📊 ICE Attention Over Time</h2>
             <p class="section-note">
-                Weekly view of when immigration topics surface in public discourse.
+                Weekly view of when ICE activity topics surface in public discourse.
             </p>
             <div class="trend-indicators">
                 <span id="trend-direction" class="trend-badge">—</span>
@@ -222,7 +261,7 @@
         <section id="keywords-section">
             <h2>🏷️ Top Keywords</h2>
             <p class="section-note">
-                Most frequent terms extracted from public records (Snaptrends-style keyword extraction).
+                Frequent terms extracted from public sources and qualified submissions.
             </p>
             <div id="keyword-cloud" class="keyword-cloud">
                 <p class="loading">Loading keywords...</p>
@@ -231,9 +270,9 @@
         </section>
         
         <section id="clusters-section">
-            <h2>💬 Current Attention Clusters</h2>
+            <h2>💬 Current ICE Attention Clusters</h2>
             <p class="section-note">
-                Topics receiving sustained focus across multiple sources. 24-hour stabilization applied.
+                Topics receiving sustained focus across multiple sources. Buffered for safety.
             </p>
             <div id="cluster-cards">
                 <p class="loading">Loading clusters...</p>
@@ -247,13 +286,14 @@
                 <li>City council meeting minutes</li>
                 <li>Advocacy organization reports (ACLU NJ, NJ Alliance for Immigrant Justice)</li>
                 <li>Public statements and press releases</li>
+                <li>Qualified community submissions (buffered)</li>
             </ul>
             <div class="transparency">
                 <p><strong>Last updated:</strong> <span id="last-updated">—</span></p>
-                <p>All data is from public sources. 24-hour stabilization applied.</p>
+                <p>Vetted public sources load first. Qualified community submissions appear after checks and buffering.</p>
                 <p>Identities are never stored.</p>
                 <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
-                    <a href="#" class="donate-btn" style="display: inline-block; background: var(--accent); color: #000; padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none;">💝 Support They Are Here</a>
+                    <a href="#" class="donate-btn" style="display: inline-block; background: var(--accent); color: #000; padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none;">💝 Support HEAT — They Are Here</a>
                     <span style="color: var(--muted); font-size: 0.875rem; margin-left: 1rem;">Help keep this tool free and independent</span>
                 </div>
             </div>
@@ -272,7 +312,7 @@
             <h2>ℹ️ About This Tool</h2>
             <div class="about-content">
                 <p>
-                    <strong>They Are Here</strong> helps you notice when public attention shifts—early, calmly, 
+                    <strong>HEAT — They Are Here</strong> helps you notice when ICE-activity attention shifts—early, calmly,
                     and without turning people into data points.
                 </p>
                 
@@ -280,7 +320,7 @@
                     <div class="comparison-item this-is">
                         <h4>What HEAT Shows</h4>
                         <ul>
-                            <li>When attention shifts</li>
+                            <li>When ICE attention shifts</li>
                             <li>How patterns persist</li>
                             <li>Where focus intensifies</li>
                             <li>Whether trends strengthen or fade</li>
@@ -289,18 +329,18 @@
                     <div class="comparison-item design-note">
                         <h4>Design Choices</h4>
                         <ul>
-                            <li>24-hour stabilization filters noise</li>
+                            <li>Shortest safe delay buffers noise</li>
                             <li>Aggregation protects individuals</li>
-                            <li>ZIP-level only (no addresses)</li>
-                            <li>Public sources only</li>
+                            <li>ZIP-level precision only (no addresses)</li>
+                            <li>Public + qualified community sources</li>
                         </ul>
                     </div>
                 </div>
                 
                 <p class="about-note">
-                    Unlike systems optimized for speed and alerts, HEAT intentionally 
-                    buffers and clusters public records to reveal <em>when and where 
-                    issues become socially salient</em> — a tool for interpretation, 
+                    Unlike systems optimized for speed and alerts, HEAT intentionally
+                    buffers and clusters public records to reveal <em>when and where
+                    ICE-activity attention becomes socially salient</em> — a tool for interpretation,
                     not surveillance.
                 </p>
             </div>
@@ -310,15 +350,15 @@
     <footer>
         <div class="footer-content">
             <p>
-                <strong>HEAT</strong> — Historical & Emerging Attention Tracker
+                <strong>HEAT — They Are Here</strong>
             </p>
             <p class="tagline">
-                Delayed, aggregated semantic mapping of collective civic attention.
+                ICE activity attention map built from public signals.
             </p>
             <div class="footer-principles">
                 <span>Pattern detection</span>
-                <span>24hr stabilization</span>
-                <span>ZIP-level precision</span>
+                <span>Shortest safe delay</span>
+                <span>ZIP-level precision only</span>
                 <span>Identities never stored</span>
             </div>
             <!-- Resources -->
@@ -388,9 +428,9 @@
             <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(255,165,0,0.1); border-left: 3px solid var(--warning); border-radius: 4px;">
                 <strong style="color: var(--warning);">Disclaimer</strong>
                 <p style="margin-top: 0.75rem; font-size: 0.95em; line-height: 1.6; color: var(--muted);">
-                    HEAT aggregates publicly available information from news outlets, advocacy groups, and community submissions. 
+                    HEAT aggregates publicly available information about ICE activity attention from news outlets, advocacy groups, and qualified community submissions.
                     We make <strong>no claims</strong> about the accuracy, completeness, or verification of any specific events, locations, or individuals. 
-                    All data is delayed 24-72 hours and aggregated to ZIP-code level to protect privacy and reduce harm.
+                    Data is buffered to the shortest safe delay and aggregated to ZIP-code level to protect privacy and reduce harm.
                 </p>
                 <p style="margin-top: 0.75rem; font-size: 0.95em; line-height: 1.6; color: var(--muted);">
                     <strong>HEAT claims no ownership of source material.</strong> All rights to original news articles, reports, and content 
@@ -403,7 +443,7 @@
             </div>
             
             <p class="footer-note">
-                This reflects patterns in public attention. You decide how to contextualize it.
+                This reflects interpretive patterns in public attention to ICE activity. You decide how to contextualize it.
             </p>
             <p class="meta">
                 © 2026 HEAT Project. All rights reserved.<br>

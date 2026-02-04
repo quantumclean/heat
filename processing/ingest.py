@@ -151,6 +151,84 @@ def run_ingestion():
                 print(f"    → {len(df)} records")
             except Exception as e:
                 print(f"    Error reading {hist_path.name}: {e}")
+
+    # NJ AG press releases
+    nj_ag_files = list(RAW_DIR.glob("nj_ag_*.csv"))
+    if nj_ag_files:
+        print(f"\nIngesting {len(nj_ag_files)} NJ AG file(s)...")
+        for ag_path in nj_ag_files:
+            print(f"  Processing {ag_path.name}...")
+            try:
+                df = pd.read_csv(ag_path)
+                for _, row in df.iterrows():
+                    try:
+                        record = normalize_record(
+                            text=row.get("text", row.get("title", "")),
+                            source=row.get("source", "NJ Attorney General"),
+                            zip_code=row.get("zip", "07060"),
+                            date=row.get("date", datetime.now().isoformat()),
+                        )
+                        for extra in ["id", "category", "url", "title"]:
+                            if extra in row:
+                                record[extra] = row[extra]
+                        all_records.append(record)
+                    except Exception as e:
+                        print(f"    Skipping row: {e}")
+                print(f"    → {len(df)} records")
+            except Exception as e:
+                print(f"    Error reading {ag_path.name}: {e}")
+
+    # Reddit posts
+    reddit_files = list(RAW_DIR.glob("reddit_*.csv"))
+    if reddit_files:
+        print(f"\nIngesting {len(reddit_files)} Reddit file(s)...")
+        for reddit_path in reddit_files:
+            print(f"  Processing {reddit_path.name}...")
+            try:
+                df = pd.read_csv(reddit_path)
+                for _, row in df.iterrows():
+                    try:
+                        record = normalize_record(
+                            text=row.get("text", row.get("title", "")),
+                            source=row.get("source", "Reddit"),
+                            zip_code=row.get("zip", "07060"),
+                            date=row.get("date", datetime.now().isoformat()),
+                        )
+                        for extra in ["id", "category", "url", "title"]:
+                            if extra in row:
+                                record[extra] = row[extra]
+                        all_records.append(record)
+                    except Exception as e:
+                        print(f"    Skipping row: {e}")
+                print(f"    → {len(df)} records")
+            except Exception as e:
+                print(f"    Error reading {reddit_path.name}: {e}")
+
+    # Council minutes
+    council_files = list(RAW_DIR.glob("council_minutes_*.csv"))
+    if council_files:
+        print(f"\nIngesting {len(council_files)} council minutes file(s)...")
+        for council_path in council_files:
+            print(f"  Processing {council_path.name}...")
+            try:
+                df = pd.read_csv(council_path)
+                for _, row in df.iterrows():
+                    try:
+                        record = normalize_record(
+                            text=row.get("text", row.get("title", "")),
+                            source=row.get("source", "City Council"),
+                            zip_code=row.get("zip", "07060"),
+                            date=row.get("date", datetime.now().isoformat()),
+                        )
+                        for extra in ["id", "category", "url", "title"]:
+                            if extra in row:
+                                record[extra] = row[extra]
+                        all_records.append(record)
+                    except Exception as e:
+                        print(f"    Skipping row: {e}")
+                print(f"    → {len(df)} records")
+            except Exception as e:
+                print(f"    Error reading {council_path.name}: {e}")
     
     # Deduplicate by text hash
     seen_texts = set()
@@ -161,7 +239,7 @@ def run_ingestion():
             seen_texts.add(text_hash)
             unique_records.append(record)
     
-    print(f"\nDeduplicated: {len(all_records)} → {len(unique_records)} records")
+    print(f"\nDeduplicated: {len(all_records)} -> {len(unique_records)} records")
     
     # Save
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)

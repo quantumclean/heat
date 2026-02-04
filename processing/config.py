@@ -128,7 +128,13 @@ RSS_FEEDS = {
         "category": "government",
         "cities": ["plainfield"],
     },
-    
+    "patch_plainfield": {
+        "url": "https://patch.com/new-jersey/plainfield/rss",
+        "source": "Patch Plainfield",
+        "category": "news",
+        "cities": ["plainfield"],
+    },
+
     # ===== HOBOKEN, NJ =====
     "tapinto_hoboken": {
         "url": "https://www.tapinto.net/towns/hoboken/sections/government/articles.rss",
@@ -142,7 +148,13 @@ RSS_FEEDS = {
         "category": "government",
         "cities": ["hoboken"],
     },
-    
+    "patch_hoboken": {
+        "url": "https://patch.com/new-jersey/hoboken/rss",
+        "source": "Patch Hoboken",
+        "category": "news",
+        "cities": ["hoboken"],
+    },
+
     # ===== TRENTON, NJ =====
     "tapinto_trenton": {
         "url": "https://www.tapinto.net/towns/trenton/sections/government/articles.rss",
@@ -162,7 +174,13 @@ RSS_FEEDS = {
         "category": "government",
         "cities": ["trenton"],
     },
-    
+    "patch_trenton": {
+        "url": "https://patch.com/new-jersey/trenton/rss",
+        "source": "Patch Trenton",
+        "category": "news",
+        "cities": ["trenton"],
+    },
+
     # ===== NEW BRUNSWICK, NJ =====
     "tapinto_new_brunswick": {
         "url": "https://www.tapinto.net/towns/new-brunswick/sections/government/articles.rss",
@@ -176,7 +194,13 @@ RSS_FEEDS = {
         "category": "news",
         "cities": ["new_brunswick"],
     },
-    
+    "patch_new_brunswick": {
+        "url": "https://patch.com/new-jersey/newbrunswick/rss",
+        "source": "Patch New Brunswick",
+        "category": "news",
+        "cities": ["new_brunswick"],
+    },
+
     # ===== MULTI-REGION COVERAGE =====
     "google_news_nj_immigration": {
         "url": "https://news.google.com/rss/search?q=New+Jersey+immigration&hl=en-US&gl=US&ceid=US:en",
@@ -205,6 +229,46 @@ RSS_FEEDS = {
     "google_news_nj_deportation": {
         "url": "https://news.google.com/rss/search?q=New+Jersey+deportation&hl=en-US&gl=US&ceid=US:en",
         "source": "Google News",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== SPANISH-LANGUAGE NEWS =====
+    "univision_nj": {
+        "url": "https://www.univision.com/rss/noticias/new-jersey",
+        "source": "Univision NJ",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "telemundo_nj": {
+        "url": "https://www.telemundo47.com/rss/noticias/new-jersey",
+        "source": "Telemundo 47 NJ",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== ADDITIONAL NJ NEWS =====
+    "north_jersey": {
+        "url": "https://www.northjersey.com/arc/outboundfeeds/rss/",
+        "source": "North Jersey",
+        "category": "news",
+        "cities": ["hoboken", "plainfield", "new_brunswick"],
+    },
+    "app_news": {
+        "url": "https://www.app.com/arc/outboundfeeds/rss/",
+        "source": "Asbury Park Press",
+        "category": "news",
+        "cities": ["new_brunswick", "trenton"],
+    },
+    "politico_nj": {
+        "url": "https://www.politico.com/rss/new-jersey.xml",
+        "source": "Politico NJ",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "nj_spotlight": {
+        "url": "https://www.njspotlightnews.org/feed/",
+        "source": "NJ Spotlight News",
         "category": "news",
         "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
     },

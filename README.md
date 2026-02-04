@@ -11,21 +11,25 @@ A delayed, aggregated map of when ICE-related issues become a topic of collectiv
 ### 1. Install Dependencies
 
 ```bash
-cd processing
-pip install -r requirements.txt
+python -m venv .venv
+source .venv/bin/activate  # Linux/Mac
+# or
+.venv\Scripts\activate  # Windows
+
+pip install -r processing/requirements.txt
 ```
 
 ### 2. Run the Pipeline
 
-**Windows:**
-```batch
-scripts\run_pipeline.bat
-```
-
-**Mac/Linux:**
 ```bash
-chmod +x scripts/run_pipeline.sh
-./scripts/run_pipeline.sh
+# Full pipeline (scrape + process + export)
+python run_pipeline.py --full
+
+# Process existing data only
+python run_pipeline.py
+
+# Export only
+python run_pipeline.py --export-only
 ```
 
 ### 3. Preview Locally
@@ -36,6 +40,13 @@ python -m http.server 8000
 ```
 
 Then open: http://localhost:8000
+
+### 4. Deploy to GitHub Pages
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed hosting instructions.
+
+**Current Status:** v4.1 with 26 active data sources (RSS, NJ AG, Facebook)
+- ⚠️ Development mode active - See [STATUS.md](STATUS.md)
 
 ---
 

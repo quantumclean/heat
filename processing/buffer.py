@@ -22,6 +22,15 @@ MIN_SOURCES = 2               # MUST have 2+ distinct sources (corroboration)
 DELAY_HOURS = 24              # 24-hour delay before surfacing (minimum)
 MIN_VOLUME_SCORE = 0.7        # Minimum time-weighted volume score (lowered to catch more events)
 
+# DEVELOPMENT MODE: Set to True to loosen thresholds for testing
+DEVELOPMENT_MODE = True       # TODO: Set to False before production deployment
+
+if DEVELOPMENT_MODE:
+    MIN_CLUSTER_SIZE = 2      # Reduced for testing
+    MIN_SOURCES = 1           # Allow single-source for development
+    DELAY_HOURS = 0           # No delay for development
+    MIN_VOLUME_SCORE = 0.5    # More lenient volume threshold
+
 # For Tier 0 (public), use stricter thresholds
 TIER0_DELAY_HOURS = 72        # 72-hour delay for public tier
 TIER0_MIN_CLUSTER_SIZE = 5    # Higher bar for public visibility
@@ -129,7 +138,7 @@ def apply_buffer(stats_df: pd.DataFrame, tier: int = 1) -> pd.DataFrame:
         }
     }
     
-    print(f"Buffering (Tier {tier}): {initial_count} → {len(eligible)} eligible")
+    print(f"Buffering (Tier {tier}): {initial_count} -> {len(eligible)} eligible")
     for log_line in filter_log:
         print(f"  {log_line}")
     

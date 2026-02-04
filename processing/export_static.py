@@ -1,11 +1,12 @@
 """
 Export processed data to static JSON for S3 deployment.
-Includes NLP analysis, heatmap data, and governance transformations.
+Includes NLP analysis, heatmap data, governance transformations, and archiving.
 """
 import pandas as pd
 import json
+import shutil
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 from textwrap import shorten
 
 # Import governance layer for anti-gaming and uncertainty metadata
@@ -18,6 +19,8 @@ except ImportError:
 
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 BUILD_DIR = Path(__file__).parent.parent / "build" / "data"
+ARCHIVE_DIR = Path(__file__).parent.parent / "data" / "archive"
+ARCHIVE_RETENTION_DAYS = 30
 
 
 def export_for_static_site():
@@ -218,5 +221,64 @@ def export_for_static_site():
         print(f"Exported keywords to {BUILD_DIR / 'keywords.json'}")
 
 
+def archive_old_data():
+    """
+    Archive clusters older than 14 days to data/archive/.
+    Delete archives older than ARCHIVE_RETENTION_DAYS (30 days).
+    """
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+    
+    now = datetime.now()
+    cutoff_archive = now - timedelta(days=14)
+    cutoff_delete = now - timedelta(days=ARCHIVE_RETENTION_DAYS)
+    
+    # Archive old clusters from eligible_clusters.csv
+    eligible_path = PROCESSED_DIR / "eligible_clusters.csv"
+    if eligible_path.exists():
+        try:
+            df = pd.read_csv(eligible_path)
+            df["latest_date"] = pd.to_datetime(df["latest_date"], errors="coerce")
+            
+            # Split into current and archive
+            current_mask = df["latest_date"] >= cutoff_archive
+            archive_mask = ~current_mask
+            
+            current_df = df[current_mask]
+            archive_df = df[archive_mask]
+            
+            if not archive_df.empty:
+                # Save archived clusters with timestamp
+                archive_filename = f"clusters_archived_{now.strftime('%Y%m%d_%H%M%S')}.csv"
+                archive_df.to_csv(ARCHIVE_DIR / archive_filename, index=False)
+                print(f"Archived {len(archive_df)} old clusters to {archive_filename}")
+                
+                # Update eligible_clusters.csv with only current data
+                current_df.to_csv(eligible_path, index=False)
+                print(f"Kept {len(current_df)} current clusters in eligible_clusters.csv")
+        except Exception as e:
+            print(f"WARNING: Could not archive clusters: {e}")
+    
+    # Clean up old archives (older than 30 days)
+    if ARCHIVE_DIR.exists():
+        for archive_file in ARCHIVE_DIR.glob("*.csv"):
+            try:
+                file_time = datetime.fromtimestamp(archive_file.stat().st_mtime)
+                if file_time < cutoff_delete:
+                    archive_file.unlink()
+                    print(f"Deleted old archive: {archive_file.name}")
+            except Exception as e:
+                print(f"WARNING: Could not clean archive {archive_file.name}: {e}")
+        
+        for archive_file in ARCHIVE_DIR.glob("*.json"):
+            try:
+                file_time = datetime.fromtimestamp(archive_file.stat().st_mtime)
+                if file_time < cutoff_delete:
+                    archive_file.unlink()
+                    print(f"Deleted old archive: {archive_file.name}")
+            except Exception as e:
+                print(f"WARNING: Could not clean archive {archive_file.name}: {e}")
+
+
 if __name__ == "__main__":
     export_for_static_site()
+    archive_old_data()

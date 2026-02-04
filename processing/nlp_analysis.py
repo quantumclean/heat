@@ -101,7 +101,7 @@ def detect_bursts(
     df = df.sort_values(time_col)
     
     # Create hourly bins
-    df["hour_bin"] = df[time_col].dt.floor("H")
+    df["hour_bin"] = df[time_col].dt.floor("h")
     hourly_counts = df.groupby("hour_bin").size().reset_index(name="count")
     
     # Fill missing hours with 0
@@ -109,7 +109,7 @@ def detect_bursts(
         full_range = pd.date_range(
             start=hourly_counts["hour_bin"].min(),
             end=hourly_counts["hour_bin"].max(),
-            freq="H"
+            freq="h"
         )
         hourly_counts = hourly_counts.set_index("hour_bin").reindex(full_range, fill_value=0)
         hourly_counts = hourly_counts.reset_index()

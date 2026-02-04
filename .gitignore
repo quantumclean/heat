@@ -10,7 +10,6 @@ ENV/
 env/
 *.egg-info/
 dist/
-build/
 *.egg
 
 # Data (keep raw/processed local only)

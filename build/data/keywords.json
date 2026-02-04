@@ -1,0 +1,193 @@
+{
+  "top_keywords": [
+    [
+      "ice",
+      206
+    ],
+    [
+      "sanctuary",
+      91
+    ],
+    [
+      "immigration",
+      89
+    ],
+    [
+      "jersey",
+      64
+    ],
+    [
+      "trump",
+      64
+    ],
+    [
+      "deportation",
+      48
+    ],
+    [
+      "city",
+      43
+    ],
+    [
+      "raid",
+      35
+    ],
+    [
+      "federal",
+      26
+    ],
+    [
+      "cities",
+      24
+    ],
+    [
+      "judge",
+      22
+    ],
+    [
+      "enforcement",
+      21
+    ],
+    [
+      "mayor",
+      17
+    ],
+    [
+      "administration",
+      17
+    ],
+    [
+      "morristown",
+      17
+    ],
+    [
+      "detention",
+      16
+    ],
+    [
+      "immigrant",
+      15
+    ],
+    [
+      "residents",
+      14
+    ],
+    [
+      "community",
+      14
+    ],
+    [
+      "state",
+      14
+    ]
+  ],
+  "categories": {
+    "enforcement": 330,
+    "community": 44,
+    "government": 112,
+    "safety": 23,
+    "legal": 45,
+    "education": 26,
+    "response": 160,
+    "general": 18,
+    "workplace": 13
+  },
+  "related_terms": {
+    "enforcement": [
+      "africa",
+      "bar",
+      "phil",
+      "code",
+      "lingers",
+      "object",
+      "targeted",
+      "come",
+      "continue",
+      "destroy"
+    ],
+    "community": [
+      "africa",
+      "bar",
+      "code",
+      "lingers",
+      "phil",
+      "object",
+      "targeted",
+      "come",
+      "destroy",
+      "continue"
+    ],
+    "legal": [
+      "africa",
+      "bar",
+      "code",
+      "lingers",
+      "phil",
+      "object",
+      "targeted",
+      "come",
+      "destroy",
+      "continue"
+    ],
+    "safety": [
+      "africa",
+      "bar",
+      "phil",
+      "lingers",
+      "object",
+      "targeted",
+      "come",
+      "destroy",
+      "continue",
+      "emanet"
+    ],
+    "response": [
+      "phil",
+      "code",
+      "africa",
+      "lingers",
+      "bar",
+      "object",
+      "targeted",
+      "come",
+      "continue",
+      "destroy"
+    ],
+    "education": [
+      "phil",
+      "africa",
+      "bar",
+      "lingers",
+      "object",
+      "targeted",
+      "come",
+      "destroy",
+      "continue",
+      "emanet"
+    ],
+    "workplace": [
+      "africa",
+      "bar",
+      "code",
+      "object",
+      "targeted",
+      "come",
+      "continue",
+      "destroy",
+      "voice",
+      "existing"
+    ],
+    "government": [
+      "africa",
+      "code",
+      "phil",
+      "lingers",
+      "bar",
+      "object",
+      "targeted",
+      "come",
+      "continue",
+      "destroy"
+    ]
+  }
+}

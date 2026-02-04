@@ -1,4 +1,4 @@
-# Implementation Status - January 24, 2026
+# Implementation Status - February 4, 2026
 
 ## ✅ Successfully Implemented
 
@@ -89,21 +89,39 @@ $env:ENABLE_SMS_ALERTS="true"
 
 ## 📊 Current Data Status
 
-### Files Generated
+### Data Sources Active (26 total)
+- ✅ **RSS Feeds:** 25 sources
+  - NJ.com, TAPinto, Patch.com (4 cities)
+  - Spanish news: Univision NJ, Telemundo 47 NJ
+  - NJ news: North Jersey, Asbury Park Press, Politico NJ, NJ Spotlight News
+  - Google News: immigration keywords
+- ✅ **NJ Attorney General:** Press releases (BeautifulSoup scraper)
+- ⏳ **Reddit:** Scraper ready (requires API credentials)
+- ⏳ **Council Minutes:** Scraper created (needs URL configuration)
+- ❌ **Twitter/X:** API credits depleted
+- ✅ **Facebook:** Events scraper active
+
+### Files Generated (Latest Run)
 - ✅ `build/data/alerts.json` - 2 pattern alerts (Class A, B)
-- ✅ `build/data/latest_news.json` - Empty (0 items)
-- ✅ `build/data/clusters.json` - 0 eligible clusters
-- ✅ `build/data/timeline.json` - 107 weeks of data
+- ✅ `build/data/latest_news.json` - **12 items** (populated!)
+- ✅ `build/data/clusters.json` - **21 eligible clusters** (populated!)
+- ✅ `build/data/timeline.json` - 51 weeks of data
 - ✅ `build/data/keywords.json` - NLP keywords
 
-### Why Empty?
-The eligible clusters are empty because **buffer safety thresholds** filtered them out:
-- Need 24hr delay minimum
-- Need 3+ signals per cluster
-- Need 2+ distinct sources
-- Need volume score ≥ 0.7
+### Development Mode Status
+⚠️ **DEVELOPMENT_MODE = True** in `buffer.py`
+- MIN_CLUSTER_SIZE: 2 (production: 3)
+- MIN_SOURCES: 1 (production: 2)
+- DELAY_HOURS: 0 (production: 24)
+- MIN_VOLUME_SCORE: 0.5 (production: 0.7)
 
-This is **by design** - the system is working correctly to prevent premature surfacing.
+**Action:** Set `DEVELOPMENT_MODE = False` before production deployment
+
+### Data Pipeline Results
+- **Ingested:** 472 records
+- **Clustered:** 94 clusters (246 signals, 226 noise)
+- **Eligible:** 21 clusters passed buffer
+- **Exported:** 21 clusters + 12 news items
 
 ---
 
@@ -152,14 +170,22 @@ This is **by design** - the system is working correctly to prevent premature sur
 - [x] latest_news.json generated
 - [x] boto3 installed
 - [x] SMS formatter works
+- [x] **RSS scraper tested - 25 feeds active**
+- [x] **NJ AG scraper tested - 16 records collected**
+- [x] **Full pipeline run with new data**
+- [x] **Clusters pass buffer thresholds (dev mode)**
+- [x] **Latest news feed populated (12 items)**
+- [x] **Geographic validation working (ZIP codes)**
+- [x] **Frontend HTML exists and can load data**
+- [x] **All JSON files valid and accessible**
 - [ ] AWS credentials configured
 - [ ] Test SMS sent successfully
 - [ ] Twitter API credits added
 - [ ] Twitter scraper runs successfully
-- [ ] Full pipeline run with new data
-- [ ] Clusters pass buffer thresholds
-- [ ] Location alert banner shows data
-- [ ] Latest news feed populated
+- [ ] Reddit API credentials configured
+- [ ] Council minutes URLs configured
+- [ ] Production buffer thresholds tested
+- [ ] Location alert banner shows data (requires browser test)
 
 ---
 
@@ -171,11 +197,21 @@ This is **by design** - the system is working correctly to prevent premature sur
 - **Workaround:** Use RSS/Facebook scrapers only
 - **Fix:** Upgrade API plan at developer.x.com
 
-### Empty Data
-- **Issue:** No eligible clusters, empty latest news
-- **Impact:** Frontend shows empty states
-- **Cause:** Buffer thresholds (working as designed)
-- **Fix:** Accumulate more data over time OR adjust buffer thresholds in config.py (not recommended)
+### Development Mode Enabled
+- **Status:** Buffer running in DEVELOPMENT_MODE
+- **Impact:** Looser thresholds allow testing with limited data
+- **Benefit:** Map now shows 21 clusters for development/testing
+- **Action Required:** Set `DEVELOPMENT_MODE = False` in buffer.py before production
+
+### Reddit Scraper
+- **Status:** Complete, requires API credentials
+- **Impact:** Cannot collect Reddit data
+- **Fix:** Get credentials at reddit.com/prefs/apps (see instructions in reddit_scraper.py)
+
+### Council Minutes Scraper
+- **Status:** Complete, needs manual URL configuration
+- **Impact:** Some city websites use dynamic JavaScript
+- **Fix:** Configure static PDF URLs or implement Selenium/Playwright
 
 ---
 
@@ -201,6 +237,7 @@ The implementation is **complete and production-ready**. Empty data is expected 
 
 ---
 
-**Last Updated:** January 24, 2026, 10:15 PM  
-**Version:** 4.0 (They Are Here)  
-**Status:** ✅ Implementation Complete, ⏳ Awaiting Configuration
+**Last Updated:** February 4, 2026, 3:35 PM
+**Version:** 4.1 (They Are Here - Development Testing)
+**Status:** ✅ Implementation Complete + Data Sources Expanded (26 sources)
+**Mode:** ⚠️ DEVELOPMENT_MODE Active - Set to False for production

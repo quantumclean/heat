@@ -1,5 +1,5 @@
 /**
- * They Are Here — Civic Signal Map
+ * HEAT — They Are Here | ICE Activity Attention Map
  * Static frontend for aggregated public attention patterns
  */
 
@@ -187,8 +187,8 @@ let currentLanguage = 'en';
 
 const TRANSLATIONS = {
     en: {
-        title: "They Are Here — Civic Signal Map",
-        subtitle: "Delayed civic attention patterns for Plainfield, NJ",
+        title: "HEAT — They Are Here | ICE Activity Attention Map",
+        subtitle: "ICE activity attention map for Plainfield, NJ",
         searchPlaceholder: "Search ZIP, street, or topic...",
         activeClusters: "Active Clusters",
         trend: "Trend",
@@ -214,13 +214,13 @@ const TRANSLATIONS = {
         recent: "Recent",
         past: "Past",
         lastUpdated: "Last updated",
-        noClusters: "No active attention clusters at this time.",
-        interpretationNote: "This map shows aggregated public attention patterns, not real-time events.",
-        trustNote: "24hr delay • Community sourced • Not surveillance"
+        noClusters: "No active ICE attention clusters at this time.",
+        interpretationNote: "This map shows aggregated ICE activity attention patterns, not real-time events.",
+        trustNote: "No tracking • ZIP-only precision • Shortest safe delay • No identities stored"
     },
     es: {
-        title: "They Are Here — Mapa de Señales Cívicas",
-        subtitle: "Patrones de atención cívica retardada para Plainfield, NJ",
+        title: "HEAT — They Are Here | Mapa de atención de actividad ICE",
+        subtitle: "Mapa de atención de actividad ICE para Plainfield, NJ",
         searchPlaceholder: "Buscar código postal, calle o tema...",
         activeClusters: "Clústeres Activos",
         trend: "Tendencia",
@@ -246,13 +246,13 @@ const TRANSLATIONS = {
         recent: "Reciente",
         past: "Pasado",
         lastUpdated: "Última actualización",
-        noClusters: "No hay clústeres de atención activos en este momento.",
-        interpretationNote: "Este mapa muestra patrones de atención pública agregados, no eventos en tiempo real.",
-        trustNote: "24h retraso • Fuente comunitaria • No vigilancia"
+        noClusters: "No hay clústeres activos de atención ICE en este momento.",
+        interpretationNote: "Este mapa muestra patrones agregados de atención sobre actividad ICE, no eventos en tiempo real.",
+        trustNote: "Sin rastreo • Precisión solo por ZIP • Demora segura mínima • Sin identidades almacenadas"
     },
     pt: {
-        title: "They Are Here — Mapa de Sinais Cívicos",
-        subtitle: "Padrões atrasados de atenção cívica para Plainfield, NJ",
+        title: "HEAT — They Are Here | Mapa de atenção de atividade ICE",
+        subtitle: "Mapa de atenção de atividade ICE para Plainfield, NJ",
         searchPlaceholder: "Pesquisar CEP, rua ou tópico...",
         activeClusters: "Clusters Ativos",
         trend: "Tendência",
@@ -278,9 +278,9 @@ const TRANSLATIONS = {
         recent: "Recente",
         past: "Passado",
         lastUpdated: "Última atualização",
-        noClusters: "Não há clusters de atenção ativos no momento.",
-        interpretationNote: "Este mapa mostra padrões agregados de atenção pública, não eventos em tempo real.",
-        trustNote: "24h atraso • Fonte comunitária • Não vigilância"
+        noClusters: "Não há clusters ativos de atenção ICE no momento.",
+        interpretationNote: "Este mapa mostra padrões agregados de atenção sobre atividade ICE, não eventos em tempo real.",
+        trustNote: "Sem rastreamento • Precisão apenas por ZIP • Atraso seguro mínimo • Sem identidades armazenadas"
     }
 };
 
@@ -335,6 +335,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderKeywords();
     updateLastUpdated();
     updateDashboard();
+    updateQuickStats();
+    initSafeCheck();
     init3DToggle();
     initEventTracking();
     initTimelineSlider();
@@ -758,7 +760,7 @@ function renderMap() {
             opacity: 0.8,
             fillOpacity: 0.3,
         })
-        .bindPopup("<strong>Plainfield, NJ</strong><br>No active clusters at this time.")
+        .bindPopup("<strong>Plainfield, NJ</strong><br>No active ICE attention clusters at this time.")
         .addTo(map);
         return;
     }
@@ -821,6 +823,9 @@ function addClusterMarker(cluster) {
             }).join('')}
            </div>` 
         : '';
+
+    const sourceType = cluster.source_type || cluster.sourceType || cluster.qualification || null;
+    const sourceTypeLabel = sourceType ? escapeHtml(String(sourceType)) : "Vetted public / qualified community";
     
     const popupContent = `
         <div style="background: var(--bg); color: var(--text); padding: 4px;">
@@ -849,6 +854,12 @@ function addClusterMarker(cluster) {
                 </div>
                 <div style="color: var(--text-muted); font-size: 0.85em; margin-top: 4px;">
                     📅 Period: ${formatDateRange(cluster.dateRange.start, cluster.dateRange.end)}
+                </div>
+                <div style="color: var(--text-muted); font-size: 0.85em; margin-top: 4px;">
+                    🧾 Source type: ${sourceTypeLabel}
+                </div>
+                <div style="color: var(--text-muted); font-size: 0.85em; margin-top: 4px;">
+                    🧭 Interpretive signal — verify independently
                 </div>
             </div>
             ${mediaLinksHtml}
@@ -939,13 +950,15 @@ function renderLatestNews() {
     if (!list) return;
     const items = latestNewsData?.items || [];
     if (!items.length) {
-        list.innerHTML = `<div class="no-data">No qualified signals yet. Items appear after buffer thresholds are met.</div>`;
+        list.innerHTML = `<div class="no-data">No qualified signals yet. Items appear after safety thresholds are met.</div>`;
         return;
     }
     const limited = items.slice(0, 8);
     list.innerHTML = limited.map(item => {
         const timeAgo = getRelativeTime(item.timestamp);
         const source = item.source || "Multiple sources";
+        const sourceType = item.source_type || item.sourceType || item.qualification || null;
+        const sourceTypeLabel = sourceType ? escapeHtml(String(sourceType)) : "Vetted public / qualified community";
         const linkBlock = (item.urls?.length)
             ? `<div class="latest-news__links">${item.urls.slice(0,2).map(u => {
                     try {
@@ -966,6 +979,7 @@ function renderLatestNews() {
                 <h3>${escapeHtml(item.headline || item.summary || 'Signal')}</h3>
                 <p class="latest-news__summary">${escapeHtml(item.summary || '')}</p>
                 <div class="latest-news__source">📰 ${escapeHtml(source)}</div>
+                <div class="latest-news__source">🧾 Source type: ${sourceTypeLabel}</div>
                 ${linkBlock}
             </article>
         `;
@@ -1023,7 +1037,7 @@ function renderClusters() {
     if (!clustersData || !clustersData.clusters || clustersData.clusters.length === 0) {
         container.innerHTML = `
             <div class="no-data">
-                <p>No active attention clusters at this time.</p>
+                <p>No active ICE attention clusters at this time.</p>
                 <p><small>Clusters appear when multiple public sources reference similar topics.</small></p>
             </div>
         `;
@@ -1202,6 +1216,7 @@ function renderTimeline() {
 function updateLastUpdated() {
     const el = document.getElementById("last-updated");
     const trendSummary = document.getElementById("trend-summary");
+    const inlineSummaries = document.querySelectorAll(".trend-summary-inline");
     
     if (clustersData && clustersData.generated_at) {
         const date = new Date(clustersData.generated_at);
@@ -1247,6 +1262,12 @@ function updateLastUpdated() {
         } else {
             trendSummary.textContent = "is stable";
             trendSummary.style.color = "var(--accent)";
+        }
+
+        if (inlineSummaries?.length) {
+            inlineSummaries.forEach(el => {
+                el.textContent = trendSummary.textContent;
+            });
         }
     }
 }
@@ -1320,6 +1341,169 @@ function escapeHtml(str) {
     const div = document.createElement("div");
     div.textContent = str;
     return div.innerHTML;
+}
+
+// ============================================
+// Quick Stats (Today / Yesterday)
+// ============================================
+
+function updateQuickStats() {
+    const todayEl = document.getElementById("stat-today");
+    const yesterdayEl = document.getElementById("stat-yesterday");
+    
+    if (!todayEl || !yesterdayEl) return;
+    
+    const now = new Date();
+    const todayStr = now.toISOString().split('T')[0];
+    const yesterdayDate = new Date(now);
+    yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+    const yesterdayStr = yesterdayDate.toISOString().split('T')[0];
+    
+    let todayCount = 0;
+    let yesterdayCount = 0;
+    
+    // Count from clusters
+    if (clustersData?.clusters) {
+        clustersData.clusters.forEach(cluster => {
+            const endDate = cluster.dateRange?.end?.split('T')[0];
+            if (endDate === todayStr) todayCount += cluster.size || 1;
+            if (endDate === yesterdayStr) yesterdayCount += cluster.size || 1;
+        });
+    }
+    
+    // Count from latest news
+    if (latestNewsData?.items) {
+        latestNewsData.items.forEach(item => {
+            const itemDate = item.timestamp?.split('T')[0] || item.date?.split('T')[0];
+            if (itemDate === todayStr) todayCount++;
+            if (itemDate === yesterdayStr) yesterdayCount++;
+        });
+    }
+    
+    todayEl.textContent = todayCount;
+    yesterdayEl.textContent = yesterdayCount;
+    
+    // Color coding
+    todayEl.style.color = todayCount > 5 ? 'var(--danger)' : todayCount > 2 ? 'var(--warning)' : 'var(--success)';
+    yesterdayEl.style.color = yesterdayCount > 5 ? 'var(--danger)' : yesterdayCount > 2 ? 'var(--warning)' : 'var(--success)';
+}
+
+// ============================================
+// Am I Safe? ZIP Check
+// ============================================
+
+function initSafeCheck() {
+    const toggleBtn = document.getElementById("safe-check-toggle");
+    const panel = document.getElementById("safe-check-panel");
+    const goBtn = document.getElementById("safe-check-go");
+    const zipInput = document.getElementById("safe-check-zip");
+    const resultDiv = document.getElementById("safe-check-result");
+    
+    if (!toggleBtn || !panel) return;
+    
+    toggleBtn.addEventListener("click", () => {
+        panel.classList.toggle("hidden");
+        toggleBtn.textContent = panel.classList.contains("hidden") ? "🛡️ Am I Safe?" : "✕ Close";
+    });
+    
+    goBtn?.addEventListener("click", () => checkZipSafety(zipInput?.value));
+    zipInput?.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") checkZipSafety(zipInput.value);
+    });
+}
+
+function checkZipSafety(zip) {
+    const resultDiv = document.getElementById("safe-check-result");
+    if (!resultDiv) return;
+    
+    zip = String(zip || "").trim().padStart(5, '0');
+    
+    if (!/^\d{5}$/.test(zip)) {
+        resultDiv.innerHTML = '<p style="color: var(--warning);">Please enter a valid 5-digit ZIP code.</p>';
+        return;
+    }
+    
+    // Collect signals for this ZIP from the past 14 days
+    const now = new Date();
+    const cutoff = new Date(now);
+    cutoff.setDate(cutoff.getDate() - 14);
+    
+    const signals = [];
+    
+    // From clusters
+    if (clustersData?.clusters) {
+        clustersData.clusters.forEach(cluster => {
+            const clusterZip = String(cluster.zip).padStart(5, '0');
+            if (clusterZip !== zip) return;
+            
+            const endDate = new Date(cluster.dateRange?.end);
+            if (endDate >= cutoff) {
+                signals.push({
+                    date: cluster.dateRange?.end,
+                    summary: cluster.summary || cluster.representative_text || 'ICE activity cluster',
+                    priority: cluster.strength > 5 ? 'high' : 'normal',
+                    source: Array.isArray(cluster.sources) ? cluster.sources.join(', ') : cluster.sources,
+                    type: 'cluster'
+                });
+            }
+        });
+    }
+    
+    // From latest news
+    if (latestNewsData?.items) {
+        latestNewsData.items.forEach(item => {
+            const itemZip = String(item.zip).padStart(5, '0');
+            if (itemZip !== zip) return;
+            
+            const itemDate = new Date(item.timestamp || item.date);
+            if (itemDate >= cutoff) {
+                signals.push({
+                    date: item.timestamp || item.date,
+                    summary: item.headline || item.summary || 'ICE activity signal',
+                    priority: item.priority === 'high' ? 'high' : 'normal',
+                    source: item.source || 'Public source',
+                    type: 'news'
+                });
+            }
+        });
+    }
+    
+    // Sort by date descending
+    signals.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+    // Render results
+    if (signals.length === 0) {
+        resultDiv.innerHTML = `
+            <div class="no-signals">
+                ✅ No ICE activity signals in ZIP ${zip} for the past 14 days.
+            </div>
+            <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-muted);">
+                This does not mean the area is safe. Data may be delayed or incomplete. Always verify independently.
+            </p>
+        `;
+        return;
+    }
+    
+    const signalHtml = signals.slice(0, 10).map(sig => {
+        const dateStr = new Date(sig.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+        return `
+            <div class="signal-item ${sig.priority === 'high' ? 'high-priority' : ''}">
+                <div class="signal-date">${dateStr} • ${escapeHtml(sig.source)}</div>
+                <div class="signal-summary">${escapeHtml(sig.summary)}</div>
+            </div>
+        `;
+    }).join('');
+    
+    resultDiv.innerHTML = `
+        <p style="margin-bottom: 0.75rem; font-weight: 600; color: var(--warning);">
+            ⚠️ ${signals.length} signal(s) found in ZIP ${zip} (past 14 days)
+        </p>
+        ${signalHtml}
+        ${signals.length > 10 ? `<p style="color: var(--text-muted); font-size: 0.85rem;">Showing 10 of ${signals.length} signals.</p>` : ''}
+        <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-muted);">
+            This is interpretive data. Verify independently and consult community resources.
+        </p>
+    `;
 }
 
 // ============================================
@@ -1538,7 +1722,7 @@ function logEvent(eventName, data) {
 function exportEvents() {
     const events = JSON.parse(localStorage.getItem("heat_events") || "[]");
     
-    let text = "They Are Here — Event Log\n";
+    let text = "HEAT — They Are Here — Event Log\n";
     text += "=".repeat(50) + "\n\n";
     
     events.forEach(event => {

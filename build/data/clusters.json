@@ -1,0 +1,1741 @@
+{
+  "generated_at": "2026-02-04T15:31:02.015042",
+  "clusters": [
+    {
+      "id": 10,
+      "size": 7,
+      "strength": 4.28,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-01-29T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown - Patch. Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown Patch",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMisAFBVV95cUxNRkR1QklkeDRyWTVQUlY0OXBjcWFDMGxFb0RLVjlwakIzVDRCQm1IM2l4dEhnVVlkRFJnZmV6ZjFjeG44aGhtODJyMFlJUHJoWXlGeGJtNEhuX1F3aTJlLUxoSlZHS3RlYWRtVW9SZ0dxRmFBdFNaVkNMVGhDVS1TcUFfUENfb1ZjQVJOaEp1aXg3V2tnS3hEWDlLNWJNXzB5VVh3ckdNUUQtc0NGQ1pXY9IBxgFBVV95cUxNQnRKT3ZBVklaRjNlU1hyUlRFdE4zUEFoMlZwX1EtNllKTE93LURUdVVQLWhfekRmRXRpNzhrVlB0d0xPT3NnOThQN1hibEd6QW5iRTdkUTBuUDNQMTRtRjlvd2l0YU1rbGNMaG5FRjFoSW5wTUhPOWlHbVlUelAzQWpDMVBvMlhDRDl3N3VDTXgzd19uM2pPLTlMeGhtN2ZaMXN3Tml0SVBkbWRycnlCNVZBWVpUank5blJnb0g4TEFyZGVrUVE?oc=5",
+        "https://news.google.com/rss/articles/CBMilAFBVV95cUxPZl9tbFByZm1fRVNoYl9Kd3dZd1ZEcTF0M1BMdUpJb1BHNER6Z19nTXB3V3RET1dZV2hIc0cxT29OZmdGNlZkR0stV2dwMkVMU0pmcDR4bk9STXJmNEpWbkJmSEJZWl95TThTZTNCbWxuaHZjOTdBbEFDRDR5N0VEdExpdWU5UWlWUVN1eXlDQ2ZOTm9G?oc=5",
+        "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPYnJFSlNoMHBpUXdDMmJCandXZXg2dFZvM2xvRnhLbGpCanZwdUdoTXNxd2FVZDV5WFNxQ3dMOHFJSllxbndXRDFYVUJqOXVvVjh6TU5kanVfaDljeGo3S0ZNLUJWTXZBelZIT1puTGNCdGxzbjBxaW5fUDgzWXF5Y0x2REFDZmJQemxNWm1fT0kzX3hNV3lxckJ2VGlQU25vWEtmRU1ia0FYT2_SAcQBQVVfeXFMTmxqc3VUdUxYcmpheGRWRWpyQkptNWVHNFZZVGxybDQteXdxUWIybWtJV1RMU1ZxRG42dUVqVVZzOGdRZV9Za084V0huLUZNQ2lJOWZuanN2S0Q2a0xoTlZTYWl1UEl0VU1admJrd0oyNm1WNFJjaGFYdGhIem55V09pcTRYeWRMc2M3VG91MDJRcjRYSUJGcWliX2xpOXh3aGhHWWtqbW9KVE8xajFoekxzUlEwVXJZNmZ0ekE1ZjBreE9Vag?oc=5",
+        "https://news.google.com/rss/articles/CBMikAFBVV95cUxNWXFLNzNNdnlYa0pDaUhpYnVwQjdlUGtSeFkycjNsblA5aFBiZ1Z5eE5na0dDNFB3Rm5rdHl6VWJUVjgwNUs4Z2FmTTVXUC1iYm1RREUtUjBEaVd3Y09qTjhxUUR2aVFWOGV3RjVyUDdYQVZzZjBDWlotYmtoTEVLY3c5WTFIenlsaklmam9IdlPSAZYBQVVfeXFMTWM5Z2ZVak1KdUdBeXJwTC1kY3JOaEhMcWQ2dTJINEpRWktUSGJqeGxaYjAzTHhLVklVdFBDUm52eGxod01MZHhnaS11OXQ5dGs4dmowbkt5dEc1d0M5bWdNRlE5MDUtLTl2cURpeC1IeVFlVEhvOUsxRzlmNURVN0psa0QxMXc1b2ZOekdzMmJXcnc2a01n?oc=5",
+        "https://news.google.com/rss/articles/CBMipgFBVV95cUxQVS1kaEZtT1g1bU5tWnp2V3FONHNyd2l5bVhEVE1Lc3VwNTAtM2NZczRIR2RXUFpaQnU1clV4UndBLXAzaDIzMmQwU1B2NVM2SEwyUjBKWGpQVEhJOTVicGM2WlFTYjN6OGl5Y0wySVdrYTNVVWhBNVF3aVBmdDlxX080cWFHQ0k2OEdkbVBnQkZ6UU93dEM5U000N2ZWZlhoSGpXSEdR0gHEAUFVX3lxTE1RSnFUOTlMWm5pTkdWLW1GVDF0UTdMZHVRZjR6MTBGOHFvOUpDVXVYRzNXZHdGMWZqdUFEVGpQSk1URnhzVXU0QzlobXpCWXFsX0RxSllqR25KNGRoME9WdDQ3QnZPYWFUOFg0TXkyTjhCU21JSjkyNnVIM2FRczhMb2lkYnc1QlJaQjBtY3FOYjR4bG1LbE9FOGd6MU9jWmNfWFdpTXRBYjRRZVRPNHp3ZlZZT2Z0OTRqMDk5OWVvR3RSdHg?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.77,
+        "confidence_interval": [
+          0.62,
+          0.92
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 5,
+      "size": 4,
+      "strength": 3.28,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-02-04T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "Acting AG Davenport, Sherrill Administration Continue New Jersey\u2019s Fight to Preserve Consumer Financial Protection Bureau and Protect Consumers. Jan 22, 2026|Acting AG Davenport|affordability crisis|C",
+      "sources": [
+        "NJ Attorney General"
+      ],
+      "mediaLinks": [
+        "https://www.njoag.gov/acting-ag-davenport-files-multistate-complaint-against-novartis-and-sandoz-alleging-prescription-drug-price-fixing/",
+        "https://www.njoag.gov/acting-attorney-general-davenport-joins-multistate-coalition-condemning-doj-threats-against-minnesota/",
+        "https://www.njoag.gov/acting-attorney-general-davenport-warns-new-jersey-sellers-against-price-gouging-as-governor-sherrill-declares-state-of-emergency-ahead-of-major-winter-storm/",
+        "https://www.njoag.gov/acting-ag-davenport-sherrill-administration-continue-new-jerseys-fight-to-preserve-consumer-financial-protection-bureau-and-protect-consumers/"
+      ],
+      "uncertainty": {
+        "confidence": 0.73,
+        "confidence_interval": [
+          0.58,
+          0.88
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 69,
+      "size": 5,
+      "strength": 3.19,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-02-02T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "Hoboken mayor: ICE fails \u2018to make community safe\u2019 - NJ Spotlight News. Hoboken mayor: ICE fails \u2018to make community safe\u2019 NJ Spotlight News",
+      "sources": [
+        "Google News",
+        "NJ Spotlight News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPSlE5S1ZzdEFhbldNNE9iR0dmYTlBd1IxTW41RHRSemxwcm1McTRBV0lJQ0loelFDcVhEeUM4RXdnTE1odjJoNzdFbkZMWmVROGJtUHVMU1cza0Z6MjFZRTgxdUtTN3FZcFR3TzA0b0NxZHRtdXpyUGxwUUY3WUlyVXFPcHV5V29iWGdpZVFWN3lHbnFnV2c4M0o0U3pXYVRiZjdIdmlhMFZMbFRxTDlWYWxoVndPUTFEZGlQbHViaWtzVl84NUJiS9IBzgFBVV95cUxOMjI3UVNSR0lkZGVIVEJzRUlIcmk1WGxWbEd1ZlQtaVVvNFVnY0hwYWdjMmtUeC14dDBIMDBOQUl0alVmcmxhdThrN01VTUVEZzdmOVhPUmc4bzYwdjVSSzhnNGpncWRPTnpfWjQ0c2xxQnI2OWlMYWw4c3NOeUdVOWZlVkdhY3k0cWdLRmJLOUtvTEpzYXF0bVpIbTNNNk9hNmJTUEJDMERPVlhhNkxPMmlaWVNJYVpyZGN4bWFROUkwcU80UXpEOE5HRlhXUQ?oc=5",
+        "https://news.google.com/rss/articles/CBMikAFBVV95cUxPYzhhZ2J5XzFNVWxoVFB0QUtoSkZRb2pWX1N6LWpNbUlCMXAwLWdkeTFTYjZSRWZ3V3hyRUt6R19jTFJRNFdYWmg2LWFkbVRYdlRjVUN0ME1oMExsUlgwZFJyTkl3VWhVNkYxM3owQWcwR3lmaFZtdkctbjZEX09iQ1RUV2xWT0hfcFFMcGR2LWw?oc=5",
+        "https://news.google.com/rss/articles/CBMioAFBVV95cUxNUGNTTTd1UXktR0lveTBrVlNCVTZLOXNaeTZRQVB2LU4tNFl6Tlo0b0FxWi1iWjlhaHdFVzM4UjQzT3dzYVFiemtDT3FROU9nRXhObnBFYXNfRkZKQzJlanRScGVyWm1salVtSnpuVkxlcXRtZVphV1lNT01LNzBVeWFtOVJiUXczWkN5N0J0b0lQTnFIYWhKUHBZeEx0MFRt?oc=5",
+        "https://news.google.com/rss/articles/CBMilwFBVV95cUxNU1RQcUFMVUNXV0F4aUZnYmVrSUQ4RjduV2NYRHZ3bFVzWFN0RlMxdTJLbm12cThlbno2d2FINTdkX2pIVjJSRGx2UlZCd0hrMHYtUC1GWWtUR1h4VGt0NE93RkFpdTNFcXZ2LTVXQXF0Y3BhRFFndG9OWG5lOWJRNmwybFI0SEhwNnZlLWdob3o1OUhaSGNj?oc=5",
+        "https://www.njspotlightnews.org/2026/02/hoboken-mayor-ice-fails-to-make-community-safe/"
+      ],
+      "uncertainty": {
+        "confidence": 0.77,
+        "confidence_interval": [
+          0.62,
+          0.92
+        ],
+        "data_quality": "medium",
+        "limitations": [
+          "Standard data quality"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 2,
+      "size": 3,
+      "strength": 2.46,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-02-04T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "Three Men Charged for Roles in Trafficking, Sexual Assault of Minor, Production of Child Pornography. Jan 29, 2026|aggravated sexual assault of a minor by aiding and abetting|child pornography|DCJ|Div",
+      "sources": [
+        "NJ Attorney General"
+      ],
+      "mediaLinks": [
+        "https://www.njoag.gov/new-york-man-convicted-for-attempting-to-lure-and-sexually-assault-minor/",
+        "https://www.njoag.gov/three-men-charged-for-roles-in-trafficking-sexual-assault-of-minor-production-of-child-pornography/",
+        "https://www.njoag.gov/operator-of-prostitution-and-human-trafficking-ring-sentenced-to-60-years-in-prison/"
+      ],
+      "uncertainty": {
+        "confidence": 0.64,
+        "confidence_interval": [
+          0.49,
+          0.79
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 0,
+      "size": 3,
+      "strength": 2.46,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-02-04T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "Accountant Charged with Stealing from Two Businesses that Hired Him. Jan 28, 2026|accountant|bookkeeper|clients|Division of Criminal Justice (DCJ)|Division of Taxation-Office of Criminal Investigation",
+      "sources": [
+        "NJ Attorney General"
+      ],
+      "mediaLinks": [
+        "https://www.njoag.gov/former-executive-of-manufacturing-company-charged-with-allegedly-stealing-1-million-from-the-company-to-start-a-competing-business/",
+        "https://www.njoag.gov/accountant-charged-with-stealing-from-two-businesses-that-hired-him/",
+        "https://www.njoag.gov/two-women-charged-with-health-care-fraud-for-allegedly-illegally-providing-medical-services/"
+      ],
+      "uncertainty": {
+        "confidence": 0.64,
+        "confidence_interval": [
+          0.49,
+          0.79
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 18,
+      "size": 3,
+      "strength": 2.12,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-02-03T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "ICE in NYC: Observers from attorney general's office will monitor, document federal immigration enforcement across New York - ABC7 New York. ICE in NYC: Observers from attorney general's office will m",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQSThzVnNGekRjUlcxYWRja0xPN1NrMF9CMEdGX1BDcG5pUG5Zb2Qzd1M4WTNBSE5lLUFWMlFNTG1ueFBOSXZoakU3UUZUTUxUVWJQVVNXMFl4SkpmWm1TUl9JeUp2VlBlaHZsQ2tjc05TZ3RRMUlKNFpQRW1udzlGZWU1SWhJT1loYjR6MXdFdGlwdjh3U1hCODh1NGUtZ3lXb3ZuZWhrT3V2c3Zzbm5LT2xRc1VxT0ZoeUFzakd5MlNmYnJRVDNXTDB3NDBKWW05T3dLTjlWSHdPVEE?oc=5",
+        "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPeER4bjZWd3VTTV82UWxwbHlEMmlZUXZseUxfbDF5UXRzbkJLeERuWWd4cnpmQ3NSZ3B2S2E3WnV6bXJFSkhwc0VBQ21uS3ptanA5VlBMakkzRUR4cnpOaFpMRjZQa3hUbC04c1dBeGRxSDFkZmxCYThnc25tYVdqSWVEdGVDZDNacVJ3WGpLTU5EOFZTWGVvbVF4enpQcEhYX0loeTFMZDdpMjVhZUlxSWNQT0xTdTNNcEcycFp1MWtua1RaNzMyQUhLem14eGJpZXJHekxn0gHbAUFVX3lxTE9GMDFOZTVsWVVZUzREZXJ0T2ZEZGZvTzFwMDdMOEd5YU1USjYwNkZwcmJadVR6VTA4bFloYi1SN1psUFc4eWY3cnlGZlpWWVZ3OHdydFNaek14Y2NTYnpfVlJwR0RWRlU0Zi15RTJ2X00xejRHZ0ZCQ2YzN2U3R1JiY2VhWUp2Rkl0eGp0SlRlUGI4MkN2c2RUdXF6VW9ZZW40S1R4cVZ3RW80eG1LM3JySjZtMkJuLTFXbW1heDAyNUhjdWplc2hlVWM4SlljRGYzQnFCN2hpZGdWNA?oc=5",
+        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQR2lQUzJqUk5jU0d6VmdlaWFjYVhidjNDNExtZmZwUXFxaUZEczFwLTNwa2l5Nnc4emR6d1VSRjdzcm1pV0MxSXNTLTJYZkwyRzVXYnM5OFRRYUp2UjBHTkNnX0hwalVOWVdyVmxKQ2EtY2N1cW9ON1J1dDV2Q0FJUF91VmtDeEVZblFzQ0xOeHhadXdDMXVQRDhVRkVma29DdExfcjN0eHFHd9IBpgFBVV95cUxNOW5WanZ4Y0lHbjA2LWItdEF5QjI3YlJOMWljTE5RRzBWNWprQ3YzNDZsTFE1WENZb3lxMTFxNHNFNHpGd1pKakJ6a2xMMl95TnJCM3JtckJ5SXB4b0U0SXVwdzVMekY2UW5rSUpwWkJ3YVFvU2R1cURqN2VVUmpiMlYzQVN1WTZCMnZPUzBhbzBFS0xkR1FTcGVYclZsTHdFa2xTYVhB?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.64,
+        "confidence_interval": [
+          0.49,
+          0.79
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 80,
+      "size": 3,
+      "strength": 1.82,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-02-02T00:00:00",
+        "end": "2026-02-03T00:00:00"
+      },
+      "summary": "Do ICE agents really need a warrant in NJ\u2014Here are the facts - New Jersey 101.5. Do ICE agents really need a warrant in NJ\u2014Here are the facts New Jersey 101.5",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBXWExieVZwNTRDZVpXQzRjejQ1WThyekJ5WUt0YjlEYk9NSU5UN1Z5a2RJdm1tRXZwRVdEUUR1S0o2aFJlNkdCUFZTOHRnM1VQQ0Fj?oc=5",
+        "https://news.google.com/rss/articles/CBMipwFBVV95cUxON2EwREdZbV9GbktwWkVnSHlwZGFfbDVBdUphakE0RHVfa0podzBZT25Nb2dNRHpzQjBlb2Z1dzdFZUN4VWhsdWNISUlVZWd1eERfQjR1bW5JbzBya3ZuU01zbHpVdVg1RWhzSGN6ZjlyRDJXSHdjNzlGRmh4a0xOWUQ2dlBlYzZPVUktSTZBTXRPdkl5ZmxYVTltdG05WFVyckFqSHRSc9IBuwFBVV95cUxNa2NodkEySDNFR0NUVUJWSkpZaldNLU5hX3NrSWhMNnRhb0xnTWN5cUZQd3FGTDJPOXB0TG5LenN0N1A3dFNKNGVyazd2VmloTnVsQ0g5MTJKWDdVTVdsWV9xbW80dGJwQUMzWVk2OGZFNWF4elRxNldWallINDJOcThtR0FuY0syazFiZzJMaC0yeXJEWTZGcGs5dzFOTDZ2Yk54V0JHcXlPMWtiUlRucVVRaDlCSlB0TXNB?oc=5",
+        "https://news.google.com/rss/articles/CBMilgFBVV95cUxQb3Rub0VhNWY3Z05QS3ZkRGJ3NEk1VDJuYkc2M3dmNFdNMEUzUjVxb04tdVRzU2tJaXphMm1LYnpiWnlPWlhUWTUzdDI2SHgxWkprUG5JaHJqRDdic3BlbGZneHBVSmNOY1M1dm82MjUtSlZtSW5lc2pCN25QcXczQ0wtZW4zbjFrdVQ4Nkl0RUtidlpfS2c?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.64,
+        "confidence_interval": [
+          0.49,
+          0.79
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 1,
+      "size": 2,
+      "strength": 1.64,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-02-04T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "UPDATE: Attorney General\u2019s Office Releases Identities of the Decedent and Newark Police Officer Involved in Fatal Shooting in Newark, N.J., on January 19, 2026. Jan 23, 2026|Attorney General Directive",
+      "sources": [
+        "NJ Attorney General"
+      ],
+      "mediaLinks": [
+        "https://www.njoag.gov/update-attorney-generals-office-releases-identities-of-the-decedent-and-newark-police-officer-involved-in-fatal-shooting-in-newark-n-j-on-january-19-2026/",
+        "https://www.njoag.gov/update-ags-office-releases-names-and-video-from-a-death-in-east-orange-during-an-encounter-with-bloomfield-police-on-july-23-2024/"
+      ],
+      "uncertainty": {
+        "confidence": 0.56,
+        "confidence_interval": [
+          0.41,
+          0.71
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 28,
+      "size": 2,
+      "strength": 1.64,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-02-04T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "Congress delays action on changes to ICE, immigration enforcement - NJ Spotlight News. Congress delays action on changes to ICE, immigration enforcement NJ Spotlight News",
+      "sources": [
+        "Google News",
+        "NJ Spotlight News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPUDdpQmo3U0U1dE1kNy10YzZmNG81OFc4R1AxbTBrZTRWczlMcUFub0NMUmVCMWxIRkxLY0RFbFByM1luR3IzMnJRdUQ5QTlZR1o1QTRaTmZxR1VXQl9tZDhpZ1plOVJSZnhwY0NtclhJbmxWMFhKVzFHTVRsRU1kdEhPckpCeXhSOUlOdmtPNE5EVzdzdGZ4a2JEMFdEd0hZQnJTMzdFU0Y?oc=5",
+        "https://www.njspotlightnews.org/2026/02/congress-delays-action-on-changes-to-ice-immigration-enforcement/"
+      ],
+      "uncertainty": {
+        "confidence": 0.69,
+        "confidence_interval": [
+          0.54,
+          0.84
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 48,
+      "size": 3,
+      "strength": 1.55,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-02-02T00:00:00",
+        "end": "2026-02-02T00:00:00"
+      },
+      "summary": "Reported ICE activity in Hoboken and Jersey City, N.J. leaves many residents on edge - CBS News. Reported ICE activity in Hoboken and Jersey City, N.J. leaves many residents on edge CBS News",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMihwFBVV95cUxPd3NBN1lmR0FqOWh2UHZmQ281ckx0VDRjV1BoOGo0ZWJkeXlPU296VWNneWxLdzlRYWZFVmExd1JUblNPazJiQVBsODhNSThfWGxJeDBUN0E1Wko0cVFLelhGUHBCVTFWRWhDTEpkLXpnYVA2NTFpVnlMSU5mbENONlNFNVBpT2c?oc=5",
+        "https://news.google.com/rss/articles/CBMikAFBVV95cUxOaGc1YUVZR0U4UldReTZtQXRPSDFrM25PaFdZR2JOQ0NBTUZVSnRWWEc3WFh1bzUyZElvTDBoYnB0VllkTUNzMnFPa2tRQjN0YTdGSzFfYzc2alJfaXlTcjc5QjRHRXpzUXBlV3dmYzdiTmMzODlKdTVXMVFDRVdseG1LOW5ya2dPeEQwSXJvSWbSAZgBQVVfeXFMTmFwMFUtMXZHa1FKZGZJUWp1VWY5QXh4enZ6UTRDbWd4UG16R21HOGFKNUhuYU85RUNHT1R1bDFicjVScnFxVWxkU0pEck5SeUQ4NlM4NkJ1SVZlaTJvaDJsQmQ1emZYRHQ0T1dtN1NiZExVaFRlcHhQdHBfN0UtVXFwZ0NMSWVmSE9SckgtMG1wSnoxbDJGbUk?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.64,
+        "confidence_interval": [
+          0.49,
+          0.79
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 8,
+      "size": 2,
+      "strength": 1.47,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-02-03T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "An autistic 19-year-old vanished. His mom fears he may have been taken by ICE - The Independent. An autistic 19-year-old vanished. His mom fears he may have been taken by ICE The Independent",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMisAFBVV95cUxPcVdodkNYN2FGdlFrbmhhOTc0WHZiVDI4UzlVeXNkNTFrTWpCTlN1ZERMblZJb09NcVBaRFRMXzYxUTBscjU2eU9FNXpISkZydTFjd0R4YjF4cWVGdUZfUDJNQVJqMkVWWHg3OUZTWkRacHp3VkQxbXJkdWQ2T2cyZ080b3NzWjl1LVl1SklhNzc3YTFUM2NxQUpVTnA0bHJsVnIteUlhNHhIenJLMi1sWA?oc=5",
+        "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOUlRKZFVyZDR0THRVNU55QUlIOEYyMVBoRjBWTExDZ0R1UUJuZzFzTXhyMGdqMUJXa2RhM3NCcHZvWVpUVjBCdURkWDFCdF9yU0lzTl9sWF9waDhkdGRoM0JhcGlPX2Y3VWpvNEhBV3Rsb2Fxa0d2QzdaOWU0S3o5YzBKY0FsZkgzMERPMFVoNlFtbUl4MXZEN0xJa1dMc05lVjU1ZGhOS1BlNi1UWENuV2FnRWszc0dRaWJGN0I0MkNWVzVfOS1lNExESDlxY2NBZmJmOWozX25rQjjSAe8BQVVfeXFMTk91UEprNUJ4T19nRXByX1VBd045emZnTXRiU1p6OFZlaG0wUThiWi1ZSDlEbGNTUGpndkNxdmp0ZzNNQWJtUk9ES1lGMndYTl90RHc0cm0xTzU2TUtkSGZ0MExoU1Q5VkoxNW9vQzJFSkM0VmZVYy0zQkRGalpWUEFRMVRkS2c5M2cyM1BxaHJUcHlFM1JYbEs0cjRFUFprUFVCaFJOaHFuZlRvcTdIamZhSVNpSEV4eWRUZUtKeTE5aWFQbllUblNYREc3Y0hDT3NBdVYzYVBjVlFZUzhEemxreU4zUnlqT1FXdjM1QWM?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.56,
+        "confidence_interval": [
+          0.41,
+          0.71
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 46,
+      "size": 5,
+      "strength": 1.36,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2025-10-18T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "Where Do New Jersey and Virginia Gubernatorial Candidates Stand On Immigration? - America's Voice. Where Do New Jersey and Virginia Gubernatorial Candidates Stand On Immigration? America's Voice",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMisAFBVV95cUxNdlhWWG11ZHEydnlGcjhWeENLY25jMVc0ZGxLdHlnOFpkNms5XzE0OFhTeTVTUUkzT2JPX0pFcW5MejlMMmRzZlJUeWNFaDR1Qy1jT0Jaal9vSXY4d3lRODdOQTBrZWF2LU9YNXV5MWpsV1FZZHNoSm1PUXY4SDRlWnZUM1dNNHkza19NMzNaQk9aY0ZYRk42RHVSaFFNZkVvNFN1aXF0bjJDYWcyYmlHXw?oc=5",
+        "https://news.google.com/rss/articles/CBMirwFBVV95cUxNWjhydjNKT1ZNeDl6bFZZandKU19nd1kwbnhlQkpjaGpaYnBpS1Y2RjlhZ3pYMHJGS1g3SEpuUE9jaEtJLTNDRkZadXhtdTlkeENGby15UkNUSmRQUlQyTEtwV3UxQzJrc3dJUnpEanRWY09ZdEFNTURGQWpWTmdoZUFnNlJrZG1aODlDSnZ0SkxacnZicUxtdXltWU9XYUV4NURILUtGSExVLUlkbTQ0?oc=5",
+        "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1iR0QyWmY4ZVd2c3NScDZHUzJlRFJBazlYVV9iSk0ySzU4c0h3a0lrTjljUWc4Z0JJTWlCTE9wSDViQjlmRFZZTUhwR2dPNUpQc2J1c3A0ODhLbkc1dVE?oc=5",
+        "https://news.google.com/rss/articles/CBMivwFBVV95cUxOc0tyaVVBeUpPVGVkckNZeU1ySEVucHJKOEUtTVZlNVVMbDh0ZldVMnlfNUNrWFBSZlM3UUJ5ODNzZ1FVTk9QRmJUUGNlRDhVTEgwMHBSZHl6T04wNnpnU2VnTk5RX2I3aEpFV21RY3J5NGVTX2toalpranlnd0hONWg2OU01UDROdXNuQy01dFpGNVNFYWlJSWlpMDNHekZMQVIyazk4RW9mdkplNld3NnZhUXF6N1NBa1ozREJ1cw?oc=5",
+        "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOWGhyYjkyLXNtTklTWUo0ZzlWM1hpOUpYd1FETlJBUzlkbGFFUTBlMXF4V2hGODBVU2JEOEZIZmxuQnBVQVFscjVuY1JqVGdwWTd4TDFSS0VDSWljWlZOSUZCNmV6MHBnVkJDQkxGbEZNU2ZNYVlKazh3ZDNBUzRqZmlEN1J0aXNQc0d3VTFaMEhEU0t5czcwNTBZZmYtTG5YN2xXWmxKQmpLcF94aFA4VlVUb0Nmd1FON1VTM3NrcVF1aVBjUVNfSdIBzgFBVV95cUxOWlV1VUhuMnYtOXYtNjg2OEtGSWg2VHB1bzZyakdnbVdUbHpBOUFRcXFqckViOG9GZklpS3ZSZ3NwNXJVTUxMd3ZYNWp6ZjBUdkc2RnBPZW1iTnV5MHNoRWVZVFYzaUliTTJfZDFLQVYtSTNxcmt3bENLVFI5SERZVHh0bmF5b1luNV9TNi1XMXlRbl80ck4zZzNrMlA1cXBhYWNHV0VVbGU3akktcXYzclhoWUNFSDlxbHlPWDZhaWJGbnZQVWF4UEdFaE9RQQ?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.77,
+        "confidence_interval": [
+          0.62,
+          0.92
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 79,
+      "size": 5,
+      "strength": 1.35,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2025-10-09T00:00:00",
+        "end": "2026-02-03T00:00:00"
+      },
+      "summary": "New details emerge about NJ ICE arrests\u2014NJ Top News - New Jersey 101.5. New details emerge about NJ ICE arrests\u2014NJ Top News New Jersey 101.5",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5DelRUblNaaWp1elhMWm9odkxGa21pTVQwUWgwYXp0Qld6bVQyVHAzOE4yTmh4N2QwbjZDS2dUNXBvSnpkTHFyWHB5VnQtRHhjdHNrWg?oc=5",
+        "https://news.google.com/rss/articles/CBMid0FVX3lxTFBvaE5FNXFLYm5oLWRDUHFtM1N1SGFwWXNwd2E2RGE2cVlGMlh4d2tzUms1MjBDcXlnM0JuZk40bGdzc25lWklfU1BiTU02QXVnb1d2OE56SmhVT0FSVndKTzhpdndfWUh0TnV5VlZqX1VTdm5zSTZv?oc=5",
+        "https://news.google.com/rss/articles/CBMiY0FVX3lxTFA0OHZNM3E2QWtqUk13ZFNfNkNEel9USDBJMlVQYkFrcUZkM1h0bXh2TXNDQ0tveVRScmpBaS05YUd2alZKZ09ZcU5wMk9EaDNUVDlzd2FsaUhfd2xXdWhEcGk0SQ?oc=5",
+        "https://news.google.com/rss/articles/CBMipwFBVV95cUxQZ0VpSnU3R0RoMEk1MDBSb0dRdGJPUk56QVVkcFdzdzAtY0I4UlZ6UnExVFBtWkk0ZFl5SzQ1SXZnb3JTTmc5c1RxdjVXQjBsRHVvLUd6cjlrbFpvdVRrSklqb2RaYXNOTzZGeXpuT0ZtUVRWSUo3ZEJ5eUdQYWdiQThLd1VvdUk1NktDbC1TTWJ1aFNleUhabzhSTjhoR0Ftd1M4X0FhYw?oc=5",
+        "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1ZTE0teWZFTXZXclB6bkNxS3JWSEI3eExJYTZ2ZDNGd014NXMzNWRhTGNsYVJ4MV9IQ1hhelZCdkZ3RFI5N09PQ1hTR1NDY0owcHNfaQ?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.77,
+        "confidence_interval": [
+          0.62,
+          0.92
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 54,
+      "size": 2,
+      "strength": 1.3,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-02-03T00:00:00",
+        "end": "2026-02-03T00:00:00"
+      },
+      "summary": "Daytime ICE action in Jersey City prompts know-your-rights push - NJ Spotlight News. Daytime ICE action in Jersey City prompts know-your-rights push NJ Spotlight News",
+      "sources": [
+        "Google News",
+        "NJ Spotlight News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMipwFBVV95cUxNeHdJdERvQVkzZUotZzA1cFRXeVVUQXd6MFVyRmJNLVFWa3NSeVVsdlRLVkgya01fdDBJQTIwZkpHTERKMUhhWUVVNHozdzFuX2pQVUZWLVd3QUhDRWI5TXpPV1g4bC1DR3hsT284OTVBcC1UMVFZcl9ydVBkNHhPcEJSRHRVVWhUd1VYQl9jWEo2S01VQVdqSS1QTUpKWFVoQjFVYlh1QQ?oc=5",
+        "https://www.njspotlightnews.org/2026/02/daytime-ice-action-in-jersey-city-prompts-know-your-rights-push/"
+      ],
+      "uncertainty": {
+        "confidence": 0.69,
+        "confidence_interval": [
+          0.54,
+          0.84
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 11,
+      "size": 3,
+      "strength": 0.99,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-01-30T00:00:00",
+        "end": "2026-02-01T00:00:00"
+      },
+      "summary": "\u2018Get your phone out.\u2019 Gov. Sherrill announces portal to track ICE activity - News12 | New Jersey. \u2018Get your phone out.\u2019 Gov. Sherrill announces portal to track ICE activity News12 | New Jersey",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMikgFBVV95cUxQTkxJYkY3SC12a1hKdUUyYnVkMEFQT05Pc1VyZFZBd3YzRW5qZUJoY2NocUVkcVMzRmVuLTJ3X240TGVVNkRtdE5ua0R5NFh6Y29YZUhvU3lrZXhscTB4T01yZDRmYlNHU3owUlZFNzBOSnhzQWZMUURVYVlWNEJrYzZoTk1Ic1ZTOXhUUzdKUWE5Zw?oc=5",
+        "https://news.google.com/rss/articles/CBMioAFBVV95cUxQSWEwMlFLOHNBZDBYbEJhX3h0bHp6YXA3UlBISEhDVkMtbHZHZ3BmUlp4Q29vVXhfeUt4SEVRMkxvZ2hkXy1xeWlwX0Z1OGJrd0hxWm1RTGdaYkY4QVpDa0I1NWt2ak5rYTRlU0Fwb2JBdm84aTN6dG9oSlU3NnY2aklyNk05R0l6TGNHUDQxR2F4R1JWa2t2YklWc3RWN1NT?oc=5",
+        "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQa25EbGpTU1ZqNFlrMTdVRlZHWWpiSWpZZFhEUWFLUGI0SVl6SnR2aEs3LTlmQ3VIX0hjTmVLWHFRV05EdlpGai1aV2k1NXdOMy1HQ3Vsbi1RSUZyWDcxMHFQYllCYTBUUWNBdXdYYWRURHVZR1NGUFdqQ19saUFYZnQzS195MkE2bXZ6OGs4RXZEX3dibjRDbDZ5dGJnNWFVU3piSFZ3M18wWnJmdUR1dHM1WlV4RG1tMGpUQW9TRDhCeDB4eDNxREtXSmpfYnhDSnNyQ3djT2pLUDd2aklMRG1zYWF0MGdDN2NwTExXRXQ?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.64,
+        "confidence_interval": [
+          0.49,
+          0.79
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 9,
+      "size": 2,
+      "strength": 0.82,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2025-11-21T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "Today\u2019s audio update: N.J. man accused of driving suspect to Mexico border, child speaks out against ICE raids - NJ.com. Today\u2019s audio update: N.J. man accused of driving suspect to Mexico border, chi",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1nWmxubWp1enA5SVpCbUFfcWJYN2Qxa2lsbWNRY3dxbk9yRzdURWZKbTNvWUNCQ2JhT29tMFQwc0UxNkNwODZWWTBSTTkyTFhmY2hGUHh2RWltMGw0LVZwR09lQ0k2VlnSAXtBVV95cUxNaFRTUWx6VEJyMi0yRXZ1QTdhUjVkQUFUbjhTVFM0aXluaXBvckpqY1hjMzM4OFFDTkE3enpsNS1UUUUxUi0tak04aTA4am96SmxUY3o4Sm9Sc19uVHd1NUNRTDYycFpoVkdWa1RoTndleVF4eWFfUnlXSTg?oc=5",
+        "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOYzJQSE81bmhPaTJ2bW8zYno4V01sbkxyQ2dhZHdyTk9Tc3UyVUx5OGFxNzcxRjJuTExaQkUzb1Y3d1VFTzN1M3Y5anJXX0ZDZXB6Tk04YmVRX2xQcHpBUkZpSm9xU1NaN0JpZWIzLXh6alZiYjUtNHkwWnRXRS1URTlhWXlZOEJILWxLYncwek1BYnNLcjFXRVg0Rldmd1dMR2huQ1RYbkJ4eXlub0dLV3pjblpPWjIyZ1lTcm9hQ095UdIB1gFBVV95cUxPcFM1MHFyeWl0Si1kUzJBLUJnRmE3Qk5sellvaktpb25pX0VWRTBjZ1FNNngwaURjOFRhaWo1ckNid1plcnpWV2p0bGtESUlRZlpKUzNJUTdyckVHbU9LLWlnTHVWSndZUjYzV1BrbDRnMWIza1lPdUVfLUZycWlnZW5kcFpOZXZIQ0p2TWo2YzBaWW04VDk3dzlQazZLc1d0eUVndXl4dzVLNHF2RHpZazhkYlJ2bWp1dkMzdmxlNWNFS3FkRDN1WjhYeHFDUHo0NmNWWWhn?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.56,
+        "confidence_interval": [
+          0.41,
+          0.71
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 29,
+      "size": 6,
+      "strength": 0.82,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2025-10-21T00:00:00",
+        "end": "2026-02-04T00:00:00"
+      },
+      "summary": "NJ lawmakers want to ban masks for ICE agents - NJ Spotlight News. NJ lawmakers want to ban masks for ICE agents NJ Spotlight News",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5fZXVzOEtzZ0FEeS1rcTZtR2NtMXllbG1hOU5HUkRia3JrZVExVmY2a3JqOEpmMXJrWTlzS01CVVF5S0VNLUdfRHBRTl9kVU92YjVGb0tn?oc=5",
+        "https://news.google.com/rss/articles/CBMieEFVX3lxTE5NVXNMdjlDTHlfVWlUa1g1c2ExNHAwbS1mT29nQ2E2SW1vN2gwRHVEdUxOdUpwV2ZTTi1VUm1NeUxsSmpkQlBKZ2lqTnRUMzVGWlpKbUNxeFVOcGNxLTRFTzVkMXc0d0VYWVFNQ0JEUVczeDVJTkxPWA?oc=5",
+        "https://news.google.com/rss/articles/CBMiugFBVV95cUxNRkQtdm55RHlvbmVnVWR4N2VhRC1ybVp1SF85OXUxb3V2eE0xNjlMTVBLaWNhT0ZSU1BEbmstVE9seWJRcnNKVWNZc0FLMmdZZEpXSHVRUFA0VlFidUJwcnphS3J2ekdXSVY3aG92cl9sNGhVRGx1WDViUGJ2QWVaUkdhSnkwNjJ3N3hNZEFMV2NjLWFDdHFDUlpBVEw3VlR0TS1QcWFtY0hTSUtZenMyaVByM3pQczhKT1E?oc=5",
+        "https://news.google.com/rss/articles/CBMif0FVX3lxTE1jZUlzQ19aMHRXT05RaVo0OTlPNkx3UUlBX0tBX0xpV0Q4cHNWMVUxS1FHRzVoTGthTm5PYU9YdDA0cDg3Y3JxVm9HMTgtMHp0S2J2cnJDLUhnUnNfd2hZMGlXTUx3c2trMmRIUV9xTkVxbDQwZU5fdU93YVdWU28?oc=5",
+        "https://news.google.com/rss/articles/CBMifkFVX3lxTFB2NEFmMjhpWUVSNnQ0Nndpc1F1cDM3NGoyMlR2ajg1SnJmQkhFSHRfRUpQVE1pR0FwRkF5Ml91d0REdXF3TlBMeXk4RUp2QjNqdVFJTDkyeHh5eWwwaGZIVHpYNVB5V0lYVGV5TUJDRW1peFN3cFJJZS1VQVU0dw?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.77,
+        "confidence_interval": [
+          0.62,
+          0.92
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 59,
+      "size": 2,
+      "strength": 0.75,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-01-26T00:00:00",
+        "end": "2026-02-03T00:00:00"
+      },
+      "summary": "ICE arrests in N.J. city were \u2018lawless,\u2019 and \u2018reprehensible\u2019 state lawmaker says - NJ.com. ICE arrests in N.J. city were \u2018lawless,\u2019 and \u2018reprehensible\u2019 state lawmaker says NJ.com",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPUUVmMk83bmhWY1BWTHA3cVRnaGswdFM4VTlyMnB1M2RsaTZlYUJzLUdsVzZmSFg0OTNUUlB4cWw5bWxGZE15QlJzc1dqa3FsY3NjZ2QyR1M4X0NTbmNhMjJ5dElvb0RUWjVaRHpPQVJ6UG8zYlpUVDdzcG5JT3JOaXpBV05ZV21PaHFfaEJpZGhaUXhxUm9aR3lpblN5MXo1ZF81MWxvc0Z2UGRqNS0wNU81Q21FSW00UUs3RXV6Z2jSAdQBQVVfeXFMTTFXVGIzdnBhX2xoQTg1MW8zbTV6aVM4UmJCSHA1ckYwQ09KcERvRDRoSUYzRC1lT1d5Q3hpVDNFLWV3RzBDeDR1UEVsOUU1MGhpeHluem55eGRsMTl3ZGdYSlFydFdRWlF5V1FvNTZTOWV3ZWtXU2Jhc3ozM21IT3pvNnh4NWhCNzZHWEpiaEE4Q0dzWTNQV1ctc3lUbmJ0UXFBZ2xmQ2RKTTU4RE9nSl80TjRzbFhtUlNacV9WeGM3ZVl6YkFMV3NsOGlYXzlFN0FTYmg?oc=5",
+        "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNYnJRUHlqWlBZME52UUUweEhyMXFwWTd3MUNXUWQ5TUw5Y1NvQlptVFJpQW5rbXBDWlJnTmw4aHFtanNfY2xfMUdzb21UekF5RjE3V0tXbi1EcjFBWE1aMVRIMnVfYVlHbDR4cV84d1VOdWN4LTZNSE9LR2FvNkJqcHVDVjAwaWVmc2tITkZFWHM3WHd3Zjg2S0l1a1N1djV4OWZUWU1IdHJRNGZBYVE0Y1pGdS04OGpJUUhqemMwQUNsMFptT244elBfcENFbldTNnBHZ0hIRdIB6wFBVV95cUxQTGc3bl9IampMdEJrNFlTMmtlZ3dQQXNSazYwblA4bmJhcXZzS2xlcEpqV19uRk53WTNZc1UzU05mNEdld01wSzk0UHRCeHItaThYY3RvNTZvc1F1TFktakR4VC1jRjNxellzd01Nek8tbnBnV0YxaFNDVXBobkVQbW1tYUJ0RHpwZnY3dld4eUtFVTJvampxNW0yUWdLNFdncUtOelJYMGhzQmRmTE1kODIwY2oxdnAzU2xaY3R5Qkh3UExlVzFoT1FVcUNsdU40Sl9oUkVtamI1M1AtWURSaTE0d2REd3ZIbzc4?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.56,
+        "confidence_interval": [
+          0.41,
+          0.71
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 13,
+      "size": 2,
+      "strength": 0.65,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2025-04-11T00:00:00",
+        "end": "2026-02-03T00:00:00"
+      },
+      "summary": "For-profit immigration detention expands as Trump accelerates his deportation plans - Stateline. For-profit immigration detention expands as Trump accelerates his deportation plans Stateline",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMiugFBVV95cUxONEFIWUtjdFpKcko0Sl9zT0V5RHlWbEpYTk0wTVRaTDZXYzZ6UkJ3S1o0VXFCcmhRRWlSdkszY2VMSGlFQmo5Ry1BU2cwLWVNMi1aYmpfZTU5akYyWm1DVl8zaXBXcTBYMEsxUGRfSjRTYkRGUU9oQVl6d19lQlA5dkZmMDd5MTFxN1drNmFZMkFxdndTYmhFNGY1N2ZuVVN6clU2ZkktOEVvNDVHVDBYRW5JaHFhbXV4Z2c?oc=5",
+        "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRnNVOE9MYXZMVnJOZEJSSmxQa3YxNXhkRGZJc3MtRWZCcmNfTmhtWjA4ZFlVN19oMjJ1bzByRlRwNVBQcVB1RU04RkxqRmlzQzVSX1VSUWw1VE5ERjJ5MV9hZ3gzMl9EVHczODBPLXNlX29RYlV0dUxaRVJCVjRTTjQ2MWJwTkFfNDFZUGNhYjV0MzRTZDJGTnZfSnZmaGszYUt2dG8zNVk2R1RlYnpoeDhMMERRckNq?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.56,
+        "confidence_interval": [
+          0.41,
+          0.71
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 43,
+      "size": 2,
+      "strength": 0.62,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-01-29T00:00:00",
+        "end": "2026-02-01T00:00:00"
+      },
+      "summary": "N.J. governor wants residents to record ICE agents, upload videos to new state database - NJ.com. N.J. governor wants residents to record ICE agents, upload videos to new state database NJ.com",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMixgFBVV95cUxPY3VvQXlxa3k3ZlI5Q1VIdlpJY2pxckRCbEw0bURFOHAyWjRBZ2J6dWE3Y3d3NnVaWGJ1aF9Na3EzMmxEaHZpMkJZdks3algyVXM3ZEgwV3ZmZnhmR3hWd1M0T3RZdzZPWVM4RnJBeEszYmxEdDY4Wm81YzVobkhCNmVMX3h2TFNWN25BWEtidXFtZE43c3NpdUlnRVVKanJaY0tlRUdWa2JKYnkydXNET3Z2ZkpsNTNJVEZ0S0FPOWROaXNhaWfSAdoBQVVfeXFMTThyRzVqYjVyTGNraVZtdkVEWUdnNzFIZDd2SnN6ZHdDSFRXTjhpMTlvQzhVVjFFcXhBeEN5VUJMajE5c0lHc0haMjNGVVFRS0lkYnFaTFVHQlREMTZTS2VPMXlXcWRnNWtRQThTSktYVkhvSldUN09mUFl3UE1RSmh1NUxvc1Z4V0ctVWpyMXZfNndKOUJfYjVCVzdHZEgzS1A4dTZaNmFsRHF0MWdsZzhhNGh3UWdqQTVGY0NYeDltMjhlaWR3LXZhMnBIMlZnYWtTVHBWSjVPc0E?oc=5",
+        "https://news.google.com/rss/articles/CBMilgFBVV95cUxNc1pHeU1yV0RGNHp5dTlWTGxvQ1pxNTNrNkhBeUcwek5YN0F2bUxNMlhVeVF5OHdWUzJ6MEtfS2c3MVFXbzE5VC1mSGlqbm54VVZlMW13aXFUY2gwa1NXS1JLZkxVQnhFOV8yUTdDSjhGU1BCZXJXNzZIdS1aTnNNRlVpaGptdzNDSWF3X2VheFh6Nm13Mnc?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.56,
+        "confidence_interval": [
+          0.41,
+          0.71
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    },
+    {
+      "id": 33,
+      "size": 2,
+      "strength": 0.52,
+      "zip": "07060",
+      "dateRange": {
+        "start": "2026-01-12T00:00:00",
+        "end": "2026-02-02T00:00:00"
+      },
+      "summary": "Multiple ICE Raids, NJ Transit Train Smashes Car, Dispensary Fire Hurts 2: NJ Weekend - Patch. Multiple ICE Raids, NJ Transit Train Smashes Car, Dispensary Fire Hurts 2: NJ Weekend Patch",
+      "sources": [
+        "Google News"
+      ],
+      "mediaLinks": [
+        "https://news.google.com/rss/articles/CBMijwFBVV95cUxNNXlVY2JwQ1dMOUlFRUFCdkpfNHhhZEJyVklDY1l2SEhQSmdEUkxsV0FvOHJxVGhPbi04ZGhNRndObzlaUDZkS2J4Z3RxeWpJWnNGYUVJVnV0cDNGWGp3b3kwMXNJZlpNN3B0WUZwcGVibzZ3ckJSS0JYeEZzdG1NT0NzRVRfVmk2MFgyemlTONIBzwFBVV95cUxPZFdQemk2NTdTUlctQUZiUkVtOUQxbl9jNENYVVpxVnIwR0hMalpSWERPZ0syYXliZWpyWWd0UWZCUEdmTWNwOXpQQWt1LXRPTzlrWUtPeFhlUHZoN1hTbS1qdGJpMGZ0RE5qQ1p3UmpOWlNnX1dqbFZGOEpPWFdMZXBBWVpjcjNFWU9mLWw3eUk0ZGVhWW9pMnRXRjVBZHJyMF9PcHhBQzNKcF9HeWJENmo2LTN5SUMtcFhVSHY5OUV1Y21hdEIxQ3ozMk9hQm8?oc=5",
+        "https://news.google.com/rss/articles/CBMipgFBVV95cUxOSmpfcmstWXo3Uy1QUlh3VVNKblBIYXEtQThEcC1mWE1MS1J0azFOMUFrODYxYmtQa0lDTkREVVZoQU53WWpabFl6ZWRKdlU0QWo4Q3JzZzc5SXBqMlBta1drT3dYQW9wR09sWVdZZVRjQ3VEVC1qLXQ5VGF3RmUwVFpQZ0xNM0NoNko2WWVMdEZfWjUwOVVQUjEwQmt6U3pFQl9kdDB3?oc=5"
+      ],
+      "uncertainty": {
+        "confidence": 0.56,
+        "confidence_interval": [
+          0.41,
+          0.71
+        ],
+        "data_quality": "low",
+        "limitations": [
+          "Single source - corroboration recommended",
+          "Small sample size - pattern may not be significant"
+        ],
+        "not_claim": "This represents aggregated public attention, not verified events."
+      },
+      "source_diversity": 0.0
+    }
+  ],
+  "nlp": {
+    "generated_at": "2026-02-04T15:14:35.045592",
+    "total_records": 439,
+    "burst_score": 0.9977220956719818,
+    "trend": {
+      "direction": "increasing",
+      "magnitude": 0.3472398190045249,
+      "change_pct": 116.5242165242165
+    },
+    "top_keywords": [
+      [
+        "ice",
+        206
+      ],
+      [
+        "sanctuary",
+        91
+      ],
+      [
+        "immigration",
+        89
+      ],
+      [
+        "jersey",
+        64
+      ],
+      [
+        "trump",
+        64
+      ],
+      [
+        "deportation",
+        48
+      ],
+      [
+        "city",
+        43
+      ],
+      [
+        "raid",
+        35
+      ],
+      [
+        "federal",
+        26
+      ],
+      [
+        "cities",
+        24
+      ],
+      [
+        "judge",
+        22
+      ],
+      [
+        "enforcement",
+        21
+      ],
+      [
+        "mayor",
+        17
+      ],
+      [
+        "administration",
+        17
+      ],
+      [
+        "morristown",
+        17
+      ],
+      [
+        "detention",
+        16
+      ],
+      [
+        "immigrant",
+        15
+      ],
+      [
+        "residents",
+        14
+      ],
+      [
+        "community",
+        14
+      ],
+      [
+        "state",
+        14
+      ]
+    ],
+    "category_distribution": {
+      "enforcement": 330,
+      "community": 44,
+      "government": 112,
+      "safety": 23,
+      "legal": 45,
+      "education": 26,
+      "response": 160,
+      "general": 18,
+      "workplace": 13
+    },
+    "related_terms": {
+      "enforcement": [
+        "africa",
+        "bar",
+        "phil",
+        "code",
+        "lingers",
+        "object",
+        "targeted",
+        "come",
+        "continue",
+        "destroy"
+      ],
+      "community": [
+        "africa",
+        "bar",
+        "code",
+        "lingers",
+        "phil",
+        "object",
+        "targeted",
+        "come",
+        "destroy",
+        "continue"
+      ],
+      "legal": [
+        "africa",
+        "bar",
+        "code",
+        "lingers",
+        "phil",
+        "object",
+        "targeted",
+        "come",
+        "destroy",
+        "continue"
+      ],
+      "safety": [
+        "africa",
+        "bar",
+        "phil",
+        "lingers",
+        "object",
+        "targeted",
+        "come",
+        "destroy",
+        "continue",
+        "emanet"
+      ],
+      "response": [
+        "phil",
+        "code",
+        "africa",
+        "lingers",
+        "bar",
+        "object",
+        "targeted",
+        "come",
+        "continue",
+        "destroy"
+      ],
+      "education": [
+        "phil",
+        "africa",
+        "bar",
+        "lingers",
+        "object",
+        "targeted",
+        "come",
+        "destroy",
+        "continue",
+        "emanet"
+      ],
+      "workplace": [
+        "africa",
+        "bar",
+        "code",
+        "object",
+        "targeted",
+        "come",
+        "continue",
+        "destroy",
+        "voice",
+        "existing"
+      ],
+      "government": [
+        "africa",
+        "code",
+        "phil",
+        "lingers",
+        "bar",
+        "object",
+        "targeted",
+        "come",
+        "continue",
+        "destroy"
+      ]
+    },
+    "burst_periods": [
+      {
+        "hour_bin": "2025-02-19T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-02-24T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-02-27T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-03-05T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-03-07T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-03-12T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-03-13T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-03-19T00:00:00",
+        "count": 6,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-03-20T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-03-26T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-03-28T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-04-01T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-04-07T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-04-08T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-04-09T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-04-11T00:00:00",
+        "count": 7,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-04-13T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-04-14T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-04-18T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-04-22T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-04-28T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-05-01T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-05-05T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-05-12T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-05-13T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-05-14T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-05-21T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-05-22T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-05-23T00:00:00",
+        "count": 10,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-05-27T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-05-29T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-05-30T00:00:00",
+        "count": 7,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-02T00:00:00",
+        "count": 4,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-03T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-06T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-09T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-10T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-11T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-12T00:00:00",
+        "count": 4,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-13T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-15T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-16T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-17T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-19T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-20T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-21T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-27T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-29T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-06-30T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-01T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-03T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-08T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-09T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-10T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-11T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-12T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-16T00:00:00",
+        "count": 4,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-17T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-18T00:00:00",
+        "count": 4,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-20T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-21T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-22T00:00:00",
+        "count": 4,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-24T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-25T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-26T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-28T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-29T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-30T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-07-31T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-05T00:00:00",
+        "count": 11,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-06T00:00:00",
+        "count": 4,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-07T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-08T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-11T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-12T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-13T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-15T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-19T00:00:00",
+        "count": 5,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-20T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-21T00:00:00",
+        "count": 5,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-22T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-23T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-25T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-27T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-28T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-08-29T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-01T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-03T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-04T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-05T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-06T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-08T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-09T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-16T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-17T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-18T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-19T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-22T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-24T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-25T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-09-30T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-10-01T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-10-07T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-10-09T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-10-16T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-10-18T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-10-21T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-10-22T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-10-28T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-10-29T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-10-30T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-10-31T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-11-05T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-11-13T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-11-14T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-11-17T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-11-18T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-11-19T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-11-20T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-11-21T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-11-24T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-11-26T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-12-08T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-12-09T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-12-11T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-12-12T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-12-19T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-12-21T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-12-26T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2025-12-29T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-02T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-05T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-07T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-08T00:00:00",
+        "count": 3,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-09T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-11T00:00:00",
+        "count": 4,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-12T00:00:00",
+        "count": 11,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-13T00:00:00",
+        "count": 11,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-14T00:00:00",
+        "count": 14,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-15T00:00:00",
+        "count": 10,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-16T00:00:00",
+        "count": 11,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-17T00:00:00",
+        "count": 6,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-18T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-19T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-20T00:00:00",
+        "count": 5,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-21T00:00:00",
+        "count": 4,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-22T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-23T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-24T00:00:00",
+        "count": 1,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-26T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-27T00:00:00",
+        "count": 4,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-28T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-29T00:00:00",
+        "count": 7,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-30T00:00:00",
+        "count": 7,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-01-31T00:00:00",
+        "count": 2,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-02-01T00:00:00",
+        "count": 6,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-02-02T00:00:00",
+        "count": 18,
+        "z_score": 4.694855340334424
+      },
+      {
+        "hour_bin": "2026-02-03T00:00:00",
+        "count": 26,
+        "z_score": 4.694855340334425
+      },
+      {
+        "hour_bin": "2026-02-04T00:00:00",
+        "count": 22,
+        "z_score": 4.694855340334425
+      }
+    ]
+  },
+  "governance": {
+    "version": "1.0",
+    "dynamic_thresholds_active": true,
+    "uncertainty_metadata_included": true,
+    "timestamp": null
+  },
+  "silence_context": {
+    "07062": {
+      "zip": "07062",
+      "status": "no_data",
+      "interpretation": {
+        "what_this_means": "No aggregated public signals met display thresholds",
+        "what_this_does_not_mean": [
+          "Area is confirmed safe",
+          "No activity is occurring",
+          "Situation has been resolved"
+        ],
+        "possible_reasons": [
+          "Signals below visibility threshold",
+          "Data delay (24-72 hours)",
+          "Low reporting in this area",
+          "Signals filtered by safety buffer"
+        ]
+      },
+      "recommendation": "Absence of data is not evidence of absence. Consult multiple sources.",
+      "last_checked": "2026-02-04T20:31:02.013877+00:00"
+    },
+    "07063": {
+      "zip": "07063",
+      "status": "no_data",
+      "interpretation": {
+        "what_this_means": "No aggregated public signals met display thresholds",
+        "what_this_does_not_mean": [
+          "Area is confirmed safe",
+          "No activity is occurring",
+          "Situation has been resolved"
+        ],
+        "possible_reasons": [
+          "Signals below visibility threshold",
+          "Data delay (24-72 hours)",
+          "Low reporting in this area",
+          "Signals filtered by safety buffer"
+        ]
+      },
+      "recommendation": "Absence of data is not evidence of absence. Consult multiple sources.",
+      "last_checked": "2026-02-04T20:31:02.013896+00:00"
+    }
+  }
+}
