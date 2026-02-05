@@ -254,7 +254,13 @@ def run_ingestion():
     
     # Save
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+    base_columns = ["text", "source", "zip", "date", "ingested_at"]
     df = pd.DataFrame(unique_records)
+    # Ensure consistent columns even when empty
+    for col in base_columns:
+        if col not in df.columns:
+            df[col] = pd.Series(dtype="object")
+    df = df[base_columns + [c for c in df.columns if c not in base_columns]]
     df.to_csv(PROCESSED_DIR / "all_records.csv", index=False, encoding="utf-8")
     print(f"Total: {len(df)} records saved to {PROCESSED_DIR / 'all_records.csv'}")
     

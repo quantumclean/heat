@@ -8,6 +8,7 @@ import shutil
 from pathlib import Path
 from datetime import datetime, timedelta
 from textwrap import shorten
+import re
 
 # Import governance layer for anti-gaming and uncertainty metadata
 try:
@@ -26,6 +27,29 @@ ARCHIVE_RETENTION_DAYS = 30
 def export_for_static_site():
     """Convert processed CSVs to JSON for frontend."""
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
+    
+    # Generate comprehensive exports
+    try:
+        from comprehensive_export import generate_comprehensive_csv, generate_visualization_metadata
+        generate_comprehensive_csv()
+        generate_visualization_metadata()
+    except Exception as e:
+        print(f"Warning: Could not generate comprehensive exports: {e}")
+
+    def scrub_pii(text: str) -> str:
+        """Redact common PII patterns from text fields before export."""
+        if not text:
+            return text
+        patterns = {
+            "ssn": r"\b\d{3}-\d{2}-\d{4}\b",
+            "phone": r"\b\d{3}[-.]?\d{3}[-.]?\d{4}\b",
+            "email": r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b",
+            "address": r"\b\d+\s+[A-Za-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct)\b",
+        }
+        scrubbed = text
+        for pattern in patterns.values():
+            scrubbed = re.sub(pattern, "[redacted]", scrubbed, flags=re.IGNORECASE)
+        return scrubbed
     
     # Load eligible clusters
     eligible_path = PROCESSED_DIR / "eligible_clusters.csv"
@@ -57,6 +81,7 @@ def export_for_static_site():
         # Ensure ZIP code has 5 digits with leading zero
         zip_code = str(row["primary_zip"]).zfill(5)
         
+        safe_summary = scrub_pii(str(row["representative_text"]))
         clusters.append({
             "id": int(row["cluster_id"]),
             "size": int(row["size"]),
@@ -66,7 +91,7 @@ def export_for_static_site():
                 "start": row["earliest_date"],
                 "end": row["latest_date"],
             },
-            "summary": row["representative_text"],
+            "summary": safe_summary,
             "sources": sources,
             "mediaLinks": urls[:5],  # Limit to 5 links per cluster
         })
@@ -128,6 +153,54 @@ def export_for_static_site():
         json.dump(output, f, indent=2)
     
     print(f"Exported {len(clusters)} clusters to {BUILD_DIR / 'clusters.json'}")
+
+    # Export reported locations (downloadable dataset)
+    reported_locations = []
+    for cluster in clusters:
+        reported_locations.append({
+            "cluster_id": cluster.get("id"),
+            "zip": cluster.get("zip"),
+            "summary": cluster.get("summary"),
+            "sources": cluster.get("sources", []),
+            "media_links": cluster.get("mediaLinks", []),
+            "strength": cluster.get("strength"),
+            "size": cluster.get("size"),
+            "start_date": cluster.get("dateRange", {}).get("start"),
+            "end_date": cluster.get("dateRange", {}).get("end"),
+        })
+
+    with open(BUILD_DIR / "reported_locations.json", "w") as f:
+        json.dump({
+            "generated_at": datetime.now().isoformat(),
+            "records": reported_locations,
+        }, f, indent=2)
+
+    if reported_locations:
+        reported_df = pd.DataFrame(reported_locations)
+    else:
+        reported_df = pd.DataFrame(columns=[
+            "cluster_id",
+            "zip",
+            "summary",
+            "sources",
+            "media_links",
+            "strength",
+            "size",
+            "start_date",
+            "end_date",
+        ])
+
+    if "sources" in reported_df.columns:
+        reported_df["sources"] = reported_df["sources"].apply(
+            lambda x: "; ".join(x) if isinstance(x, list) else str(x)
+        )
+    if "media_links" in reported_df.columns:
+        reported_df["media_links"] = reported_df["media_links"].apply(
+            lambda x: "; ".join(x) if isinstance(x, list) else str(x)
+        )
+
+    reported_df.to_csv(BUILD_DIR / "reported_locations.csv", index=False)
+    print(f"Exported reported locations to {BUILD_DIR / 'reported_locations.json'}")
     
     # Export latest news feed (buffered, ordered by last seen)
     latest_items = []
@@ -154,12 +227,14 @@ def export_for_static_site():
                         urls = [url_val]
                 elif isinstance(url_val, list):
                     urls = url_val
+            safe_headline = scrub_pii(shorten(str(row.get("representative_text", "")).strip(), width=160, placeholder="…"))
+            safe_summary = scrub_pii(str(row.get("representative_text", "")).strip())
             latest_items.append({
                 "cluster_id": int(row.get("cluster_id", 0)),
                 "zip": str(row.get("primary_zip", "07060")).zfill(5),
                 "timestamp": row.get("latest_date").isoformat() if pd.notna(row.get("latest_date")) else None,
-                "headline": shorten(str(row.get("representative_text", "")).strip(), width=160, placeholder="…"),
-                "summary": str(row.get("representative_text", "")).strip(),
+                "headline": safe_headline,
+                "summary": safe_summary,
                 "source": source_label,
                 "priority": "high" if str(row.get("primary_zip", "")) == "07060" else "normal",
                 "strength": float(row.get("volume_score", 0)),

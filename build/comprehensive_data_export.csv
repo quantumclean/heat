@@ -1,0 +1,110 @@
+HEAT DATA EXPORT - COMPREHENSIVE DATASET
+Generated,2026-02-05T18:16:20.689373+00:00
+Version,4.0
+License,Ethical Use License - See LICENSE-ETHICAL.md
+
+SUMMARY STATISTICS
+Metric,Value,Description
+Total Clusters,3,Number of identified attention clusters
+Total Records,472,Raw signals before clustering
+Date Range Start,2025-02-07 00:00:00,Earliest record date
+Date Range End,2026-02-04 00:00:00,Latest record date
+Unique Sources,3,Distinct information sources
+ZIP Codes Covered,15,Geographic areas monitored
+
+CLUSTER DATA - ATTENTION SIGNALS
+Note: Each row represents a geographic attention cluster with aggregated signals
+
+tracking_id,cluster_id,zip_formatted,location_name,latitude,longitude,size,volume_score,quality_score,confidence_level,earliest_date,latest_date,duration_days,representative_text,source_count,source_list,media_links
+HEAT-CLU-000010,10,07060,Unknown,40.6137,-74.4154,7,3.47,67.0,MEDIUM,2026-01-29T00:00:00,2026-02-04T00:00:00,6,Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown - Patch. Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown Patch,1,Google News,https://news.google.com/rss/articles/CBMisAFBVV95cUxNRkR1QklkeDRyWTVQUlY0OXBjcWFDMGxFb0RLVjlwakIzVDRCQm1IM2l4dEhnVVlkRFJnZmV6ZjFjeG44aGhtODJyMFlJUHJoWXlGeGJtNEhuX1F3aTJlLUxoSlZHS3RlYWRtVW9SZ0dxRmFBdFNaVkNMVGhDVS1TcUFfUENfb1ZjQVJOaEp1aXg3V2tnS3hEWDlLNWJNXzB5VVh3ckdNUUQtc0NGQ1pXY9IBxgFBVV95cUxNQnRKT3ZBVklaRjNlU1hyUlRFdE4zUEFoMlZwX1EtNllKTE93LURUdVVQLWhfekRmRXRpNzhrVlB0d0xPT3NnOThQN1hibEd6QW5iRTdkUTBuUDNQMTRtRjlvd2l0YU1rbGNMaG5FRjFoSW5wTUhPOWlHbVlUelAzQWpDMVBvMlhDRDl3N3VDTXgzd19uM2pPLTlMeGhtN2ZaMXN3Tml0SVBkbWRycnlCNVZBWVpUank5blJnb0g4TEFyZGVrUVE?oc=5 | https://news.google.com/rss/articles/CBMilAFBVV95cUxPZl9tbFByZm1fRVNoYl9Kd3dZd1ZEcTF0M1BMdUpJb1BHNER6Z19nTXB3V3RET1dZV2hIc0cxT29OZmdGNlZkR0stV2dwMkVMU0pmcDR4bk9STXJmNEpWbkJmSEJZWl95TThTZTNCbWxuaHZjOTdBbEFDRDR5N0VEdExpdWU5UWlWUVN1eXlDQ2ZOTm9G?oc=5 | https://news.google.com/rss/articles/CBMiqwFBVV95cUxPYnJFSlNoMHBpUXdDMmJCandXZXg2dFZvM2xvRnhLbGpCanZwdUdoTXNxd2FVZDV5WFNxQ3dMOHFJSllxbndXRDFYVUJqOXVvVjh6TU5kanVfaDljeGo3S0ZNLUJWTXZBelZIT1puTGNCdGxzbjBxaW5fUDgzWXF5Y0x2REFDZmJQemxNWm1fT0kzX3hNV3lxckJ2VGlQU25vWEtmRU1ia0FYT2_SAcQBQVVfeXFMTmxqc3VUdUxYcmpheGRWRWpyQkptNWVHNFZZVGxybDQteXdxUWIybWtJV1RMU1ZxRG42dUVqVVZzOGdRZV9Za084V0huLUZNQ2lJOWZuanN2S0Q2a0xoTlZTYWl1UEl0VU1admJrd0oyNm1WNFJjaGFYdGhIem55V09pcTRYeWRMc2M3VG91MDJRcjRYSUJGcWliX2xpOXh3aGhHWWtqbW9KVE8xajFoekxzUlEwVXJZNmZ0ekE1ZjBreE9Vag?oc=5 | https://news.google.com/rss/articles/CBMikAFBVV95cUxNWXFLNzNNdnlYa0pDaUhpYnVwQjdlUGtSeFkycjNsblA5aFBiZ1Z5eE5na0dDNFB3Rm5rdHl6VWJUVjgwNUs4Z2FmTTVXUC1iYm1RREUtUjBEaVd3Y09qTjhxUUR2aVFWOGV3RjVyUDdYQVZzZjBDWlotYmtoTEVLY3c5WTFIenlsaklmam9IdlPSAZYBQVVfeXFMTWM5Z2ZVak1KdUdBeXJwTC1kY3JOaEhMcWQ2dTJINEpRWktUSGJqeGxaYjAzTHhLVklVdFBDUm52eGxod01MZHhnaS11OXQ5dGs4dmowbkt5dEc1d0M5bWdNRlE5MDUtLTl2cURpeC1IeVFlVEhvOUsxRzlmNURVN0psa0QxMXc1b2ZOekdzMmJXcnc2a01n?oc=5 | https://news.google.com/rss/articles/CBMipgFBVV95cUxQVS1kaEZtT1g1bU5tWnp2V3FONHNyd2l5bVhEVE1Lc3VwNTAtM2NZczRIR2RXUFpaQnU1clV4UndBLXAzaDIzMmQwU1B2NVM2SEwyUjBKWGpQVEhJOTVicGM2WlFTYjN6OGl5Y0wySVdrYTNVVWhBNVF3aVBmdDlxX080cWFHQ0k2OEdkbVBnQkZ6UU93dEM5U000N2ZWZlhoSGpXSEdR0gHEAUFVX3lxTE1RSnFUOTlMWm5pTkdWLW1GVDF0UTdMZHVRZjR6MTBGOHFvOUpDVXVYRzNXZHdGMWZqdUFEVGpQSk1URnhzVXU0QzlobXpCWXFsX0RxSllqR25KNGRoME9WdDQ3QnZPYWFUOFg0TXkyTjhCU21JSjkyNnVIM2FRczhMb2lkYnc1QlJaQjBtY3FOYjR4bG1LbE9FOGd6MU9jWmNfWFdpTXRBYjRRZVRPNHp3ZlZZT2Z0OTRqMDk5OWVvR3RSdHg?oc=5 | https://news.google.com/rss/articles/CBMipAFBVV95cUxNbGQ3ek1qamRqY3dGUGk4TUFMbXQtV2plWmhZZGdfUjN3djkwMTZXM012SmNFbTMzQ3dqZ0FJS3pfNnFJM29iLWRoN3lLdFh2MFltcDZFSkg3alA5X1RSbm5YaEl5NW9LMzhnQVZsWi1nV3JnVkdvSE43Yzd0U1BoSEZYOXdSMlkydnN2bHg5VGF5Yk9mSDd1c2dUd1ZTalQxT1dHYdIBvgFBVV95cUxOa1l4YkFfdWRqd2pJSjEtWGdleWNxcWhuNFB5ZE5iVGhkcDRPdzhzejJ5YkZrelJMbU5LcVIxTXF1eHE4ckFQOHAyV1kyRHgzN2MyQjRBZTlrSmVrREx6UDV3dGRfZEhaQjFGRDBUdU9PTGEtaFFqcW50RVBMSjFiNVpob3RqQWJVMkFmWi0tWUVXWTNmSXpQSWVGWThlMnNjQjBqbFdjS0lnNVlPMVB3dEE5Q3l0V0g5bjlfeENR?oc=5 | https://news.google.com/rss/articles/CBMi2gFBVV95cUxQU3FacnROd1kzWjlJMHdtMzBBbGlOMkVlMm5TQ1ZRa1lKemRmRlRWTFJNYm1yandLMGpBNjdudHFxTmtRZDU3SDYtNktHc2pzbmUtY0dsUi1XRzB2M2N3eXRSWVE2cGFHb2JSTDlpRW5HdUhZbzVQVFRBMEFhSDV2Y2w2NHo4a2JGeEtzMTB2TVY4TlllZVA0SzZvb1otdWlkSzFDb1lrd2E1ck8xdzhCVWNhUnZUUGxuV05Oc2RYbGtheEtLeVRTZ00xTGFYc3FLVm9Rei1OX0FMZw?oc=5
+HEAT-CLU-000069,69,07030,Unknown,40.735,-74.0303,5,2.59,61.9,MEDIUM,2026-02-02T00:00:00,2026-02-04T00:00:00,2,Hoboken mayor: ICE fails ‘to make community safe’ - NJ Spotlight News. Hoboken mayor: ICE fails ‘to make community safe’ NJ Spotlight News,2,"Google News, NJ Spotlight News",https://news.google.com/rss/articles/CBMiyAFBVV95cUxPSlE5S1ZzdEFhbldNNE9iR0dmYTlBd1IxTW41RHRSemxwcm1McTRBV0lJQ0loelFDcVhEeUM4RXdnTE1odjJoNzdFbkZMWmVROGJtUHVMU1cza0Z6MjFZRTgxdUtTN3FZcFR3TzA0b0NxZHRtdXpyUGxwUUY3WUlyVXFPcHV5V29iWGdpZVFWN3lHbnFnV2c4M0o0U3pXYVRiZjdIdmlhMFZMbFRxTDlWYWxoVndPUTFEZGlQbHViaWtzVl84NUJiS9IBzgFBVV95cUxOMjI3UVNSR0lkZGVIVEJzRUlIcmk1WGxWbEd1ZlQtaVVvNFVnY0hwYWdjMmtUeC14dDBIMDBOQUl0alVmcmxhdThrN01VTUVEZzdmOVhPUmc4bzYwdjVSSzhnNGpncWRPTnpfWjQ0c2xxQnI2OWlMYWw4c3NOeUdVOWZlVkdhY3k0cWdLRmJLOUtvTEpzYXF0bVpIbTNNNk9hNmJTUEJDMERPVlhhNkxPMmlaWVNJYVpyZGN4bWFROUkwcU80UXpEOE5HRlhXUQ?oc=5 | https://news.google.com/rss/articles/CBMikAFBVV95cUxPYzhhZ2J5XzFNVWxoVFB0QUtoSkZRb2pWX1N6LWpNbUlCMXAwLWdkeTFTYjZSRWZ3V3hyRUt6R19jTFJRNFdYWmg2LWFkbVRYdlRjVUN0ME1oMExsUlgwZFJyTkl3VWhVNkYxM3owQWcwR3lmaFZtdkctbjZEX09iQ1RUV2xWT0hfcFFMcGR2LWw?oc=5 | https://news.google.com/rss/articles/CBMioAFBVV95cUxNUGNTTTd1UXktR0lveTBrVlNCVTZLOXNaeTZRQVB2LU4tNFl6Tlo0b0FxWi1iWjlhaHdFVzM4UjQzT3dzYVFiemtDT3FROU9nRXhObnBFYXNfRkZKQzJlanRScGVyWm1salVtSnpuVkxlcXRtZVphV1lNT01LNzBVeWFtOVJiUXczWkN5N0J0b0lQTnFIYWhKUHBZeEx0MFRt?oc=5 | https://news.google.com/rss/articles/CBMilwFBVV95cUxNU1RQcUFMVUNXV0F4aUZnYmVrSUQ4RjduV2NYRHZ3bFVzWFN0RlMxdTJLbm12cThlbno2d2FINTdkX2pIVjJSRGx2UlZCd0hrMHYtUC1GWWtUR1h4VGt0NE93RkFpdTNFcXZ2LTVXQXF0Y3BhRFFndG9OWG5lOWJRNmwybFI0SEhwNnZlLWdob3o1OUhaSGNj?oc=5 | https://www.njspotlightnews.org/2026/02/hoboken-mayor-ice-fails-to-make-community-safe/
+HEAT-CLU-000080,80,07060,Unknown,40.6137,-74.4154,3,1.48,43.5,LOW,2026-02-02T00:00:00,2026-02-03T00:00:00,1,Do ICE agents really need a warrant in NJ—Here are the facts - New Jersey 101.5. Do ICE agents really need a warrant in NJ—Here are the facts New Jersey 101.5,1,Google News,https://news.google.com/rss/articles/CBMiU0FVX3lxTFBXWExieVZwNTRDZVpXQzRjejQ1WThyekJ5WUt0YjlEYk9NSU5UN1Z5a2RJdm1tRXZwRVdEUUR1S0o2aFJlNkdCUFZTOHRnM1VQQ0Fj?oc=5 | https://news.google.com/rss/articles/CBMipwFBVV95cUxON2EwREdZbV9GbktwWkVnSHlwZGFfbDVBdUphakE0RHVfa0podzBZT25Nb2dNRHpzQjBlb2Z1dzdFZUN4VWhsdWNISUlVZWd1eERfQjR1bW5JbzBya3ZuU01zbHpVdVg1RWhzSGN6ZjlyRDJXSHdjNzlGRmh4a0xOWUQ2dlBlYzZPVUktSTZBTXRPdkl5ZmxYVTltdG05WFVyckFqSHRSc9IBuwFBVV95cUxNa2NodkEySDNFR0NUVUJWSkpZaldNLU5hX3NrSWhMNnRhb0xnTWN5cUZQd3FGTDJPOXB0TG5LenN0N1A3dFNKNGVyazd2VmloTnVsQ0g5MTJKWDdVTVdsWV9xbW80dGJwQUMzWVk2OGZFNWF4elRxNldWallINDJOcThtR0FuY0syazFiZzJMaC0yeXJEWTZGcGs5dzFOTDZ2Yk54V0JHcXlPMWtiUlRucVVRaDlCSlB0TXNB?oc=5 | https://news.google.com/rss/articles/CBMilgFBVV95cUxQb3Rub0VhNWY3Z05QS3ZkRGJ3NEk1VDJuYkc2M3dmNFdNMEUzUjVxb04tdVRzU2tJaXphMm1LYnpiWnlPWlhUWTUzdDI2SHgxWkprUG5JaHJqRDdic3BlbGZneHBVSmNOY1M1dm82MjUtSlZtSW5lc2pCN25QcXczQ0wtZW4zbjFrdVQ4Nkl0RUtidlpfS2c?oc=5
+
+
+TIMELINE DATA - ATTENTION OVER TIME
+Note: Weekly aggregated attention metrics
+
+Week,Record Count,Unique Sources,ZIP Codes
+2025-02-03/2025-02-09,1,1,1
+2025-02-17/2025-02-23,1,1,1
+2025-02-24/2025-03-02,3,1,3
+2025-03-03/2025-03-09,2,1,2
+2025-03-10/2025-03-16,2,1,2
+2025-03-17/2025-03-23,7,1,2
+2025-03-24/2025-03-30,3,1,2
+2025-03-31/2025-04-06,4,1,2
+2025-04-07/2025-04-13,11,1,2
+2025-04-14/2025-04-20,2,1,1
+2025-04-21/2025-04-27,1,1,1
+2025-04-28/2025-05-04,3,1,1
+2025-05-05/2025-05-11,1,1,1
+2025-05-12/2025-05-18,3,1,2
+2025-05-19/2025-05-25,16,1,4
+2025-05-26/2025-06-01,11,1,2
+2025-06-02/2025-06-08,9,1,2
+2025-06-09/2025-06-15,10,1,2
+2025-06-16/2025-06-22,8,1,2
+2025-06-23/2025-06-29,2,1,1
+2025-06-30/2025-07-06,3,1,1
+2025-07-07/2025-07-13,5,1,3
+2025-07-14/2025-07-20,12,1,4
+2025-07-21/2025-07-27,14,1,3
+2025-07-28/2025-08-03,5,1,1
+2025-08-04/2025-08-10,18,1,4
+2025-08-11/2025-08-17,8,1,2
+2025-08-18/2025-08-24,18,1,7
+2025-08-25/2025-08-31,6,1,2
+2025-09-01/2025-09-07,7,1,3
+2025-09-08/2025-09-14,2,1,1
+2025-09-15/2025-09-21,7,1,2
+2025-09-22/2025-09-28,6,1,1
+2025-09-29/2025-10-05,3,1,2
+2025-10-06/2025-10-12,2,1,1
+2025-10-13/2025-10-19,3,1,2
+2025-10-20/2025-10-26,2,1,1
+2025-10-27/2025-11-02,8,1,3
+2025-11-03/2025-11-09,1,1,1
+2025-11-10/2025-11-16,2,1,1
+2025-11-17/2025-11-23,12,1,3
+2025-11-24/2025-11-30,2,1,1
+2025-12-08/2025-12-14,8,1,2
+2025-12-15/2025-12-21,4,1,2
+2025-12-22/2025-12-28,1,1,1
+2025-12-29/2026-01-04,2,1,2
+2026-01-05/2026-01-11,13,1,3
+2026-01-12/2026-01-18,67,1,5
+2026-01-19/2026-01-25,15,1,4
+2026-01-26/2026-02-01,30,1,4
+2026-02-02/2026-02-08,86,3,10
+
+
+GEOGRAPHIC DISTRIBUTION
+ZIP Code,Location Name,Cluster Count,Total Signals,Avg Strength,Latitude,Longitude
+7030.0,Unknown,1,5,2.59,,
+7060.0,Unknown,2,10,2.48,,
+
+
+SOURCE TRACKING
+Source Name,Record Count,Date Range,Reliability Score,Category
+Google News,448,2025-02-07 00:00:00 to 2026-02-04 00:00:00,"A+ (Verified, High Volume)",News Media
+NJ Attorney General,16,2026-02-04 00:00:00 to 2026-02-04 00:00:00,"A+ (Verified, High Volume)",Government
+NJ Spotlight News,8,2026-02-03 00:00:00 to 2026-02-04 00:00:00,"C+ (Community, Moderate)",Community
+
+
+DATA QUALITY METRICS
+Metric,Value,Status,Notes
+Average Cluster Size,5.00,PASS,Minimum threshold: 3
+Minimum Sources Per Cluster,1,WARN,Corroboration threshold: 2
+Clusters With Media Links,100.0%,INFO,Percentage with source URLs
+
+
+METHODOLOGY & INTERPRETATION
+""
+Data Collection:,"Automated scraping of public RSS feeds, social media, and community reports"
+Clustering Method:,HDBSCAN semantic clustering with minimum size threshold
+Geographic Precision:,ZIP code level only - no street addresses or personal locations
+Delay Buffer:,24-72 hours based on source corroboration and safety thresholds
+Quality Control:,"Multi-source verification, PII scrubbing, forbidden word filtering"
+Interpretation:,"Attention patterns, not confirmed events - verify independently"
+License:,"Ethical Use License - No surveillance, enforcement, or targeting"
+

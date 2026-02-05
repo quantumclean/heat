@@ -7,6 +7,7 @@ CRITICAL: These thresholds are NON-NEGOTIABLE for production.
 - Enforces corroboration across multiple sources
 - Ensures temporal delay for safety
 """
+import os
 import pandas as pd
 import json
 from pathlib import Path
@@ -22,8 +23,8 @@ MIN_SOURCES = 2               # MUST have 2+ distinct sources (corroboration)
 DELAY_HOURS = 24              # 24-hour delay before surfacing (minimum)
 MIN_VOLUME_SCORE = 0.7        # Minimum time-weighted volume score (lowered to catch more events)
 
-# DEVELOPMENT MODE: Set to True to loosen thresholds for testing
-DEVELOPMENT_MODE = True       # TODO: Set to False before production deployment
+# DEVELOPMENT MODE: Enable only when explicitly requested
+DEVELOPMENT_MODE = os.getenv("HEAT_DEV_MODE", "false").lower() == "true"
 
 if DEVELOPMENT_MODE:
     MIN_CLUSTER_SIZE = 2      # Reduced for testing
@@ -182,10 +183,27 @@ def run_buffer():
         return None
     
     stats_df = pd.read_csv(stats_path)
-    
+    required_cols = {"cluster_id", "size", "volume_score", "primary_zip", "earliest_date", "latest_date", "representative_text"}
+    if stats_df.empty or not required_cols.issubset(set(stats_df.columns)):
+        print("No cluster stats available. Writing empty eligible_clusters.csv.")
+        empty_cols = [
+            "cluster_id",
+            "size",
+            "volume_score",
+            "primary_zip",
+            "earliest_date",
+            "latest_date",
+            "representative_text",
+            "sources",
+            "urls",
+        ]
+        empty_df = pd.DataFrame(columns=empty_cols)
+        empty_df.to_csv(PROCESSED_DIR / "eligible_clusters.csv", index=False)
+        return empty_df
+
     eligible = apply_buffer(stats_df)
     eligible.to_csv(PROCESSED_DIR / "eligible_clusters.csv", index=False)
-    
+
     print(f"Saved {len(eligible)} eligible clusters")
     return eligible
 

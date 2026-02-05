@@ -31,11 +31,12 @@ _fh.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(message)s"))
 logger.addHandler(_fh)
 
 
-def fetch_feed(feed_config: dict, retries: int = SCRAPER_MAX_RETRIES) -> list:
+def fetch_feed(feed_config: dict, retries: int = SCRAPER_MAX_RETRIES) -> tuple[list, dict]:
     """
     Fetch and parse a single RSS feed with retry logic.
+    Supports fallback URLs via feed_config["urls"].
     """
-    url = feed_config["url"]
+    urls = feed_config.get("urls") or [feed_config["url"]]
     source = feed_config["source"]
     category = feed_config["category"]
     
@@ -44,47 +45,72 @@ def fetch_feed(feed_config: dict, retries: int = SCRAPER_MAX_RETRIES) -> list:
         "Accept": "application/rss+xml, application/xml, text/xml",
     }
     
-    for attempt in range(retries):
-        try:
-            print(f"  Fetching {source}... (attempt {attempt + 1})")
-            response = requests.get(url, headers=headers, timeout=SCRAPER_TIMEOUT)
-            response.raise_for_status()
-            
-            # Parse XML
-            root = ET.fromstring(response.content)
-            
-            # Handle different RSS formats
-            items = []
-            
-            # Standard RSS 2.0
-            for item in root.findall(".//item"):
-                record = parse_rss_item(item, source, category)
-                if record:
-                    items.append(record)
-            
-            # Atom format
-            for entry in root.findall(".//{http://www.w3.org/2005/Atom}entry"):
-                record = parse_atom_entry(entry, source, category)
-                if record:
-                    items.append(record)
-            
-            print(f"    ✓ Found {len(items)} items")
-            logger.info(f"{source}: OK — {len(items)} items")
-            return items
+    last_error = None
+    last_status = None
 
-        except requests.exceptions.RequestException as e:
-            print(f"    ✗ Request failed: {e}")
-            logger.warning(f"{source}: Request failed (attempt {attempt+1}): {e}")
-            if attempt < retries - 1:
-                wait_time = (attempt + 1) * SCRAPER_REQUEST_DELAY
-                print(f"    Waiting {wait_time}s before retry...")
-                time.sleep(wait_time)
-        except ET.ParseError as e:
-            print(f"    ✗ XML parse error: {e}")
-            logger.error(f"{source}: XML parse error: {e}")
-            break
-    
-    return []
+    for url in urls:
+        for attempt in range(retries):
+            try:
+                print(f"  Fetching {source}... (attempt {attempt + 1})")
+                response = requests.get(url, headers=headers, timeout=SCRAPER_TIMEOUT)
+                last_status = response.status_code
+
+                if response.status_code in (403, 404, 410):
+                    msg = f"HTTP {response.status_code}"
+                    print(f"    ✗ {msg} for {url}")
+                    logger.warning(f"{source}: {msg} — {url}")
+                    last_error = msg
+                    break  # Try next URL immediately
+
+                response.raise_for_status()
+                
+                # Parse XML
+                root = ET.fromstring(response.content)
+                
+                # Handle different RSS formats
+                items = []
+                
+                # Standard RSS 2.0
+                for item in root.findall(".//item"):
+                    record = parse_rss_item(item, source, category)
+                    if record:
+                        items.append(record)
+                
+                # Atom format
+                for entry in root.findall(".//{http://www.w3.org/2005/Atom}entry"):
+                    record = parse_atom_entry(entry, source, category)
+                    if record:
+                        items.append(record)
+                
+                print(f"    ✓ Found {len(items)} items")
+                logger.info(f"{source}: OK — {len(items)} items — {url}")
+                return items, {
+                    "status": "ok",
+                    "url": url,
+                    "http_status": response.status_code,
+                    "items": len(items),
+                }
+
+            except requests.exceptions.RequestException as e:
+                print(f"    ✗ Request failed: {e}")
+                logger.warning(f"{source}: Request failed (attempt {attempt+1}) — {url}: {e}")
+                last_error = str(e)
+                if attempt < retries - 1:
+                    wait_time = (attempt + 1) * SCRAPER_REQUEST_DELAY
+                    print(f"    Waiting {wait_time}s before retry...")
+                    time.sleep(wait_time)
+            except ET.ParseError as e:
+                print(f"    ✗ XML parse error: {e}")
+                logger.error(f"{source}: XML parse error — {url}: {e}")
+                last_error = f"XML parse error: {e}"
+                break
+
+    return [], {
+        "status": "failed",
+        "url": urls[-1] if urls else None,
+        "http_status": last_status,
+        "error": last_error,
+    }
 
 
 def parse_rss_item(item, source: str, category: str) -> dict:
@@ -296,7 +322,7 @@ def run_scraper() -> dict:
     for feed_name, feed_config in RSS_FEEDS.items():
         print(f"\n[{feed_name}]")
         
-        records = fetch_feed(feed_config)
+        records, meta = fetch_feed(feed_config)
         
         # Filter to relevant records
         relevant = [r for r in records if is_relevant(r)]
@@ -305,6 +331,10 @@ def run_scraper() -> dict:
         new_records = [r for r in relevant if r["id"] not in existing_ids]
         
         feed_stats[feed_name] = {
+            "status": meta.get("status"),
+            "url": meta.get("url"),
+            "http_status": meta.get("http_status"),
+            "error": meta.get("error"),
             "total": len(records),
             "relevant": len(relevant),
             "new": len(new_records),

@@ -206,6 +206,12 @@ let is3DMode = false;
 let clusterMarkers = [];
 let currentLanguage = 'en';
 
+function getBaseUrl() {
+    return window.location.hostname.includes('cloudfront')
+        ? 'https://heat-plainfield.s3.us-east-1.amazonaws.com/'
+        : './';
+}
+
 // ============================================
 // i18n Translations
 // ============================================
@@ -1079,9 +1085,7 @@ function addClusterMarker(cluster) {
 async function loadData() {
     try {
         // Detect if we're on CloudFront or S3 and adjust paths accordingly
-        const baseUrl = window.location.hostname.includes('cloudfront') 
-            ? 'https://heat-plainfield.s3.us-east-1.amazonaws.com/'
-            : './';
+        const baseUrl = getBaseUrl();
         
         const [clustersRes, timelineRes, keywordsRes, alertsRes, latestNewsRes] = await Promise.all([
             fetch(baseUrl + "data/clusters.json"),
@@ -1130,6 +1134,8 @@ async function loadData() {
             console.warn("Could not load latest_news.json");
             latestNewsData = { items: [] };
         }
+
+        updateDownloadSection();
         
     } catch (error) {
         console.error("Failed to load data:", error);
@@ -1137,7 +1143,31 @@ async function loadData() {
         timelineData = { weeks: [] };
         alertsData = { alerts: [] };
         latestNewsData = { items: [] };
+        updateDownloadSection();
     }
+}
+
+function updateDownloadSection() {
+    const countEl = document.getElementById("download-count");
+    const updatedEl = document.getElementById("download-updated");
+    const jsonLink = document.getElementById("download-json");
+    const csvLink = document.getElementById("download-csv");
+    const openLink = document.getElementById("download-open");
+    if (!countEl || !updatedEl) return;
+
+    const count = clustersData?.clusters?.length ?? 0;
+    countEl.textContent = String(count);
+
+    const updated = clustersData?.generated_at ? new Date(clustersData.generated_at) : null;
+    updatedEl.textContent = updated ? updated.toLocaleString() : "—";
+
+    const baseUrl = getBaseUrl();
+    const jsonUrl = baseUrl + "data/reported_locations.json";
+    const csvUrl = baseUrl + "data/reported_locations.csv";
+
+    if (jsonLink) jsonLink.href = jsonUrl;
+    if (csvLink) csvLink.href = csvUrl;
+    if (openLink) openLink.href = jsonUrl;
 }
 
 // ============================================

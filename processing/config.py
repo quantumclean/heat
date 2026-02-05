@@ -112,12 +112,20 @@ RSS_FEEDS = {
     },
     "tapinto_plainfield": {
         "url": "https://www.tapinto.net/towns/plainfield/sections/government/articles.rss",
+        "urls": [
+            "https://www.tapinto.net/towns/plainfield/sections/government/articles.rss",
+            "https://news.google.com/rss/search?q=site:tapinto.net+plainfield+NJ&hl=en-US&gl=US&ceid=US:en",
+        ],
         "source": "TAPinto Plainfield",
         "category": "news",
         "cities": ["plainfield"],
     },
     "tapinto_plainfield_police": {
         "url": "https://www.tapinto.net/towns/plainfield/sections/police-and-fire/articles.rss",
+        "urls": [
+            "https://www.tapinto.net/towns/plainfield/sections/police-and-fire/articles.rss",
+            "https://news.google.com/rss/search?q=site:tapinto.net+plainfield+police+fire&hl=en-US&gl=US&ceid=US:en",
+        ],
         "source": "TAPinto Plainfield",
         "category": "news",
         "cities": ["plainfield"],
@@ -125,6 +133,10 @@ RSS_FEEDS = {
     # "plainfield_city" removed — plainfieldnj.gov/feed/ not returning valid RSS
     "patch_plainfield": {
         "url": "https://patch.com/new-jersey/plainfield/rss",
+        "urls": [
+            "https://patch.com/new-jersey/plainfield/rss",
+            "https://news.google.com/rss/search?q=site:patch.com+plainfield+NJ&hl=en-US&gl=US&ceid=US:en",
+        ],
         "source": "Patch Plainfield",
         "category": "news",
         "cities": ["plainfield"],
@@ -133,6 +145,10 @@ RSS_FEEDS = {
     # ===== HOBOKEN, NJ =====
     "tapinto_hoboken": {
         "url": "https://www.tapinto.net/towns/hoboken/sections/government/articles.rss",
+        "urls": [
+            "https://www.tapinto.net/towns/hoboken/sections/government/articles.rss",
+            "https://news.google.com/rss/search?q=site:tapinto.net+hoboken+NJ&hl=en-US&gl=US&ceid=US:en",
+        ],
         "source": "TAPinto Hoboken",
         "category": "news",
         "cities": ["hoboken"],
@@ -140,6 +156,10 @@ RSS_FEEDS = {
     # "hoboken_official" removed — hobokennj.gov/news/feed/ not returning valid RSS
     "patch_hoboken": {
         "url": "https://patch.com/new-jersey/hoboken/rss",
+        "urls": [
+            "https://patch.com/new-jersey/hoboken/rss",
+            "https://news.google.com/rss/search?q=site:patch.com+hoboken+NJ&hl=en-US&gl=US&ceid=US:en",
+        ],
         "source": "Patch Hoboken",
         "category": "news",
         "cities": ["hoboken"],
@@ -148,6 +168,10 @@ RSS_FEEDS = {
     # ===== TRENTON, NJ =====
     "tapinto_trenton": {
         "url": "https://www.tapinto.net/towns/trenton/sections/government/articles.rss",
+        "urls": [
+            "https://www.tapinto.net/towns/trenton/sections/government/articles.rss",
+            "https://news.google.com/rss/search?q=site:tapinto.net+trenton+NJ&hl=en-US&gl=US&ceid=US:en",
+        ],
         "source": "TAPinto Trenton",
         "category": "news",
         "cities": ["trenton"],
@@ -161,6 +185,10 @@ RSS_FEEDS = {
     # "trenton_official" removed — trentonnj.gov/feed/ not returning valid RSS
     "patch_trenton": {
         "url": "https://patch.com/new-jersey/trenton/rss",
+        "urls": [
+            "https://patch.com/new-jersey/trenton/rss",
+            "https://news.google.com/rss/search?q=site:patch.com+trenton+NJ&hl=en-US&gl=US&ceid=US:en",
+        ],
         "source": "Patch Trenton",
         "category": "news",
         "cities": ["trenton"],
@@ -169,6 +197,10 @@ RSS_FEEDS = {
     # ===== NEW BRUNSWICK, NJ =====
     "tapinto_new_brunswick": {
         "url": "https://www.tapinto.net/towns/new-brunswick/sections/government/articles.rss",
+        "urls": [
+            "https://www.tapinto.net/towns/new-brunswick/sections/government/articles.rss",
+            "https://news.google.com/rss/search?q=site:tapinto.net+new+brunswick+NJ&hl=en-US&gl=US&ceid=US:en",
+        ],
         "source": "TAPinto New Brunswick",
         "category": "news",
         "cities": ["new_brunswick"],
@@ -181,6 +213,10 @@ RSS_FEEDS = {
     },
     "patch_new_brunswick": {
         "url": "https://patch.com/new-jersey/newbrunswick/rss",
+        "urls": [
+            "https://patch.com/new-jersey/newbrunswick/rss",
+            "https://news.google.com/rss/search?q=site:patch.com+new+brunswick+NJ&hl=en-US&gl=US&ceid=US:en",
+        ],
         "source": "Patch New Brunswick",
         "category": "news",
         "cities": ["new_brunswick"],
@@ -231,6 +267,10 @@ RSS_FEEDS = {
     # ===== ADDITIONAL NJ NEWS =====
     "north_jersey": {
         "url": "https://www.northjersey.com/arc/outboundfeeds/rss/",
+        "urls": [
+            "https://www.northjersey.com/arc/outboundfeeds/rss/",
+            "https://news.google.com/rss/search?q=site:northjersey.com+New+Jersey&hl=en-US&gl=US&ceid=US:en",
+        ],
         "source": "North Jersey",
         "category": "news",
         "cities": ["hoboken", "plainfield", "new_brunswick"],

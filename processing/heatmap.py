@@ -126,7 +126,20 @@ def generate_heatmap_data():
         return None
     
     df = pd.read_csv(records_path)
-    df["date"] = pd.to_datetime(df["date"])
+    if df.empty or "zip" not in df.columns:
+        print("No records available for heatmap. Writing empty heatmap output.")
+        BUILD_DIR.mkdir(parents=True, exist_ok=True)
+        empty_output = {
+            "generated_at": datetime.now().isoformat(),
+            "zip_density": {},
+            "kde": {"grid": [], "bounds": None},
+            "centroids": ZIP_CENTROIDS,
+        }
+        with open(BUILD_DIR / "heatmap.json", "w") as f:
+            json.dump(empty_output, f, indent=2)
+        return empty_output
+
+    df["date"] = pd.to_datetime(df["date"], errors="coerce")
     print(f"Generating heatmap from {len(df)} records")
     
     # 1. ZIP-level density

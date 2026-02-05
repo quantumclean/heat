@@ -11,14 +11,22 @@ from datetime import datetime, timezone
 
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 
-# Load model once
-print("Loading embedding model...")
-MODEL = SentenceTransformer("all-MiniLM-L6-v2")
+MODEL = None
+
+
+def get_model() -> SentenceTransformer:
+    """Lazy-load embedding model to avoid startup cost on empty data."""
+    global MODEL
+    if MODEL is None:
+        print("Loading embedding model...")
+        MODEL = SentenceTransformer("all-MiniLM-L6-v2")
+    return MODEL
 
 
 def embed_texts(texts: list[str]) -> np.ndarray:
     """Generate embeddings for text list."""
-    return MODEL.encode(texts, show_progress_bar=True)
+    model = get_model()
+    return model.encode(texts, show_progress_bar=True)
 
 
 def cluster_embeddings(embeddings: np.ndarray, min_cluster_size: int = 2) -> np.ndarray:
@@ -65,8 +73,34 @@ def calculate_novelty(
 def run_clustering():
     """Main clustering pipeline."""
     # Load data
-    df = pd.read_csv(PROCESSED_DIR / "all_records.csv")
-    df["date"] = pd.to_datetime(df["date"])
+    records_path = PROCESSED_DIR / "all_records.csv"
+    if not records_path.exists():
+        print(f"ERROR: {records_path} not found")
+        return None
+
+    df = pd.read_csv(records_path)
+    if df.empty or "text" not in df.columns:
+        print("No records found. Writing empty cluster outputs.")
+        clustered_cols = list(df.columns) + ["cluster"] if "cluster" not in df.columns else list(df.columns)
+        empty_clustered = pd.DataFrame(columns=clustered_cols)
+        empty_clustered.to_csv(PROCESSED_DIR / "clustered_records.csv", index=False)
+
+        stats_columns = [
+            "cluster_id",
+            "size",
+            "volume_score",
+            "primary_zip",
+            "earliest_date",
+            "latest_date",
+            "representative_text",
+            "sources",
+            "urls",
+        ]
+        empty_stats = pd.DataFrame(columns=stats_columns)
+        empty_stats.to_csv(PROCESSED_DIR / "cluster_stats.csv", index=False)
+        return empty_stats
+
+    df["date"] = pd.to_datetime(df["date"], errors="coerce")
     print(f"Loaded {len(df)} records")
     
     # Generate embeddings

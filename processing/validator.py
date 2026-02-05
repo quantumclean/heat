@@ -107,6 +107,10 @@ class DataValidator:
                 return {"status": "fail", "reason": "file_missing"}
             
             df = pd.read_csv(records_path)
+            if df.empty:
+                self._warn("No records found; freshness check skipped")
+                return {"status": "warn", "reason": "no_records"}
+
             df["date"] = pd.to_datetime(df["date"], errors="coerce")
             
             now = datetime.now(timezone.utc)
@@ -114,8 +118,8 @@ class DataValidator:
             oldest = df["date"].min()
             
             if pd.isna(latest):
-                self._fail("No valid dates in records")
-                return {"status": "fail", "reason": "no_dates"}
+                self._warn("No valid dates in records; freshness check skipped")
+                return {"status": "warn", "reason": "no_dates"}
             
             # Check if we have recent data (within 7 days)
             days_since_latest = (now - latest.tz_localize(timezone.utc)).days

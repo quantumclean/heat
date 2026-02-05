@@ -258,6 +258,30 @@ header {
     line-height: 1.4;
 }
 
+/* Download section */
+.download-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.download-meta {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+}
+
+.download-actions {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
 /* Quick Stats */
 .quick-stats {
     display: flex;

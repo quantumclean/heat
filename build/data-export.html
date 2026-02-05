@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>HEAT Data Export - Interactive Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+    <style>
+        .export-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+        }
+        
+        .export-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .export-tabs {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+            overflow-x: auto;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .export-tab {
+            padding: var(--space-sm) var(--space-md);
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+        }
+        
+        .export-tab:hover {
+            color: var(--accent);
+        }
+        
+        .export-tab.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+        
+        .export-tab-content {
+            display: none;
+        }
+        
+        .export-tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .summary-card {
+            padding: var(--space-md);
+        }
+        
+        .summary-value {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--accent);
+            margin: var(--space-sm) 0;
+        }
+        
+        .summary-label {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .chart-container {
+            margin-bottom: var(--space-xl);
+            padding: var(--space-lg);
+        }
+        
+        .chart-canvas {
+            max-height: 400px;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-lg) 0;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: var(--space-sm);
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .data-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        
+        .data-table tr:hover {
+            background: var(--bg-lighter);
+        }
+        
+        .download-section {
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+            text-align: center;
+        }
+        
+        .download-buttons {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--space-md);
+        }
+        
+        .download-btn {
+            padding: var(--space-sm) var(--space-lg);
+            font-size: var(--text-base);
+            min-width: 200px;
+        }
+        
+        .tracking-section {
+            margin: var(--space-lg) 0;
+        }
+        
+        .tracking-item {
+            padding: var(--space-md);
+            margin: var(--space-sm) 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .tracking-id {
+            font-family: 'Courier New', monospace;
+            background: var(--bg-tertiary);
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: var(--text-sm);
+        }
+        
+        .quality-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            font-weight: 600;
+        }
+        
+        .quality-high {
+            background: var(--success);
+            color: white;
+        }
+        
+        .quality-medium {
+            background: var(--warning);
+            color: white;
+        }
+        
+        .quality-low {
+            background: var(--text-muted);
+            color: white;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+        }
+        
+        .filter-control {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+        
+        .filter-control label {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        
+        .filter-control select,
+        .filter-control input {
+            padding: var(--space-xs) var(--space-sm);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--bg);
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+    <div class="export-container">
+        <header class="export-header">
+            <h1>🔥 HEAT Data Export Dashboard</h1>
+            <p class="subtitle">Interactive data exploration and analysis</p>
+            <p style="color: var(--text-muted); margin-top: var(--space-sm);">
+                Last Updated: <strong id="last-updated">Loading...</strong>
+            </p>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="export-tabs">
+            <button class="export-tab active" data-tab="summary">📊 Summary</button>
+            <button class="export-tab" data-tab="charts">📈 Charts</button>
+            <button class="export-tab" data-tab="clusters">🗺️ Clusters</button>
+            <button class="export-tab" data-tab="timeline">⏰ Timeline</button>
+            <button class="export-tab" data-tab="sources">📰 Sources</button>
+            <button class="export-tab" data-tab="tracking">🔍 Tracking</button>
+            <button class="export-tab" data-tab="download">⬇️ Download</button>
+        </div>
+
+        <!-- Tab 1: Summary -->
+        <div class="export-tab-content active" data-tab-content="summary">
+            <div class="summary-grid">
+                <div class="summary-card glass-card">
+                    <div class="summary-label">Total Clusters</div>
+                    <div class="summary-value" id="total-clusters">--</div>
+                    <p class="muted-text">Identified attention patterns</p>
+                </div>
+                <div class="summary-card glass-card">
+                    <div class="summary-label">Total Records</div>
+                    <div class="summary-value" id="total-records">--</div>
+                    <p class="muted-text">Raw signals collected</p>
+                </div>
+                <div class="summary-card glass-card">
+                    <div class="summary-label">ZIP Codes</div>
+                    <div class="summary-value" id="unique-zips">--</div>
+                    <p class="muted-text">Geographic areas covered</p>
+                </div>
+                <div class="summary-card glass-card">
+                    <div class="summary-label">Data Sources</div>
+                    <div class="summary-value" id="unique-sources">--</div>
+                    <p class="muted-text">Distinct information sources</p>
+                </div>
+            </div>
+
+            <div class="glass-card" style="padding: var(--space-lg);">
+                <h3>📅 Date Range</h3>
+                <p><strong>Start:</strong> <span id="date-start">--</span></p>
+                <p><strong>End:</strong> <span id="date-end">--</span></p>
+                <p><strong>Duration:</strong> <span id="date-duration">--</span> days</p>
+            </div>
+        </div>
+
+        <!-- Tab 2: Charts -->
+        <div class="export-tab-content" data-tab-content="charts">
+            <div class="chart-container glass-card">
+                <h3>Geographic Distribution</h3>
+                <canvas id="chart-geo" class="chart-canvas"></canvas>
+            </div>
+            <div class="chart-container glass-card">
+                <h3>Attention Timeline</h3>
+                <canvas id="chart-timeline" class="chart-canvas"></canvas>
+            </div>
+            <div class="chart-container glass-card">
+                <h3>Source Distribution</h3>
+                <canvas id="chart-sources" class="chart-canvas"></canvas>
+            </div>
+            <div class="chart-container glass-card">
+                <h3>Cluster Size Distribution</h3>
+                <canvas id="chart-sizes" class="chart-canvas"></canvas>
+            </div>
+        </div>
+
+        <!-- Tab 3: Clusters -->
+        <div class="export-tab-content" data-tab-content="clusters">
+            <div class="filter-controls">
+                <div class="filter-control">
+                    <label>ZIP Code</label>
+                    <select id="filter-zip">
+                        <option value="">All ZIPs</option>
+                    </select>
+                </div>
+                <div class="filter-control">
+                    <label>Quality</label>
+                    <select id="filter-quality">
+                        <option value="">All Levels</option>
+                        <option value="HIGH">High</option>
+                        <option value="MEDIUM">Medium</option>
+                        <option value="LOW">Low</option>
+                    </select>
+                </div>
+                <div class="filter-control">
+                    <label>Min Size</label>
+                    <input type="number" id="filter-size" min="0" placeholder="Any">
+                </div>
+            </div>
+
+            <div id="clusters-table" class="glass-card" style="overflow-x: auto;">
+                <p>Loading clusters...</p>
+            </div>
+        </div>
+
+        <!-- Tab 4: Timeline -->
+        <div class="export-tab-content" data-tab-content="timeline">
+            <div id="timeline-table" class="glass-card" style="overflow-x: auto;">
+                <p>Loading timeline...</p>
+            </div>
+        </div>
+
+        <!-- Tab 5: Sources -->
+        <div class="export-tab-content" data-tab-content="sources">
+            <div id="sources-table" class="glass-card" style="overflow-x: auto;">
+                <p>Loading sources...</p>
+            </div>
+        </div>
+
+        <!-- Tab 6: Tracking -->
+        <div class="export-tab-content" data-tab-content="tracking">
+            <div class="glass-card" style="padding: var(--space-lg);">
+                <h3>🔍 Trace a Cluster</h3>
+                <p class="muted-text">Enter a tracking ID to view full cluster details</p>
+                <div style="display: flex; gap: var(--space-sm); margin: var(--space-md) 0;">
+                    <input type="text" id="tracking-search" placeholder="HEAT-CLU-000001" style="flex: 1; padding: var(--space-sm);">
+                    <button class="glass-btn" onclick="searchTracking()">Search</button>
+                </div>
+            </div>
+
+            <div id="tracking-results" class="tracking-section">
+                <!-- Results appear here -->
+            </div>
+        </div>
+
+        <!-- Tab 7: Download -->
+        <div class="export-tab-content" data-tab-content="download">
+            <div class="download-section glass-card">
+                <h2>⬇️ Download Complete Dataset</h2>
+                <p>Comprehensive multi-section CSV with all data, metadata, and tracking information</p>
+                
+                <div class="download-buttons">
+                    <a href="data/comprehensive_data_export.csv" download class="glass-btn download-btn">
+                        Download Comprehensive CSV
+                    </a>
+                    <a href="data/reported_locations.json" download class="glass-btn download-btn">
+                        Download JSON
+                    </a>
+                    <a href="data/visualization_metadata.json" download class="glass-btn download-btn">
+                        Download Chart Metadata
+                    </a>
+                </div>
+
+                <div style="margin-top: var(--space-xl); text-align: left;">
+                    <h3>📋 What's Included:</h3>
+                    <ul style="line-height: 2;">
+                        <li><strong>Section 1:</strong> Metadata & Summary Statistics</li>
+                        <li><strong>Section 2:</strong> Cluster Data with Tracking IDs</li>
+                        <li><strong>Section 3:</strong> Timeline & Trend Analysis</li>
+                        <li><strong>Section 4:</strong> Geographic Distribution</li>
+                        <li><strong>Section 5:</strong> Source Tracking & Reliability</li>
+                        <li><strong>Section 6:</strong> Data Quality Metrics</li>
+                        <li><strong>Section 7:</strong> Methodology Notes</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--space-lg);">📊 Visualization Metadata:</h3>
+                    <p>Includes pre-configured chart definitions for:</p>
+                    <ul style="line-height: 2;">
+                        <li>Geographic distribution (bar chart)</li>
+                        <li>Timeline trends (line chart)</li>
+                        <li>Source distribution (pie chart)</li>
+                        <li>Cluster size histogram</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--space-lg);">📄 License:</h3>
+                    <p>This data is released under the <strong>Ethical Use License</strong>.</p>
+                    <p style="color: var(--danger); font-weight: 600;">
+                        ⚠️ Not for surveillance, enforcement, targeting, or discriminatory purposes
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data-export.js"></script>
+</body>
+</html>
