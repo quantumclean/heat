@@ -122,12 +122,7 @@ RSS_FEEDS = {
         "category": "news",
         "cities": ["plainfield"],
     },
-    "plainfield_city": {
-        "url": "https://www.plainfieldnj.gov/feed/",
-        "source": "City of Plainfield",
-        "category": "government",
-        "cities": ["plainfield"],
-    },
+    # "plainfield_city" removed — plainfieldnj.gov/feed/ not returning valid RSS
     "patch_plainfield": {
         "url": "https://patch.com/new-jersey/plainfield/rss",
         "source": "Patch Plainfield",
@@ -142,12 +137,7 @@ RSS_FEEDS = {
         "category": "news",
         "cities": ["hoboken"],
     },
-    "hoboken_official": {
-        "url": "https://hobokennj.gov/news/feed/",
-        "source": "City of Hoboken",
-        "category": "government",
-        "cities": ["hoboken"],
-    },
+    # "hoboken_official" removed — hobokennj.gov/news/feed/ not returning valid RSS
     "patch_hoboken": {
         "url": "https://patch.com/new-jersey/hoboken/rss",
         "source": "Patch Hoboken",
@@ -168,12 +158,7 @@ RSS_FEEDS = {
         "category": "news",
         "cities": ["trenton"],
     },
-    "trenton_official": {
-        "url": "https://www.trentonnj.gov/feed/",
-        "source": "City of Trenton",
-        "category": "government",
-        "cities": ["trenton"],
-    },
+    # "trenton_official" removed — trentonnj.gov/feed/ not returning valid RSS
     "patch_trenton": {
         "url": "https://patch.com/new-jersey/trenton/rss",
         "source": "Patch Trenton",
@@ -234,15 +219,11 @@ RSS_FEEDS = {
     },
 
     # ===== SPANISH-LANGUAGE NEWS =====
-    "univision_nj": {
-        "url": "https://www.univision.com/rss/noticias/new-jersey",
-        "source": "Univision NJ",
-        "category": "news",
-        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
-    },
-    "telemundo_nj": {
-        "url": "https://www.telemundo47.com/rss/noticias/new-jersey",
-        "source": "Telemundo 47 NJ",
+    # "univision_nj" removed — univision.com/rss/noticias/new-jersey not returning valid RSS
+    # "telemundo_nj" removed — telemundo47.com/rss/noticias/new-jersey not returning valid RSS
+    "google_news_nj_ice_spanish": {
+        "url": "https://news.google.com/rss/search?q=ICE+inmigraci%C3%B3n+Nueva+Jersey&hl=es-US&gl=US&ceid=US:es",
+        "source": "Google News (ES)",
         "category": "news",
         "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
     },
@@ -269,6 +250,54 @@ RSS_FEEDS = {
     "nj_spotlight": {
         "url": "https://www.njspotlightnews.org/feed/",
         "source": "NJ Spotlight News",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== NEWS12 NJ =====
+    "news12_nj": {
+        "url": "https://newjersey.news12.com/rss",
+        "source": "News 12 New Jersey",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== REDDIT r/newjersey (RSS — no API credentials needed) =====
+    "reddit_newjersey_immigration": {
+        "url": "https://www.reddit.com/r/newjersey/search.rss?q=ICE+OR+immigration+OR+deportation+OR+sanctuary&restrict_sr=on&sort=new",
+        "source": "Reddit r/newjersey",
+        "category": "community",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "reddit_newjersey_enforcement": {
+        "url": "https://www.reddit.com/r/newjersey/search.rss?q=ICE+OR+raid+OR+checkpoint+OR+enforcement&restrict_sr=on&sort=new",
+        "source": "Reddit r/newjersey",
+        "category": "community",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "reddit_newjersey_general": {
+        "url": "https://www.reddit.com/r/newjersey/.rss",
+        "source": "Reddit r/newjersey",
+        "category": "community",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== ADDITIONAL GOOGLE NEWS TARGETED SEARCHES =====
+    "google_news_ice_plainfield": {
+        "url": "https://news.google.com/rss/search?q=ICE+Plainfield+NJ&hl=en-US&gl=US&ceid=US:en",
+        "source": "Google News",
+        "category": "news",
+        "cities": ["plainfield"],
+    },
+    "google_news_ice_students_nj": {
+        "url": "https://news.google.com/rss/search?q=ICE+students+protest+New+Jersey&hl=en-US&gl=US&ceid=US:en",
+        "source": "Google News",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "google_news_ice_surveillance": {
+        "url": "https://news.google.com/rss/search?q=ICE+surveillance+New+Jersey&hl=en-US&gl=US&ceid=US:en",
+        "source": "Google News",
         "category": "news",
         "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
     },

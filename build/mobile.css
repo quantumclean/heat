@@ -1,0 +1,171 @@
+/* ========================================
+   HEAT — Mobile Responsive Overrides
+   Breakpoints from design system:
+     --bp-mobile: 428px
+     --bp-tablet: 768px
+     --bp-desktop: 1024px
+   ======================================== */
+
+/* ===== Tablet and below (< 1024px) ===== */
+@media (max-width: 1024px) {
+    .map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .news-sidebar {
+        position: static;
+        max-height: 400px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===== Mobile (< 768px) ===== */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 0.75rem;
+    }
+
+    .header-top {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .header-brand h1 {
+        font-size: 1.1rem;
+    }
+
+    .region-nav {
+        gap: 0.4rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 0.25rem;
+    }
+
+    .region-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .region-btn {
+        min-width: auto;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+    }
+
+    .region-btn small {
+        display: none;
+    }
+
+    main {
+        padding: 1rem 0.5rem;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .dash-card {
+        padding: 0.75rem;
+    }
+
+    .dash-icon {
+        font-size: 1.2rem;
+    }
+
+    #map {
+        height: 350px;
+    }
+
+    .news-sidebar {
+        max-height: 350px;
+    }
+
+    .sidebar-header h3 {
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .comparison-box {
+        flex-direction: column;
+    }
+
+    .quick-stats {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Ensure touch targets are 44px minimum */
+    .glass-btn,
+    .region-btn,
+    button,
+    a.submit-signal-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .search-box {
+        font-size: 16px; /* Prevent iOS zoom on input focus */
+    }
+
+    .search-box input {
+        font-size: 16px;
+    }
+}
+
+/* ===== Small phone (< 428px) ===== */
+@media (max-width: 428px) {
+    .header-brand h1 {
+        font-size: 0.95rem;
+    }
+
+    .version-tag {
+        display: none;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .dash-value {
+        font-size: 1.2rem;
+    }
+
+    #map {
+        height: 280px;
+    }
+
+    .timeline-slider-container {
+        padding: 0.75rem;
+    }
+
+    .legend {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer-tiers-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+}
+
+/* ===== Safe area support for PWA (notch devices) ===== */
+@supports (padding: env(safe-area-inset-top)) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: env(safe-area-inset-left);
+    }
+}

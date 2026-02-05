@@ -210,12 +210,14 @@ def export_for_static_site():
     # Export keywords and categories
     if nlp_data:
         keywords_output = {
+            "generated_at": nlp_data.get("generated_at"),
+            "keywords": nlp_data.get("keywords_enriched", []),
             "top_keywords": nlp_data.get("top_keywords", []),
             "categories": nlp_data.get("category_distribution", {}),
             "related_terms": nlp_data.get("related_terms", {}),
         }
         
-        with open(BUILD_DIR / "keywords.json", "w") as f:
+        with open(BUILD_DIR / "keywords.json", "w", encoding="utf-8") as f:
             json.dump(keywords_output, f, indent=2)
         
         print(f"Exported keywords to {BUILD_DIR / 'keywords.json'}")

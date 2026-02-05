@@ -8,7 +8,9 @@ from datetime import datetime, timedelta
 import time
 import re
 import csv
+import json
 import hashlib
+import logging
 from pathlib import Path
 
 from config import (
@@ -17,6 +19,16 @@ from config import (
     SCRAPER_TIMEOUT, SCRAPER_MAX_RETRIES,
     RAW_DIR, PROCESSED_DIR
 )
+
+# Set up file logging
+LOGS_DIR = Path(__file__).parent.parent / "data" / "logs"
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+logger = logging.getLogger("rss_scraper")
+logger.setLevel(logging.INFO)
+_fh = logging.FileHandler(LOGS_DIR / "rss_scraper.log", encoding="utf-8")
+_fh.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(message)s"))
+logger.addHandler(_fh)
 
 
 def fetch_feed(feed_config: dict, retries: int = SCRAPER_MAX_RETRIES) -> list:
@@ -57,16 +69,19 @@ def fetch_feed(feed_config: dict, retries: int = SCRAPER_MAX_RETRIES) -> list:
                     items.append(record)
             
             print(f"    ✓ Found {len(items)} items")
+            logger.info(f"{source}: OK — {len(items)} items")
             return items
-            
+
         except requests.exceptions.RequestException as e:
             print(f"    ✗ Request failed: {e}")
+            logger.warning(f"{source}: Request failed (attempt {attempt+1}): {e}")
             if attempt < retries - 1:
                 wait_time = (attempt + 1) * SCRAPER_REQUEST_DELAY
                 print(f"    Waiting {wait_time}s before retry...")
                 time.sleep(wait_time)
         except ET.ParseError as e:
             print(f"    ✗ XML parse error: {e}")
+            logger.error(f"{source}: XML parse error: {e}")
             break
     
     return []
@@ -323,11 +338,21 @@ def run_scraper() -> dict:
     else:
         print("No new records to save")
     
-    return {
+    # Write feed status log (JSON)
+    status_report = {
+        "timestamp": datetime.now().isoformat(),
         "total_new": len(all_records),
         "feeds": feed_stats,
-        "timestamp": datetime.now().isoformat(),
     }
+    try:
+        status_file = LOGS_DIR / "rss_feed_status.json"
+        with open(status_file, "w", encoding="utf-8") as f:
+            json.dump(status_report, f, indent=2)
+        logger.info(f"Feed status written to {status_file}")
+    except Exception as e:
+        logger.error(f"Failed to write feed status: {e}")
+
+    return status_report
 
 
 if __name__ == "__main__":

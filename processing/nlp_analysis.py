@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from collections import Counter
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import re
 import json
 
@@ -46,23 +46,32 @@ STOPWORDS = set([
     "early", "young", "important", "public", "bad", "good"
 ])
 
+# Generic/overused terms to filter out (too common to be meaningful)
+GENERIC_TERMS = set([
+    "ice", "immigration", "sanctuary", "jersey", "trump", "biden", "government",
+    "federal", "national", "news", "report", "says", "said", "according", "today",
+    "yesterday", "week", "month", "year", "time", "people", "community", "area",
+    "local", "state", "city", "county", "officials", "sources", "update", "new",
+    "enforcement", "agents", "agency", "department", "administration"
+])
+
 
 def extract_keywords(text: str, top_n: int = 10) -> list[str]:
-    """Extract significant keywords from text."""
+    """Extract significant keywords from text, filtering generic terms."""
     # Normalize
     text = text.lower()
     words = re.findall(r'\b[a-z]{3,}\b', text)
     
-    # Filter stopwords
-    words = [w for w in words if w not in STOPWORDS]
+    # Filter stopwords AND generic terms
+    words = [w for w in words if w not in STOPWORDS and w not in GENERIC_TERMS]
     
     # Count frequencies
     counts = Counter(words)
     
-    # Boost domain-specific terms
+    # Boost domain-specific terms (except the generic ones)
     for category, terms in CIVIC_KEYWORDS.items():
         for term in terms:
-            if term in counts:
+            if term in counts and term not in GENERIC_TERMS:
                 counts[term] *= 3  # Boost civic terms
     
     return [word for word, count in counts.most_common(top_n)]
@@ -78,6 +87,40 @@ def categorize_text(text: str) -> list[str]:
             categories.append(category)
     
     return categories if categories else ["general"]
+
+
+def extract_keywords_with_context(df: pd.DataFrame) -> dict:
+    """
+    Extract keywords with location, source, and time metadata.
+    Returns enriched keyword data showing WHERE and WHEN they appear.
+    """
+    from datetime import datetime, timezone
+    
+    keyword_metadata = {}
+    
+    for _, row in df.iterrows():
+        keywords = extract_keywords(row['text'], top_n=10)
+        for kw in keywords:
+            if kw not in keyword_metadata:
+                keyword_metadata[kw] = {
+                    'count': 0,
+                    'zips': Counter(),
+                    'sources': Counter(),
+                    'latest_date': None,
+                    'earliest_date': None
+                }
+            
+            keyword_metadata[kw]['count'] += 1
+            keyword_metadata[kw]['zips'][str(row['zip']).zfill(5)] += 1
+            keyword_metadata[kw]['sources'][row['source']] += 1
+            
+            date = pd.to_datetime(row['date'], utc=True)
+            if not keyword_metadata[kw]['latest_date'] or date > keyword_metadata[kw]['latest_date']:
+                keyword_metadata[kw]['latest_date'] = date
+            if not keyword_metadata[kw]['earliest_date'] or date < keyword_metadata[kw]['earliest_date']:
+                keyword_metadata[kw]['earliest_date'] = date
+    
+    return keyword_metadata
 
 
 # =============================================================================
@@ -313,7 +356,27 @@ def run_nlp_analysis():
         related = propagate_topics(seeds, co_occurrence, depth=2, min_weight=1)
         related_terms[category] = related[:10]  # Top 10 related
     
-    # 6. Aggregate statistics
+    # 6. Aggregate statistics with context
+    keyword_metadata = extract_keywords_with_context(df)
+    
+    # Convert to sorted list for export
+    top_keywords_with_context = []
+    for word, data in sorted(keyword_metadata.items(), key=lambda x: x[1]['count'], reverse=True)[:30]:
+        top_keywords_with_context.append({
+            'word': word,
+            'count': data['count'],
+            'top_location': data['zips'].most_common(1)[0][0] if data['zips'] else 'Unknown',
+            'locations': dict(data['zips'].most_common(3)),
+            'top_source': data['sources'].most_common(1)[0][0] if data['sources'] else 'Unknown',
+            'sources': list(data['sources'].keys())[:3],
+            'date_range': {
+                'start': data['earliest_date'].isoformat() if data['earliest_date'] else None,
+                'end': data['latest_date'].isoformat() if data['latest_date'] else None
+            },
+            'recency_hours': (datetime.now(timezone.utc) - data['latest_date']).total_seconds() / 3600 if data['latest_date'] else 999999
+        })
+    
+    # Keep legacy format for backward compatibility
     all_keywords = []
     for kw_list in df["keywords"]:
         all_keywords.extend(kw_list)
@@ -326,11 +389,12 @@ def run_nlp_analysis():
     
     # Save results
     nlp_results = {
-        "generated_at": datetime.now().isoformat(),
+        "generated_at": datetime.now(timezone.utc).isoformat(),
         "total_records": len(df),
         "burst_score": burst_score,
         "trend": trend,
         "top_keywords": top_keywords,
+        "keywords_enriched": top_keywords_with_context,
         "category_distribution": category_counts,
         "related_terms": related_terms,
         "burst_periods": bursts[bursts["is_burst"]][["hour_bin", "count", "z_score"]].to_dict(orient="records") if len(bursts[bursts["is_burst"]]) > 0 else [],

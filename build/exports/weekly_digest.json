@@ -1,0 +1,24 @@
+{
+  "type": "weekly_digest",
+  "week_of": "2026-02-04",
+  "summary": "Community Attention Update",
+  "trend": {
+    "direction": "increasing",
+    "arrow": "\u2191",
+    "description": "Attention is increasing"
+  },
+  "alerts": [
+    {
+      "class": "A",
+      "title": "Community Attention Update",
+      "body": "ICE-related discussion intensity increased in your area today compared to recent baseline.\n\nThis reflects a change in public conversation, not confirmation of specific events or locations."
+    },
+    {
+      "class": "B",
+      "title": "Sustained Civic Focus Detected",
+      "body": "ICE-related topics have remained elevated in your area over the past day.\n\nPatterns are based on aggregated public information and opt-in reports."
+    }
+  ],
+  "context": "This digest reflects patterns in aggregated public information. It does not indicate specific events, locations, or activities.",
+  "generated_at": "2026-02-04T18:00:45.087550"
+}

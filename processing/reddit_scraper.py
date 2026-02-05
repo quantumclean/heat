@@ -25,6 +25,11 @@ SUBREDDITS = {
         "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
         "default_zip": "07060",  # Plainfield
     },
+    "nj_politics": {
+        "name": "nj_politics",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+        "default_zip": "07060",  # Plainfield
+    },
     "plainfield": {
         "name": "PlainFieldNJ",
         "cities": ["plainfield"],
@@ -39,6 +44,21 @@ SUBREDDITS = {
         "name": "NewBrunswickNJ",
         "cities": ["new_brunswick"],
         "default_zip": "08901",
+    },
+    "newark": {
+        "name": "Newark",
+        "cities": ["plainfield", "hoboken"],  # Near both cities
+        "default_zip": "07102",
+    },
+    "jerseycity": {
+        "name": "jerseycity",
+        "cities": ["hoboken"],  # Adjacent to Hoboken
+        "default_zip": "07302",
+    },
+    "immigration": {
+        "name": "immigration",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],  # National but may mention NJ
+        "default_zip": "07060",  # Default to Plainfield
     },
     # Note: Trenton doesn't have an active subreddit as of 2026
 }
@@ -319,9 +339,9 @@ def run_scraper(subreddits: list = None, time_filter: str = "week", limit_per_su
 
 if __name__ == "__main__":
     try:
-        # Fetch from main NJ subreddits
+        # Fetch from all NJ subreddits + immigration subreddit
         result = run_scraper(
-            subreddits=["newjersey", "hoboken", "newbrunswick"],
+            subreddits=["newjersey", "nj_politics", "hoboken", "newbrunswick", "newark", "jerseycity", "immigration"],
             time_filter="week",
             limit_per_sub=50
         )

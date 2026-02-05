@@ -303,9 +303,9 @@ def run_alert_engine():
     
     # Save alerts
     alerts_path = PROCESSED_DIR / "alerts.json"
-    with open(alerts_path, "w") as f:
+    with open(alerts_path, "w", encoding="utf-8") as f:
         json.dump(alerts, f, indent=2)
-    print(f"\n✓ Saved alerts: {alerts_path}")
+    print(f"\nSaved alerts: {alerts_path}")
     
     # Generate weekly digest
     digest = generate_weekly_digest(alerts, timeline_data)
@@ -345,9 +345,9 @@ def run_alert_engine():
     }
     
     (BUILD_DIR / "data").mkdir(parents=True, exist_ok=True)
-    with open(BUILD_DIR / "data" / "alerts.json", "w") as f:
+    with open(BUILD_DIR / "data" / "alerts.json", "w", encoding="utf-8") as f:
         json.dump(all_alerts, f, indent=2)
-    print(f"✓ Saved combined alerts: {BUILD_DIR / 'data' / 'alerts.json'}")
+    print(f"Saved combined alerts: {BUILD_DIR / 'data' / 'alerts.json'}")
     
     # Optional: send SMS if notifier is available and env is configured
     if send_sms_alerts and os.getenv("ENABLE_SMS_ALERTS") == "true":
@@ -374,9 +374,9 @@ def run_alert_engine():
     
     digest_path = EXPORTS_DIR / "weekly_digest.json"
     EXPORTS_DIR.mkdir(parents=True, exist_ok=True)
-    with open(digest_path, "w") as f:
+    with open(digest_path, "w", encoding="utf-8") as f:
         json.dump(digest, f, indent=2)
-    print(f"✓ Saved digest: {digest_path}")
+    print(f"Saved digest: {digest_path}")
     
     # Print digest preview
     print("\n" + "=" * 60)
@@ -384,7 +384,7 @@ def run_alert_engine():
     print("=" * 60)
     print(f"Week of: {digest['week_of']}")
     print(f"Summary: {digest['summary']}")
-    print(f"Trend: {digest['trend']['arrow']} {digest['trend']['description']}")
+    print(f"Trend: {digest['trend']['description']}")
     if digest["alerts"]:
         print("\nAlerts:")
         for a in digest["alerts"]:

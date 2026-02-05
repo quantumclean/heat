@@ -9,30 +9,52 @@ Options:
     --full: Run full pipeline including scraping (default: process existing data)
     --export-only: Only export to static site (skip processing)
 
-⚠️ DEVELOPMENT MODE: Buffer thresholds are relaxed for testing
+WARNING: DEVELOPMENT MODE: Buffer thresholds are relaxed for testing
 Set DEVELOPMENT_MODE = False in processing/buffer.py before production
 """
 import sys
 import subprocess
+import logging
 from pathlib import Path
 from datetime import datetime
+import os
+
+# Force UTF-8 encoding for console output on Windows
+if sys.platform == "win32":
+    import codecs
+    sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+    sys.stderr = codecs.getwriter("utf-8")(sys.stderr.detach())
 
 # Get the virtual environment Python path
 VENV_PYTHON = "C:/Programming/.venv/Scripts/python.exe"
 PROCESSING_DIR = Path(__file__).parent / "processing"
+LOGS_DIR = Path(__file__).parent / "data" / "logs"
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+# Set up persistent file logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s",
+    handlers=[
+        logging.FileHandler(LOGS_DIR / "pipeline.log", encoding="utf-8"),
+        logging.StreamHandler(sys.stdout),
+    ],
+)
+logger = logging.getLogger("pipeline")
 
 def run_script(script_name, description):
     """Run a processing script and report status."""
     print(f"\n{'='*60}")
     print(f"{description}")
     print(f"{'='*60}")
-    
+
     script_path = PROCESSING_DIR / script_name
     if not script_path.exists():
-        print(f"⚠️  Script not found: {script_path}")
+        logger.warning(f"Script not found: {script_path}")
         return False
-    
+
     try:
+        logger.info(f"START {description} ({script_name})")
         result = subprocess.run(
             [VENV_PYTHON, str(script_path)],
             capture_output=True,
@@ -42,14 +64,16 @@ def run_script(script_name, description):
         print(result.stdout)
         if result.stderr:
             print(f"Warnings: {result.stderr}")
-        print(f"✅ {description} - Complete")
+        logger.info(f"OK    {description}")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"❌ {description} - Failed")
+        logger.error(f"FAIL  {description}: {e.stderr[:500] if e.stderr else str(e)}")
+        print(f"FAIL {description} - Failed")
         print(f"Error: {e.stderr}")
         return False
     except Exception as e:
-        print(f"❌ {description} - Error: {e}")
+        logger.error(f"FAIL  {description}: {e}")
+        print(f"FAIL {description} - Error: {e}")
         return False
 
 def run_full_pipeline():
@@ -57,20 +81,21 @@ def run_full_pipeline():
     print("\n" + "="*60)
     print("THEY ARE HERE PIPELINE - FULL RUN")
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("⚠️  DEVELOPMENT_MODE active in buffer.py")
+    print("WARNING: DEVELOPMENT_MODE active in buffer.py")
     print("="*60)
 
     steps = [
         ("scraper.py", "1. Scrape Google News"),
         ("rss_scraper.py", "2. Scrape RSS Feeds"),
         ("nj_ag_scraper.py", "3. Scrape NJ Attorney General"),
-        ("ingest.py", "4. Ingest and Validate Data"),
-        ("cluster.py", "5. Cluster Similar Records"),
-        ("diversify_sources.py", "6. Diversify Source Types"),
-        ("buffer.py", "7. Apply Safety Buffer (DEV MODE)"),
-        ("nlp_analysis.py", "8. Run NLP Analysis"),
-        ("export_static.py", "9. Export to Static Site"),
-        ("alerts.py", "10. Generate Alerts"),
+        ("fema_ipaws_scraper.py", "4. Scrape FEMA IPAWS Alerts"),
+        ("ingest.py", "5. Ingest and Validate Data"),
+        ("cluster.py", "6. Cluster Similar Records"),
+        ("diversify_sources.py", "7. Diversify Source Types"),
+        ("buffer.py", "8. Apply Safety Buffer (DEV MODE)"),
+        ("nlp_analysis.py", "9. Run NLP Analysis"),
+        ("export_static.py", "10. Export to Static Site"),
+        ("alerts.py", "11. Generate Alerts"),
     ]
     
     results = []
@@ -83,7 +108,7 @@ def run_full_pipeline():
     print("PIPELINE SUMMARY")
     print("="*60)
     for desc, success in results:
-        status = "✅" if success else "❌"
+        status = "OK" if success else "FAIL"
         print(f"{status} {desc}")
     
     successful = sum(1 for _, s in results if s)
@@ -95,7 +120,7 @@ def run_processing_only():
     print("\n" + "="*60)
     print("THEY ARE HERE PIPELINE - PROCESS EXISTING DATA")
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("⚠️  DEVELOPMENT_MODE active in buffer.py")
+    print("WARNING: DEVELOPMENT_MODE active in buffer.py")
     print("="*60)
 
     steps = [
@@ -133,9 +158,9 @@ def export_only():
     success = run_script("export_static.py", "Export to Static Site")
     
     if success:
-        print("\n✅ Export complete")
+        print("\nOK Export complete")
     else:
-        print("\n❌ Export failed")
+        print("\nFAIL Export failed")
 
 if __name__ == "__main__":
     args = sys.argv[1:]

@@ -13,27 +13,30 @@ const REGIONS = {
     },
     north: {
         name: "North Jersey",
-        center: [40.5187, -74.4121],  // Edison/Metuchen area
-        zoom: 11,
-        coverage: "Edison, Metuchen, New Brunswick, Woodbridge"
+        center: [40.8, -74.2],  // Newark/Jersey City area
+        zoom: 10,
+        coverage: "Newark, Jersey City, Paterson, Elizabeth"
     },
     central: {
         name: "Central Jersey",
-        center: [40.6137, -74.4154],  // Plainfield area
-        zoom: 13,
-        coverage: "Plainfield, Piscataway, Somerset, Dunellen"
+        center: [40.5, -74.4],  // New Brunswick/Plainfield area
+        zoom: 10,
+        coverage: "New Brunswick, Plainfield, Edison, Perth Amboy"
     },
     south: {
         name: "South Jersey",
-        center: [40.2171, -74.7429],  // Trenton area
-        zoom: 11,
-        coverage: "Trenton, Princeton, Hamilton, Lawrence"
+        center: [39.9, -74.8],  // Trenton/Camden area
+        zoom: 10,
+        coverage: "Trenton, Camden, Princeton, Atlantic City"
     }
 };
 
-// Plainfield, NJ coordinates (default/central)
+// Default to statewide NJ view — show all active reports
+const DEFAULT_CENTER = [40.0583, -74.4057];  // NJ state center
+const DEFAULT_ZOOM = 8;  // Show all of NJ
+
+// Plainfield center for fallback positioning
 const PLAINFIELD_CENTER = [40.6137, -74.4154];
-const PLAINFIELD_ZOOM = 13;
 
 // ZIP code enhanced boundaries for precise positioning
 const ZIP_BOUNDARIES = {
@@ -95,9 +98,31 @@ const STREET_COORDS = {
 
 // Legacy ZIP_COORDS for backward compatibility
 const ZIP_COORDS = {
+    // Plainfield area
     "07060": [40.6137, -74.4154],
     "07062": [40.6280, -74.4050],
     "07063": [40.5980, -74.4280],
+    // Central NJ
+    "08817": [40.5187, -74.4121],  // Edison
+    "08901": [40.4862, -74.4518],  // New Brunswick
+    "08854": [40.5570, -74.4588],  // Piscataway
+    "08840": [40.5432, -74.3629],  // Metuchen
+    "08904": [40.4968, -74.4254],  // Highland Park
+    "08812": [40.5887, -74.4718],  // Dunellen
+    "08876": [40.5743, -74.6099],  // Somerville
+    "08807": [40.5989, -74.6104],  // Bridgewater
+    // North NJ
+    "07102": [40.7357, -74.1724],  // Newark
+    "07302": [40.7178, -74.0431],  // Jersey City
+    "07030": [40.7439, -74.0324],  // Hoboken
+    "07960": [40.7968, -74.4815],  // Morristown
+    "07201": [40.6640, -74.2107],  // Elizabeth
+    "07601": [40.8859, -74.0435],  // Hackensack
+    // South NJ
+    "08608": [40.2171, -74.7429],  // Trenton
+    "08540": [40.3573, -74.6672],  // Princeton
+    "08401": [39.3643, -74.4229],  // Atlantic City
+    "08101": [39.9259, -75.1196],  // Camden
     // Edison
     "08817": [40.5300, -74.3930],
     "08820": [40.5800, -74.3600],
@@ -188,7 +213,7 @@ let currentLanguage = 'en';
 const TRANSLATIONS = {
     en: {
         title: "HEAT — They Are Here | ICE Activity Attention Map",
-        subtitle: "ICE activity attention map for Plainfield, NJ",
+        subtitle: "ICE Activity Attention Map — New Jersey",
         searchPlaceholder: "Search ZIP, street, or topic...",
         activeClusters: "Active Clusters",
         trend: "Trend",
@@ -314,37 +339,211 @@ function updateUILanguage() {
 }
 
 // ============================================
+// News Sidebar
+// ============================================
+
+function renderSidebar() {
+    const articlesContainer = document.getElementById("sidebar-articles");
+    const countEl = document.getElementById("sidebar-count");
+    const newsListEl = document.getElementById("latest-news-list");
+    if (!articlesContainer) return;
+
+    // Gather items from latest news and cluster summaries
+    const items = [];
+
+    // Latest news items
+    if (latestNewsData?.items) {
+        latestNewsData.items.forEach(item => {
+            items.push({
+                type: "news",
+                text: item.summary || item.text || "",
+                source: item.source || "Unknown",
+                date: item.timestamp || item.date,
+                zip: item.zip,
+                urls: item.urls || [],
+            });
+        });
+    }
+
+    // Cluster summaries (if not already in news)
+    if (clustersData?.clusters) {
+        clustersData.clusters.forEach(cluster => {
+            items.push({
+                type: "cluster",
+                text: cluster.summary || cluster.representative_text || "",
+                source: (Array.isArray(cluster.sources) ? cluster.sources.join(", ") : cluster.sources) || "Multiple",
+                date: cluster.dateRange?.end || cluster.dateRange?.start,
+                zip: cluster.zip,
+                clusterId: cluster.id,
+            });
+        });
+    }
+
+    // Sort by date descending
+    items.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+
+    // Update count
+    if (countEl) {
+        countEl.textContent = `${items.length} signal${items.length !== 1 ? "s" : ""}`;
+    }
+
+    // Render into the sidebar news list
+    if (newsListEl) {
+        if (items.length === 0) {
+            newsListEl.innerHTML = '<div class="no-data">No signals yet.</div>';
+            return;
+        }
+
+        newsListEl.innerHTML = items.slice(0, 30).map((item, idx) => {
+            const timeAgo = item.date ? getRelativeTime(item.date) : "";
+            const zipStr = item.zip ? String(item.zip).padStart(5, "0") : "";
+            const typeIcon = item.type === "cluster" ? "📊" : "📰";
+            const linkHtml = item.urls?.length
+                ? `<a href="${escapeHtml(item.urls[0])}" target="_blank" rel="noopener" class="sidebar-link">Source</a>`
+                : "";
+
+            return `
+                <div class="latest-news__item" data-sidebar-idx="${idx}" data-zip="${zipStr}" data-cluster-id="${item.clusterId || ""}">
+                    <div class="latest-news__meta">
+                        <span class="latest-news__time">${typeIcon} ${timeAgo}</span>
+                        <span class="latest-news__source">${escapeHtml(item.source)}</span>
+                    </div>
+                    <div class="latest-news__summary">${escapeHtml(truncate(item.text, 160))}</div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.3rem;">
+                        <small style="color:var(--text-muted);">${zipStr}</small>
+                        ${linkHtml}
+                    </div>
+                </div>
+            `;
+        }).join("");
+
+        // Wire sidebar article clicks → fly to map location
+        newsListEl.querySelectorAll(".latest-news__item").forEach(el => {
+            el.addEventListener("click", () => {
+                const zip = el.dataset.zip;
+                const coords = ZIP_COORDS[zip];
+                if (coords && map) {
+                    map.flyTo(coords, 13, { duration: 0.8 });
+                }
+
+                // Highlight this item
+                newsListEl.querySelectorAll(".latest-news__item").forEach(e => e.classList.remove("sidebar-active"));
+                el.classList.add("sidebar-active");
+            });
+        });
+    }
+
+    // Render source badges
+    renderSourceBadges();
+}
+
+function renderSourceBadges() {
+    const container = document.getElementById("sidebar-sources");
+    if (!container) return;
+
+    // Collect unique sources from data
+    const sources = new Set();
+
+    if (latestNewsData?.items) {
+        latestNewsData.items.forEach(item => {
+            if (item.source) sources.add(item.source);
+        });
+    }
+    if (clustersData?.clusters) {
+        clustersData.clusters.forEach(cluster => {
+            if (Array.isArray(cluster.sources)) {
+                cluster.sources.forEach(s => sources.add(s));
+            } else if (cluster.sources) {
+                sources.add(cluster.sources);
+            }
+        });
+    }
+
+    if (sources.size === 0) {
+        container.innerHTML = "";
+        return;
+    }
+
+    container.innerHTML = Array.from(sources).sort().map(src =>
+        `<span class="source-badge active">${escapeHtml(src)}</span>`
+    ).join("");
+}
+
+/**
+ * Wire map cluster marker click → highlight sidebar article
+ */
+function wireSidebarToMap() {
+    // When a cluster marker popup opens, highlight matching sidebar item
+    if (!map) return;
+    map.on("popupopen", (e) => {
+        const popup = e.popup;
+        const content = popup.getContent() || "";
+        // Extract cluster ID from popup
+        const match = content.match(/Cluster #(\d+)/);
+        if (match) {
+            const clusterId = match[1];
+            const newsListEl = document.getElementById("latest-news-list");
+            if (newsListEl) {
+                newsListEl.querySelectorAll(".latest-news__item").forEach(el => {
+                    el.classList.remove("sidebar-active");
+                    if (el.dataset.clusterId === clusterId) {
+                        el.classList.add("sidebar-active");
+                        el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                    }
+                });
+            }
+        }
+    });
+}
+
+// ============================================
 // Initialization
 // ============================================
 
 document.addEventListener("DOMContentLoaded", async () => {
-    // Load saved language
-    currentLanguage = localStorage.getItem('heat-language') || 'en';
-    
-    initThemeToggle();
-    initLanguageSelector();
-    initSearch();
-    setupRegionNavigation();  // Setup region buttons
-    initMap();
-    await loadData();
-    renderLatestNews();
-    renderAlertsBanner();
-    renderMap();
-    renderClusters();
-    renderTimeline();
-    renderKeywords();
-    updateLastUpdated();
-    updateDashboard();
-    updateQuickStats();
-    initSafeCheck();
-    init3DToggle();
-    initEventTracking();
-    initTimelineSlider();
-    initHeatmapLayer();
-    initDashboardClicks();
-    initGeolocation();
-    initCollapsibleSections();
-    updateUILanguage();
+    try {
+        // Load saved language
+        currentLanguage = localStorage.getItem('heat-language') || 'en';
+
+        initThemeToggle();
+        initLanguageSelector();
+        initSearch();
+        setupRegionNavigation();  // Setup region buttons
+        initMap();
+        await loadData();
+
+        // Wrap each render function in try-catch to prevent crashes
+        // renderLatestNews() — replaced by renderSidebar() which populates the sidebar news list
+        try { renderAlertsBanner(); } catch (e) { console.error('Alert banner render failed:', e); }
+        try { renderMap(); } catch (e) { console.error('Map render failed:', e); }
+        try { renderClusters(); } catch (e) { console.error('Clusters render failed:', e); }
+        try { renderTimeline(); } catch (e) { console.error('Timeline render failed:', e); }
+        try { renderKeywords(); } catch (e) { console.error('Keywords render failed:', e); }
+        try { updateLastUpdated(); } catch (e) { console.error('Last updated failed:', e); }
+        try { updateDashboard(); } catch (e) { console.error('Dashboard update failed:', e); }
+        try { updateQuickStats(); } catch (e) { console.error('Quick stats update failed:', e); }
+        try { renderSidebar(); } catch (e) { console.error('Sidebar render failed:', e); }
+        try { wireSidebarToMap(); } catch (e) { console.error('Sidebar-map wiring failed:', e); }
+
+        try { initSafeCheck(); } catch (e) { console.error('Safe check init failed:', e); }
+        try { init3DToggle(); } catch (e) { console.error('3D toggle init failed:', e); }
+        try { initKeywordControls(); } catch (e) { console.error('Keyword controls init failed:', e); }
+        try { initEventTracking(); } catch (e) { console.error('Event tracking init failed:', e); }
+        try { initTimelineSlider(); } catch (e) { console.error('Timeline slider init failed:', e); }
+        try { initHeatmapLayer(); } catch (e) { console.error('Heatmap layer init failed:', e); }
+        try { initDashboardClicks(); } catch (e) { console.error('Dashboard clicks init failed:', e); }
+        try { initGeolocation(); } catch (e) { console.error('Geolocation init failed:', e); }
+        try { initCollapsibleSections(); } catch (e) { console.error('Collapsible sections init failed:', e); }
+        try { updateUILanguage(); } catch (e) { console.error('UI language update failed:', e); }
+    } catch (error) {
+        console.error('Fatal initialization error:', error);
+        // Show error message to user
+        const loadingMsg = document.querySelector('.loading-message');
+        if (loadingMsg) {
+            loadingMsg.textContent = 'Error loading data. Please refresh the page.';
+            loadingMsg.style.color = 'red';
+        }
+    }
 });
 
 // ============================================
@@ -666,7 +865,7 @@ function highlightUserZip(zip) {
 function updateDashboard() {
     const clusterCount = clustersData?.clusters?.length || 0;
     const trend = timelineData?.trend?.direction || "stable";
-    const keywordCount = keywordsData?.top_keywords?.length || 0;
+    const keywordCount = keywordsData?.keywords?.length || keywordsData?.top_keywords?.length || 0;
     
     // Calculate intensity (0-100)
     let intensity = 0;
@@ -716,8 +915,8 @@ let tileLayer;
 
 function initMap() {
     map = L.map("map", {
-        center: PLAINFIELD_CENTER,
-        zoom: PLAINFIELD_ZOOM,
+        center: DEFAULT_CENTER,
+        zoom: DEFAULT_ZOOM,
         scrollWheelZoom: true,
     });
     
@@ -1109,16 +1308,23 @@ function renderClusters() {
 
 function renderTimeline() {
     const ctx = document.getElementById("timeline-chart");
-    
+
+    if (!ctx) {
+        console.error('Timeline chart canvas not found');
+        return;
+    }
+
     // Get weeks array (handle both old format and new format)
     const weeks = timelineData.weeks || timelineData || [];
-    
+
     if (!weeks || weeks.length === 0) {
-        ctx.parentElement.innerHTML = `
+        if (ctx.parentElement) {
+            ctx.parentElement.innerHTML = `
             <div class="no-data">
                 <p>No timeline data available.</p>
             </div>
         `;
+        }
         return;
     }
     
@@ -1510,27 +1716,73 @@ function checkZipSafety(zip) {
 // Keywords & NLP Display
 // ============================================
 
+const ZIP_NAMES = {
+    "07060": "Plainfield",
+    "07062": "Plainfield West",
+    "07063": "Plainfield South",
+    "08901": "New Brunswick",
+    "08817": "Edison",
+    "08854": "Piscataway",
+    "08611": "Trenton"
+};
+
+let originalKeywords = null;
+
 function renderKeywords() {
     const cloudContainer = document.getElementById("keyword-cloud");
+    const lastUpdated = document.getElementById("keywords-last-updated");
     const categoryContainer = document.getElementById("category-distribution");
-    
+
+    if (!cloudContainer) {
+        console.error('Keyword cloud container not found');
+        return;
+    }
+
     if (!keywordsData) {
         cloudContainer.innerHTML = '<p class="no-data">No keyword data available.</p>';
         return;
     }
+
+    // Show last updated timestamp
+    if (keywordsData.generated_at && lastUpdated) {
+        const updated = new Date(keywordsData.generated_at);
+        const hoursAgo = Math.floor((Date.now() - updated) / (1000 * 60 * 60));
+        lastUpdated.textContent = `• Updated ${hoursAgo}h ago`;
+    }
     
-    // Render keyword cloud
-    const keywords = keywordsData.top_keywords || [];
+    // Use enriched keywords if available
+    const keywords = keywordsData.keywords || [];
+    
     if (keywords.length > 0) {
-        const maxCount = Math.max(...keywords.map(k => k[1]));
+        const maxCount = Math.max(...keywords.map(k => k.count || 0));
         
-        const keywordHtml = keywords.map(([word, count], index) => {
+        const keywordHtml = keywords.map(kw => {
+            const count = kw.count || 0;
             const size = count / maxCount;
             let sizeClass = "";
             if (size > 0.7) sizeClass = "large";
             else if (size > 0.4) sizeClass = "medium";
             
-            return `<span class="keyword-tag ${sizeClass}" title="${count} occurrences">${word}</span>`;
+            // Build location display
+            const topLocation = ZIP_NAMES[kw.top_location] || kw.top_location || "Unknown";
+            const locationsText = kw.locations ? Object.entries(kw.locations)
+                .map(([zip, cnt]) => `${ZIP_NAMES[zip] || zip}: ${cnt}`)
+                .join(', ') : '';
+            
+            // Calculate recency indicator
+            const hoursAgo = kw.recency_hours || 999999;
+            const recencyClass = hoursAgo < 24 ? "recent" : hoursAgo < 72 ? "semi-recent" : "";
+            
+            const sources = kw.sources ? kw.sources.join(', ') : 'Unknown';
+            
+            return `
+                <div class="keyword-tag-enhanced ${sizeClass} ${recencyClass}" 
+                     title="${kw.word}: ${count} mentions\n📍 ${locationsText || topLocation}\n📰 Sources: ${sources}\n🕐 ${Math.floor(hoursAgo)}h ago">
+                    <span class="keyword-word">${kw.word}</span>
+                    <span class="keyword-location">📍 ${topLocation}</span>
+                    <span class="keyword-count">${count}</span>
+                </div>
+            `;
         }).join("");
         
         cloudContainer.innerHTML = keywordHtml;
@@ -1540,7 +1792,7 @@ function renderKeywords() {
     
     // Render category distribution
     const categories = keywordsData.categories || {};
-    if (Object.keys(categories).length > 0) {
+    if (Object.keys(categories).length > 0 && categoryContainer) {
         const categoryHtml = Object.entries(categories)
             .sort((a, b) => b[1] - a[1])
             .map(([name, count]) => `
@@ -1551,6 +1803,60 @@ function renderKeywords() {
             `).join("");
         
         categoryContainer.innerHTML = categoryHtml;
+    }
+}
+
+// Initialize keyword controls
+function initKeywordControls() {
+    // Randomize button handler
+    const refreshBtn = document.getElementById("keyword-refresh");
+    if (refreshBtn) {
+        refreshBtn.addEventListener("click", () => {
+            if (keywordsData && keywordsData.keywords && keywordsData.keywords.length > 0) {
+                // Save original if not saved
+                if (!originalKeywords) {
+                    originalKeywords = [...keywordsData.keywords];
+                }
+                
+                // Shuffle and take random 10
+                const shuffled = [...originalKeywords].sort(() => Math.random() - 0.5);
+                keywordsData.keywords = shuffled.slice(0, 10);
+                renderKeywords();
+                
+                // Restore after 5 seconds
+                setTimeout(() => {
+                    keywordsData.keywords = originalKeywords;
+                    renderKeywords();
+                }, 5000);
+            }
+        });
+    }
+    
+    // Location filter handler
+    const filterSelect = document.getElementById("keyword-filter");
+    if (filterSelect) {
+        filterSelect.addEventListener("change", (e) => {
+            if (!keywordsData || !keywordsData.keywords) return;
+            
+            const zip = e.target.value;
+            
+            // Save original if not saved
+            if (!originalKeywords) {
+                originalKeywords = [...keywordsData.keywords];
+            }
+            
+            if (zip === "all") {
+                keywordsData.keywords = originalKeywords;
+                renderKeywords();
+            } else {
+                // Filter keywords to only show those trending in selected ZIP
+                const filtered = originalKeywords.filter(kw => 
+                    kw.top_location === zip || (kw.locations && kw.locations[zip])
+                );
+                keywordsData.keywords = filtered;
+                renderKeywords();
+            }
+        });
     }
 }
 

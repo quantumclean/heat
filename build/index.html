@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="HEAT — They Are Here">
     <meta name="theme-color" content="#ffffff" id="theme-color-meta">
-    <title>HEAT — They Are Here | ICE Activity Attention Map | Plainfield, NJ</title>
+    <title>HEAT — They Are Here | ICE Activity Attention Map | New Jersey</title>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -43,11 +43,11 @@
                 <button id="location-btn" class="glass-btn" title="Use My Location">⊙</button>
             </div>
         </div>
-        <p class="subtitle" data-i18n="subtitle">ICE Activity Attention Map — Plainfield, NJ</p>
+        <p class="subtitle" data-i18n="subtitle">ICE Activity Attention Map — New Jersey</p>
         
         <!-- Quick Region Navigation -->
         <div class="region-nav">
-            <button class="region-btn glass-btn" data-region="statewide" title="All New Jersey">
+            <button class="region-btn glass-btn active" data-region="statewide" title="All New Jersey">
                 <span class="region-label">Statewide</span>
                 <small>All NJ</small>
             </button>
@@ -55,7 +55,7 @@
                 <span class="region-label">North</span>
                 <small>Edison · Metuchen</small>
             </button>
-            <button class="region-btn glass-btn active" data-region="central" title="Central Jersey: Plainfield, Piscataway, Somerset">
+            <button class="region-btn glass-btn" data-region="central" title="Central Jersey: Plainfield, Piscataway, Somerset">
                 <span class="region-label">Central</span>
                 <small>Plainfield · Piscataway</small>
             </button>
@@ -117,10 +117,6 @@
                 <div class="rolling-item">Shortest safe delay • ZIP-level precision only • no identities stored</div>
                 <div class="rolling-item">Vetted public sources load first • qualified community items labeled</div>
                 <div class="rolling-item">Rolling activity: ICE attention <span class="rolling-emphasis trend-summary-inline">is increasing</span></div>
-                <div class="rolling-item">Interpretive activity feed • patterns, not alerts • verify independently</div>
-                <div class="rolling-item">Shortest safe delay • ZIP-level precision only • no identities stored</div>
-                <div class="rolling-item">Vetted public sources load first • qualified community items labeled</div>
-                <div class="rolling-item">Rolling activity: ICE attention <span class="rolling-emphasis trend-summary-inline">is increasing</span></div>
             </div>
         </div>
         
@@ -136,16 +132,6 @@
             <div class="alert-banner__label">Location Alert</div>
             <div id="location-alert-body" class="alert-banner__body">No alerts for your area right now.</div>
         </div>
-
-        <section id="latest-news" class="glass-card">
-            <div class="section-header">
-                <h2>Latest Qualified ICE Signals</h2>
-                <p class="section-note">Buffered items released after safety thresholds (no real-time posts)</p>
-            </div>
-            <div id="latest-news-list" class="latest-news-list">
-                <p class="loading">Loading latest signals...</p>
-            </div>
-        </section>
 
         <!-- Quick Stats Dashboard - Clickable Cards -->
         <section id="quick-dashboard" class="dashboard-grid">
@@ -176,73 +162,92 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Mobile Submit Button -->
         <a href="submit.html" class="submit-signal-btn glass-btn" title="Submit Signal">+</a>
-        
-        <section id="map-section" class="content-section">
-            <div class="section-header">
-                <h2>ICE Activity Density by Area</h2>
-                <div class="btn-group">
-                    <button id="toggle-heatmap" class="glass-btn">Heatmap</button>
-                    <button id="toggle3d" class="glass-btn">3D</button>
-                </div>
+
+        <!-- Two-column: Map + News Sidebar -->
+        <div class="map-layout">
+            <div class="map-column">
+                <section id="map-section" class="content-section">
+                    <div class="section-header">
+                        <h2>ICE Activity Density by Area</h2>
+                        <div class="btn-group">
+                            <button id="toggle-heatmap" class="glass-btn">Heatmap</button>
+                            <button id="toggle3d" class="glass-btn">3D</button>
+                        </div>
+                    </div>
+                    <p class="section-note">
+                        Circles show where ICE-activity attention clusters. Size and color indicate pattern strength.
+                    </p>
+
+                    <!-- Silence-as-Signal Warning -->
+                    <div class="silence-warning glass-card" id="silence-warning">
+                        <div class="warning-icon">!</div>
+                        <div class="warning-text">
+                            <strong>No visible clusters ≠ No activity</strong><br>
+                            <small>Data is buffered to the shortest safe delay. Absence of signals means thresholds not met, not confirmed safety.</small>
+                        </div>
+                    </div>
+
+                    <div id="map" class="glass-card"></div>
+
+                    <!-- Timeline Slider Controls -->
+                    <div class="timeline-slider-container glass-card">
+                        <div class="timeline-header">
+                            <span>🕐 Timeline View</span>
+                            <span id="slider-current" class="accent-text">Current</span>
+                        </div>
+                        <div class="timeline-controls">
+                            <span id="slider-start" class="muted-text">Start</span>
+                            <input type="range" id="date-range-slider" />
+                            <span id="slider-end" class="muted-text">End</span>
+                            <button id="timeline-play-btn" class="play-btn">▶ Play</button>
+                        </div>
+                        <p class="timeline-hint">Drag slider to see attention patterns over time, or press Play to animate.</p>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="legend glass-card">
+                        <div class="legend-item" data-level="low">
+                            <div class="legend-dot low pulse"></div>
+                            <div class="legend-info">
+                                <span class="legend-label">Quiet</span>
+                                <span class="legend-desc">1-2 signals</span>
+                            </div>
+                        </div>
+                        <div class="legend-item" data-level="medium">
+                            <div class="legend-dot medium pulse"></div>
+                            <div class="legend-info">
+                                <span class="legend-label">Active</span>
+                                <span class="legend-desc">3-5 signals</span>
+                            </div>
+                        </div>
+                        <div class="legend-item" data-level="high">
+                            <div class="legend-dot high pulse"></div>
+                            <div class="legend-info">
+                                <span class="legend-label">Elevated</span>
+                                <span class="legend-desc">6+ signals</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-            <p class="section-note">
-                Circles show where ICE-activity attention clusters. Size and color indicate pattern strength.
-            </p>
-            
-            <!-- Silence-as-Signal Warning -->
-            <div class="silence-warning glass-card" id="silence-warning">
-                <div class="warning-icon">!</div>
-                <div class="warning-text">
-                    <strong>No visible clusters ≠ No activity</strong><br>
-                    <small>Data is buffered to the shortest safe delay. Absence of signals means thresholds not met, not confirmed safety.</small>
+
+            <!-- News Sidebar -->
+            <aside class="news-sidebar" id="news-sidebar">
+                <div class="sidebar-header glass-card">
+                    <h3>Live Feed</h3>
+                    <span class="sidebar-count" id="sidebar-count">0 signals</span>
                 </div>
-            </div>
-            
-            <div id="map" class="glass-card"></div>
-            
-            <!-- Timeline Slider Controls -->
-            <div class="timeline-slider-container glass-card">
-                <div class="timeline-header">
-                    <span>🕐 Timeline View</span>
-                    <span id="slider-current" class="accent-text">Current</span>
-                </div>
-                <div class="timeline-controls">
-                    <span id="slider-start" class="muted-text">Start</span>
-                    <input type="range" id="date-range-slider" />
-                    <span id="slider-end" class="muted-text">End</span>
-                    <button id="timeline-play-btn" class="play-btn">▶ Play</button>
-                </div>
-                <p class="timeline-hint">Drag slider to see attention patterns over time, or press Play to animate.</p>
-            </div>
-            
-            <!-- Improved Legend with Dynamic Indicators -->
-            <div class="legend glass-card">
-                <div class="legend-item" data-level="low">
-                    <div class="legend-dot low pulse"></div>
-                    <div class="legend-info">
-                        <span class="legend-label">Quiet</span>
-                        <span class="legend-desc">1-2 signals</span>
+                <div class="sidebar-sources" id="sidebar-sources"></div>
+                <div class="sidebar-articles" id="sidebar-articles">
+                    <div id="latest-news-list" class="sidebar-news-list">
+                        <p class="loading">Loading signals...</p>
                     </div>
                 </div>
-                <div class="legend-item" data-level="medium">
-                    <div class="legend-dot medium pulse"></div>
-                    <div class="legend-info">
-                        <span class="legend-label">Active</span>
-                        <span class="legend-desc">3-5 signals</span>
-                    </div>
-                </div>
-                <div class="legend-item" data-level="high">
-                    <div class="legend-dot high pulse"></div>
-                    <div class="legend-info">
-                        <span class="legend-label">Elevated</span>
-                        <span class="legend-desc">6+ signals</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </aside>
+        </div>
         
         <section id="timeline-section">
             <h2>📊 ICE Attention Over Time</h2>
@@ -259,9 +264,23 @@
         </section>
         
         <section id="keywords-section">
-            <h2>🏷️ Top Keywords</h2>
+            <div class="section-header-with-controls">
+                <h2>🏷️ Top Keywords</h2>
+                <div class="keyword-controls">
+                    <button id="keyword-refresh" class="glass-btn" title="Randomize keywords">
+                        🔄 Refresh
+                    </button>
+                    <select id="keyword-filter" class="glass-btn">
+                        <option value="all">All Locations</option>
+                        <option value="07060">Plainfield</option>
+                        <option value="07062">Plainfield (West)</option>
+                        <option value="07063">Plainfield (South)</option>
+                    </select>
+                </div>
+            </div>
             <p class="section-note">
-                Frequent terms extracted from public sources and qualified submissions.
+                Keywords from public sources, showing WHERE they're trending.
+                <span id="keywords-last-updated" class="muted-text"></span>
             </p>
             <div id="keyword-cloud" class="keyword-cloud">
                 <p class="loading">Loading keywords...</p>
@@ -282,40 +301,89 @@
         <section id="sources-section">
             <h2>📚 Data Sources</h2>
             <ul>
-                <li>Local news archives (NJ.com, TAPinto Plainfield, Courier News)</li>
+                <li>Local news archives (NJ.com, TAPinto, News 12 NJ, Courier News)</li>
+                <li>Reddit r/newjersey community discussions</li>
                 <li>City council meeting minutes</li>
                 <li>Advocacy organization reports (ACLU NJ, NJ Alliance for Immigrant Justice)</li>
                 <li>Public statements and press releases</li>
                 <li>Qualified community submissions (buffered)</li>
             </ul>
             <div class="transparency">
-                <p><strong>Last updated:</strong> <span id="last-updated">—</span></p>
                 <p>Vetted public sources load first. Qualified community submissions appear after checks and buffering.</p>
                 <p>Identities are never stored.</p>
                 <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
-                    <a href="#" class="donate-btn" style="display: inline-block; background: var(--accent); color: #000; padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none;">💝 Support HEAT — They Are Here</a>
-                    <span style="color: var(--muted); font-size: 0.875rem; margin-left: 1rem;">Help keep this tool free and independent</span>
+                    <a href="#" class="donate-btn" style="display: inline-block; background: var(--accent); color: #000; padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none;">Support HEAT — They Are Here</a>
+                    <span style="color: var(--text-muted); font-size: 0.875rem; margin-left: 1rem;">Help keep this tool free and independent</span>
                 </div>
             </div>
         </section>
-        
+
+        <!-- Resources + Emergency Prep (consolidated) -->
         <section id="resources-section">
-            <h2>🔗 Community Resources</h2>
-            <ul>
-                <li><a href="https://www.aclu-nj.org/know-your-rights" target="_blank" rel="noopener">Know Your Rights (ACLU NJ)</a></li>
-                <li><a href="https://www.immigrantjusticenj.org/" target="_blank" rel="noopener">NJ Alliance for Immigrant Justice</a></li>
-                <li><a href="https://www.plainfieldnj.gov/" target="_blank" rel="noopener">City of Plainfield Official Website</a></li>
-            </ul>
+            <h2>Community Resources + Know Your Rights</h2>
+
+            <div class="footer-resources">
+                <strong>Organizations</strong>
+                <div class="footer-resources-links">
+                    <a href="https://www.aclu-nj.org/know-your-rights" target="_blank" rel="noopener">Know Your Rights (ACLU NJ)</a>
+                    <a href="https://www.aclu.org/know-your-rights/immigration" target="_blank" rel="noopener noreferrer">ACLU — Know Your Rights (Immigration)</a>
+                    <a href="https://www.immigrantjusticenj.org/" target="_blank" rel="noopener">NJ Alliance for Immigrant Justice</a>
+                    <a href="https://www.nilc.org" target="_blank" rel="noopener noreferrer">National Immigration Law Center (NILC)</a>
+                    <a href="https://www.informedimmigrant.com" target="_blank" rel="noopener noreferrer">Informed Immigrant</a>
+                    <a href="https://www.immigrantdefenseproject.org" target="_blank" rel="noopener noreferrer">Immigrant Defense Project</a>
+                    <a href="https://www.lawyerscommittee.org" target="_blank" rel="noopener noreferrer">Lawyers' Committee for Civil Rights</a>
+                    <a href="https://www.plainfieldnj.gov/" target="_blank" rel="noopener">City of Plainfield Official Website</a>
+                </div>
+            </div>
+
+            <div class="footer-emergency">
+                <strong>Emergency Preparedness — Know Your Rights</strong>
+                <details>
+                    <summary>If ICE Approaches You at Home</summary>
+                    <ul>
+                        <li>You have the right to remain silent</li>
+                        <li>You do NOT have to open the door unless they have a warrant signed by a judge</li>
+                        <li>Ask to see the warrant through a window or under the door before opening</li>
+                        <li>A deportation warrant or administrative warrant is NOT enough to enter</li>
+                        <li>State clearly: "I do not consent to your entry or to any search of this home"</li>
+                        <li>Do not lie or show false documents — you can simply decline to answer</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>If Stopped in Public</summary>
+                    <ul>
+                        <li>Ask calmly: "Am I free to leave?" If yes, walk away</li>
+                        <li>You have the right to remain silent — you do not have to answer questions about where you were born or your immigration status</li>
+                        <li>You do not have to consent to a search of yourself or your belongings</li>
+                        <li>If you are not a U.S. citizen and do not have immigration documents, ask for a lawyer immediately</li>
+                        <li>Do not sign anything or make statements without legal counsel</li>
+                        <li>Carry a "Know Your Rights" card or contact information for a lawyer</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Emergency Preparedness Kit</summary>
+                    <ul>
+                        <li>Keep copies of important documents (birth certificates, consular IDs, immigration paperwork) in a safe place</li>
+                        <li>Have an emergency contact list with family, friends, and immigration attorney numbers</li>
+                        <li>Consider creating a power of attorney for child care or financial decisions</li>
+                        <li>Print and carry a "Red Card" or "Know Your Rights" card from ACLU or NILC</li>
+                        <li>Have a family emergency plan and discuss it with children</li>
+                        <li>Know your A-number (alien registration number) if applicable</li>
+                    </ul>
+                </details>
+                <p style="margin-top: 1rem; font-size: 0.9em; color: var(--text-muted); font-style: italic;">
+                    This information is for educational purposes only and does not constitute legal advice. Consult an immigration attorney for guidance specific to your situation.
+                </p>
+            </div>
         </section>
-        
+
         <section id="about-section">
-            <h2>ℹ️ About This Tool</h2>
+            <h2>About This Tool</h2>
             <div class="about-content">
                 <p>
                     <strong>HEAT — They Are Here</strong> helps you notice when ICE-activity attention shifts—early, calmly,
                     and without turning people into data points.
                 </p>
-                
                 <div class="comparison-box">
                     <div class="comparison-item this-is">
                         <h4>What HEAT Shows</h4>
@@ -336,7 +404,6 @@
                         </ul>
                     </div>
                 </div>
-                
                 <p class="about-note">
                     Unlike systems optimized for speed and alerts, HEAT intentionally
                     buffers and clusters public records to reveal <em>when and where
@@ -346,107 +413,45 @@
             </div>
         </section>
     </main>
-    
+
     <footer>
         <div class="footer-content">
-            <p>
-                <strong>HEAT — They Are Here</strong>
-            </p>
-            <p class="tagline">
-                ICE activity attention map built from public signals.
-            </p>
+            <p><strong>HEAT — They Are Here</strong></p>
+            <p class="tagline">ICE activity attention map built from public signals.</p>
             <div class="footer-principles">
                 <span>Pattern detection</span>
                 <span>Shortest safe delay</span>
                 <span>ZIP-level precision only</span>
                 <span>Identities never stored</span>
             </div>
-            <!-- Resources -->
-            <div style="margin: 2rem 0; padding: 1.5rem; background: var(--bg-lighter); border-radius: 8px;">
-                <strong style="color: var(--accent); font-size: 1.1em;">Community Resources</strong>
-                <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
-                    <a href="https://www.aclu.org/know-your-rights/immigration" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">ACLU — Know Your Rights (Immigration)</a>
-                    <a href="https://www.nilc.org" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">National Immigration Law Center (NILC)</a>
-                    <a href="https://www.informedimmigrant.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Informed Immigrant</a>
-                    <a href="https://www.immigrantdefenseproject.org" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Immigrant Defense Project</a>
-                    <a href="https://www.lawyerscommittee.org" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Lawyers' Committee for Civil Rights</a>
+
+            <div class="footer-tiers">
+                <strong>Access Tiers</strong>
+                <div class="footer-tiers-links">
+                    <span>You are viewing: <strong>Tier 0 (Public)</strong></span>
+                    <a href="submit.html" style="color: var(--accent);">Submit Signal</a>
+                    <a href="contributor.html" style="color: var(--success, #34a853);">Contributor Dashboard</a>
                 </div>
             </div>
-            
-            <!-- Emergency Preparedness -->
-            <div style="margin: 2rem 0; padding: 1.5rem; background: var(--bg-lighter); border-radius: 8px;">
-                <strong style="color: var(--error); font-size: 1.1em;">Emergency Preparedness — Know Your Rights</strong>
-                <details style="margin-top: 1rem; cursor: pointer;">
-                    <summary style="font-weight: bold; color: var(--accent); padding: 0.5rem 0;">If ICE Approaches You at Home</summary>
-                    <ul style="margin: 0.75rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.7;">
-                        <li>You have the right to remain silent</li>
-                        <li>You do NOT have to open the door unless they have a warrant signed by a judge</li>
-                        <li>Ask to see the warrant through a window or under the door before opening</li>
-                        <li>A deportation warrant or administrative warrant is NOT enough to enter</li>
-                        <li>State clearly: "I do not consent to your entry or to any search of this home"</li>
-                        <li>Do not lie or show false documents — you can simply decline to answer</li>
-                    </ul>
-                </details>
-                <details style="margin-top: 0.5rem; cursor: pointer;">
-                    <summary style="font-weight: bold; color: var(--accent); padding: 0.5rem 0;">If Stopped in Public</summary>
-                    <ul style="margin: 0.75rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.7;">
-                        <li>Ask calmly: "Am I free to leave?" If yes, walk away</li>
-                        <li>You have the right to remain silent — you do not have to answer questions about where you were born or your immigration status</li>
-                        <li>You do not have to consent to a search of yourself or your belongings</li>
-                        <li>If you are not a U.S. citizen and do not have immigration documents, ask for a lawyer immediately</li>
-                        <li>Do not sign anything or make statements without legal counsel</li>
-                        <li>Carry a "Know Your Rights" card or contact information for a lawyer</li>
-                    </ul>
-                </details>
-                <details style="margin-top: 0.5rem; cursor: pointer;">
-                    <summary style="font-weight: bold; color: var(--accent); padding: 0.5rem 0;">Emergency Preparedness Kit</summary>
-                    <ul style="margin: 0.75rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.7;">
-                        <li>Keep copies of important documents (birth certificates, consular IDs, immigration paperwork) in a safe place</li>
-                        <li>Have an emergency contact list with family, friends, and immigration attorney numbers</li>
-                        <li>Consider creating a power of attorney for child care or financial decisions</li>
-                        <li>Print and carry a "Red Card" or "Know Your Rights" card from ACLU or NILC</li>
-                        <li>Have a family emergency plan and discuss it with children</li>
-                        <li>Know your A-number (alien registration number) if applicable</li>
-                    </ul>
-                </details>
-                <p style="margin-top: 1rem; font-size: 0.9em; color: var(--muted); font-style: italic;">
-                    This information is for educational purposes only and does not constitute legal advice. Consult an immigration attorney for guidance specific to your situation.
-                </p>
-            </div>
-            
-            <!-- Access Tiers -->
-            <div style="margin: 1.5rem 0; padding: 1rem; background: var(--bg-lighter); border-radius: 8px;">
-                <strong style="color: var(--accent);">Access Tiers</strong>
-                <div style="display: flex; gap: 1.5rem; margin-top: 0.75rem; flex-wrap: wrap; justify-content: center;">
-                    <span style="color: var(--muted);">You are viewing: <strong style="color: var(--text);">Tier 0 (Public)</strong></span>
-                    <a href="submit.html" style="color: var(--accent); text-decoration: none;">Submit Signal</a>
-                    <a href="contributor.html" style="color: var(--success); text-decoration: none;">Contributor Dashboard</a>
-                </div>
-            </div>
-            
-            <!-- Disclaimer -->
-            <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(255,165,0,0.1); border-left: 3px solid var(--warning); border-radius: 4px;">
-                <strong style="color: var(--warning);">Disclaimer</strong>
-                <p style="margin-top: 0.75rem; font-size: 0.95em; line-height: 1.6; color: var(--muted);">
+
+            <div class="footer-disclaimer">
+                <strong>Disclaimer</strong>
+                <p>
                     HEAT aggregates publicly available information about ICE activity attention from news outlets, advocacy groups, and qualified community submissions.
-                    We make <strong>no claims</strong> about the accuracy, completeness, or verification of any specific events, locations, or individuals. 
+                    We make <strong>no claims</strong> about the accuracy, completeness, or verification of any specific events, locations, or individuals.
                     Data is buffered to the shortest safe delay and aggregated to ZIP-code level to protect privacy and reduce harm.
                 </p>
-                <p style="margin-top: 0.75rem; font-size: 0.95em; line-height: 1.6; color: var(--muted);">
-                    <strong>HEAT claims no ownership of source material.</strong> All rights to original news articles, reports, and content 
-                    remain with their respective publishers and contributors. This tool is provided for informational and educational purposes only. 
-                    Users are responsible for independently verifying information and making their own decisions.
-                </p>
-                <p style="margin-top: 0.75rem; font-size: 0.95em; line-height: 1.6; color: var(--muted);">
-                    Legal information provided is educational only and does not constitute legal advice. Consult a qualified immigration attorney for legal guidance.
+                <p>
+                    <strong>HEAT claims no ownership of source material.</strong> All rights to original news articles, reports, and content
+                    remain with their respective publishers and contributors. This tool is provided for informational and educational purposes only.
                 </p>
             </div>
-            
+
             <p class="footer-note">
                 This reflects interpretive patterns in public attention to ICE activity. You decide how to contextualize it.
             </p>
             <p class="meta">
-                © 2026 HEAT Project. All rights reserved.<br>
+                &copy; 2026 HEAT Project. All rights reserved.<br>
                 Licensed under HEAT Ethical Use License v1.0 — Built with care for community safety.
             </p>
         </div>

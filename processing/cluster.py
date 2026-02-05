@@ -7,7 +7,7 @@ import numpy as np
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
 import hdbscan
-from datetime import datetime
+from datetime import datetime, timezone
 
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 
@@ -41,7 +41,7 @@ def calculate_cluster_strength(
     Time-weighted volume score.
     Recent signals count more than old ones.
     """
-    dates = pd.to_datetime(cluster_df["date"])
+    dates = pd.to_datetime(cluster_df["date"], utc=True)
     delta_hours = (now - dates).dt.total_seconds() / 3600
     weights = np.exp(-np.log(2) * delta_hours / half_life_hours)
     return float(weights.sum())
@@ -90,7 +90,7 @@ def run_clustering():
         clustered = df.copy()
     
     # Calculate cluster stats
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
     cluster_stats = []
     
     for cluster_id in clustered.cluster.unique():

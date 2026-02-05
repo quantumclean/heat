@@ -4,7 +4,8 @@ Runs locally. Never touches production.
 """
 import pandas as pd
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
+from nj_locations import extract_nj_cities_from_text
 
 RAW_DIR = Path(__file__).parent.parent / "data" / "raw"
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
@@ -12,12 +13,22 @@ PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 
 def normalize_record(text: str, source: str, zip_code: str, date: str) -> dict:
     """Standardize a single record."""
+    # Try to extract actual city location from text
+    cities = extract_nj_cities_from_text(text)
+    
+    # Use first detected city's ZIP, or fall back to provided ZIP
+    if cities:
+        city_name, location = cities[0]
+        actual_zip = location["zip"]
+    else:
+        actual_zip = str(zip_code).strip()
+    
     return {
         "text": str(text).strip(),
         "source": source,
-        "zip": str(zip_code).strip(),
+        "zip": actual_zip,
         "date": pd.to_datetime(date).isoformat(),
-        "ingested_at": datetime.utcnow().isoformat(),
+        "ingested_at": datetime.now(timezone.utc).isoformat(),
     }
 
 
@@ -25,7 +36,7 @@ def ingest_csv(path: Path, source_name: str) -> list[dict]:
     """
     Expects CSV with columns: text, zip, date
     """
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, encoding="utf-8")
     records = []
     
     for _, row in df.iterrows():
@@ -244,7 +255,7 @@ def run_ingestion():
     # Save
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     df = pd.DataFrame(unique_records)
-    df.to_csv(PROCESSED_DIR / "all_records.csv", index=False)
+    df.to_csv(PROCESSED_DIR / "all_records.csv", index=False, encoding="utf-8")
     print(f"Total: {len(df)} records saved to {PROCESSED_DIR / 'all_records.csv'}")
     
     return df
