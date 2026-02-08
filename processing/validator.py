@@ -286,15 +286,36 @@ class DataValidator:
         try:
             pii_found = []
             
-            # Check public outputs
+            # Check public JSON outputs
             for json_file in (BUILD_DIR / "data").glob("*.json"):
-                with open(json_file, 'r') as f:
+                with open(json_file, 'r', encoding='utf-8') as f:
                     content = f.read()
                 
                 for pii_type, pattern in pii_patterns.items():
                     matches = re.findall(pattern, content, re.IGNORECASE)
                     if matches:
                         pii_found.append(f"{json_file.name}: {pii_type} pattern ({len(matches)} matches)")
+            
+            # Check CSV exports in build directory
+            for csv_file in BUILD_DIR.glob("*.csv"):
+                with open(csv_file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                for pii_type, pattern in pii_patterns.items():
+                    matches = re.findall(pattern, content, re.IGNORECASE)
+                    if matches:
+                        pii_found.append(f"{csv_file.name}: {pii_type} pattern ({len(matches)} matches)")
+            
+            # Check exports directory
+            if (BUILD_DIR / "exports").exists():
+                for export_file in (BUILD_DIR / "exports").glob("*.csv"):
+                    with open(export_file, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    
+                    for pii_type, pattern in pii_patterns.items():
+                        matches = re.findall(pattern, content, re.IGNORECASE)
+                        if matches:
+                            pii_found.append(f"exports/{export_file.name}: {pii_type} pattern ({len(matches)} matches)")
             
             if pii_found:
                 self._fail("Potential PII found in outputs")
@@ -399,7 +420,7 @@ class DataValidator:
             latest = audit_log[-1]
             thresholds = latest.get("thresholds", {})
             
-            # Verify production thresholds
+            # Verify production thresholds - FAIL if below minimums
             issues = []
             if thresholds.get("min_sources", 0) < 2:
                 issues.append("min_sources below production threshold (2)")
@@ -409,8 +430,8 @@ class DataValidator:
                 issues.append("delay_hours below production threshold (24)")
             
             if issues:
-                self._warn(f"Buffer thresholds below production level")
-                return {"status": "warn", "issues": issues}
+                self._fail(f"Buffer thresholds below production level: {', '.join(issues)}")
+                return {"status": "fail", "issues": issues, "thresholds": thresholds}
             
             self._pass()
             return {

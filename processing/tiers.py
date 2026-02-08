@@ -52,6 +52,22 @@ def sanitize_text(text: str) -> str:
     return result
 
 
+def scrub_pii(text: str) -> str:
+    """Redact common PII patterns from text fields before export."""
+    if not text:
+        return text
+    patterns = {
+        "ssn": r"\b\d{3}-\d{2}-\d{4}\b",
+        "phone": r"\b\d{3}[-.]?\d{3}[-.]?\d{4}\b",
+        "email": r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b",
+        "address": r"\b\d+\s+[A-Za-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct)\b",
+    }
+    scrubbed = text
+    for pattern in patterns.values():
+        scrubbed = re.sub(pattern, "[redacted]", scrubbed, flags=re.IGNORECASE)
+    return scrubbed
+
+
 def generate_tier0_public(clusters_df: pd.DataFrame, timeline_data: dict) -> dict:
     """
     Generate Tier 0 (Public) data.
@@ -191,8 +207,8 @@ def generate_tier2_moderator(
     for _, row in all_records.iterrows():
         submissions.append({
             "id": row.get("id", ""),
-            "text": row.get("text", ""),
-            "source": row.get("source", ""),
+            "text": scrub_pii(str(row.get("text", ""))),
+            "source": scrub_pii(str(row.get("source", ""))),
             "date": row.get("date", ""),
             "zip": row.get("zip", ""),
             "category": row.get("category", ""),

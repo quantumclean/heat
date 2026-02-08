@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="HEAT — They Are Here">
     <meta name="theme-color" content="#ffffff" id="theme-color-meta">
-    <title>HEAT — They Are Here | ICE Activity Attention Map | New Jersey</title>
+    <title>HEAT — They Are Here | Civic Information Tool | Public Discourse Tracker | New Jersey</title>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -43,7 +43,7 @@
                 <button id="location-btn" class="glass-btn" title="Use My Location">⊙</button>
             </div>
         </div>
-        <p class="subtitle" data-i18n="subtitle">ICE Activity Attention Map — New Jersey</p>
+        <p class="subtitle" data-i18n="subtitle">ICE Activity Reports in New Jersey</p>
         
         <!-- Quick Region Navigation -->
         <div class="region-nav">
@@ -102,27 +102,27 @@
                     <button id="safe-check-go" class="glass-btn">Check</button>
                 </div>
                 <div id="safe-check-result" class="safe-check-result"></div>
-                <p class="safe-check-note">Shows ICE activity signals for the past 14 days in this ZIP. This is interpretive data — verify independently.</p>
+                <p class="safe-check-note">Shows reported ICE activity in this ZIP code for the past 14 days. Always verify with additional sources.</p>
             </div>
         </div>
 
         <div class="signal-summary">
-            <strong>What changed:</strong> Attention on ICE activity topics <span id="trend-summary">is increasing</span>
-            based on vetted public and qualified community sources. Signals are buffered and released as soon as safety thresholds are met.
+            <strong>What changed:</strong> Reports about ICE activity <span id="trend-summary">are increasing</span>
+            based on verified news and community reports. This tool shows where ICE activity is being reported, not live tracking.
         </div>
 
         <div class="rolling-banner glass-card" aria-live="polite">
             <div class="rolling-track">
-                <div class="rolling-item">Interpretive activity feed • patterns, not alerts • verify independently</div>
-                <div class="rolling-item">Shortest safe delay • ZIP-level precision only • no identities stored</div>
-                <div class="rolling-item">Vetted public sources load first • qualified community items labeled</div>
-                <div class="rolling-item">Rolling activity: ICE attention <span class="rolling-emphasis trend-summary-inline">is increasing</span></div>
+                <div class="rolling-item">Shows reports, not live tracking • verify independently</div>
+                <div class="rolling-item">72-hour delay • ZIP code areas only • no personal info stored</div>
+                <div class="rolling-item">News sources shown first • community reports labeled</div>
+                <div class="rolling-item">ICE activity reports <span class="rolling-emphasis trend-summary-inline">are increasing</span></div>
             </div>
         </div>
         
         <!-- Trust & Safety Badge -->
         <div class="trust-badge glass-card">
-            <div data-i18n="trustNote">🔒 No tracking • 🗺️ ZIP-only precision • ⏱️ Shortest safe delay • 🧬 No identities stored</div>
+            <div data-i18n="trustNote">🔒 No tracking • 🗺️ ZIP codes only • ⏱️ 72-hour delay • 🧬 No personal info stored</div>
             <div style="font-size: 0.75rem; margin-top: 0.5rem;"><span data-i18n="lastUpdated">Last updated</span>: <strong id="last-updated">Loading...</strong></div>
         </div>
     </header>
@@ -138,7 +138,7 @@
             <div class="dash-card glass-card" data-target="map-section">
                 <div class="dash-icon">🗺️</div>
                 <div class="dash-value" id="dash-clusters">--</div>
-                <div class="dash-label" data-i18n="activeClusters">Active Signals</div>
+                <div class="dash-label" data-i18n="activeClusters">Active Reports</div>
                 <div class="dash-ring"></div>
             </div>
             <div class="dash-card glass-card" data-target="timeline-section">
@@ -171,26 +171,53 @@
             <div class="map-column">
                 <section id="map-section" class="content-section">
                     <div class="section-header">
-                        <h2>ICE Activity Density by Area</h2>
+                        <h2>Where ICE Activity Is Reported</h2>
                         <div class="btn-group">
-                            <button id="toggle-heatmap" class="glass-btn">Heatmap</button>
-                            <button id="toggle3d" class="glass-btn">3D</button>
+                            <button id="reset-map" class="glass-btn" title="Reset map to NJ overview" aria-label="Reset map view">
+                                <span aria-hidden="true">🎯</span> Reset View
+                            </button>
+                            <button id="toggle-heatmap" class="glass-btn" aria-label="Toggle heatmap overlay">Heatmap</button>
+                            <button id="toggle3d" class="glass-btn" aria-label="Toggle 3D view">3D</button>
                         </div>
                     </div>
                     <p class="section-note">
-                        Circles show where ICE-activity attention clusters. Size and color indicate pattern strength.
+                        Circles show where ICE activity is being reported. Larger and redder circles mean more reports in that area.
                     </p>
 
                     <!-- Silence-as-Signal Warning -->
                     <div class="silence-warning glass-card" id="silence-warning">
-                        <div class="warning-icon">!</div>
+                        <div class="warning-icon">⚠️</div>
                         <div class="warning-text">
-                            <strong>No visible clusters ≠ No activity</strong><br>
-                            <small>Data is buffered to the shortest safe delay. Absence of signals means thresholds not met, not confirmed safety.</small>
+                            <strong>No Reports ≠ No ICE Activity</strong><br>
+                            <small>Like weather radar — blank areas don't mean no activity, just nothing reported yet.</small>
+                            <details style="margin-top: 0.75rem;">
+                                <summary style="cursor: pointer; color: var(--accent); font-weight: 600;">Why might reports be missing?</summary>
+                                <ul style="margin: 0.5rem 0 0 1.5rem; line-height: 1.6; font-size: 0.9rem;">
+                                    <li><strong>Time delay:</strong> We wait 72 hours before showing data for safety</li>
+                                    <li><strong>Limited sources:</strong> We only know what's publicly reported or in the news</li>
+                                    <li><strong>Multiple reports needed:</strong> We need several reports before showing an area</li>
+                                    <li><strong>Reporting gaps:</strong> Not all ICE activity gets reported publicly</li>
+                                </ul>
+                                <p style="margin-top: 0.5rem; font-size: 0.85rem; font-style: italic; color: var(--text-muted);">This tool shows <em>where ICE activity is being discussed or reported</em>, not direct ICE operations.</p>
+                            </details>
                         </div>
                     </div>
 
-                    <div id="map" class="glass-card"></div>
+                    <div id="map" class="glass-card" role="application" aria-label="Interactive map showing ICE activity reports"></div>
+                    
+                    <!-- Loading Overlay -->
+                    <div id="loading-overlay" class="loading-overlay hidden" role="status" aria-live="polite">
+                        <div class="loading-spinner"></div>
+                        <p class="loading-text">Loading map data...</p>
+                    </div>
+                    
+                    <!-- Error State -->
+                    <div id="error-state" class="error-state glass-card hidden" role="alert">
+                        <div class="error-icon">⚠️</div>
+                        <h3>Unable to Load Data</h3>
+                        <p id="error-message">Something went wrong while loading the map.</p>
+                        <button id="retry-btn" class="glass-btn retry-btn">🔄 Try Again</button>
+                    </div>
 
                     <!-- Timeline Slider Controls -->
                     <div class="timeline-slider-container glass-card">
@@ -204,7 +231,7 @@
                             <span id="slider-end" class="muted-text">End</span>
                             <button id="timeline-play-btn" class="play-btn">▶ Play</button>
                         </div>
-                        <p class="timeline-hint">Drag slider to see attention patterns over time, or press Play to animate.</p>
+                        <p class="timeline-hint">Drag slider to see reports over time, or press Play to animate.</p>
                     </div>
 
                     <!-- Legend -->
@@ -238,12 +265,16 @@
             <aside class="news-sidebar" id="news-sidebar">
                 <div class="sidebar-header glass-card">
                     <h3>Live Feed</h3>
-                    <span class="sidebar-count" id="sidebar-count">0 signals</span>
+                    <span class="sidebar-count" id="sidebar-count">0 reports</span>
                 </div>
                 <div class="sidebar-sources" id="sidebar-sources"></div>
                 <div class="sidebar-articles" id="sidebar-articles">
-                    <div id="latest-news-list" class="sidebar-news-list">
-                        <p class="loading">Loading signals...</p>
+                    <div id="latest-news-list" class="sidebar-news-list" role="feed" aria-label="Latest ICE activity reports" aria-live="polite">
+                        <div class="skeleton-loader">
+                            <div class="skeleton-item"></div>
+                            <div class="skeleton-item"></div>
+                            <div class="skeleton-item"></div>
+                        </div>
                     </div>
                 </div>
             </aside>
@@ -255,7 +286,7 @@
             </div>
             <div class="download-card glass-card">
                 <h3>📊 Interactive Data Dashboard</h3>
-                <p>Explore data with charts, filters, tracking IDs, and source tracing</p>
+                <p>Browse data with charts, filters, and source information</p>
                 <div class="download-actions">
                     <a href="data-export.html" class="glass-btn" style="font-size: 1.1rem; padding: 1rem 2rem;">
                         Open Interactive Dashboard →
@@ -265,7 +296,7 @@
                 <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
                 
                 <h3>📥 Direct Downloads</h3>
-                <p>ZIP-level reported locations with sources, quality scores, and tracking IDs</p>
+                <p>ZIP code reports with sources and quality ratings</p>
                 <div class="download-meta">
                     <span>Records: <strong id="download-count">--</strong></span>
                     <span>Updated: <strong id="download-updated">--</strong></span>
@@ -283,15 +314,15 @@
                 </div>
                 
                 <div style="margin-top: 2rem; padding: 1rem; background: var(--bg-secondary); border-radius: var(--radius-md);">
-                    <h4>What's in the Comprehensive CSV:</h4>
+                    <h4>What's in the CSV file:</h4>
                     <ul style="line-height: 1.8; margin-left: 1.5rem;">
-                        <li>📋 Summary statistics & metadata</li>
-                        <li>🗺️ Cluster data with tracking IDs & quality scores</li>
-                        <li>📊 Timeline & trend analysis</li>
-                        <li>🌍 Geographic distribution by ZIP</li>
-                        <li>📰 Source tracking & reliability ratings</li>
-                        <li>✓ Data quality metrics</li>
-                        <li>📖 Methodology documentation</li>
+                        <li>📋 Summary statistics</li>
+                        <li>🗺️ Report groups with quality ratings</li>
+                        <li>📊 Timeline and trends</li>
+                        <li>🌍 Reports by ZIP code</li>
+                        <li>📰 Source names and reliability</li>
+                        <li>✓ Data quality info</li>
+                        <li>📖 How we collect data</li>
                     </ul>
                 </div>
                 
@@ -303,9 +334,9 @@
         </section>
         
         <section id="timeline-section">
-            <h2>📊 ICE Attention Over Time</h2>
+            <h2>📊 Reports Over Time</h2>
             <p class="section-note">
-                Weekly view of when ICE activity topics surface in public discourse.
+                Weekly view of ICE activity reports from news and community sources.
             </p>
             <div class="trend-indicators">
                 <span id="trend-direction" class="trend-badge">—</span>
@@ -332,7 +363,7 @@
                 </div>
             </div>
             <p class="section-note">
-                Keywords from public sources, showing WHERE they're trending.
+                Common words from reports, showing where they appear most.
                 <span id="keywords-last-updated" class="muted-text"></span>
             </p>
             <div id="keyword-cloud" class="keyword-cloud">
@@ -342,12 +373,12 @@
         </section>
         
         <section id="clusters-section">
-            <h2>💬 Current ICE Attention Clusters</h2>
+            <h2>💬 Current Report Groups</h2>
             <p class="section-note">
-                Topics receiving sustained focus across multiple sources. Buffered for safety.
+                Topics appearing in multiple reports from different sources. This shows what's being talked about, not live ICE operations.
             </p>
             <div id="cluster-cards">
-                <p class="loading">Loading clusters...</p>
+                <p class="loading">Loading report groups...</p>
             </div>
         </section>
         
@@ -362,8 +393,8 @@
                 <li>Qualified community submissions (buffered)</li>
             </ul>
             <div class="transparency">
-                <p>Vetted public sources load first. Qualified community submissions appear after checks and buffering.</p>
-                <p>Identities are never stored.</p>
+                <p>News sources appear first. Community reports appear after we verify them and wait 72 hours.</p>
+                <p>We never store names or personal information.</p>
                 <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
                     <a href="#" class="donate-btn" style="display: inline-block; background: var(--accent); color: #000; padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none;">Support HEAT — They Are Here</a>
                     <span style="color: var(--text-muted); font-size: 0.875rem; margin-left: 1rem;">Help keep this tool free and independent</span>
@@ -434,34 +465,30 @@
             <h2>About This Tool</h2>
             <div class="about-content">
                 <p>
-                    <strong>HEAT — They Are Here</strong> helps you notice when ICE-activity attention shifts—early, calmly,
-                    and without turning people into data points.
+                    <strong>HEAT — They Are Here</strong> helps you see when reports about ICE activity increase in your area—without exposing anyone's personal information. We collect news and community reports, not live ICE operations.
                 </p>
                 <div class="comparison-box">
                     <div class="comparison-item this-is">
                         <h4>What HEAT Shows</h4>
                         <ul>
-                            <li>When ICE attention shifts</li>
-                            <li>How patterns persist</li>
-                            <li>Where focus intensifies</li>
-                            <li>Whether trends strengthen or fade</li>
+                            <li>When ICE reports increase</li>
+                            <li>Which areas have more reports</li>
+                            <li>Trends over time</li>
+                            <li>Whether reports are rising or falling</li>
                         </ul>
                     </div>
                     <div class="comparison-item design-note">
-                        <h4>Design Choices</h4>
+                        <h4>How We Keep You Safe</h4>
                         <ul>
-                            <li>Shortest safe delay buffers noise</li>
-                            <li>Aggregation protects individuals</li>
-                            <li>ZIP-level precision only (no addresses)</li>
-                            <li>Public + qualified community sources</li>
+                            <li>72-hour delay before showing data</li>
+                            <li>Group reports together (not individuals)</li>
+                            <li>ZIP codes only (no street addresses)</li>
+                            <li>News articles and verified community reports</li>
                         </ul>
                     </div>
                 </div>
                 <p class="about-note">
-                    Unlike systems optimized for speed and alerts, HEAT intentionally
-                    buffers and clusters public records to reveal <em>when and where
-                    ICE-activity attention becomes socially salient</em> — a tool for interpretation,
-                    not surveillance.
+                    Unlike alert apps, HEAT waits 72 hours and groups reports together to protect people's safety. This is a tool to understand trends, not to track individuals.
                 </p>
             </div>
         </section>
@@ -470,19 +497,19 @@
     <footer>
         <div class="footer-content">
             <p><strong>HEAT — They Are Here</strong></p>
-            <p class="tagline">ICE activity attention map built from public signals.</p>
+            <p class="tagline">ICE activity map built from news and community reports.</p>
             <div class="footer-principles">
-                <span>Pattern detection</span>
-                <span>Shortest safe delay</span>
-                <span>ZIP-level precision only</span>
-                <span>Identities never stored</span>
+                <span>Shows trends</span>
+                <span>72-hour delay</span>
+                <span>ZIP codes only</span>
+                <span>No personal info stored</span>
             </div>
 
             <div class="footer-tiers">
                 <strong>Access Tiers</strong>
                 <div class="footer-tiers-links">
                     <span>You are viewing: <strong>Tier 0 (Public)</strong></span>
-                    <a href="submit.html" style="color: var(--accent);">Submit Signal</a>
+                    <a href="submit.html" style="color: var(--accent);">Submit Report</a>
                     <a href="contributor.html" style="color: var(--success, #34a853);">Contributor Dashboard</a>
                 </div>
             </div>
@@ -490,9 +517,9 @@
             <div class="footer-disclaimer">
                 <strong>Disclaimer</strong>
                 <p>
-                    HEAT aggregates publicly available information about ICE activity attention from news outlets, advocacy groups, and qualified community submissions.
-                    We make <strong>no claims</strong> about the accuracy, completeness, or verification of any specific events, locations, or individuals.
-                    Data is buffered to the shortest safe delay and aggregated to ZIP-code level to protect privacy and reduce harm.
+                    HEAT collects reports about ICE activity from news articles, advocacy groups, and community members.
+                    We show <em>where ICE activity is being reported</em>, not live ICE operations. We cannot guarantee that all information is accurate or complete.
+                    We wait 72 hours before showing data and only show ZIP codes (not addresses) to protect people's safety.
                 </p>
                 <p>
                     <strong>HEAT claims no ownership of source material.</strong> All rights to original news articles, reports, and content
@@ -501,17 +528,50 @@
             </div>
 
             <p class="footer-note">
-                This reflects interpretive patterns in public attention to ICE activity. You decide how to contextualize it.
+                This tool shows where ICE activity is being reported. We don't track live operations. Always verify with additional sources.
             </p>
             <p class="meta">
                 &copy; 2026 HEAT Project. All rights reserved.<br>
-                Licensed under HEAT Ethical Use License v1.0 — Built with care for community safety.
+                Licensed under HEAT Ethical Use License v1.0 — Built to keep communities safe.
             </p>
         </div>
     </footer>
     
+    <!-- Persistent Latency Badge -->
+    <div id="latency-badge" class="latency-badge glass-card" style="position: fixed; bottom: 1rem; right: 1rem; z-index: 999; max-width: 280px; padding: 0.75rem 1rem; font-size: 0.85rem; line-height: 1.5; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+            <span style="font-size: 1.2rem;">🕐</span>
+            <strong style="font-size: 0.9rem;">Data Timestamp</strong>
+        </div>
+        <div style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.5rem;">
+            Current: <strong id="latency-current-date" style="color: var(--text);">Loading...</strong>
+        </div>
+        <div style="padding: 0.5rem; background: var(--bg-secondary); border-radius: 6px; border-left: 3px solid var(--accent);">
+            <div style="font-weight: 600; margin-bottom: 0.25rem;">⏱️ Buffer Delay Active</div>
+            <div style="font-size: 0.8rem;">72-hour public safety delay</div>
+            <div style="margin-top: 0.4rem; font-style: italic; font-size: 0.75rem;">
+                Viewing events before <strong id="latency-viewing-before" style="color: var(--accent);">--</strong>
+            </div>
+        </div>
+    </div>
+
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="app.js"></script>
+    <script>
+    // Populate latency badge with current data
+    (function() {
+        const now = new Date();
+        const bufferHours = 72;
+        const viewingBefore = new Date(now.getTime() - (bufferHours * 60 * 60 * 1000));
+        
+        const formatDate = (date) => {
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+        };
+        
+        document.getElementById('latency-current-date').textContent = formatDate(now);
+        document.getElementById('latency-viewing-before').textContent = formatDate(viewingBefore);
+    })();
+    </script>
 </body>
 </html>

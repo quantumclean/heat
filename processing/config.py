@@ -372,11 +372,11 @@ ALERT_SUSTAINED_HOURS = 24   # Hours above threshold for Class B
 ALERT_DECAY_THRESHOLD = 0.5  # Below baseline for Class C
 
 # ============================================
-# Safety Thresholds (Buffer Stage)
+# Safety Thresholds (Buffer Stage) - MAXIMUM SENSITIVITY
 # ============================================
-MIN_CLUSTER_SIZE = 3      # Minimum signals per cluster
-MIN_SOURCES = 2           # Minimum distinct sources
-MIN_VOLUME_SCORE = 1.0    # Minimum weighted score
+MIN_CLUSTER_SIZE = 1      # MAXIMUM SENSITIVITY: Single records accepted
+MIN_SOURCES = 1           # MAXIMUM SENSITIVITY: Single source accepted
+MIN_VOLUME_SCORE = 0.0    # MAXIMUM SENSITIVITY: All volumes accepted
 
 # ============================================
 # Digest Settings
@@ -461,3 +461,239 @@ SCRAPER_USER_AGENT = "HEAT-CivicSignalMap/1.0 (Research; https://github.com/heat
 SCRAPER_REQUEST_DELAY = 2.0  # Seconds between requests
 SCRAPER_TIMEOUT = 30         # Request timeout in seconds
 SCRAPER_MAX_RETRIES = 3      # Retry failed requests
+
+# ============================================
+# CONSOLIDATED THRESHOLD CONFIGURATION
+# ============================================
+"""
+All safety and detection thresholds centralized in this section.
+Each threshold is calibrated to balance community safety awareness with
+responsible information handling for ICE activity tracking.
+"""
+
+# --- Clustering Thresholds ---
+
+MIN_CLUSTER_SIZE_PRODUCTION = 1
+"""
+Minimum number of signals required to form a valid cluster - MAXIMUM SENSITIVITY.
+
+UPDATED: Lowered to 1 to show ALL activity and match other apps with high visibility.
+Shows single signals, pairs, and all patterns for comprehensive coverage.
+"""
+
+MIN_SOURCE_CORROBORATION = 2
+"""
+Minimum number of distinct sources required to validate a cluster.
+
+WHY 2: Ensures cross-validation between independent reporting channels. A single
+source (even with multiple posts) could reflect rumor propagation rather than
+verified activity. Two independent sources provide basic corroboration while
+remaining achievable for legitimate signals in our monitoring scope.
+"""
+
+# --- Safety Delay Thresholds ---
+
+SAFETY_DELAY_HOURS_CONTRIBUTOR = 24
+"""
+Time delay (in hours) before Tier 1 contributors see aggregated patterns.
+
+WHY 24: Provides a 1-day buffer to allow for:
+1. Signal validation and clustering
+2. Cross-source verification
+3. Removal of false positives or speculation
+4. Pattern stabilization vs. immediate reactive posts
+
+This delay ensures contributors receive higher-confidence information while
+still providing timely community awareness.
+"""
+
+SAFETY_DELAY_HOURS_PUBLIC = 72
+"""
+Time delay (in hours) before Tier 0 public users see heatmap data.
+
+WHY 72: The 3-day public delay serves multiple safety purposes:
+1. Allows full pattern verification across multiple news cycles
+2. Prevents real-time surveillance or tactical use of the data
+3. Ensures temporal decoupling from specific operational timeframes
+4. Reduces risk of location-specific targeting or harassment
+5. Aligns with responsible disclosure practices for sensitive civic data
+
+The 72-hour window is the minimum necessary to convert "live intelligence"
+into "historical pattern awareness" while maintaining community value.
+"""
+
+# --- Temporal Analysis Thresholds ---
+
+TIME_DECAY_HALF_LIFE_HOURS = 72
+"""
+Half-life (in hours) for exponential time decay scoring.
+
+WHY 72: Matches the public safety delay window. Signals older than 3 days begin
+losing relevance for current awareness while remaining valuable for historical
+pattern analysis. This decay rate ensures:
+1. Recent patterns carry more weight in current assessments
+2. Historical data doesn't artificially inflate current threat perception
+3. Seasonal or cyclical patterns emerge over multi-week analysis
+
+The 72-hour half-life creates a natural "attention decay" that parallels
+community memory and news cycle rhythms.
+"""
+
+# --- Statistical Detection Thresholds ---
+
+BURST_DETECTION_STD_THRESHOLD = 2.0
+"""
+Standard deviations above rolling mean to trigger burst detection.
+
+WHY 2.0: Represents approximately 95th percentile (95% confidence interval).
+This threshold captures genuinely anomalous spikes while filtering normal
+variation in reporting volume. For ICE activity tracking:
+- Too low (1.0-1.5): Excessive false alarms from normal news cycles
+- Too high (2.5+): Misses significant community attention shifts
+- 2.0: Industry standard for anomaly detection, balances sensitivity/specificity
+"""
+
+SPIKE_DETECTION_STD_THRESHOLD = 2.0
+"""
+Standard deviations above baseline for spike alert classification (Class A).
+
+WHY 2.0: Identical to burst detection for consistency. Class A alerts indicate
+rapid-onset attention changes that may reflect breaking news or community concerns.
+The 2-sigma threshold ensures alerts represent statistically significant deviations,
+not random fluctuations, maintaining alert credibility and preventing fatigue.
+"""
+
+SUSTAINED_THRESHOLD_STD = 1.5
+"""
+Standard deviations above baseline for sustained pattern classification (Class B).
+
+WHY 1.5: Lower than spike threshold (2.0) because sustained patterns are validated
+over time rather than instantaneous. A moderate elevation (1.5σ ≈ 87th percentile)
+maintained over 24+ hours indicates persistent community attention without requiring
+extreme volume spikes. This allows detection of:
+- Ongoing policy debates
+- Prolonged community responses
+- Multi-day event coverage
+
+The lower threshold compensates for temporal validation—persistence itself is evidence.
+"""
+
+ATTENTION_DECAY_MULTIPLIER = 0.5
+"""
+Multiplier for baseline comparison to trigger Class C decay alerts.
+
+WHY 0.5: Class C alerts signal when attention drops below 50% of recent baseline,
+indicating a "return to normal" after elevated periods. This threshold:
+1. Avoids alert spam during normal low-activity periods
+2. Marks clear transitions from heightened to baseline attention
+3. Provides closure signals after sustained elevated patterns
+
+The 0.5 multiplier is conservative—only triggers when attention clearly recedes,
+not just minor downward fluctuations.
+"""
+
+# --- Source Reliability Weights ---
+
+SOURCE_RELIABILITY = {
+    "official_government": 1.0,   # Maximum weight: official records, FOIA responses
+    "credentialed_news": 0.9,     # Professional journalism with editorial oversight
+    "local_news": 0.8,            # Regional outlets, Patch, TAPinto with local verification
+    "community_verified": 0.7,    # Community reporters with established credibility
+    "social_corroborated": 0.5,   # Social media posts with 2+ independent confirmations
+    "single_report": 0.3,         # Unverified single-source claims (flagged for review)
+    "anonymous": 0.1,             # Anonymous tips (lowest weight, requires heavy corroboration)
+}
+"""
+Source reliability weights for signal scoring.
+
+Official government sources (1.0) include FOIA responses, court records, official statements.
+Credentialed news (0.9) includes outlets with professional journalism standards.
+Local news (0.8) captures regional outlets with community verification.
+Community verified (0.7) represents trusted community reporters with track records.
+Social corroborated (0.5) requires multi-source social media confirmation.
+Single reports (0.3) and anonymous tips (0.1) receive minimal weight until corroborated.
+
+These weights ensure multi-source professional journalism clusters rise above
+unverified social media speculation while still capturing grassroots signals.
+"""
+
+# --- Severity Classification Bands ---
+
+SEVERITY_BANDS = {
+    "minimal": {
+        "score_range": (0.0, 0.3),
+        "label": "Baseline Community Attention",
+        "description": "Normal background discussion levels. No unusual patterns detected.",
+        "color": "#E8F5E9",  # Light green
+        "action": None,
+    },
+    "moderate": {
+        "score_range": (0.3, 0.5),
+        "label": "Moderate Discussion Activity",
+        "description": "Slightly elevated attention. May reflect local news coverage or community conversations.",
+        "color": "#FFF9C4",  # Light yellow
+        "action": "Monitor for pattern development",
+    },
+    "elevated": {
+        "score_range": (0.5, 0.7),
+        "label": "Elevated Community Focus",
+        "description": "Sustained attention above baseline. Multiple sources reporting related topics.",
+        "color": "#FFE0B2",  # Light orange
+        "action": "Review sources and verify clustering",
+    },
+    "high": {
+        "score_range": (0.7, 0.85),
+        "label": "High Community Attention",
+        "description": "Significant multi-source discussion. Pattern likely reflects notable community concerns or events.",
+        "color": "#FFCCBC",  # Peach
+        "action": "Verify contributor tier release; monitor for misinformation",
+    },
+    "very_high": {
+        "score_range": (0.85, 1.0),
+        "label": "Very High Community Attention",
+        "description": "Exceptional discussion levels. Wide-scale coverage across multiple verified sources.",
+        "color": "#FFCDD2",  # Light red
+        "action": "Full verification required; consider early contributor notification",
+    },
+}
+"""
+Severity bands for visual heatmap display and alert classification.
+
+These bands translate raw statistical scores into human-readable community attention levels.
+Labels deliberately avoid enforcement language ("raid", "operation") and focus on
+discussion/attention metrics rather than claiming specific ICE activities.
+
+Color palette uses warm gradients (green→yellow→orange→red) following standard
+heatmap conventions while avoiding alarm-inducing saturation levels.
+
+Actions provide internal guidance for moderators on appropriate responses at each level.
+Public-facing descriptions emphasize that scores reflect *discussion patterns*, not
+confirmed enforcement activities, maintaining epistemic humility.
+"""
+
+# --- Data Quality Flags ---
+
+DATA_QUALITY_FLAGS = {
+    "HIGH_CONFIDENCE": "verified_multi_source",      # 3+ sources, 2+ source types
+    "MODERATE_CONFIDENCE": "corroborated",          # 2 sources, credible outlets
+    "LOW_CONFIDENCE": "single_source",              # 1 source, needs verification
+    "UNVERIFIED": "unconfirmed",                    # No corroboration, flagged
+    "DISPUTED": "conflicting_reports",              # Contradictory signals
+    "TEMPORAL_MISMATCH": "time_discrepancy",        # Signals span >72 hours
+    "GEOGRAPHIC_AMBIGUITY": "location_unclear",     # ZIP/location confidence <0.5
+    "REQUIRES_REVIEW": "manual_verification_needed", # Flagged for human oversight
+}
+"""
+Data quality flags for cluster validation and display filtering.
+
+HIGH_CONFIDENCE: Displays on contributor tier (Tier 1) without additional warnings
+MODERATE_CONFIDENCE: Displays with "developing pattern" caveat
+LOW_CONFIDENCE: Contributor tier only, marked "preliminary"
+UNVERIFIED: Held for moderator review (Tier 2), never auto-released
+DISPUTED: Flagged for investigation, may indicate misinformation
+TEMPORAL_MISMATCH: Signals cluster geographically but not temporally—likely unrelated
+GEOGRAPHIC_AMBIGUITY: Location extraction below confidence threshold
+REQUIRES_REVIEW: Catch-all for automated filters triggering manual review queue
+
+These flags enable tiered release logic: HIGH→Contributor, MODERATE→Delayed, LOW→Held.
+"""

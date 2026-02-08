@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-05T18:16:19.201395+00:00",
+  "generated_at": "2026-02-08T11:16:26.956342+00:00",
   "keywords": [
     {
       "word": "monitor",
@@ -18,7 +18,7 @@
         "start": "2025-02-07T00:00:00+00:00",
         "end": "2026-02-03T00:00:00+00:00"
       },
-      "recency_hours": 66.27199987055556
+      "recency_hours": 131.27415392305554
     },
     {
       "word": "cities",
@@ -37,7 +37,7 @@
         "start": "2025-04-28T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.27199991111111
+      "recency_hours": 107.27415408277777
     },
     {
       "word": "deportation",
@@ -57,7 +57,7 @@
         "start": "2025-02-07T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.27199992472222
+      "recency_hours": 107.27415409916668
     },
     {
       "word": "com",
@@ -76,11 +76,11 @@
         "start": "2025-04-28T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.271999934722224
+      "recency_hours": 107.27415411083334
     },
     {
       "word": "york",
-      "count": 39,
+      "count": 40,
       "top_location": "07060",
       "locations": {
         "07060": 26,
@@ -94,9 +94,9 @@
       ],
       "date_range": {
         "start": "2025-02-27T00:00:00+00:00",
-        "end": "2026-02-04T00:00:00+00:00"
+        "end": "2026-02-08T00:00:00+00:00"
       },
-      "recency_hours": 42.27199994527778
+      "recency_hours": 11.274154120833332
     },
     {
       "word": "raid",
@@ -115,7 +115,7 @@
         "start": "2025-07-09T00:00:00+00:00",
         "end": "2026-01-17T00:00:00+00:00"
       },
-      "recency_hours": 474.27199995555554
+      "recency_hours": 539.2741541305555
     },
     {
       "word": "spotlight",
@@ -135,7 +135,7 @@
         "start": "2025-03-07T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.271999963888895
+      "recency_hours": 107.27415413916667
     },
     {
       "word": "after",
@@ -154,7 +154,7 @@
         "start": "2025-03-12T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.271999972500005
+      "recency_hours": 107.27415414777778
     },
     {
       "word": "judge",
@@ -173,7 +173,7 @@
         "start": "2025-03-19T00:00:00+00:00",
         "end": "2026-01-29T00:00:00+00:00"
       },
-      "recency_hours": 186.27199998027777
+      "recency_hours": 251.2741541561111
     },
     {
       "word": "immigrant",
@@ -192,7 +192,7 @@
         "start": "2025-02-07T00:00:00+00:00",
         "end": "2026-02-03T00:00:00+00:00"
       },
-      "recency_hours": 66.27199998861111
+      "recency_hours": 131.27415416444444
     },
     {
       "word": "over",
@@ -211,7 +211,7 @@
         "start": "2025-04-22T00:00:00+00:00",
         "end": "2026-01-30T00:00:00+00:00"
       },
-      "recency_hours": 162.27199999694443
+      "recency_hours": 227.2741541725
     },
     {
       "word": "policies",
@@ -231,7 +231,7 @@
         "start": "2025-02-19T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.27200000472222
+      "recency_hours": 107.27415418
     },
     {
       "word": "record",
@@ -250,7 +250,7 @@
         "start": "2025-03-05T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.272000014444444
+      "recency_hours": 107.2741541886111
     },
     {
       "word": "arrests",
@@ -269,7 +269,7 @@
         "start": "2025-02-19T00:00:00+00:00",
         "end": "2026-02-03T00:00:00+00:00"
       },
-      "recency_hours": 66.27200002555556
+      "recency_hours": 131.27415419722223
     },
     {
       "word": "patch",
@@ -288,7 +288,7 @@
         "start": "2025-08-05T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.27200003555556
+      "recency_hours": 107.274154205
     },
     {
       "word": "list",
@@ -306,7 +306,7 @@
         "start": "2025-05-30T00:00:00+00:00",
         "end": "2025-09-18T00:00:00+00:00"
       },
-      "recency_hours": 3378.272000044167
+      "recency_hours": 3443.274154213055
     },
     {
       "word": "bergen",
@@ -325,7 +325,7 @@
         "start": "2025-03-05T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.27200005305556
+      "recency_hours": 107.2741542211111
     },
     {
       "word": "governor",
@@ -345,7 +345,7 @@
         "start": "2025-03-13T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.272000061388894
+      "recency_hours": 107.27415422861112
     },
     {
       "word": "khalil",
@@ -364,7 +364,7 @@
         "start": "2025-03-19T00:00:00+00:00",
         "end": "2026-01-15T00:00:00+00:00"
       },
-      "recency_hours": 522.2720000686111
+      "recency_hours": 587.2741542358333
     },
     {
       "word": "morristown",
@@ -381,7 +381,7 @@
         "start": "2026-01-11T00:00:00+00:00",
         "end": "2026-01-21T00:00:00+00:00"
       },
-      "recency_hours": 378.2720000758333
+      "recency_hours": 443.2741542427778
     },
     {
       "word": "mahmoud",
@@ -400,7 +400,7 @@
         "start": "2025-03-19T00:00:00+00:00",
         "end": "2026-01-15T00:00:00+00:00"
       },
-      "recency_hours": 522.2720000827777
+      "recency_hours": 587.2741542497222
     },
     {
       "word": "raids",
@@ -419,7 +419,7 @@
         "start": "2025-02-07T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.27200009055555
+      "recency_hours": 107.2741542575
     },
     {
       "word": "detention",
@@ -438,7 +438,7 @@
         "start": "2025-02-27T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.272000098333336
+      "recency_hours": 107.27415426611111
     },
     {
       "word": "detained",
@@ -457,7 +457,7 @@
         "start": "2025-03-28T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.27200010833334
+      "recency_hours": 107.27415427444444
     },
     {
       "word": "out",
@@ -476,7 +476,7 @@
         "start": "2025-04-01T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.27200011555556
+      "recency_hours": 107.27415428249999
     },
     {
       "word": "court",
@@ -496,7 +496,7 @@
         "start": "2025-03-28T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.272000122777776
+      "recency_hours": 107.27415428972222
     },
     {
       "word": "mayor",
@@ -516,7 +516,7 @@
         "start": "2025-03-13T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.27200013055556
+      "recency_hours": 107.2741542975
     },
     {
       "word": "hoboken",
@@ -536,7 +536,7 @@
         "start": "2025-05-23T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.27200013805556
+      "recency_hours": 107.27415430555556
     },
     {
       "word": "times",
@@ -554,7 +554,7 @@
         "start": "2025-02-27T00:00:00+00:00",
         "end": "2026-01-31T00:00:00+00:00"
       },
-      "recency_hours": 138.27200014472223
+      "recency_hours": 203.2741543125
     },
     {
       "word": "against",
@@ -573,7 +573,7 @@
         "start": "2025-05-23T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 42.27200015138889
+      "recency_hours": 107.27415432527778
     }
   ],
   "top_keywords": [
@@ -659,112 +659,112 @@
     ]
   ],
   "categories": {
-    "enforcement": 358,
+    "enforcement": 360,
     "community": 50,
-    "government": 127,
+    "government": 130,
     "safety": 26,
-    "legal": 56,
+    "legal": 58,
     "education": 29,
-    "response": 173,
+    "response": 174,
     "general": 18,
     "workplace": 16
   },
   "related_terms": {
     "enforcement": [
-      "contested",
-      "tapinto",
-      "eyebrows",
-      "fires",
-      "fdu",
-      "way",
-      "off",
-      "million",
-      "human",
-      "yorker"
+      "including",
+      "economies",
+      "rocks",
+      "platkin",
+      "apartment",
+      "thugs",
+      "feds",
+      "friends",
+      "diligence",
+      "survival"
     ],
     "community": [
-      "contested",
-      "tapinto",
-      "eyebrows",
-      "fires",
-      "fdu",
-      "way",
-      "off",
-      "million",
-      "human",
-      "yorker"
+      "including",
+      "economies",
+      "rocks",
+      "thugs",
+      "apartment",
+      "feds",
+      "friends",
+      "diligence",
+      "survival",
+      "violates"
     ],
     "legal": [
-      "contested",
-      "tapinto",
-      "eyebrows",
-      "fires",
-      "fdu",
-      "way",
-      "off",
-      "million",
-      "human",
-      "yorker"
+      "including",
+      "economies",
+      "rocks",
+      "platkin",
+      "thugs",
+      "apartment",
+      "feds",
+      "friends",
+      "diligence",
+      "survival"
     ],
     "safety": [
-      "contested",
-      "tapinto",
-      "eyebrows",
-      "fires",
-      "fdu",
-      "way",
-      "off",
-      "million",
-      "human",
-      "yorker"
+      "including",
+      "economies",
+      "rocks",
+      "platkin",
+      "thugs",
+      "apartment",
+      "feds",
+      "friends",
+      "diligence",
+      "survival"
     ],
     "response": [
-      "contested",
-      "tapinto",
-      "eyebrows",
-      "fires",
-      "million",
-      "off",
-      "way",
-      "human",
-      "yorker",
-      "attorney"
+      "including",
+      "economies",
+      "rocks",
+      "platkin",
+      "apartment",
+      "thugs",
+      "feds",
+      "friends",
+      "survival",
+      "suspect"
     ],
     "education": [
-      "contested",
-      "tapinto",
-      "eyebrows",
-      "fires",
-      "fdu",
-      "way",
-      "off",
-      "human",
-      "yorker",
-      "attorney"
+      "including",
+      "economies",
+      "rocks",
+      "platkin",
+      "thugs",
+      "apartment",
+      "feds",
+      "friends",
+      "diligence",
+      "survival"
     ],
     "workplace": [
-      "contested",
-      "tapinto",
-      "eyebrows",
-      "fires",
-      "million",
-      "way",
-      "off",
-      "human",
-      "yorker",
-      "attorney"
+      "including",
+      "economies",
+      "platkin",
+      "thugs",
+      "apartment",
+      "feds",
+      "friends",
+      "diligence",
+      "survival",
+      "violates"
     ],
     "government": [
-      "contested",
-      "tapinto",
-      "eyebrows",
-      "fires",
-      "fdu",
-      "way",
-      "off",
-      "million",
-      "human",
-      "yorker"
+      "including",
+      "economies",
+      "rocks",
+      "platkin",
+      "apartment",
+      "thugs",
+      "feds",
+      "friends",
+      "diligence",
+      "survival"
     ]
   }
 }

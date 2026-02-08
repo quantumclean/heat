@@ -18,6 +18,14 @@ except ImportError:
     GOVERNANCE_AVAILABLE = False
     print("WARNING: Governance layer not available. Exporting without governance checks.")
 
+# Import centralized safety module
+try:
+    from safety import apply_safety_policy, scrub_cluster_pii, save_safety_audit
+    SAFETY_AVAILABLE = True
+except ImportError:
+    SAFETY_AVAILABLE = False
+    print("WARNING: Safety module not available. Exporting without centralized safety checks.")
+
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 BUILD_DIR = Path(__file__).parent.parent / "build" / "data"
 ARCHIVE_DIR = Path(__file__).parent.parent / "data" / "archive"
@@ -61,11 +69,38 @@ def export_for_static_site():
     
     # Export clusters.json
     clusters = []
+    safety_results = []  # Track safety gate decisions for audit
+
     for _, row in clusters_df.iterrows():
-        sources = row["sources"]
-        if isinstance(sources, str):
-            sources = eval(sources)
-        
+        # Convert row to dict for safety policy
+        cluster_dict = {
+            "cluster_id": int(row["cluster_id"]),
+            "size": int(row["size"]),
+            "sources": eval(row["sources"]) if isinstance(row["sources"], str) else row["sources"],
+            "volume_score": float(row["volume_score"]),
+            "latest_date": row["latest_date"],
+            "primary_zip": str(row["primary_zip"]).zfill(5),
+            "representative_text": str(row["representative_text"]),
+        }
+
+        # SAFETY GATE: Apply centralized safety policy
+        if SAFETY_AVAILABLE:
+            safety_result = apply_safety_policy(cluster_dict)
+            safety_results.append(safety_result)
+
+            if not safety_result.passed:
+                # Cluster blocked by safety gates - log and skip
+                print(f"  BLOCKED: Cluster {row['cluster_id']} - {safety_result.blocked_reason}")
+                continue
+
+            # Apply PII scrubbing (centralized function)
+            cluster_dict = scrub_cluster_pii(cluster_dict)
+        else:
+            # Fallback to local scrub_pii if safety module unavailable
+            cluster_dict["representative_text"] = scrub_pii(str(row["representative_text"]))
+
+        sources = cluster_dict["sources"]
+
         # Parse URLs if available
         urls = []
         if "urls" in row and pd.notna(row["urls"]):
@@ -77,24 +112,33 @@ def export_for_static_site():
                     urls = [url_val] if url_val else []
             elif isinstance(url_val, list):
                 urls = url_val
-        
+
         # Ensure ZIP code has 5 digits with leading zero
-        zip_code = str(row["primary_zip"]).zfill(5)
-        
-        safe_summary = scrub_pii(str(row["representative_text"]))
+        zip_code = cluster_dict["primary_zip"]
+
+        safe_summary = cluster_dict["representative_text"]
+        safe_sources = [str(s) for s in sources] if sources else []
+
         clusters.append({
-            "id": int(row["cluster_id"]),
-            "size": int(row["size"]),
-            "strength": float(row["volume_score"]),
+            "id": cluster_dict["cluster_id"],
+            "size": cluster_dict["size"],
+            "strength": cluster_dict["volume_score"],
             "zip": zip_code,
             "dateRange": {
                 "start": row["earliest_date"],
                 "end": row["latest_date"],
             },
             "summary": safe_summary,
-            "sources": sources,
+            "sources": safe_sources,
             "mediaLinks": urls[:5],  # Limit to 5 links per cluster
         })
+
+    # Save safety audit trail
+    if SAFETY_AVAILABLE and safety_results:
+        audit_path = BUILD_DIR / "safety_audit.json"
+        save_safety_audit(safety_results, audit_path)
+        blocked_count = sum(1 for r in safety_results if not r.passed)
+        print(f"Safety gates: {len(clusters)} passed, {blocked_count} blocked (audit: {audit_path})")
     
     # Apply governance layer (anti-gaming, uncertainty metadata)
     governance_report = None
@@ -262,10 +306,12 @@ def export_for_static_site():
         
         timeline_data = []
         for _, row in timeline.iterrows():
+            # Scrub PII from source names before export
+            safe_sources = [scrub_pii(str(s)) for s in row["sources"]]
             timeline_data.append({
                 "week": row["week"],
                 "count": int(row["count"]),
-                "sources": row["sources"],
+                "sources": safe_sources,
             })
         
         # Add trend data if available
@@ -300,13 +346,13 @@ def export_for_static_site():
 
 def archive_old_data():
     """
-    Archive clusters older than 14 days to data/archive/.
+    Archive clusters older than 365 days to data/archive/ - MAXIMUM VISIBILITY.
     Delete archives older than ARCHIVE_RETENTION_DAYS (30 days).
     """
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     
     now = datetime.now()
-    cutoff_archive = now - timedelta(days=14)
+    cutoff_archive = now - timedelta(days=365)  # Keep 1 year of data visible
     cutoff_delete = now - timedelta(days=ARCHIVE_RETENTION_DAYS)
     
     # Archive old clusters from eligible_clusters.csv

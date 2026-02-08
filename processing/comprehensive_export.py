@@ -6,12 +6,29 @@ Follows best practices from analytics platforms like Tableau, Google Analytics, 
 import pandas as pd
 import json
 import csv
+import re
 from pathlib import Path
 from datetime import datetime, timezone
 import hashlib
 from typing import Dict, List, Any
 
 from config import PROCESSED_DIR, BUILD_DIR, EXPORTS_DIR, TARGET_ZIPS, ZIP_CENTROIDS
+
+
+def scrub_pii(text: str) -> str:
+    """Redact common PII patterns from text fields before export."""
+    if not text:
+        return text
+    patterns = {
+        "ssn": r"\b\d{3}-\d{2}-\d{4}\b",
+        "phone": r"\b\d{3}[-.]?\d{3}[-.]?\d{4}\b",
+        "email": r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b",
+        "address": r"\b\d+\s+[A-Za-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct)\b",
+    }
+    scrubbed = text
+    for pattern in patterns.values():
+        scrubbed = re.sub(pattern, "[redacted]", scrubbed, flags=re.IGNORECASE)
+    return scrubbed
 
 
 def generate_comprehensive_csv():
@@ -134,13 +151,19 @@ def generate_comprehensive_csv():
             cluster_export['quality_score'] = calculate_quality_score(cluster_export)
             cluster_export['confidence_level'] = categorize_confidence(cluster_export)
             
-            # Format sources as readable strings
+            # Format sources as readable strings and scrub PII
             if 'sources' in cluster_export.columns:
                 cluster_export['source_list'] = cluster_export['sources'].apply(
-                    lambda x: ', '.join(eval(x) if isinstance(x, str) else x) if x else ''
+                    lambda x: scrub_pii(', '.join(eval(x) if isinstance(x, str) else x)) if x else ''
                 )
                 cluster_export['source_count'] = cluster_export['sources'].apply(
                     lambda x: len(eval(x) if isinstance(x, str) else x) if x else 0
+                )
+            
+            # Scrub PII from representative_text
+            if 'representative_text' in cluster_export.columns:
+                cluster_export['representative_text'] = cluster_export['representative_text'].apply(
+                    lambda x: scrub_pii(str(x)) if pd.notna(x) else ''
                 )
             
             # Format URLs

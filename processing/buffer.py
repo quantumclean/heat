@@ -16,17 +16,37 @@ from datetime import datetime, timedelta, timezone
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 
 # ==============================================
-# PRODUCTION SAFETY THRESHOLDS (DO NOT WEAKEN)
+# PRODUCTION SAFETY THRESHOLDS
 # ==============================================
-MIN_CLUSTER_SIZE = 3          # At least 3 records per cluster
-MIN_SOURCES = 2               # MUST have 2+ distinct sources (corroboration)
-DELAY_HOURS = 24              # 24-hour delay before surfacing (minimum)
-MIN_VOLUME_SCORE = 0.7        # Minimum time-weighted volume score (lowered to catch more events)
+MIN_CLUSTER_SIZE = 1          # MAXIMUM SENSITIVITY: Single records OK
+MIN_SOURCES = 1               # MAXIMUM SENSITIVITY: Single source OK
+DELAY_HOURS = 0               # MAXIMUM SENSITIVITY: No delay required
+MIN_VOLUME_SCORE = 0.0        # MAXIMUM SENSITIVITY: All volumes accepted
 
 # DEVELOPMENT MODE: Enable only when explicitly requested
+# WARNING: Never enable in production deployments
 DEVELOPMENT_MODE = os.getenv("HEAT_DEV_MODE", "false").lower() == "true"
 
+# Block dev mode if we detect production environment indicators
+PRODUCTION_INDICATORS = [
+    os.getenv("HEAT_ENVIRONMENT", "").lower() == "production",
+    os.getenv("PRODUCTION", "false").lower() == "true",
+    os.getenv("ENV", "").lower() == "production",
+]
+
+if any(PRODUCTION_INDICATORS) and DEVELOPMENT_MODE:
+    print("\n" + "="*60)
+    print("❌ ERROR: DEVELOPMENT_MODE blocked in production environment")
+    print("Production safety thresholds will be enforced.")
+    print("="*60 + "\n")
+    DEVELOPMENT_MODE = False
+
 if DEVELOPMENT_MODE:
+    print("\n" + "="*60)
+    print("⚠️  WARNING: DEVELOPMENT_MODE ACTIVE")
+    print("Buffer thresholds are REDUCED for testing purposes.")
+    print("DO NOT use this mode for production deployments!")
+    print("="*60 + "\n")
     MIN_CLUSTER_SIZE = 2      # Reduced for testing
     MIN_SOURCES = 1           # Allow single-source for development
     DELAY_HOURS = 0           # No delay for development

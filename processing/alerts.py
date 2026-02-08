@@ -7,6 +7,7 @@ import json
 import os
 import pandas as pd
 import numpy as np
+import re
 from datetime import datetime, timedelta
 from pathlib import Path
 from textwrap import shorten
@@ -35,7 +36,23 @@ def validate_alert_text(text: str) -> tuple[bool, str]:
         if word.lower() in text_lower:
             return False, f"Forbidden word detected: '{word}'"
     
-    return True, ""
+    return True, \"\"
+
+
+def scrub_pii(text: str) -> str:
+    \"\"\"Redact common PII patterns from text fields before export.\"\"\"
+    if not text:
+        return text
+    patterns = {
+        \"ssn\": r\"\\b\\d{3}-\\d{2}-\\d{4}\\b\",
+        \"phone\": r\"\\b\\d{3}[-.]?\\d{3}[-.]?\\d{4}\\b\",
+        \"email\": r\"\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b\",
+        \"address\": r\"\\b\\d+\\s+[A-Za-z]+\\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct)\\b\",
+    }
+    scrubbed = text
+    for pattern in patterns.values():
+        scrubbed = re.sub(pattern, \"[redacted]\", scrubbed, flags=re.IGNORECASE)
+    return scrubbed
 
 
 def calculate_baseline(timeline: list, window_weeks: int = 4) -> float:
@@ -203,13 +220,20 @@ def generate_cluster_alerts(clusters_df: pd.DataFrame) -> list:
                 sources = [sources_raw]
         zip_code = str(row.get("primary_zip", "07060")).zfill(5)
         summary = str(row.get("representative_text", "")).strip()
-        safe_summary = shorten(summary, width=200, placeholder="…") if summary else "Attention change detected"
+        
+        # Apply PII scrubbing before validation
+        safe_summary = scrub_pii(summary)
+        safe_summary = shorten(safe_summary, width=200, placeholder="…") if safe_summary else "Attention change detected"
+        
+        # Scrub sources list
+        safe_sources = [scrub_pii(str(s)) for s in sources]
+        
         is_valid, error = validate_alert_text(safe_summary)
         if not is_valid:
             print(f"Cluster alert skipped (validation): {error}")
             continue
         priority = "high" if zip_code == "07060" else "normal"
-        alerts.append({
+        alerts.append({afe_s
             "id": int(row.get("cluster_id", 0)),
             "zip": zip_code,
             "title": f"Attention in ZIP {zip_code}",

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZIP Code Validation Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .test-case {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .test-case h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .result {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 3px;
+        }
+        .pass {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .fail {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <h1>ZIP Code Validation Test Suite</h1>
+    <p>Testing the new ZIP code handling logic:</p>
+    
+    <div id="tests"></div>
+    
+    <script>
+        // Import the validation function (we'll test the logic inline)
+        function isNewJerseyZip(zip) {
+            const zipNum = parseInt(zip, 10);
+            return (zipNum >= 7001 && zipNum <= 8989);
+        }
+        
+        function validateZipInput(zip) {
+            const originalZip = String(zip || "").trim();
+            const paddedZip = originalZip.padStart(5, '0');
+            
+            // Check format
+            if (!/^\d{5}$/.test(paddedZip)) {
+                return {
+                    valid: false,
+                    message: '⚠️ Please enter a valid 5-digit ZIP code.',
+                    type: 'invalid'
+                };
+            }
+            
+            // Check if NJ
+            if (!isNewJerseyZip(paddedZip)) {
+                return {
+                    valid: false,
+                    message: `📍 ZIP ${paddedZip} is outside New Jersey. This tool covers NJ only (07001-08989).`,
+                    type: 'out-of-state'
+                };
+            }
+            
+            return {
+                valid: true,
+                message: `✅ ZIP ${paddedZip} is a valid New Jersey ZIP code.`,
+                type: 'nj-valid',
+                zip: paddedZip
+            };
+        }
+        
+        // Test cases
+        const testCases = [
+            {
+                name: "Valid NJ ZIP - Sayreville (08859)",
+                input: "08859",
+                expected: "nj-valid",
+                description: "This was the failing ZIP - should now work!"
+            },
+            {
+                name: "Valid NJ ZIP - Plainfield (07060)",
+                input: "07060",
+                expected: "nj-valid",
+                description: "Known ZIP with boundaries defined"
+            },
+            {
+                name: "Out of state - Los Angeles (90210)",
+                input: "90210",
+                expected: "out-of-state",
+                description: "California ZIP should be rejected"
+            },
+            {
+                name: "Invalid format - too short",
+                input: "123",
+                expected: "invalid",
+                description: "Only 3 digits - should fail validation"
+            },
+            {
+                name: "Invalid format - letters",
+                input: "ABCDE",
+                expected: "invalid",
+                description: "Non-numeric should fail"
+            },
+            {
+                name: "Invalid format - empty",
+                input: "",
+                expected: "invalid",
+                description: "Empty input should fail"
+            },
+            {
+                name: "Valid NJ ZIP - Newark (07102)",
+                input: "07102",
+                expected: "nj-valid",
+                description: "Newark ZIP should work"
+            },
+            {
+                name: "Valid NJ ZIP - Trenton (08608)",
+                input: "08608",
+                expected: "nj-valid",
+                description: "Trenton ZIP should work"
+            },
+            {
+                name: "Out of state - New York (10001)",
+                input: "10001",
+                expected: "out-of-state",
+                description: "NYC ZIP should be rejected"
+            },
+            {
+                name: "Edge case - lowest NJ ZIP (07001)",
+                input: "07001",
+                expected: "nj-valid",
+                description: "Lowest NJ ZIP boundary"
+            },
+            {
+                name: "Edge case - highest NJ ZIP (08989)",
+                input: "08989",
+                expected: "nj-valid",
+                description: "Highest NJ ZIP boundary"
+            },
+            {
+                name: "Edge case - just below NJ range (07000)",
+                input: "07000",
+                expected: "out-of-state",
+                description: "Below NJ range should fail"
+            },
+            {
+                name: "Edge case - just above NJ range (08990)",
+                input: "08990",
+                expected: "out-of-state",
+                description: "Above NJ range should fail"
+            }
+        ];
+        
+        // Run tests
+        const testsDiv = document.getElementById('tests');
+        let passCount = 0;
+        let failCount = 0;
+        
+        testCases.forEach((testCase, index) => {
+            const result = validateZipInput(testCase.input);
+            const passed = result.type === testCase.expected;
+            
+            if (passed) passCount++;
+            else failCount++;
+            
+            const testDiv = document.createElement('div');
+            testDiv.className = 'test-case';
+            testDiv.innerHTML = `
+                <h3>Test ${index + 1}: ${testCase.name}</h3>
+                <p><strong>Input:</strong> "${testCase.input}"</p>
+                <p><strong>Description:</strong> ${testCase.description}</p>
+                <p><strong>Expected:</strong> ${testCase.expected}</p>
+                <div class="result ${passed ? 'pass' : 'fail'}">
+                    <strong>${passed ? '✓ PASS' : '✗ FAIL'}</strong><br>
+                    <strong>Got:</strong> ${result.type}<br>
+                    <strong>Message:</strong> ${result.message}
+                </div>
+            `;
+            testsDiv.appendChild(testDiv);
+        });
+        
+        // Summary
+        const summaryDiv = document.createElement('div');
+        summaryDiv.className = 'test-case';
+        summaryDiv.innerHTML = `
+            <h2>Test Summary</h2>
+            <div class="result ${failCount === 0 ? 'pass' : 'info'}">
+                <strong>Total Tests:</strong> ${testCases.length}<br>
+                <strong>Passed:</strong> ${passCount}<br>
+                <strong>Failed:</strong> ${failCount}<br>
+                <strong>Success Rate:</strong> ${Math.round(passCount / testCases.length * 100)}%
+            </div>
+        `;
+        testsDiv.insertBefore(summaryDiv, testsDiv.firstChild);
+    </script>
+</body>
+</html>

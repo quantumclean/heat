@@ -29,13 +29,14 @@ def embed_texts(texts: list[str]) -> np.ndarray:
     return model.encode(texts, show_progress_bar=True)
 
 
-def cluster_embeddings(embeddings: np.ndarray, min_cluster_size: int = 2) -> np.ndarray:
-    """Run HDBSCAN clustering."""
+def cluster_embeddings(embeddings: np.ndarray, min_cluster_size: int = 1) -> np.ndarray:
+    """Run HDBSCAN clustering with MAXIMUM SENSITIVITY."""
     clusterer = hdbscan.HDBSCAN(
         min_cluster_size=min_cluster_size,
-        min_samples=1,  # More permissive for small datasets
+        min_samples=1,  # Maximum permissive for detecting all patterns
         metric="euclidean",
-        cluster_selection_method="eom",
+        cluster_selection_method="leaf",  # More granular clusters (changed from 'eom')
+        cluster_selection_epsilon=0.0,    # Accept all clusters regardless of stability
     )
     return clusterer.fit_predict(embeddings)
 

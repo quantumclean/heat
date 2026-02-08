@@ -195,6 +195,22 @@ function getClusterCoordinates(cluster) {
     return [lat, lng];
 }
 
+// ZIP to region mapping for filtering
+const ZIP_TO_REGION = {
+    // North Jersey
+    "07102": "north", "07302": "north", "07030": "north",
+    "07960": "north", "07201": "north", "07601": "north",
+    // Central Jersey
+    "07060": "central", "07062": "central", "07063": "central",
+    "08817": "central", "08820": "central", "08837": "central",
+    "08901": "central", "08854": "central", "08840": "central",
+    "08904": "central", "08812": "central", "08876": "central",
+    "08807": "central",
+    // South Jersey
+    "08608": "south", "08540": "south", "08401": "south",
+    "08101": "south", "08611": "south"
+};
+
 // Globals
 let map;
 let clustersData = null;
@@ -205,6 +221,7 @@ let alertsData = null;
 let is3DMode = false;
 let clusterMarkers = [];
 let currentLanguage = 'en';
+let currentRegion = 'statewide';  // Track selected region for keyword filtering
 
 function getBaseUrl() {
     return window.location.hostname.includes('cloudfront')
@@ -503,20 +520,278 @@ function wireSidebarToMap() {
 }
 
 // ============================================
+// UX Enhancement Functions
+// ============================================
+
+/**
+ * Show loading overlay while data loads
+ * Pattern from Citizen app - gives users immediate feedback
+ */
+function showLoading(message = "Loading map data...") {
+    const overlay = document.getElementById("loading-overlay");
+    const text = overlay?.querySelector(".loading-text");
+    if (overlay) {
+        if (text) text.textContent = message;
+        overlay.classList.remove("hidden");
+        overlay.setAttribute("aria-busy", "true");
+    }
+}
+
+/**
+ * Hide loading overlay when data is ready
+ */
+function hideLoading() {
+    const overlay = document.getElementById("loading-overlay");
+    if (overlay) {
+        overlay.classList.add("hidden");
+        overlay.setAttribute("aria-busy", "false");
+    }
+}
+
+/**
+ * Show error state with retry button
+ * Pattern from 311 dashboards - graceful failure recovery
+ */
+function showError(message = "Something went wrong while loading the map.") {
+    const errorState = document.getElementById("error-state");
+    const errorMessage = document.getElementById("error-message");
+    
+    if (errorState && errorMessage) {
+        errorMessage.textContent = message;
+        errorState.classList.remove("hidden");
+    }
+    hideLoading();
+}
+
+/**
+ * Hide error state
+ */
+function hideError() {
+    const errorState = document.getElementById("error-state");
+    if (errorState) {
+        errorState.classList.add("hidden");
+    }
+}
+
+/**
+ * Reset map to default NJ view
+ * Pattern from Nextdoor - helps users who get lost navigating
+ */
+function resetMapView() {
+    if (!map) return;
+    
+    // Smooth fly animation back to default view
+    map.flyTo(DEFAULT_CENTER, DEFAULT_ZOOM, {
+        duration: 1.2,
+        easeLinearity: 0.25
+    });
+    
+    // Reset active region button
+    document.querySelectorAll('.region-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.region === 'statewide');
+    });
+    
+    // Show feedback to user
+    const subtitle = document.querySelector('.subtitle');
+    if (subtitle) {
+        const originalText = subtitle.textContent;
+        subtitle.textContent = "🎯 Showing all of New Jersey";
+        setTimeout(() => {
+            subtitle.textContent = originalText;
+        }, 3000);
+    }
+    
+    // Haptic feedback on mobile
+    if (navigator.vibrate) {
+        navigator.vibrate(10);
+    }
+}
+
+/**
+ * Initialize keyboard navigation
+ * Pattern from accessibility best practices - keyboard users can navigate
+ */
+function initKeyboardNavigation() {
+    // Escape key closes search results and modals
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            // Close search results
+            const searchResults = document.getElementById('search-results');
+            if (searchResults && !searchResults.classList.contains('hidden')) {
+                searchResults.classList.add('hidden');
+                document.getElementById('search-input')?.blur();
+            }
+            
+            // Close safe check panel
+            const safePanel = document.getElementById('safe-check-panel');
+            if (safePanel && !safePanel.classList.contains('hidden')) {
+                safePanel.classList.add('hidden');
+            }
+        }
+        
+        // Ctrl/Cmd + K focuses search
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            document.getElementById('search-input')?.focus();
+        }
+        
+        // R key resets map view
+        if (e.key === 'r' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {
+            resetMapView();
+        }
+    });
+    
+    // Trap focus in modals when open
+    // Improve keyboard navigation for region buttons
+    const regionButtons = document.querySelectorAll('.region-btn');
+    regionButtons.forEach((button, index) => {
+        button.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                const next = regionButtons[index + 1] || regionButtons[0];
+                next.focus();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prev = regionButtons[index - 1] || regionButtons[regionButtons.length - 1];
+                prev.focus();
+            }
+        });
+    });
+}
+
+/**
+ * Announce changes to screen readers
+ * Pattern from WCAG 2.1 - assistive technology support
+ */
+function announceToScreenReader(message) {
+    // Find or create live region
+    let liveRegion = document.getElementById('sr-live-region');
+    if (!liveRegion) {
+        liveRegion = document.createElement('div');
+        liveRegion.id = 'sr-live-region';
+        liveRegion.className = 'sr-only';
+        liveRegion.setAttribute('role', 'status');
+        liveRegion.setAttribute('aria-live', 'polite');
+        liveRegion.setAttribute('aria-atomic', 'true');
+        document.body.appendChild(liveRegion);
+    }
+    
+    // Clear and announce
+    liveRegion.textContent = '';
+    setTimeout(() => {
+        liveRegion.textContent = message;
+    }, 100);
+}
+
+/**
+ * Enhanced empty state messaging
+ * Pattern from Citizen - contextual help when no data
+ */
+function renderEmptyState(container, type = 'clusters') {
+    const emptyMessages = {
+        clusters: {
+            icon: '🗺️',
+            title: 'No Reports in View',
+            message: 'Try zooming out or selecting a different region.',
+            action: 'reset-map',
+            actionText: 'View All New Jersey'
+        },
+        news: {
+            icon: '📰',
+            title: 'No Recent News',
+            message: 'Check back soon for updates.',
+            action: null,
+            actionText: null
+        },
+        keywords: {
+            icon: '🔍',
+            title: 'No Keywords Yet',
+            message: 'Keywords appear when multiple reports mention similar topics.',
+            action: null,
+            actionText: null
+        }
+    };
+    
+    const config = emptyMessages[type] || emptyMessages.clusters;
+    
+    const html = `
+        <div class="no-data" role="status">
+            <p><span style="font-size: 3rem;" aria-hidden="true">${config.icon}</span></p>
+            <p>${config.title}</p>
+            <small>${config.message}</small>
+            ${config.action ? `<button id="${config.action}" class="glass-btn" style="margin-top: 1rem;">${config.actionText}</button>` : ''}
+        </div>
+    `;
+    
+    if (container) {
+        container.innerHTML = html;
+        
+        // Wire up action button if present
+        if (config.action) {
+            const actionBtn = container.querySelector(`#${config.action}`);
+            if (actionBtn && config.action === 'reset-map') {
+                actionBtn.addEventListener('click', resetMapView);
+            }
+        }
+    }
+}
+
+// ============================================
 // Initialization
 // ============================================
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
+        // Show loading state immediately
+        showLoading("Loading HEAT map data...");
+        
         // Load saved language
         currentLanguage = localStorage.getItem('heat-language') || 'en';
 
         initThemeToggle();
         initLanguageSelector();
         initSearch();
+        initKeyboardNavigation();  // NEW: keyboard navigation
         setupRegionNavigation();  // Setup region buttons
         initMap();
+        
+        // NEW: Setup reset map button
+        const resetBtn = document.getElementById('reset-map');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', resetMapView);
+        }
+        
+        // NEW: Setup retry button
+        const retryBtn = document.getElementById('retry-btn');
+        if (retryBtn) {
+            retryBtn.addEventListener('click', async () => {
+                hideError();
+                showLoading("Retrying...");
+                try {
+                    await loadData();
+                    // Re-render everything
+                    renderMap();
+                    renderClusters();
+                    renderTimeline();
+                    renderKeywords(currentRegion);
+                    updateLastUpdated();
+                    updateDashboard();
+                    updateQuickStats();
+                    renderSidebar();
+                    hideLoading();
+                    announceToScreenReader("Data loaded successfully");
+                } catch (error) {
+                    showError("Still unable to load data. Please check your connection.");
+                    announceToScreenReader("Failed to load data");
+                }
+            });
+        }
+        
         await loadData();
+        
+        // Hide loading and show success
+        hideLoading();
+        announceToScreenReader("Map loaded with " + (clustersData?.clusters?.length || 0) + " active reports");
 
         // Wrap each render function in try-catch to prevent crashes
         // renderLatestNews() — replaced by renderSidebar() which populates the sidebar news list
@@ -524,7 +799,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         try { renderMap(); } catch (e) { console.error('Map render failed:', e); }
         try { renderClusters(); } catch (e) { console.error('Clusters render failed:', e); }
         try { renderTimeline(); } catch (e) { console.error('Timeline render failed:', e); }
-        try { renderKeywords(); } catch (e) { console.error('Keywords render failed:', e); }
+        try { renderKeywords(currentRegion); } catch (e) { console.error('Keywords render failed:', e); }
         try { updateLastUpdated(); } catch (e) { console.error('Last updated failed:', e); }
         try { updateDashboard(); } catch (e) { console.error('Dashboard update failed:', e); }
         try { updateQuickStats(); } catch (e) { console.error('Quick stats update failed:', e); }
@@ -544,7 +819,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (error) {
         console.error('Fatal initialization error:', error);
         // Show error message to user
-        const loadingMsg = document.querySelector('.loading-message');
+        showError("Unable to initialize the map. Please refresh the page.");
+        announceToScreenReader("Error loading map data");
+const loadingMsg = document.querySelector('.loading-message');
         if (loadingMsg) {
             loadingMsg.textContent = 'Error loading data. Please refresh the page.';
             loadingMsg.style.color = 'red';
@@ -619,7 +896,7 @@ function performSearch(query) {
     const results = [];
     const q = query.toLowerCase();
     
-    // Search ZIPs
+    // Search ZIPs - show all ZIPs in ZIP_BOUNDARIES
     Object.keys(ZIP_BOUNDARIES).forEach(zip => {
         if (zip.includes(q)) {
             results.push({
@@ -630,6 +907,18 @@ function performSearch(query) {
             });
         }
     });
+    
+    // If query looks like a ZIP code (5 digits), add it even if not in boundaries
+    if (/^\d{5}$/.test(q) && !Object.keys(ZIP_BOUNDARIES).some(z => z === q)) {
+        const zipNum = parseInt(q, 10);
+        const isNJ = (zipNum >= 7001 && zipNum <= 8989);
+        results.push({
+            type: 'zip',
+            label: `ZIP ${q}${isNJ ? ' (NJ)' : ' (Out of state)'}`,
+            icon: '📍',
+            data: { zip: q }
+        });
+    }
     
     // Search streets
     Object.keys(STREET_COORDS).forEach(street => {
@@ -704,7 +993,34 @@ function handleSearchSelect(type, data) {
     if (type === 'zip') {
         const zipData = ZIP_BOUNDARIES[data.zip];
         if (zipData) {
+            // ZIP has detailed boundaries - fly to it
             map.flyTo(zipData.center, 15, { duration: 0.8 });
+        } else if (ZIP_COORDS[data.zip]) {
+            // ZIP has coordinates - fly to them
+            map.flyTo(ZIP_COORDS[data.zip], 13, { duration: 0.8 });
+        } else {
+            // ZIP not in our coordinate system - check safety and zoom to NJ
+            const zipNum = parseInt(data.zip, 10);
+            const isNJ = (zipNum >= 7001 && zipNum <= 8989);
+            if (isNJ) {
+                // Valid NJ ZIP - open Am I Safe panel and check it
+                const panel = document.getElementById("safe-check-panel");
+                const zipInput = document.getElementById("safe-check-zip");
+                const toggleBtn = document.getElementById("safe-check-toggle");
+                
+                if (panel && zipInput) {
+                    panel.classList.remove("hidden");
+                    if (toggleBtn) toggleBtn.textContent = "✕ Close";
+                    zipInput.value = data.zip;
+                    checkZipSafety(data.zip);
+                }
+                
+                // Zoom to NJ center
+                map.flyTo(DEFAULT_CENTER, 9, { duration: 0.8 });
+            } else {
+                // Out of state ZIP - just show message
+                alert(`ZIP ${data.zip} is outside New Jersey. This tool covers NJ only.`);
+            }
         }
     } else if (type === 'street') {
         map.flyTo([data.lat, data.lng], 16, { duration: 0.8 });
@@ -955,7 +1271,14 @@ function updateMapTiles() {
 }
 
 function renderMap() {
+    console.log("renderMap called, clustersData:", clustersData);
+    
+    // Clear existing markers
+    clusterMarkers.forEach(marker => map.removeLayer(marker));
+    clusterMarkers = [];
+    
     if (!clustersData || !clustersData.clusters || clustersData.clusters.length === 0) {
+        console.log("No clusters data available");
         // Add a default marker showing the area
         L.circleMarker(PLAINFIELD_CENTER, {
             radius: 20,
@@ -970,10 +1293,33 @@ function renderMap() {
         return;
     }
     
+    console.log(`Rendering ${clustersData.clusters.length} clusters`);
+    
     // Add cluster markers
-    clustersData.clusters.forEach(cluster => {
-        addClusterMarker(cluster);
+    const markers = [];
+    clustersData.clusters.forEach((cluster, idx) => {
+        try {
+            const marker = addClusterMarker(cluster);
+            if (marker) {
+                markers.push(marker);
+                clusterMarkers.push(marker);
+            }
+            if (idx < 3) console.log(`Cluster ${idx}:`, cluster.zip, marker ? 'rendered' : 'failed');
+        } catch (e) {
+            console.error(`Error rendering cluster ${idx}:`, e, cluster);
+        }
     });
+    
+    console.log(`Successfully rendered ${markers.length} markers`);
+    
+    // Auto-fit map to show all clusters
+    if (markers.length > 0) {
+        const group = L.featureGroup(markers);
+        map.fitBounds(group.getBounds().pad(0.1));
+    }
+    
+    // Force map to redraw
+    setTimeout(() => map.invalidateSize(), 100);
 }
 
 function addClusterMarker(cluster) {
@@ -1006,7 +1352,7 @@ function addClusterMarker(cluster) {
         weight: 3,
         opacity: 0.9,
         fillOpacity: 0.4,
-    });
+    }).addTo(map);
     
     // Popup content with status and timestamps
     const status = getSignalStatus(cluster.dateRange.end);
@@ -1075,7 +1421,7 @@ function addClusterMarker(cluster) {
         maxWidth: 280,
     });
     
-    marker.addTo(map);
+    return marker;
 }
 
 // ============================================
@@ -1084,15 +1430,18 @@ function addClusterMarker(cluster) {
 
 async function loadData() {
     try {
+        showLoading("Loading data...");
+        
         // Detect if we're on CloudFront or S3 and adjust paths accordingly
         const baseUrl = getBaseUrl();
+        const cacheBuster = `?t=${Date.now()}`;
         
         const [clustersRes, timelineRes, keywordsRes, alertsRes, latestNewsRes] = await Promise.all([
-            fetch(baseUrl + "data/clusters.json"),
-            fetch(baseUrl + "data/timeline.json"),
-            fetch(baseUrl + "data/keywords.json"),
-            fetch(baseUrl + "data/alerts.json"),
-            fetch(baseUrl + "data/latest_news.json"),
+            fetch(baseUrl + "data/clusters.json" + cacheBuster, { cache: "no-store" }),
+            fetch(baseUrl + "data/timeline.json" + cacheBuster, { cache: "no-store" }),
+            fetch(baseUrl + "data/keywords.json" + cacheBuster, { cache: "no-store" }),
+            fetch(baseUrl + "data/alerts.json" + cacheBuster, { cache: "no-store" }),
+            fetch(baseUrl + "data/latest_news.json" + cacheBuster, { cache: "no-store" }),
         ]);
         
         if (clustersRes.ok) {
@@ -1136,14 +1485,18 @@ async function loadData() {
         }
 
         updateDownloadSection();
+        hideLoading();
+        hideError();
         
     } catch (error) {
         console.error("Failed to load data:", error);
+        showError("Unable to load data. Please check your connection and try again.");
         clustersData = { clusters: [] };
         timelineData = { weeks: [] };
         alertsData = { alerts: [] };
         latestNewsData = { items: [] };
         updateDownloadSection();
+        throw error;  // Re-throw to let initialization know it failed
     }
 }
 
@@ -1177,11 +1530,14 @@ function updateDownloadSection() {
 function renderLatestNews() {
     const list = document.getElementById("latest-news-list");
     if (!list) return;
+    
     const items = latestNewsData?.items || [];
     if (!items.length) {
-        list.innerHTML = `<div class="no-data">No qualified signals yet. Items appear after safety thresholds are met.</div>`;
+        renderEmptyState(list, 'news');
+        announceToScreenReader("No recent news available");
         return;
     }
+    
     const limited = items.slice(0, 8);
     list.innerHTML = limited.map(item => {
         const timeAgo = getRelativeTime(item.timestamp);
@@ -1213,6 +1569,8 @@ function renderLatestNews() {
             </article>
         `;
     }).join('');
+    
+    announceToScreenReader(`${limited.length} news reports loaded`);
 }
 
 function renderAlertsBanner(zipOverride = null) {
@@ -1264,12 +1622,9 @@ function renderClusters() {
     const silenceWarning = document.getElementById("silence-warning");
     
     if (!clustersData || !clustersData.clusters || clustersData.clusters.length === 0) {
-        container.innerHTML = `
-            <div class="no-data">
-                <p>No active ICE attention clusters at this time.</p>
-                <p><small>Clusters appear when multiple public sources reference similar topics.</small></p>
-            </div>
-        `;
+        renderEmptyState(container, 'clusters');
+        announceToScreenReader("No active clusters in view");
+        
         // Show silence warning when no clusters visible
         if (silenceWarning) {
             silenceWarning.classList.add("visible");
@@ -1281,6 +1636,8 @@ function renderClusters() {
     if (silenceWarning) {
         silenceWarning.classList.remove("visible");
     }
+    
+    announceToScreenReader(`${clustersData.clusters.length} clusters displayed`);
     
     const html = clustersData.clusters.map(cluster => {
         const strengthClass = cluster.strength > 5 ? "high" : 
@@ -1628,6 +1985,15 @@ function updateQuickStats() {
 // Am I Safe? ZIP Check
 // ============================================
 
+/**
+ * Validate if a ZIP code is in New Jersey
+ * NJ ZIP codes range from 07001-08989
+ */
+function isNewJerseyZip(zip) {
+    const zipNum = parseInt(zip, 10);
+    return (zipNum >= 7001 && zipNum <= 8989);
+}
+
 function initSafeCheck() {
     const toggleBtn = document.getElementById("safe-check-toggle");
     const panel = document.getElementById("safe-check-panel");
@@ -1652,10 +2018,24 @@ function checkZipSafety(zip) {
     const resultDiv = document.getElementById("safe-check-result");
     if (!resultDiv) return;
     
-    zip = String(zip || "").trim().padStart(5, '0');
+    // Clean and validate input
+    const originalZip = String(zip || "").trim();
+    zip = originalZip.padStart(5, '0');
     
+    // Validate format
     if (!/^\d{5}$/.test(zip)) {
-        resultDiv.innerHTML = '<p style="color: var(--warning);">Please enter a valid 5-digit ZIP code.</p>';
+        resultDiv.innerHTML = '<p style="color: var(--warning);">⚠️ Please enter a valid 5-digit ZIP code.</p>';
+        return;
+    }
+    
+    // Check if it's a New Jersey ZIP
+    if (!isNewJerseyZip(zip)) {
+        resultDiv.innerHTML = `
+            <p style="color: var(--info);">📍 ZIP ${zip} is outside New Jersey.</p>
+            <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-muted);">
+                This tool currently covers New Jersey only. New Jersey ZIP codes range from 07001-08989.
+            </p>
+        `;
         return;
     }
     
@@ -1714,7 +2094,10 @@ function checkZipSafety(zip) {
                 ✅ No ICE activity signals in ZIP ${zip} for the past 14 days.
             </div>
             <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-muted);">
-                This does not mean the area is safe. Data may be delayed or incomplete. Always verify independently.
+                This is a valid New Jersey ZIP code. No activity reports have been recorded in this area recently.
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
+                ⚠️ This does not guarantee safety. Data may be delayed or incomplete. Always verify independently and stay informed through community resources.
             </p>
         `;
         return;
@@ -1758,7 +2141,7 @@ const ZIP_NAMES = {
 
 let originalKeywords = null;
 
-function renderKeywords() {
+function renderKeywords(region = 'statewide') {
     const cloudContainer = document.getElementById("keyword-cloud");
     const lastUpdated = document.getElementById("keywords-last-updated");
     const categoryContainer = document.getElementById("category-distribution");
@@ -1781,7 +2164,24 @@ function renderKeywords() {
     }
     
     // Use enriched keywords if available
-    const keywords = keywordsData.keywords || [];
+    let keywords = keywordsData.keywords || [];
+    
+    // Filter keywords by region
+    if (region !== 'statewide' && keywords.length > 0) {
+        keywords = keywords.filter(kw => {
+            // Check if keyword's top_location is in the selected region
+            const topLocationRegion = ZIP_TO_REGION[kw.top_location];
+            if (topLocationRegion === region) return true;
+            
+            // Also check if any of the keyword's locations are in the region
+            if (kw.locations) {
+                for (const zip in kw.locations) {
+                    if (ZIP_TO_REGION[zip] === region) return true;
+                }
+            }
+            return false;
+        });
+    }
     
     if (keywords.length > 0) {
         const maxCount = Math.max(...keywords.map(k => k.count || 0));
@@ -1793,7 +2193,7 @@ function renderKeywords() {
             if (size > 0.7) sizeClass = "large";
             else if (size > 0.4) sizeClass = "medium";
             
-            // Build location display
+            // Build location display for tooltip
             const topLocation = ZIP_NAMES[kw.top_location] || kw.top_location || "Unknown";
             const locationsText = kw.locations ? Object.entries(kw.locations)
                 .map(([zip, cnt]) => `${ZIP_NAMES[zip] || zip}: ${cnt}`)
@@ -1805,12 +2205,13 @@ function renderKeywords() {
             
             const sources = kw.sources ? kw.sources.join(', ') : 'Unknown';
             
+            // Compact display: word + count (location only on hover via CSS)
             return `
                 <div class="keyword-tag-enhanced ${sizeClass} ${recencyClass}" 
                      title="${kw.word}: ${count} mentions\n📍 ${locationsText || topLocation}\n📰 Sources: ${sources}\n🕐 ${Math.floor(hoursAgo)}h ago">
                     <span class="keyword-word">${kw.word}</span>
-                    <span class="keyword-location">📍 ${topLocation}</span>
                     <span class="keyword-count">${count}</span>
+                    <span class="keyword-location">📍${topLocation}</span>
                 </div>
             `;
         }).join("");
@@ -1851,12 +2252,12 @@ function initKeywordControls() {
                 // Shuffle and take random 10
                 const shuffled = [...originalKeywords].sort(() => Math.random() - 0.5);
                 keywordsData.keywords = shuffled.slice(0, 10);
-                renderKeywords();
+                renderKeywords(currentRegion);
                 
                 // Restore after 5 seconds
                 setTimeout(() => {
                     keywordsData.keywords = originalKeywords;
-                    renderKeywords();
+                    renderKeywords(currentRegion);
                 }, 5000);
             }
         });
@@ -1877,14 +2278,14 @@ function initKeywordControls() {
             
             if (zip === "all") {
                 keywordsData.keywords = originalKeywords;
-                renderKeywords();
+                renderKeywords(currentRegion);
             } else {
                 // Filter keywords to only show those trending in selected ZIP
                 const filtered = originalKeywords.filter(kw => 
                     kw.top_location === zip || (kw.locations && kw.locations[zip])
                 );
                 keywordsData.keywords = filtered;
-                renderKeywords();
+                renderKeywords(currentRegion);
             }
         });
     }
@@ -2258,6 +2659,10 @@ function setupRegionNavigation() {
             // Update active state
             regionButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
+            
+            // Update current region and re-render keywords
+            currentRegion = region;
+            renderKeywords(region);
             
             // Fly to region with smooth animation
             map.flyTo(regionData.center, regionData.zoom, {

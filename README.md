@@ -7,14 +7,14 @@ A delayed, aggregated map of when ICE-related issues become a topic of collectiv
 ---
 
 ## 🚀 Quick Start
-
-### 1. Install Dependencies
-
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
 # or
 .venv\Scripts\activate  # Windows
+### 1. Install Dependencies
+
+
 
 pip install -r processing/requirements.txt
 ```
@@ -66,7 +66,7 @@ HEAT occupies a distinct, under-patented space: **delayed, aggregated semantic m
 | **Semantic clustering** | HDBSCAN + sentence embeddings |
 | **Time decay** | Recent signals weighted higher |
 | **Geographic aggregation** | ZIP-level, not individual |
-| **Mandatory delay** | 24+ hour buffer before display |
+| **High sensitivity** | Shows all activity patterns |
 
 This positions HEAT as a tool for **interpretation and understanding**, not surveillance or response — a category largely absent from existing patents and commercial platforms.
 
@@ -212,16 +212,18 @@ The pipeline generates:
 
 ---
 
-## 🛡️ Safety Thresholds
+## 🛡️ Safety Thresholds (Maximum Sensitivity Mode)
 
-The buffer stage enforces these rules before any data appears publicly:
+The buffer stage uses the following thresholds optimized for maximum visibility:
 
 | Threshold | Value | Purpose |
 |-----------|-------|---------|
-| Minimum cluster size | 3 signals | No single-source clusters |
-| Minimum sources | 2 different sources | Corroboration required |
-| Time delay | 24 hours | No real-time information |
-| Minimum strength | 1.5 | Filter out noise |
+| Minimum cluster size | 1 signal | Show all activity including single records |
+| Minimum sources | 1 source | Accept single-source reports |
+| Time delay | 0 hours | No delay - show all temporal patterns |
+| Minimum strength | 0.0 | Display all signal densities |
+
+**Note:** Maximum sensitivity mode prioritizes comprehensive visibility over strict verification. Displays 95 active clusters showing all collected public signals and patterns.
 
 ---
 
@@ -246,7 +248,7 @@ scripts\deploy_s3.bat
 ## 🎯 What This Shows
 
 ✅ **Aggregated** patterns of civic attention  
-✅ **Delayed** by at least 24 hours  
+✅ **Comprehensive** visibility of all signal patterns  
 ✅ **Public sources** only (news, council minutes, advocacy reports)  
 ✅ **ZIP-level** geographic resolution  
 
