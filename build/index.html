@@ -81,8 +81,16 @@
             <span>📍 Your area: <strong id="user-zip">--</strong></span>
         </div>
 
-        <!-- Quick Stats: Today / Yesterday -->
+        <!-- Quick Stats: Recent Activity -->
         <div class="quick-stats glass-card">
+            <div class="quick-stat" title="Last 24 hours">
+                <span class="quick-stat-label">Last 24h:</span>
+                <span class="quick-stat-value" id="stat-24h">--</span>
+            </div>
+            <div class="quick-stat" title="Last 7 days">
+                <span class="quick-stat-label">Last 7d:</span>
+                <span class="quick-stat-value" id="stat-7d">--</span>
+            </div>
             <div class="quick-stat">
                 <span class="quick-stat-label">Today:</span>
                 <span class="quick-stat-value" id="stat-today">--</span>
@@ -107,7 +115,7 @@
         </div>
 
         <div class="signal-summary">
-            <strong>What changed:</strong> Reports about ICE activity <span id="trend-summary">are increasing</span>
+            <strong>What changed:</strong> Reports about ICE activity <span id="trend-summary">loading...</span>
             based on verified news and community reports. This tool shows where ICE activity is being reported, not live tracking.
         </div>
 
@@ -116,7 +124,7 @@
                 <div class="rolling-item">Shows reports, not live tracking • verify independently</div>
                 <div class="rolling-item">72-hour delay • ZIP code areas only • no personal info stored</div>
                 <div class="rolling-item">News sources shown first • community reports labeled</div>
-                <div class="rolling-item">ICE activity reports <span class="rolling-emphasis trend-summary-inline">are increasing</span></div>
+                <div class="rolling-item">ICE activity reports <span class="rolling-emphasis trend-summary-inline">loading...</span></div>
             </div>
         </div>
         
@@ -354,12 +362,9 @@
                     <button id="keyword-refresh" class="glass-btn" title="Randomize keywords">
                         🔄 Refresh
                     </button>
-                    <select id="keyword-filter" class="glass-btn">
-                        <option value="all">All Locations</option>
-                        <option value="07060">Plainfield</option>
-                        <option value="07062">Plainfield (West)</option>
-                        <option value="07063">Plainfield (South)</option>
-                    </select>
+                    <span id="keyword-region-display" class="region-display">
+                        Showing keywords for: <strong id="keyword-current-region">Statewide</strong>
+                    </span>
                 </div>
             </div>
             <p class="section-note">

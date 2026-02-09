@@ -753,6 +753,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         initSearch();
         initKeyboardNavigation();  // NEW: keyboard navigation
         setupRegionNavigation();  // Setup region buttons
+        
+        // Initialize keyword region display
+        const regionDisplayText = document.getElementById('keyword-current-region');
+        if (regionDisplayText) {
+            regionDisplayText.textContent = 'Statewide';
+        }
+        
         initMap();
         
         // NEW: Setup reset map button
@@ -1295,9 +1302,11 @@ function renderMap() {
     
     console.log(`Rendering ${clustersData.clusters.length} clusters`);
     
-    // Add cluster markers
+    // Add cluster markers from oldest to newest so recent ones appear on top
+    // (Leaflet draws markers in order, so last added appears on top)
+    const clustersForMap = [...clustersData.clusters].reverse(); // Reverse the sorted array
     const markers = [];
-    clustersData.clusters.forEach((cluster, idx) => {
+    clustersForMap.forEach((cluster, idx) => {
         try {
             const marker = addClusterMarker(cluster);
             if (marker) {
@@ -1326,6 +1335,12 @@ function addClusterMarker(cluster) {
     // Use intelligent positioning based on cluster content
     const coords = getClusterCoordinates(cluster);
     
+    // Check if recent activity (within last 48 hours)
+    const endDate = new Date(cluster.dateRange.end);
+    const now = new Date();
+    const hoursSinceEnd = (now - endDate) / (1000 * 60 * 60);
+    const isRecent = hoursSinceEnd <= 48;
+    
     // Size based on cluster size and strength
     const baseRadius = 15;
     const sizeBonus = Math.min(cluster.size * 2, 15);
@@ -1345,14 +1360,18 @@ function addClusterMarker(cluster) {
         fillColor = "#34a853";
     }
     
-    const marker = L.circleMarker(coords, {
+    // Make recent activity more prominent
+    const markerOptions = {
         radius: radius,
         fillColor: fillColor,
         color: color,
-        weight: 3,
-        opacity: 0.9,
-        fillOpacity: 0.4,
-    }).addTo(map);
+        weight: isRecent ? 5 : 3,  // Thicker border for recent
+        opacity: isRecent ? 1.0 : 0.9,
+        fillOpacity: isRecent ? 0.6 : 0.4,
+        className: isRecent ? 'recent-marker pulse' : ''
+    };
+    
+    const marker = L.circleMarker(coords, markerOptions).addTo(map);
     
     // Popup content with status and timestamps
     const status = getSignalStatus(cluster.dateRange.end);
@@ -1377,11 +1396,12 @@ function addClusterMarker(cluster) {
 
     const sourceType = cluster.source_type || cluster.sourceType || cluster.qualification || null;
     const sourceTypeLabel = sourceType ? escapeHtml(String(sourceType)) : "Vetted public / qualified community";
+    const recentBadge = isRecent ? '<span style="background: #ff4444; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.7em; margin-left: 4px;">🔥 NEW</span>' : '';
     
     const popupContent = `
         <div style="background: var(--bg); color: var(--text); padding: 4px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <strong style="font-size: 1.1em;">Cluster #${cluster.id}</strong>
+                <strong style="font-size: 1.1em;">Cluster #${cluster.id}${recentBadge}</strong>
                 <span style="background: ${status.color}; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: bold;">
                     ${status.icon} ${status.label}
                 </span>
@@ -1446,7 +1466,15 @@ async function loadData() {
         
         if (clustersRes.ok) {
             clustersData = await clustersRes.json();
-            console.log("Loaded clusters:", clustersData);
+            // Sort clusters by most recent activity first (dateRange.end descending)
+            if (clustersData?.clusters?.length > 0) {
+                clustersData.clusters.sort((a, b) => {
+                    const dateA = new Date(a.dateRange?.end || 0);
+                    const dateB = new Date(b.dateRange?.end || 0);
+                    return dateB - dateA; // Most recent first
+                });
+            }
+            console.log("Loaded clusters (sorted by most recent):", clustersData);
         } else {
             console.warn("Could not load clusters.json");
             clustersData = { clusters: [] };
@@ -1639,7 +1667,7 @@ function renderClusters() {
     
     announceToScreenReader(`${clustersData.clusters.length} clusters displayed`);
     
-    const html = clustersData.clusters.map(cluster => {
+    const html = clustersData.clusters.map((cluster, index) => {
         const strengthClass = cluster.strength > 5 ? "high" : 
                              cluster.strength > 2 ? "medium" : "low";
         const strengthLabel = cluster.strength > 5 ? "High" : 
@@ -1649,6 +1677,13 @@ function renderClusters() {
         const relativeTime = getRelativeTime(cluster.dateRange.end);
         const status = getSignalStatus(cluster.dateRange.end);
         const sources = Array.isArray(cluster.sources) ? cluster.sources.join(", ") : cluster.sources;
+        
+        // Check if this is recent activity (within last 48 hours)
+        const endDate = new Date(cluster.dateRange.end);
+        const now = new Date();
+        const hoursSinceEnd = (now - endDate) / (1000 * 60 * 60);
+        const isRecentActivity = hoursSinceEnd <= 48;
+        const recentBadge = isRecentActivity ? '<span class="recent-badge" style="background: #ff4444; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.75em; margin-left: 4px;">🔥 NEW</span>' : '';
         
         // Build media links section
         let mediaLinksHtml = '';
@@ -1665,9 +1700,9 @@ function renderClusters() {
         }
         
         return `
-            <div class="cluster-card" data-cluster-id="${cluster.id}">
+            <div class="cluster-card ${isRecentActivity ? 'recent-activity' : ''}" data-cluster-id="${cluster.id}" style="${isRecentActivity ? 'border-left: 4px solid #ff4444;' : ''}">
                 <div class="header">
-                    <span class="cluster-id">Cluster #${cluster.id}</span>
+                    <span class="cluster-id">Cluster #${cluster.id}${recentBadge}</span>
                     <span class="strength ${strengthClass}">${strengthLabel}</span>
                     <span class="status-badge" style="background: ${status.color};">${status.icon} ${status.label}</span>
                 </div>
@@ -1847,10 +1882,10 @@ function updateLastUpdated() {
     if (trendSummary && timelineData?.trend) {
         const trend = timelineData.trend;
         if (trend.direction === "increasing") {
-            trendSummary.textContent = "is rising";
+            trendSummary.textContent = "is increasing";
             trendSummary.style.color = "var(--danger)";
         } else if (trend.direction === "decreasing") {
-            trendSummary.textContent = "is declining";
+            trendSummary.textContent = "is decreasing";
             trendSummary.style.color = "var(--success)";
         } else {
             trendSummary.textContent = "is stable";
@@ -1943,6 +1978,8 @@ function escapeHtml(str) {
 function updateQuickStats() {
     const todayEl = document.getElementById("stat-today");
     const yesterdayEl = document.getElementById("stat-yesterday");
+    const last24hEl = document.getElementById("stat-24h");
+    const last7dEl = document.getElementById("stat-7d");
     
     if (!todayEl || !yesterdayEl) return;
     
@@ -1951,16 +1988,25 @@ function updateQuickStats() {
     const yesterdayDate = new Date(now);
     yesterdayDate.setDate(yesterdayDate.getDate() - 1);
     const yesterdayStr = yesterdayDate.toISOString().split('T')[0];
+    const sevenDaysAgo = new Date(now);
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const twentyFourHoursAgo = new Date(now.getTime() - (24 * 60 * 60 * 1000));
     
     let todayCount = 0;
     let yesterdayCount = 0;
+    let last24HoursCount = 0;
+    let last7DaysCount = 0;
     
     // Count from clusters
     if (clustersData?.clusters) {
         clustersData.clusters.forEach(cluster => {
             const endDate = cluster.dateRange?.end?.split('T')[0];
+            const endDateTime = new Date(cluster.dateRange?.end);
+            
             if (endDate === todayStr) todayCount += cluster.size || 1;
             if (endDate === yesterdayStr) yesterdayCount += cluster.size || 1;
+            if (endDateTime >= twentyFourHoursAgo) last24HoursCount += cluster.size || 1;
+            if (endDateTime >= sevenDaysAgo) last7DaysCount += cluster.size || 1;
         });
     }
     
@@ -1968,17 +2014,31 @@ function updateQuickStats() {
     if (latestNewsData?.items) {
         latestNewsData.items.forEach(item => {
             const itemDate = item.timestamp?.split('T')[0] || item.date?.split('T')[0];
+            const itemDateTime = new Date(item.timestamp || item.date);
+            
             if (itemDate === todayStr) todayCount++;
             if (itemDate === yesterdayStr) yesterdayCount++;
+            if (itemDateTime >= twentyFourHoursAgo) last24HoursCount++;
+            if (itemDateTime >= sevenDaysAgo) last7DaysCount++;
         });
     }
     
     todayEl.textContent = todayCount;
     yesterdayEl.textContent = yesterdayCount;
+    if (last24hEl) last24hEl.textContent = last24HoursCount;
+    if (last7dEl) last7dEl.textContent = last7DaysCount;
     
-    // Color coding
+    // Color coding based on activity level
     todayEl.style.color = todayCount > 5 ? 'var(--danger)' : todayCount > 2 ? 'var(--warning)' : 'var(--success)';
     yesterdayEl.style.color = yesterdayCount > 5 ? 'var(--danger)' : yesterdayCount > 2 ? 'var(--warning)' : 'var(--success)';
+    if (last24hEl) last24hEl.style.color = last24HoursCount > 10 ? 'var(--danger)' : last24HoursCount > 5 ? 'var(--warning)' : 'var(--success)';
+    if (last7dEl) last7dEl.style.color = last7DaysCount > 30 ? 'var(--danger)' : last7DaysCount > 15 ? 'var(--warning)' : 'var(--success)';
+    
+    // Update dashboard cards with recent activity emphasis
+    const dashClustersEl = document.getElementById('dash-clusters');
+    if (dashClustersEl && last24HoursCount > 0) {
+        dashClustersEl.title = `${last24HoursCount} in last 24 hours, ${last7DaysCount} in last 7 days`;
+    }
 }
 
 // ============================================
@@ -2184,6 +2244,18 @@ function renderKeywords(region = 'statewide') {
     }
     
     if (keywords.length > 0) {
+        // Sort keywords by recency (most recent first), then by count
+        keywords.sort((a, b) => {
+            const recencyA = a.recency_hours || 999999;
+            const recencyB = b.recency_hours || 999999;
+            // First sort by recency (lower hours = more recent = higher priority)
+            if (Math.abs(recencyA - recencyB) > 24) {
+                return recencyA - recencyB;
+            }
+            // If within same day, sort by count
+            return (b.count || 0) - (a.count || 0);
+        });
+        
         const maxCount = Math.max(...keywords.map(k => k.count || 0));
         
         const keywordHtml = keywords.map(kw => {
@@ -2263,32 +2335,8 @@ function initKeywordControls() {
         });
     }
     
-    // Location filter handler
-    const filterSelect = document.getElementById("keyword-filter");
-    if (filterSelect) {
-        filterSelect.addEventListener("change", (e) => {
-            if (!keywordsData || !keywordsData.keywords) return;
-            
-            const zip = e.target.value;
-            
-            // Save original if not saved
-            if (!originalKeywords) {
-                originalKeywords = [...keywordsData.keywords];
-            }
-            
-            if (zip === "all") {
-                keywordsData.keywords = originalKeywords;
-                renderKeywords(currentRegion);
-            } else {
-                // Filter keywords to only show those trending in selected ZIP
-                const filtered = originalKeywords.filter(kw => 
-                    kw.top_location === zip || (kw.locations && kw.locations[zip])
-                );
-                keywordsData.keywords = filtered;
-                renderKeywords(currentRegion);
-            }
-        });
-    }
+    // Region display is now updated by region button clicks only
+    // No separate keyword filter - keywords follow the header region selection
 }
 
 // ============================================
@@ -2663,6 +2711,18 @@ function setupRegionNavigation() {
             // Update current region and re-render keywords
             currentRegion = region;
             renderKeywords(region);
+            
+            // Update keyword region display text
+            const regionDisplayText = document.getElementById('keyword-current-region');
+            if (regionDisplayText) {
+                const regionNames = {
+                    'statewide': 'Statewide',
+                    'north': 'North Jersey',
+                    'central': 'Central Jersey',
+                    'south': 'South Jersey'
+                };
+                regionDisplayText.textContent = regionNames[region] || 'Statewide';
+            }
             
             // Fly to region with smooth animation
             map.flyTo(regionData.center, regionData.zoom, {

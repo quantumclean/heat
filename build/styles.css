@@ -1407,19 +1407,19 @@ section h2 {
     align-items: center;
 }
 
-.keyword-controls select {
+.keyword-controls .region-display {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     background: var(--bg-darker);
     border: 1px solid var(--border);
     color: var(--text);
     font-size: 0.9rem;
-    cursor: pointer;
     transition: all 0.2s;
 }
 
-.keyword-controls select:hover {
-    border-color: var(--accent);
+.keyword-controls .region-display strong {
+    color: var(--accent);
+    font-weight: 600;
 }
 
 .keyword-cloud {
