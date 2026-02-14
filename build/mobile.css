@@ -119,6 +119,14 @@
     .search-box input {
         font-size: 16px;
     }
+
+    body.analytics-open .map-layout {
+        margin-right: 0;
+    }
+
+    body.analytics-open .analytics-toggle {
+        bottom: calc(70px + var(--safe-bottom));
+    }
 }
 
 /* ===== Small phone (< 428px) ===== */
@@ -158,6 +166,10 @@
         gap: 0.5rem;
         align-items: center;
     }
+
+    .analytics-panel {
+        max-height: 76vh;
+    }
 }
 
 /* ===== Safe area support for PWA (notch devices) ===== */
@@ -169,3 +181,215 @@
         padding-left: env(safe-area-inset-left);
     }
 }
+
+/* ===== Analytics Panel Responsive Overrides ===== */
+@media (max-width: 1024px) {
+    .analytics-panel {
+        padding: 1rem;
+    }
+
+    .analytics-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .analytics-panel {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .analytics-title {
+        font-size: var(--text-xl);
+    }
+
+    .analytics-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .analytics-actions .glass-btn {
+        flex: 1;
+        min-width: 120px;
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .filter-builder {
+        padding: 1rem;
+    }
+
+    .filter-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .filter-remove-btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .filter-presets {
+        gap: 0.25rem;
+    }
+
+    .preset-chip {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.75rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .stat-card {
+        padding: 0.75rem;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .query-builder-panel {
+        padding: 1rem;
+    }
+
+    .query-preview-section {
+        margin-top: 1rem;
+    }
+
+    .query-preview-box {
+        font-size: 0.7rem;
+        padding: 0.75rem;
+    }
+
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .results-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .data-table {
+        font-size: 0.7rem;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 0.5rem;
+    }
+
+    .chart-wrapper {
+        padding: 1rem;
+    }
+
+    .chart-canvas-container {
+        height: 250px;
+    }
+}
+
+@media (max-width: 428px) {
+    .analytics-title {
+        font-size: var(--text-lg);
+    }
+
+    .analytics-icon {
+        font-size: 1.2rem;
+    }
+
+    .analytics-actions .glass-btn {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .filter-builder-title {
+        font-size: var(--text-base);
+    }
+
+    .preset-chip {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.6rem;
+    }
+
+    .preset-icon {
+        font-size: 0.9rem;
+    }
+
+    .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .stat-label {
+        font-size: 0.65rem;
+    }
+
+    .query-builder-title {
+        font-size: var(--text-base);
+    }
+
+    .condition-content select,
+    .condition-content input {
+        font-size: 0.75rem;
+        padding: 0.4rem;
+    }
+
+    .data-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .chart-canvas-container {
+        height: 200px;
+    }
+
+    .analytics-empty-icon {
+        font-size: 2rem;
+    }
+
+    .analytics-empty-text {
+        font-size: var(--text-base);
+    }
+}
+
+/* Touch-friendly improvements for analytics */
+@media (max-width: 768px) {
+    .filter-row select,
+    .filter-row input,
+    .condition-content select,
+    .condition-content input {
+        min-height: 44px;
+        font-size: 16px; /* Prevent iOS zoom */
+    }
+
+    .preset-chip,
+    .glass-btn {
+        min-height: 44px;
+    }
+
+    .toggle-switch input[type="checkbox"] {
+        width: 52px;
+        height: 28px;
+    }
+
+    .toggle-switch input[type="checkbox"]::before {
+        width: 24px;
+        height: 24px;
+    }
+
+    .toggle-switch input[type="checkbox"]:checked::before {
+        transform: translateX(24px);
+    }
+}
+

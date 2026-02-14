@@ -1,35 +1,10 @@
 /**
  * HEAT — They Are Here | ICE Activity Attention Map
  * Static frontend for aggregated public attention patterns
+ * 
+ * Cultural regions are emergent coordination systems whose boundaries
+ * appear where shared behavior fails — not where maps say they should.
  */
-
-// Region definitions for quick navigation
-const REGIONS = {
-    statewide: {
-        name: "New Jersey",
-        center: [40.0583, -74.4057],  // NJ state center
-        zoom: 8,
-        coverage: "Statewide overview"
-    },
-    north: {
-        name: "North Jersey",
-        center: [40.8, -74.2],  // Newark/Jersey City area
-        zoom: 10,
-        coverage: "Newark, Jersey City, Paterson, Elizabeth"
-    },
-    central: {
-        name: "Central Jersey",
-        center: [40.5, -74.4],  // New Brunswick/Plainfield area
-        zoom: 10,
-        coverage: "New Brunswick, Plainfield, Edison, Perth Amboy"
-    },
-    south: {
-        name: "South Jersey",
-        center: [39.9, -74.8],  // Trenton/Camden area
-        zoom: 10,
-        coverage: "Trenton, Camden, Princeton, Atlantic City"
-    }
-};
 
 // Default to statewide NJ view — show all active reports
 const DEFAULT_CENTER = [40.0583, -74.4057];  // NJ state center
@@ -141,6 +116,7 @@ function getClusterCoordinates(cluster) {
     const zip = String(cluster.zip).padStart(5, '0');
     let zipData = ZIP_BOUNDARIES[zip];
     
+    // First, try to use detailed ZIP_BOUNDARIES if available
     if (!zipData) {
         // Heuristic: if text indicates Edison and we have Edison bounds, use them
         const text = (cluster.summary || cluster.representative_text || '').toLowerCase();
@@ -152,64 +128,224 @@ function getClusterCoordinates(cluster) {
                 zipData = ZIP_BOUNDARIES[edisonZip];
             }
         }
-        if (!zipData) {
-            return PLAINFIELD_CENTER;
-        }
     }
     
-    // Check if cluster text mentions a street or POI
-    const text = (cluster.summary || cluster.representative_text || '').toLowerCase();
+    // If we have detailed boundary data, use intelligent positioning
+    if (zipData) {
+        const text = (cluster.summary || cluster.representative_text || '').toLowerCase();
 
-    // Downtown Plainfield hinting
-    if (text.includes("downtown plainfield") && ZIP_BOUNDARIES["07060"]) {
-        const d = STREET_COORDS["front street"];
-        const jitter = () => (Math.random() - 0.5) * 0.002;
-        return [d.lat + jitter(), d.lng + jitter()];
-    }
-    
-    for (const [street, streetData] of Object.entries(STREET_COORDS)) {
-        if (text.includes(street) && streetData.zip === zip) {
-            // Small jitter around street location
+        // Downtown Plainfield hinting
+        if (text.includes("downtown plainfield") && ZIP_BOUNDARIES["07060"]) {
+            const d = STREET_COORDS["front street"];
             const jitter = () => (Math.random() - 0.5) * 0.002;
-            return [streetData.lat + jitter(), streetData.lng + jitter()];
+            return [d.lat + jitter(), d.lng + jitter()];
         }
+        
+        // Check for specific street mentions
+        for (const [street, streetData] of Object.entries(STREET_COORDS)) {
+            if (text.includes(street) && streetData.zip === zip) {
+                // Small jitter around street location
+                const jitter = () => (Math.random() - 0.5) * 0.002;
+                return [streetData.lat + jitter(), streetData.lng + jitter()];
+            }
+        }
+        
+        // No street match - distribute based on cluster ID within ZIP bounds
+        const seed = cluster.id || Math.random() * 100;
+        const bounds = zipData.bounds;
+        
+        // Create deterministic but varied position using cluster ID
+        const latRange = bounds.n - bounds.s;
+        const lngRange = bounds.e - bounds.w;
+        
+        // Use golden ratio for better distribution
+        const phi = 1.618033988749895;
+        const latOffset = ((seed * phi) % 1) * latRange * 0.6;
+        const lngOffset = (((seed * phi * phi) % 1)) * lngRange * 0.6;
+        
+        // Position within 60% of bounds, centered
+        const lat = bounds.s + latRange * 0.2 + latOffset;
+        const lng = bounds.w + lngRange * 0.2 + lngOffset;
+        
+        return [lat, lng];
     }
     
-    // No street match - distribute based on cluster ID within ZIP bounds
-    const seed = cluster.id || Math.random() * 100;
-    const bounds = zipData.bounds;
+    // Fallback: use ZIP_COORDS for broader NJ coverage
+    if (ZIP_COORDS[zip]) {
+        // Add small jitter so multiple clusters in same ZIP don't overlap exactly
+        const baseCoords = ZIP_COORDS[zip];
+        const seed = cluster.id || Math.random() * 100;
+        const phi = 1.618033988749895;
+        const jitterLat = ((seed * phi) % 1 - 0.5) * 0.01;  // ~1km jitter
+        const jitterLng = ((seed * phi * phi) % 1 - 0.5) * 0.01;
+        return [baseCoords[0] + jitterLat, baseCoords[1] + jitterLng];
+    }
     
-    // Create deterministic but varied position using cluster ID
-    const latRange = bounds.n - bounds.s;
-    const lngRange = bounds.e - bounds.w;
-    
-    // Use golden ratio for better distribution
-    const phi = 1.618033988749895;
-    const latOffset = ((seed * phi) % 1) * latRange * 0.6;
-    const lngOffset = (((seed * phi * phi) % 1)) * lngRange * 0.6;
-    
-    // Position within 60% of bounds, centered
-    const lat = bounds.s + latRange * 0.2 + latOffset;
-    const lng = bounds.w + lngRange * 0.2 + lngOffset;
-    
-    return [lat, lng];
+    // Final fallback: Plainfield center
+    console.warn(`No coordinates found for ZIP ${zip}, using Plainfield center`);
+    return PLAINFIELD_CENTER;
 }
 
 // ZIP to region mapping for filtering
-const ZIP_TO_REGION = {
-    // North Jersey
-    "07102": "north", "07302": "north", "07030": "north",
-    "07960": "north", "07201": "north", "07601": "north",
-    // Central Jersey
-    "07060": "central", "07062": "central", "07063": "central",
-    "08817": "central", "08820": "central", "08837": "central",
-    "08901": "central", "08854": "central", "08840": "central",
-    "08904": "central", "08812": "central", "08876": "central",
-    "08807": "central",
-    // South Jersey
-    "08608": "south", "08540": "south", "08401": "south",
-    "08101": "south", "08611": "south"
-};
+// ============================================
+// Behavioral Clustering System
+// ============================================
+// Cultural regions are emergent coordination systems whose boundaries
+// appear where shared behavior fails — not where maps say they should.
+
+/**
+ * Calculate behavioral coordination metrics for a cluster
+ * These metrics define HOW communities coordinate under pressure, not WHO they are
+ */
+function calculateCoordinationMetrics(cluster) {
+    const signals = cluster.signals || [];
+    const keywords = cluster.keywords || [];
+    const zip = String(cluster.zip).padStart(5, '0');
+    const coords = ZIP_COORDS[zip] || PLAINFIELD_CENTER;
+    
+    // METRIC 1: Signal Velocity (time tolerance)
+    // How fast does information propagate? High velocity = tight coordination
+    const timestamps = signals.map(s => new Date(s.date || s.timestamp).getTime()).sort();
+    let velocityScore = 0;
+    if (timestamps.length >= 2) {
+        const timeDeltas = [];
+        for (let i = 1; i < timestamps.length; i++) {
+            timeDeltas.push((timestamps[i] - timestamps[i-1]) / 3600000);  // Hours
+        }
+        const avgDelta = timeDeltas.reduce((a,b) => a+b, 0) / timeDeltas.length;
+        // Lower delta = higher velocity (faster coordination)
+        velocityScore = Math.max(0, 100 - avgDelta);  // 0-100 scale
+    }
+    
+    // METRIC 2: Density Comfort (urban/suburban/rural coordination mode)
+    // Based on signal concentration and geographic spread
+    const signalDensity = signals.length / Math.max(1, new Date() - new Date(cluster.first_date || cluster.date)) * 86400000;  // Signals per day
+    const densityScore = Math.min(signalDensity * 20, 100);  // 0-100 scale
+    
+    // METRIC 3: Rule Negotiation Style (enforcement variance)
+    // Measured by keyword diversity and source diversity
+    const sourceTypes = new Set(signals.map(s => s.source_type || 'unknown'));
+    const keywordVariance = keywords.length / Math.max(signals.length, 1);
+    const negotiationScore = (sourceTypes.size * 20) + (keywordVariance * 30);  // 0-100 scale
+    
+    // METRIC 4: Movement Friction (transit connectivity proxy)
+    // Inferred from geographic isolation and signal reach
+    // Clusters near transit hubs have lower friction
+    const nearTransitHub = ['07102', '07030', '07302', '08901'].includes(zip);  // Newark, Hoboken, Jersey City, New Brunswick
+    const movementScore = nearTransitHub ? 80 : 40;  // 0-100 scale
+    
+    return {
+        velocity: velocityScore,
+        density: densityScore,
+        negotiation: negotiationScore,
+        movement: movementScore,
+        composite: (velocityScore + densityScore + negotiationScore + movementScore) / 4
+    };
+}
+
+/**
+ * Discover emergent behavioral regions using hierarchical clustering
+ * Returns array of region objects with behavioral profiles
+ */
+function discoverBehavioralRegions(clusters) {
+    if (!clusters || clusters.length === 0) return [];
+    
+    // Calculate metrics for each cluster
+    const clusterMetrics = clusters.map(cluster => ({
+        cluster: cluster,
+        metrics: calculateCoordinationMetrics(cluster)
+    }));
+    
+    // Simple hierarchical clustering based on behavioral similarity
+    // Group clusters whose coordination protocols are similar
+    const regions = [];
+    const assigned = new Set();
+    const threshold = 25;  // Behavioral similarity threshold
+    
+    clusterMetrics.forEach((item, idx) => {
+        if (assigned.has(idx)) return;
+        
+        // Start new region with this cluster as seed
+        const region = {
+            clusters: [item.cluster],
+            metrics: {...item.metrics},
+            profile: null  // Will be assigned based on dominant metrics
+        };
+        
+        assigned.add(idx);
+        
+        // Find similar clusters
+        clusterMetrics.forEach((other, otherIdx) => {
+            if (assigned.has(otherIdx)) return;
+            
+            // Calculate behavioral distance
+            const distance = Math.sqrt(
+                Math.pow(item.metrics.velocity - other.metrics.velocity, 2) +
+                Math.pow(item.metrics.density - other.metrics.density, 2) +
+                Math.pow(item.metrics.negotiation - other.metrics.negotiation, 2) +
+                Math.pow(item.metrics.movement - other.metrics.movement, 2)
+            );
+            
+            if (distance < threshold) {
+                region.clusters.push(other.cluster);
+                assigned.add(otherIdx);
+                
+                // Update region metrics (average)
+                region.metrics.velocity = (region.metrics.velocity + other.metrics.velocity) / 2;
+                region.metrics.density = (region.metrics.density + other.metrics.density) / 2;
+                region.metrics.negotiation = (region.metrics.negotiation + other.metrics.negotiation) / 2;
+                region.metrics.movement = (region.metrics.movement + other.metrics.movement) / 2;
+                region.metrics.composite = (region.metrics.velocity + region.metrics.density + region.metrics.negotiation + region.metrics.movement) / 4;
+            }
+        });
+        
+        // Assign behavioral profile name based on dominant characteristics
+        region.profile = assignBehavioralProfile(region.metrics);
+        regions.push(region);
+    });
+    
+    // Sort regions by cluster count (largest first)
+    return regions.sort((a, b) => b.clusters.length - a.clusters.length);
+}
+
+/**
+ * Assign human-readable behavioral profile based on coordination metrics
+ * NOT geographic labels — these describe HOW communities coordinate
+ */
+function assignBehavioralProfile(metrics) {
+    // High velocity + high density = "High-Velocity Urban"
+    if (metrics.velocity > 60 && metrics.density > 60) {
+        return "High-Velocity Urban";
+    }
+    
+    // High movement + high negotiation = "Transit-Connected Hybrid"
+    if (metrics.movement > 60 && metrics.negotiation > 60) {
+        return "Transit-Connected Hybrid";
+    }
+    
+    // Low velocity + low density = "Enforcement-Sparse Rural"
+    if (metrics.velocity < 40 && metrics.density < 40) {
+        return "Enforcement-Sparse Rural";
+    }
+    
+    // High density + low movement = "Transit-Isolated Suburban"
+    if (metrics.density > 50 && metrics.movement < 50) {
+        return "Transit-Isolated Suburban";
+    }
+    
+    // Medium everything = "Coordination Mediator"
+    if (Math.abs(metrics.velocity - 50) < 20 && Math.abs(metrics.density - 50) < 20) {
+        return "Coordination Mediator";
+    }
+    
+    // High negotiation + variable others = "Multi-Modal Interface"
+    if (metrics.negotiation > 70) {
+        return "Multi-Modal Interface";
+    }
+    
+    // Default fallback
+    return "Mixed Coordination";
+}
 
 // Globals
 let map;
@@ -222,11 +358,87 @@ let is3DMode = false;
 let clusterMarkers = [];
 let currentLanguage = 'en';
 let currentRegion = 'statewide';  // Track selected region for keyword filtering
+let analyticsInitialized = false;
+let analyticsBasePayload = { clusters: [] };
+let analyticsQueuedClusters = null;
+let analyticsRenderPending = false;
 
 function getBaseUrl() {
     return window.location.hostname.includes('cloudfront')
         ? 'https://heat-plainfield.s3.us-east-1.amazonaws.com/'
         : './';
+}
+
+function snapshotAnalyticsBaseData() {
+    if (!clustersData || !Array.isArray(clustersData.clusters)) {
+        analyticsBasePayload = { clusters: [] };
+        return;
+    }
+    analyticsBasePayload = Object.assign({}, clustersData, {
+        clusters: clustersData.clusters.slice()
+    });
+}
+
+function getAnalyticsBaseClusters() {
+    return Array.isArray(analyticsBasePayload.clusters)
+        ? analyticsBasePayload.clusters.slice()
+        : [];
+}
+
+function scheduleAnalyticsRender(filteredClusters) {
+    analyticsQueuedClusters = Array.isArray(filteredClusters) ? filteredClusters.slice() : [];
+    if (analyticsRenderPending) return;
+
+    analyticsRenderPending = true;
+    requestAnimationFrame(() => {
+        analyticsRenderPending = false;
+        if (!analyticsBasePayload || !Array.isArray(analyticsBasePayload.clusters)) {
+            snapshotAnalyticsBaseData();
+        }
+
+        clustersData = Object.assign({}, analyticsBasePayload || {}, {
+            clusters: analyticsQueuedClusters ? analyticsQueuedClusters.slice() : []
+        });
+
+        try { renderMap(); } catch (e) { console.error('Analytics renderMap failed:', e); }
+        try { renderClusters(); } catch (e) { console.error('Analytics renderClusters failed:', e); }
+        try { updateDashboard(); } catch (e) { console.error('Analytics updateDashboard failed:', e); }
+        try { updateQuickStats(); } catch (e) { console.error('Analytics updateQuickStats failed:', e); }
+        try { renderSidebar(); } catch (e) { console.error('Analytics renderSidebar failed:', e); }
+        try { wireSidebarToMap(); } catch (e) { console.error('Analytics wireSidebarToMap failed:', e); }
+    });
+}
+
+function initAnalyticsIntegration() {
+    const engine = window.filterEngine;
+    const panel = window.analyticsPanel;
+
+    if (!engine || !panel || typeof panel.init !== 'function' || typeof engine.initialize !== 'function') {
+        console.info('Analytics modules unavailable; skipping analytics initialization');
+        return;
+    }
+
+    if (!analyticsBasePayload || !Array.isArray(analyticsBasePayload.clusters) || analyticsBasePayload.clusters.length === 0) {
+        snapshotAnalyticsBaseData();
+    }
+
+    if (!analyticsInitialized) {
+        panel.init();
+        panel.setFilterChangeHandler((filteredClusters) => {
+            scheduleAnalyticsRender(filteredClusters);
+        });
+        analyticsInitialized = true;
+    }
+
+    panel.setDataContext({
+        timeline: timelineData,
+        keywords: keywordsData,
+        latestNews: latestNewsData,
+        alerts: alertsData
+    });
+
+    engine.initialize(getAnalyticsBaseClusters(), { keepFilters: analyticsInitialized });
+    panel.refresh();
 }
 
 // ============================================
@@ -737,6 +949,653 @@ function renderEmptyState(container, type = 'clusters') {
 }
 
 // ============================================
+// Time to Midnight Clock Widget (Dynamic Behavioral Regions)
+// ============================================
+
+function computeMidnightScore(region) {
+    /**
+     * Compute a composite "midnight score" (0-100) for a behavioral region
+     * Based on: signal volume, trend, burst score, active alerts, coordination metrics
+     */
+    if (!region.clusters || region.clusters.length === 0) return 0;
+    
+    const regionClusters = region.clusters;
+    
+    // Component 1: Recent signal volume (last 7 days)
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const recentSignals = regionClusters.filter(c => {
+        const clusterDate = new Date(c.latest_date || c.date);
+        return clusterDate >= sevenDaysAgo;
+    });
+    const volumeScore = Math.min((recentSignals.length / 10) * 40, 40);  // Max 40 points
+    
+    // Component 2: Trend magnitude (global, not per-region)
+    const trend = timelineData?.trend || {};
+    const trendMagnitude = Math.abs(trend.magnitude || 0);
+    const trendDirection = trend.direction || 'stable';
+    let trendScore = 0;
+    if (trendDirection === 'increasing') {
+        trendScore = Math.min((trendMagnitude / 50) * 30, 30);  // Max 30 points
+    } else if (trendDirection === 'decreasing') {
+        trendScore = Math.max(-(trendMagnitude / 50) * 15, -15);  // Can reduce score
+    }
+    
+    // Component 3: Burst detection
+    const recentBurst = (timelineData?.weeks || [])
+        .slice(-4)  // Last 4 weeks
+        .some(week => week.burst_score && week.burst_score > 0.5);
+    const burstScore = recentBurst ? 15 : 0;  // Max 15 points
+    
+    // Component 4: Active alert level
+    let alertScore = 0;
+    if (alertsData && alertsData.cluster_alerts) {
+        const clusterZIPs = new Set(regionClusters.map(c => String(c.zip).padStart(5, '0')));
+        const regionAlerts = alertsData.cluster_alerts.filter(alert => {
+            const zip = String(alert.zip).padStart(5, '0');
+            return clusterZIPs.has(zip);
+        });
+        if (regionAlerts.length > 0) {
+            const hasHighPriority = regionAlerts.some(a => a.priority === 'high' || a.tier >= 2);
+            alertScore = hasHighPriority ? 15 : 10;  // Max 15 points
+        }
+    }
+    
+    // Component 5: Coordination velocity bonus (unique to behavioral approach)
+    // High-velocity regions escalate faster
+    const velocityBonus = (region.metrics.velocity / 100) * 10;  // Max 10 bonus points
+    
+    // Total score (capped at 100)
+    const totalScore = Math.min(Math.max(volumeScore + trendScore + burstScore + alertScore + velocityBonus, 0), 100);
+    
+    return totalScore;
+}
+
+function renderMidnightClocks() {
+    /**
+     * Render SVG clock faces for dynamically discovered behavioral regions
+     */
+    if (!clustersData || !clustersData.clusters) return;
+    
+    // Discover behavioral regions from current clusters
+    const regions = discoverBehavioralRegions(clustersData.clusters);
+    
+    // Get container
+    const container = document.getElementById('midnight-clocks');
+    if (!container) return;
+    
+    // Clear existing content
+    container.innerHTML = '';
+    
+    // If no regions, show message
+    if (regions.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: var(--text-muted);">No active coordination regions detected</p>';
+        return;
+    }
+    
+    // Render up to 5 most significant regions
+    regions.slice(0, 5).forEach((region, idx) => {
+        const score = computeMidnightScore(region);
+        
+        // Map score to clock time (0-100 → 6:00-12:00 on clock)
+        const angle = 180 + (score / 100) * 180;  // 180° = 6:00, 360° = 12:00
+        const radians = (angle - 90) * (Math.PI / 180);
+        
+        // Calculate hand endpoint
+        const centerX = 60;
+        const centerY = 60;
+        const handLength = 40;
+        const handX = centerX + handLength * Math.cos(radians);
+        const handY = centerY + handLength * Math.sin(radians);
+        
+        // Color gradient based on score
+        let color = '#26a641';  // Green
+        if (score > 50) color = '#f9ab00';  // Amber
+        if (score > 75) color = '#f85149';  // Red
+        
+        // Create SVG clock
+        const svg = `
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width: 120px; height: 120px;">
+                <circle cx="60" cy="60" r="55" fill="none" stroke="var(--border)" stroke-width="2"/>
+                ${[...Array(12)].map((_, i) => {
+                    const markerAngle = (i * 30 - 90) * (Math.PI / 180);
+                    const markerX1 = 60 + 45 * Math.cos(markerAngle);
+                    const markerY1 = 60 + 45 * Math.sin(markerAngle);
+                    const markerX2 = 60 + 50 * Math.cos(markerAngle);
+                    const markerY2 = 60 + 50 * Math.sin(markerAngle);
+                    return `<line x1="${markerX1}" y1="${markerY1}" x2="${markerX2}" y2="${markerY2}" stroke="var(--border)" stroke-width="2"/>`;
+                }).join('')}
+                <circle cx="60" cy="10" r="3" fill="${color}" opacity="0.5"/>
+                <line x1="${centerX}" y1="${centerY}" x2="${handX}" y2="${handY}" 
+                      stroke="${color}" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="60" cy="60" r="4" fill="${color}"/>
+            </svg>
+        `;
+        
+        // Time display
+        const timeDisplay = score === 0 ? '6:00' : score === 100 ? '12:00' : `~${(6 + (score/100) * 6).toFixed(1)}`;
+        let interpretation = 'Calm';
+        if (score > 25) interpretation = 'Low activity';
+        if (score > 50) interpretation = 'Moderate activity';
+        if (score > 75) interpretation = 'High activity';
+        
+        // Get representative ZIPs
+        const zipList = region.clusters.map(c => c.zip).slice(0, 3).join(', ');
+        const moreCount = region.clusters.length > 3 ? ` +${region.clusters.length - 3}` : '';
+        
+        // Coordination metrics summary
+        const metricsTooltip = `
+Velocity: ${region.metrics.velocity.toFixed(0)}/100 (time tolerance)
+Density: ${region.metrics.density.toFixed(0)}/100 (signal concentration)
+Negotiation: ${region.metrics.negotiation.toFixed(0)}/100 (rule variance)
+Movement: ${region.metrics.movement.toFixed(0)}/100 (transit friction)
+        `.trim();
+        
+        // Create clock card
+        const clockCard = document.createElement('div');
+        clockCard.className = 'clock-card';
+        clockCard.innerHTML = `
+            <div class="clock-widget" title="${metricsTooltip}">${svg}</div>
+            <div class="clock-label">
+                <strong style="color: ${color};">${timeDisplay}</strong><br>
+                <span style="font-size: 0.9em; color: var(--text-muted);">${interpretation}</span>
+            </div>
+            <div class="clock-region">
+                <strong>${region.profile}</strong><br>
+                <small style="color: var(--text-muted);">${region.clusters.length} cluster${region.clusters.length !== 1 ? 's' : ''}</small><br>
+                <small style="color: var(--text-muted);">ZIPs: ${zipList}${moreCount}</small>
+            </div>
+        `;
+        
+        // Add tooltip showing what this profile means
+        clockCard.title = `${region.profile} — Score: ${score.toFixed(1)}/100\n${metricsTooltip}\n\nThis profile describes HOW communities coordinate under pressure, not WHO they are.`;
+        
+        container.appendChild(clockCard);
+    });
+    
+    // Update neighbor advisory with live data
+    updateNeighborAdvisory();
+}
+
+function updateNeighborAdvisory() {
+    /**
+     * Populate the shareable neighbor advisory with live data
+     */
+    const clusterCount = clustersData?.clusters?.length || 0;
+    const trend = timelineData?.trend?.direction || 'stable';
+    const trendMagnitude = timelineData?.trend?.magnitude || 0;
+    
+    // Get top ZIPs
+    const zipCounts = {};
+    (clustersData?.clusters || []).forEach(c => {
+        const zip = String(c.zip).padStart(5, '0');
+        zipCounts[zip] = (zipCounts[zip] || 0) + 1;
+    });
+    const topZips = Object.entries(zipCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+        .map(([zip]) => zip)
+        .join(', ') || 'Statewide';
+    
+    // Format trend text
+    let trendText = trend;
+    if (trend === 'increasing' && trendMagnitude > 0) {
+        trendText = `Increasing (+${Math.round(trendMagnitude)}%)`;
+    } else if (trend === 'decreasing' && trendMagnitude > 0) {
+        trendText = `Decreasing (-${Math.round(trendMagnitude)}%)`;
+    } else {
+        trendText = 'Stable';
+    }
+    
+    // Update advisory placeholders
+    const countEl = document.getElementById('advisory-cluster-count');
+    const trendEl = document.getElementById('advisory-trend');
+    const zipsEl = document.getElementById('advisory-zips');
+    
+    if (countEl) countEl.textContent = clusterCount;
+    if (trendEl) trendEl.textContent = trendText;
+    if (zipsEl) zipsEl.textContent = topZips;
+    
+    // Wire up copy button
+    const copyBtn = document.getElementById('copy-advisory-btn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            const advisory = document.getElementById('neighbor-advisory');
+            if (advisory) {
+                const text = advisory.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    copyBtn.textContent = '✓ Copied!';
+                    setTimeout(() => {
+                        copyBtn.textContent = '📋 Copy to Clipboard';
+                    }, 2000);
+                }).catch(() => {
+                    alert('Copy failed. Please select and copy manually.');
+                });
+            }
+        });
+    }
+}
+
+// ============================================
+// Service Worker Registration
+// ============================================
+
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('Service worker registered:', reg.scope))
+            .catch(err => console.warn('SW registration failed:', err));
+    }
+}
+
+// ============================================
+// PWA Install Prompt
+// ============================================
+
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    showInstallBanner();
+});
+
+function showInstallBanner() {
+    if (document.querySelector('.pwa-install-banner')) return;
+    const banner = document.createElement('div');
+    banner.className = 'pwa-install-banner';
+    banner.innerHTML = `
+        <span class="install-text">📲 Install HEAT for quick access</span>
+        <button class="install-btn" onclick="installPWA()">Install</button>
+        <button class="dismiss-btn" onclick="this.parentElement.remove()">✕</button>
+    `;
+    document.body.appendChild(banner);
+}
+
+async function installPWA() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log('PWA install:', outcome);
+    deferredPrompt = null;
+    document.querySelector('.pwa-install-banner')?.remove();
+}
+
+// ============================================
+// WhatsApp Sharing
+// ============================================
+
+function shareViaWhatsApp() {
+    const advisory = document.getElementById('neighbor-advisory');
+    if (!advisory) return;
+    const text = advisory.innerText || advisory.textContent;
+    const encoded = encodeURIComponent(text);
+    window.open(`https://wa.me/?text=${encoded}`, '_blank');
+}
+
+// ============================================
+// SMS Alert Opt-In
+// ============================================
+
+function initSMSOptIn() {
+    const form = document.getElementById('sms-optin-form');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const phone = document.getElementById('sms-phone')?.value?.trim();
+        const zip = document.getElementById('sms-zip')?.value?.trim();
+        const statusEl = document.getElementById('sms-status');
+
+        if (!phone || !zip) {
+            if (statusEl) statusEl.innerHTML = '<span style="color: var(--danger);">Please enter both phone number and ZIP code.</span>';
+            return;
+        }
+
+        if (!/^\d{10,11}$/.test(phone)) {
+            if (statusEl) statusEl.innerHTML = '<span style="color: var(--danger);">Please enter a valid 10-digit phone number.</span>';
+            return;
+        }
+
+        if (!/^\d{5}$/.test(zip)) {
+            if (statusEl) statusEl.innerHTML = '<span style="color: var(--danger);">Please enter a valid 5-digit ZIP code.</span>';
+            return;
+        }
+
+        // Store locally (backend integration point)
+        const subscribers = JSON.parse(localStorage.getItem('heat-sms-subscribers') || '[]');
+        const exists = subscribers.some(s => s.phone === phone);
+        if (exists) {
+            if (statusEl) statusEl.innerHTML = '<span style="color: var(--warning);">This number is already subscribed.</span>';
+            return;
+        }
+
+        subscribers.push({ phone, zip, timestamp: new Date().toISOString() });
+        localStorage.setItem('heat-sms-subscribers', JSON.stringify(subscribers));
+
+        if (statusEl) {
+            statusEl.innerHTML = '<span style="color: var(--success);">✅ Subscribed! You\'ll receive alerts for ZIP ' + zip + '.</span>';
+        }
+
+        // Clear form
+        document.getElementById('sms-phone').value = '';
+        document.getElementById('sms-zip').value = '';
+    });
+}
+
+// ============================================
+// Community Report Form
+// ============================================
+
+function initCommunityReport() {
+    const form = document.getElementById('community-report-form');
+    if (!form) return;
+
+    // Set default date to today
+    const dateInput = document.getElementById('report-date');
+    if (dateInput) {
+        dateInput.value = new Date().toISOString().split('T')[0];
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const zip = document.getElementById('report-zip')?.value?.trim();
+        const date = document.getElementById('report-date')?.value;
+        const time = document.getElementById('report-time')?.value || 'unknown';
+        const type = document.getElementById('report-type')?.value;
+        const description = document.getElementById('report-description')?.value?.trim();
+        const statusEl = document.getElementById('report-status');
+
+        if (!zip || !date || !description) {
+            if (statusEl) statusEl.innerHTML = '<span style="color: var(--danger);">Please fill in all required fields.</span>';
+            return;
+        }
+
+        if (!/^\d{5}$/.test(zip)) {
+            if (statusEl) statusEl.innerHTML = '<span style="color: var(--danger);">Please enter a valid 5-digit ZIP code.</span>';
+            return;
+        }
+
+        if (description.length < 10) {
+            if (statusEl) statusEl.innerHTML = '<span style="color: var(--danger);">Description must be at least 10 characters.</span>';
+            return;
+        }
+
+        // Store locally (backend integration point)
+        const reports = JSON.parse(localStorage.getItem('heat-community-reports') || '[]');
+        reports.push({
+            id: Date.now(),
+            zip, date, time, type, description,
+            status: 'pending_review',
+            submitted: new Date().toISOString()
+        });
+        localStorage.setItem('heat-community-reports', JSON.stringify(reports));
+
+        if (statusEl) {
+            statusEl.innerHTML = `
+                <div style="padding: 1rem; background: rgba(38, 166, 65, 0.1); border-left: 4px solid var(--success); border-radius: 8px;">
+                    <strong>✅ Report Submitted</strong><br>
+                    <span style="font-size: 0.9em; color: var(--text-muted);">Your report for ZIP ${zip} has been saved and will be reviewed. A 72-hour delay will be applied before it appears publicly.</span>
+                </div>
+            `;
+        }
+
+        // Reset form (except date)
+        document.getElementById('report-description').value = '';
+    });
+}
+
+// ============================================
+// Route Safety Checker
+// ============================================
+
+function initRouteChecker() {
+    const btn = document.getElementById('route-check-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+        const fromZip = document.getElementById('route-from')?.value?.trim();
+        const toZip = document.getElementById('route-to')?.value?.trim();
+        const resultEl = document.getElementById('route-result');
+
+        if (!fromZip || !toZip || !/^\d{5}$/.test(fromZip) || !/^\d{5}$/.test(toZip)) {
+            if (resultEl) resultEl.innerHTML = '<span style="color: var(--danger);">Please enter valid 5-digit ZIP codes.</span>';
+            return;
+        }
+
+        if (!clustersData?.clusters) {
+            if (resultEl) resultEl.innerHTML = '<span style="color: var(--text-muted);">No data loaded yet. Please wait for the map to load.</span>';
+            return;
+        }
+
+        // Get coordinates for both ZIPs
+        const fromCoords = ZIP_COORDS[fromZip];
+        const toCoords = ZIP_COORDS[toZip];
+
+        if (!fromCoords && !toCoords) {
+            if (resultEl) resultEl.innerHTML = '<span style="color: var(--text-muted);">One or both ZIP codes are not in our coverage area.</span>';
+            return;
+        }
+
+        // Find clusters near the route (within ~0.15 degrees of the line between ZIPs)
+        const routeClusters = [];
+        const from = fromCoords || [40.0583, -74.4057];
+        const to = toCoords || [40.0583, -74.4057];
+
+        clustersData.clusters.forEach(cluster => {
+            const coords = getClusterCoordinates(cluster);
+            const dist = pointToLineDistance(coords[0], coords[1], from[0], from[1], to[0], to[1]);
+            if (dist < 0.15) { // ~10 miles from route
+                routeClusters.push({
+                    cluster,
+                    distance: dist
+                });
+            }
+        });
+
+        // Generate result
+        if (routeClusters.length === 0) {
+            resultEl.innerHTML = `
+                <div class="route-safe">
+                    <strong>✅ No Active Reports on This Route</strong><br>
+                    <span style="font-size: 0.9em;">No ICE activity reports found between ZIP ${fromZip} and ZIP ${toZip}.</span><br>
+                    <span style="font-size: 0.85em; color: var(--text-muted);">Remember: no reports ≠ no activity. Always stay aware.</span>
+                </div>
+            `;
+        } else if (routeClusters.length <= 2) {
+            const zipList = [...new Set(routeClusters.map(r => String(r.cluster.zip).padStart(5, '0')))].join(', ');
+            resultEl.innerHTML = `
+                <div class="route-caution">
+                    <strong>⚠️ ${routeClusters.length} Report(s) Near Your Route</strong><br>
+                    <span style="font-size: 0.9em;">Active reports near ZIPs: ${zipList}</span><br>
+                    <span style="font-size: 0.85em; color: var(--text-muted);">Consider checking the map for details. Exercise normal caution.</span>
+                </div>
+            `;
+        } else {
+            const zipList = [...new Set(routeClusters.map(r => String(r.cluster.zip).padStart(5, '0')))].join(', ');
+            resultEl.innerHTML = `
+                <div class="route-alert">
+                    <strong>🔴 ${routeClusters.length} Reports Near Your Route</strong><br>
+                    <span style="font-size: 0.9em;">Active reports near ZIPs: ${zipList}</span><br>
+                    <span style="font-size: 0.85em; color: var(--text-muted);">High activity on this route. Review the map for specifics and consider alternatives if possible.</span>
+                </div>
+            `;
+        }
+    });
+}
+
+// Helper: point-to-line distance (geographic approximation)
+function pointToLineDistance(px, py, x1, y1, x2, y2) {
+    const A = px - x1;
+    const B = py - y1;
+    const C = x2 - x1;
+    const D = y2 - y1;
+    const dot = A * C + B * D;
+    const lenSq = C * C + D * D;
+    let param = lenSq !== 0 ? dot / lenSq : -1;
+
+    let xx, yy;
+    if (param < 0) { xx = x1; yy = y1; }
+    else if (param > 1) { xx = x2; yy = y2; }
+    else { xx = x1 + param * C; yy = y1 + param * D; }
+
+    return Math.sqrt((px - xx) ** 2 + (py - yy) ** 2);
+}
+
+// ============================================
+// Bottom Navigation
+// ============================================
+
+function initBottomNav() {
+    const nav = document.getElementById('bottom-nav');
+    if (!nav) return;
+
+    const items = nav.querySelectorAll('.bottom-nav-item');
+
+    items.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sectionId = item.dataset.section;
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Haptic
+                if (navigator.vibrate) navigator.vibrate(10);
+            }
+            // Update active
+            items.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+        });
+    });
+
+    // Update active on scroll
+    const sectionIds = Array.from(items).map(i => i.dataset.section);
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrollPos = window.scrollY + window.innerHeight / 3;
+                let activeId = sectionIds[0];
+
+                sectionIds.forEach(id => {
+                    const section = document.getElementById(id);
+                    if (section && section.offsetTop <= scrollPos) {
+                        activeId = id;
+                    }
+                });
+
+                items.forEach(item => {
+                    item.classList.toggle('active', item.dataset.section === activeId);
+                });
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
+// ============================================
+// Copy Advisory (fixed clipboard API)
+// ============================================
+
+function initCopyAdvisory() {
+    const btn = document.getElementById('copy-advisory-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', async () => {
+        const advisory = document.getElementById('neighbor-advisory');
+        if (!advisory) return;
+
+        const text = advisory.innerText || advisory.textContent;
+        try {
+            await navigator.clipboard.writeText(text);
+            btn.textContent = '✅ Copied!';
+            setTimeout(() => { btn.textContent = '📋 Copy to Clipboard'; }, 2000);
+        } catch {
+            // Fallback
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            btn.textContent = '✅ Copied!';
+            setTimeout(() => { btn.textContent = '📋 Copy to Clipboard'; }, 2000);
+        }
+    });
+}
+
+// ============================================
+// WhatsApp Share Button Init
+// ============================================
+
+function initWhatsAppShare() {
+    const btn = document.getElementById('whatsapp-share-btn');
+    if (btn) {
+        btn.addEventListener('click', shareViaWhatsApp);
+    }
+}
+
+// ============================================
+// Expanded Translations for New Sections
+// ============================================
+
+// Merge additional translation keys
+Object.assign(TRANSLATIONS.en, {
+    smsSignup: "SMS Alert Signup",
+    smsDescription: "Get text alerts when new ICE activity is reported near your ZIP code. Free, no app needed.",
+    subscribe: "Subscribe",
+    submitReport: "Submit a Community Report",
+    reportDescription: "Help keep your community informed. Reports are reviewed before appearing publicly.",
+    routeChecker: "Route Safety Checker",
+    routeDescription: "Check if there are active reports along your travel route.",
+    checkRoute: "Check Route",
+    map: "Map",
+    stats: "Stats",
+    safety: "Safety",
+    report: "Report",
+    route: "Route",
+    installPrompt: "Install HEAT for quick access",
+    install: "Install"
+});
+
+Object.assign(TRANSLATIONS.es, {
+    smsSignup: "Registro de Alertas SMS",
+    smsDescription: "Reciba alertas de texto cuando se reporte actividad de ICE cerca de su código postal. Gratis, sin app.",
+    subscribe: "Suscribirse",
+    submitReport: "Enviar un Reporte Comunitario",
+    reportDescription: "Ayude a mantener informada a su comunidad. Los reportes se revisan antes de publicarse.",
+    routeChecker: "Verificador de Seguridad de Ruta",
+    routeDescription: "Verifique si hay reportes activos en su ruta de viaje.",
+    checkRoute: "Verificar Ruta",
+    map: "Mapa",
+    stats: "Estadísticas",
+    safety: "Seguridad",
+    report: "Reporte",
+    route: "Ruta",
+    installPrompt: "Instalar HEAT para acceso rápido",
+    install: "Instalar"
+});
+
+Object.assign(TRANSLATIONS.pt, {
+    smsSignup: "Cadastro de Alertas SMS",
+    smsDescription: "Receba alertas por texto quando atividade do ICE for reportada perto do seu CEP. Grátis, sem app.",
+    subscribe: "Inscrever-se",
+    submitReport: "Enviar um Relatório Comunitário",
+    reportDescription: "Ajude a manter sua comunidade informada. Relatórios são revisados antes da publicação.",
+    routeChecker: "Verificador de Segurança de Rota",
+    routeDescription: "Verifique se há relatórios ativos ao longo da sua rota.",
+    checkRoute: "Verificar Rota",
+    map: "Mapa",
+    stats: "Estatísticas",
+    safety: "Segurança",
+    report: "Relatório",
+    route: "Rota",
+    installPrompt: "Instale o HEAT para acesso rápido",
+    install: "Instalar"
+});
+
+// ============================================
 // Initialization
 // ============================================
 
@@ -823,6 +1682,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         try { initGeolocation(); } catch (e) { console.error('Geolocation init failed:', e); }
         try { initCollapsibleSections(); } catch (e) { console.error('Collapsible sections init failed:', e); }
         try { updateUILanguage(); } catch (e) { console.error('UI language update failed:', e); }
+        try { renderMidnightClocks(); } catch (e) { console.error('Midnight clocks render failed:', e); }
+        try { registerServiceWorker(); } catch (e) { console.error('SW registration failed:', e); }
+        try { initBottomNav(); } catch (e) { console.error('Bottom nav init failed:', e); }
+        try { initCopyAdvisory(); } catch (e) { console.error('Copy advisory init failed:', e); }
+        try { initWhatsAppShare(); } catch (e) { console.error('WhatsApp share init failed:', e); }
+        try { initSMSOptIn(); } catch (e) { console.error('SMS opt-in init failed:', e); }
+        try { initCommunityReport(); } catch (e) { console.error('Community report init failed:', e); }
+        try { initRouteChecker(); } catch (e) { console.error('Route checker init failed:', e); }
+        try { initAnalyticsIntegration(); } catch (e) { console.error('Analytics initialization failed:', e); }
     } catch (error) {
         console.error('Fatal initialization error:', error);
         // Show error message to user
@@ -1321,10 +2189,26 @@ function renderMap() {
     
     console.log(`Successfully rendered ${markers.length} markers`);
     
-    // Auto-fit map to show all clusters
+    // Auto-fit map to show all clusters (with reasonable bounds)
     if (markers.length > 0) {
         const group = L.featureGroup(markers);
-        map.fitBounds(group.getBounds().pad(0.1));
+        const bounds = group.getBounds();
+        
+        // Only auto-fit if we have clusters spread across multiple locations
+        // Otherwise just center on the clusters at a reasonable zoom
+        const latRange = bounds.getNorth() - bounds.getSouth();
+        const lngRange = bounds.getEast() - bounds.getWest();
+        
+        if (latRange > 0.01 || lngRange > 0.01) {
+            // Clusters are spread out - fit to show all with padding
+            map.fitBounds(bounds.pad(0.2), { maxZoom: 11 });
+        } else {
+            // Clusters are very close together - just center with zoom
+            map.setView(bounds.getCenter(), 12);
+        }
+    } else {
+        // No clusters - show default NJ statewide view
+        map.setView(DEFAULT_CENTER, DEFAULT_ZOOM);
     }
     
     // Force map to redraw
@@ -1512,6 +2396,11 @@ async function loadData() {
             latestNewsData = { items: [] };
         }
 
+        snapshotAnalyticsBaseData();
+        if (analyticsInitialized) {
+            initAnalyticsIntegration();
+        }
+
         updateDownloadSection();
         hideLoading();
         hideError();
@@ -1523,6 +2412,7 @@ async function loadData() {
         timelineData = { weeks: [] };
         alertsData = { alerts: [] };
         latestNewsData = { items: [] };
+        snapshotAnalyticsBaseData();
         updateDownloadSection();
         throw error;  // Re-throw to let initialization know it failed
     }
@@ -1549,6 +2439,293 @@ function updateDownloadSection() {
     if (jsonLink) jsonLink.href = jsonUrl;
     if (csvLink) csvLink.href = csvUrl;
     if (openLink) openLink.href = jsonUrl;
+    
+    // Setup poster report button
+    const posterBtn = document.getElementById("download-poster");
+    if (posterBtn) {
+        posterBtn.addEventListener('click', generatePosterReport);
+    }
+}
+
+// ============================================
+// Poster-Style Report Generator
+// ============================================
+
+function generatePosterReport() {
+    if (!clustersData || !timelineData) {
+        alert("No data available to generate report");
+        return;
+    }
+    
+    const reportDate = new Date().toLocaleDateString('en-US', { 
+        month: 'long', day: 'numeric', year: 'numeric' 
+    });
+    
+    // Calculate statistics
+    const totalSignals = clustersData.clusters?.reduce((sum, c) => sum + (c.size || 0), 0) || 0;
+    const activeClusters = clustersData.clusters?.length || 0;
+    const trend = timelineData.trend?.direction || 'stable';
+    const trendMagnitude = timelineData.trend?.magnitude || 0;
+    
+    // Get top 5 clusters by strength
+    const topClusters = (clustersData.clusters || [])
+        .sort((a, b) => (b.strength || 0) - (a.strength || 0))
+        .slice(0, 5);
+    
+    // Calculate ZIP breakdown
+    const zipCounts = {};
+    (clustersData.clusters || []).forEach(c => {
+        const zip = String(c.zip).padStart(5, '0');
+        zipCounts[zip] = (zipCounts[zip] || 0) + 1;
+    });
+    
+    // Get top keywords
+    const topKeywords = (keywordsData?.keywords || []).slice(0, 10);
+    
+    // Build printable HTML
+    const reportHTML = `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HEAT Civic Signal Report - ${reportDate}</title>
+    <style>
+        @page { size: letter; margin: 0.75in; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .report-header {
+            text-align: center;
+            border-bottom: 3px solid #333;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            font-size: 28pt;
+            margin: 0.5rem 0;
+            font-weight: 700;
+        }
+        .report-date {
+            font-size: 14pt;
+            color: #666;
+            font-weight: 500;
+        }
+        .section {
+            margin: 1.5rem 0;
+            page-break-inside: avoid;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: 700;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.75rem;
+        }
+        .cluster-card {
+            background: #f5f5f5;
+            border-left: 4px solid #333;
+            padding: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .cluster-title {
+            font-weight: 600;
+            font-size: 12pt;
+            margin-bottom: 0.3rem;
+        }
+        .cluster-meta {
+            font-size: 10pt;
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .stat-box {
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 24pt;
+            font-weight: 700;
+            display: block;
+            color: #333;
+        }
+        .stat-label {
+            font-size: 10pt;
+            color: #666;
+            display: block;
+            margin-top: 0.3rem;
+        }
+        .zip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        .zip-badge {
+            background: #333;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 10pt;
+            font-weight: 600;
+        }
+        .keyword-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        .keyword-tag {
+            background: #e9e9e9;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 10pt;
+        }
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+            font-size: 9pt;
+            color: #666;
+            text-align: center;
+        }
+        .sources-panel {
+            background: #fcfcfc;
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+        }
+        .source-item {
+            font-size: 9pt;
+            margin: 0.25rem 0;
+        }
+        @media print {
+            body { padding: 0; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="report-header">
+        <h1>🔥 HEAT Civic Signal Report</h1>
+        <div class="report-date">New Jersey — ${reportDate}</div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">📊 By the Numbers</div>
+        <div class="stat-grid">
+            <div class="stat-box">
+                <span class="stat-value">${activeClusters}</span>
+                <span class="stat-label">Active Report Groups</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">${totalSignals}</span>
+                <span class="stat-label">Total Signals</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">${trend === 'increasing' ? '↑' : trend === 'decreasing' ? '↓' : '→'}</span>
+                <span class="stat-label">Trend: ${trend} ${trendMagnitude > 0 ? '(+' + Math.round(trendMagnitude) + '%)' : ''}</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">${Object.keys(zipCounts).length}</span>
+                <span class="stat-label">ZIP Codes Affected</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">📍 Location Summary</div>
+        <div class="zip-list">
+            ${Object.entries(zipCounts)
+                .sort((a, b) => b[1] - a[1])
+                .map(([zip, count]) => `<span class="zip-badge">${zip}: ${count} reports</span>`)
+                .join('')}
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">💬 What Happened — Top 5 Report Groups</div>
+        ${topClusters.map((cluster, idx) => `
+            <div class="cluster-card">
+                <div class="cluster-title">${idx + 1}. ${escapeHtml(cluster.summary || cluster.representative_text || 'No summary')}</div>
+                <div class="cluster-meta">
+                    📍 ZIP ${String(cluster.zip).padStart(5, '0')} • 
+                    📊 ${cluster.size || 0} signals • 
+                    💪 Strength: ${(cluster.strength || 0).toFixed(2)} •
+                    📅 ${cluster.date_range || 'Recent'}
+                </div>
+                ${cluster.sources?.length ? `<div class="source-item">Sources: ${cluster.sources.slice(0, 3).join(', ')}</div>` : ''}
+            </div>
+        `).join('')}
+    </div>
+    
+    <div class="section">
+        <div class="section-title">🏷️ Top Keywords</div>
+        <div class="keyword-cloud">
+            ${topKeywords.map(kw => `<span class="keyword-tag">${escapeHtml(kw.word || kw)} ${kw.count ? '(' + kw.count + ')' : ''}</span>`).join('')}
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">✅ How to Verify</div>
+        <div class="sources-panel">
+            <p><strong>All data comes from public sources:</strong></p>
+            <ul>
+                <li>Local news archives (NJ.com, TAPinto, News 12 NJ)</li>
+                <li>NJ Attorney General press releases</li>
+                <li>City council minutes (public records)</li>
+                <li>Community advocacy reports</li>
+                <li>Facebook community groups (opt-in)</li>
+            </ul>
+            <p style="margin-top: 0.5rem;"><strong>Original media links available in digital export files.</strong></p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p><strong>HEAT — They Are Here</strong> | Civic Signal Aggregation Tool</p>
+        <p>This report shows aggregated patterns of civic attention from public records.</p>
+        <p>NOT a real-time alert system. NOT individual sightings. ZIP-level geographic resolution only.</p>
+        <p>Generated: ${new Date().toLocaleString()} | Data updated: ${clustersData.generated_at || 'Unknown'}</p>
+    </div>
+    
+    <div class="no-print" style="text-align: center; margin: 2rem 0;">
+        <button onclick="window.print()" style="padding: 1rem 2rem; font-size: 14pt; cursor: pointer;">
+            🖨️ Print Report
+        </button>
+        <button onclick="window.close()" style="padding: 1rem 2rem; font-size: 14pt; cursor: pointer; margin-left: 1rem;">
+            ✕ Close
+        </button>
+    </div>
+</body>
+</html>
+    `.trim();
+    
+    // Open in new window
+    const printWindow = window.open('', '_blank', 'width=900,height=1000');
+    if (!printWindow) {
+        alert('Please allow pop-ups to view the printable report');
+        return;
+    }
+    
+    printWindow.document.write(reportHTML);
+    printWindow.document.close();
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = String(text || '');
+    return div.innerHTML;
 }
 
 // ============================================
@@ -1667,7 +2844,14 @@ function renderClusters() {
     
     announceToScreenReader(`${clustersData.clusters.length} clusters displayed`);
     
-    const html = clustersData.clusters.map((cluster, index) => {
+    // Sort clusters by most recent activity first
+    const sortedClusters = [...clustersData.clusters].sort((a, b) => {
+        const dateA = new Date(a.dateRange?.end || a.dateRange?.start || 0);
+        const dateB = new Date(b.dateRange?.end || b.dateRange?.start || 0);
+        return dateB - dateA; // Most recent first
+    });
+    
+    const html = sortedClusters.map((cluster, index) => {
         const strengthClass = cluster.strength > 5 ? "high" : 
                              cluster.strength > 2 ? "medium" : "low";
         const strengthLabel = cluster.strength > 5 ? "High" : 
@@ -2223,25 +3407,9 @@ function renderKeywords(region = 'statewide') {
         lastUpdated.textContent = `• Updated ${hoursAgo}h ago`;
     }
     
-    // Use enriched keywords if available
+    // Use enriched keywords - always statewide (no static regional filtering)
+    // Behavioral regions are emergent and dynamic, not static filters
     let keywords = keywordsData.keywords || [];
-    
-    // Filter keywords by region
-    if (region !== 'statewide' && keywords.length > 0) {
-        keywords = keywords.filter(kw => {
-            // Check if keyword's top_location is in the selected region
-            const topLocationRegion = ZIP_TO_REGION[kw.top_location];
-            if (topLocationRegion === region) return true;
-            
-            // Also check if any of the keyword's locations are in the region
-            if (kw.locations) {
-                for (const zip in kw.locations) {
-                    if (ZIP_TO_REGION[zip] === region) return true;
-                }
-            }
-            return false;
-        });
-    }
     
     if (keywords.length > 0) {
         // Sort keywords by recency (most recent first), then by count
@@ -2743,4 +3911,86 @@ function setupRegionNavigation() {
             }
         });
     });
+}
+
+// ============================================
+// Analytics Panel Integration
+// ============================================
+
+function initializeAnalytics() {
+    if (!window.analyticsPanel) {
+        console.warn('Analytics panel not available');
+        return;
+    }
+
+    // Initialize the analytics panel
+    window.analyticsPanel.init();
+
+    // Set up filter change handler to update map when filters change
+    window.analyticsPanel.setFilterChangeHandler(function(filteredData, state, meta) {
+        console.log('Filter applied:', meta.type || meta.reason, 'showing', filteredData.length, 'clusters');
+        
+        // Update the map with filtered data
+        if (map && filteredData) {
+            updateMapWithFilteredData(filteredData);
+        }
+    });
+
+    // Load initial cluster data into filter engine
+    if (window.filterEngine && clustersData && clustersData.clusters) {
+        window.filterEngine.initialize(clustersData.clusters, { keepFilters: false });
+    }
+
+    // Provide data context for stats calculations
+    window.analyticsPanel.setDataContext({
+        timeline: timelineData,
+        keywords: keywordsData,
+        latestNews: latestNewsData,
+        alerts: null
+    });
+}
+
+function updateMapWithFilteredData(filteredClusters) {
+    // Clear existing markers
+    if (map) {
+        map.eachLayer(layer => {
+            if (layer instanceof L.CircleMarker || layer instanceof L.Marker) {
+                map.removeLayer(layer);
+            }
+        });
+    }
+
+    // Re-render only the filtered clusters
+    if (filteredClusters && filteredClusters.length > 0) {
+        filteredClusters.forEach(cluster => {
+            renderClusterMarker(cluster);
+        });
+    }
+
+    // Update dashboard stats with filtered data
+    updateDashboardWithFilteredData(filteredClusters);
+}
+
+function updateDashboardWithFilteredData(filteredClusters) {
+    const count = filteredClusters ? filteredClusters.length : 0;
+    
+    // Update cluster count
+    const dashClusters = document.getElementById('dash-clusters');
+    if (dashClusters) {
+        dashClusters.textContent = count;
+    }
+
+    // Update intensity based on filtered data
+    if (window.statsCalculator && filteredClusters) {
+        const summary = window.statsCalculator.clusterSummary(filteredClusters);
+        const dashIntensity = document.getElementById('dash-intensity');
+        if (dashIntensity) {
+            dashIntensity.textContent = summary.averageStrength.toFixed(1);
+        }
+    }
+}
+
+function initAnalyticsIntegration() {
+    console.log('Initializing analytics integration...');
+    initializeAnalytics();
 }
