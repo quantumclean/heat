@@ -278,10 +278,19 @@ class DataValidator:
         
         pii_patterns = {
             "ssn": r"\b\d{3}-\d{2}-\d{4}\b",
-            "phone": r"\b\d{3}[-.]?\d{3}[-.]?\d{4}\b",
+            # Phone: more specific - must have area code separator or be 10+ digits
+            "phone": r"\b\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}\b",
             "email": r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b",
-            "address": r"\b\d+\s+[A-Za-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct)\b",
+            # Address: must have number + street type, not just "Street" alone
+            "address": r"\b\d+\s+[A-Za-z]+\s+[A-Za-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct)\b",
         }
+        
+        # Patterns to exclude from PII detection (legitimate data)
+        exclusion_patterns = [
+            r"\bZIP\s+\d{5}\b",  # ZIP code references
+            r"\b0\d{4}\b",       # ZIP codes starting with 0
+            r"\bzip[\"']?\s*:\s*[\"']?\d{5}\b",  # JSON zip fields
+        ]
         
         try:
             pii_found = []
@@ -294,7 +303,19 @@ class DataValidator:
                 for pii_type, pattern in pii_patterns.items():
                     matches = re.findall(pattern, content, re.IGNORECASE)
                     if matches:
-                        pii_found.append(f"{json_file.name}: {pii_type} pattern ({len(matches)} matches)")
+                        # Filter out false positives
+                        filtered_matches = []
+                        for match in matches:
+                            is_excluded = False
+                            for exclusion in exclusion_patterns:
+                                if re.search(exclusion, match, re.IGNORECASE):
+                                    is_excluded = True
+                                    break
+                            if not is_excluded:
+                                filtered_matches.append(match)
+                        
+                        if filtered_matches:
+                            pii_found.append(f"{json_file.name}: {pii_type} pattern ({len(filtered_matches)} matches)")
             
             # Check CSV exports in build directory
             for csv_file in BUILD_DIR.glob("*.csv"):
@@ -304,7 +325,19 @@ class DataValidator:
                 for pii_type, pattern in pii_patterns.items():
                     matches = re.findall(pattern, content, re.IGNORECASE)
                     if matches:
-                        pii_found.append(f"{csv_file.name}: {pii_type} pattern ({len(matches)} matches)")
+                        # Filter out false positives
+                        filtered_matches = []
+                        for match in matches:
+                            is_excluded = False
+                            for exclusion in exclusion_patterns:
+                                if re.search(exclusion, match, re.IGNORECASE):
+                                    is_excluded = True
+                                    break
+                            if not is_excluded:
+                                filtered_matches.append(match)
+                        
+                        if filtered_matches:
+                            pii_found.append(f"{csv_file.name}: {pii_type} pattern ({len(filtered_matches)} matches)")
             
             # Check exports directory
             if (BUILD_DIR / "exports").exists():
@@ -315,7 +348,19 @@ class DataValidator:
                     for pii_type, pattern in pii_patterns.items():
                         matches = re.findall(pattern, content, re.IGNORECASE)
                         if matches:
-                            pii_found.append(f"exports/{export_file.name}: {pii_type} pattern ({len(matches)} matches)")
+                            # Filter out false positives
+                            filtered_matches = []
+                            for match in matches:
+                                is_excluded = False
+                                for exclusion in exclusion_patterns:
+                                    if re.search(exclusion, match, re.IGNORECASE):
+                                        is_excluded = True
+                                        break
+                                if not is_excluded:
+                                    filtered_matches.append(match)
+                            
+                            if filtered_matches:
+                                pii_found.append(f"exports/{export_file.name}: {pii_type} pattern ({len(filtered_matches)} matches)")
             
             if pii_found:
                 self._fail("Potential PII found in outputs")

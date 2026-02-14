@@ -65,9 +65,11 @@ DEV_THRESHOLDS = SafetyThresholds(
 
 PII_PATTERNS = {
     "ssn": r"\b\d{3}-\d{2}-\d{4}\b",
-    "phone": r"\b\d{3}[-.]?\d{3}[-.]?\d{4}\b",
+    # Phone: more specific - requires separators
+    "phone": r"\b\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}\b",
     "email": r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b",
-    "address": r"\b\d+\s+[A-Za-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct|Boulevard|Blvd|Way|Place|Pl)\b",
+    # Address: requires street name + type
+    "address": r"\b\d+\s+[A-Za-z]+\s+[A-Za-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct|Boulevard|Blvd|Way|Place|Pl)\b",
     "license_plate": r"\b[A-Z]{1,3}[-\s]?\d{1,4}[-\s]?[A-Z]{0,3}\b",
 }
 

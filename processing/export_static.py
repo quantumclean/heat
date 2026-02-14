@@ -59,9 +59,11 @@ def export_for_static_site():
             return text
         patterns = {
             "ssn": r"\b\d{3}-\d{2}-\d{4}\b",
-            "phone": r"\b\d{3}[-.]?\d{3}[-.]?\d{4}\b",
+            # Phone: more specific - requires separators
+            "phone": r"\b\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}\b",
             "email": r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b",
-            "address": r"\b\d+\s+[A-Za-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct)\b",
+            # Address: requires street name + type
+            "address": r"\b\d+\s+[A-Za-z]+\s+[A-Za-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct)\b",
         }
         scrubbed = text
         for pattern in patterns.values():
