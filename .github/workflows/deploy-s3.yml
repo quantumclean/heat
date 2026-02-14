@@ -100,10 +100,14 @@ jobs:
             --cache-control "max-age=86400" \
             --metadata-directive REPLACE
 
-      - name: Invalidate CloudFront (optional)
-        if: env.CLOUDFRONT_DISTRIBUTION_ID != ''
+      - name: Invalidate CloudFront cache
         continue-on-error: true
         run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
+          if [ -n "${{ env.CLOUDFRONT_DISTRIBUTION_ID }}" ] && [ "${{ env.CLOUDFRONT_DISTRIBUTION_ID }}" != "null" ]; then
+            echo "Invalidating CloudFront distribution: ${{ env.CLOUDFRONT_DISTRIBUTION_ID }}"
+            aws cloudfront create-invalidation \
+              --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
+              --paths "/*" && echo "✅ CloudFront cache invalidated" || echo "⚠️  CloudFront invalidation failed"
+          else
+            echo "ℹ️  Skipping CloudFront invalidation (CLOUDFRONT_DISTRIBUTION_ID not configured)"
+          fi
