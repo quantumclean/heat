@@ -18,10 +18,10 @@ PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 # ==============================================
 # PRODUCTION SAFETY THRESHOLDS
 # ==============================================
-MIN_CLUSTER_SIZE = 1          # MAXIMUM SENSITIVITY: Single records OK
-MIN_SOURCES = 1               # MAXIMUM SENSITIVITY: Single source OK
-DELAY_HOURS = 0               # MAXIMUM SENSITIVITY: No delay required
-MIN_VOLUME_SCORE = 0.0        # MAXIMUM SENSITIVITY: All volumes accepted
+MIN_CLUSTER_SIZE = 2          # Production minimum for data quality
+MIN_SOURCES = 2               # Production minimum for source corroboration
+DELAY_HOURS = 24              # Production delay (24 hours for Tier 1)
+MIN_VOLUME_SCORE = 1.0        # Production minimum volume threshold
 
 # DEVELOPMENT MODE: Enable only when explicitly requested
 # WARNING: Never enable in production deployments

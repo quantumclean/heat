@@ -11,6 +11,12 @@ from datetime import datetime, timezone
 
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 
+# Import target ZIPs for validation
+try:
+    from config import TARGET_ZIPS
+except ImportError:
+    TARGET_ZIPS = ["07060", "07062", "07063"]
+
 MODEL = None
 
 
@@ -27,6 +33,28 @@ def embed_texts(texts: list[str]) -> np.ndarray:
     """Generate embeddings for text list."""
     model = get_model()
     return model.encode(texts, show_progress_bar=True)
+
+
+def create_empty_cluster_output():
+    """Create empty cluster output files."""
+    stats_columns = [
+        "cluster_id",
+        "size",
+        "volume_score",
+        "primary_zip",
+        "earliest_date",
+        "latest_date",
+        "representative_text",
+        "sources",
+        "urls",
+    ]
+    empty_stats = pd.DataFrame(columns=stats_columns)
+    empty_stats.to_csv(PROCESSED_DIR / "cluster_stats.csv", index=False)
+    
+    empty_clustered = pd.DataFrame(columns=["text", "source", "zip", "date", "cluster"])
+    empty_clustered.to_csv(PROCESSED_DIR / "clustered_records.csv", index=False)
+    
+    return empty_stats
 
 
 def cluster_embeddings(embeddings: np.ndarray, min_cluster_size: int = 1) -> np.ndarray:
@@ -82,27 +110,24 @@ def run_clustering():
     df = pd.read_csv(records_path)
     if df.empty or "text" not in df.columns:
         print("No records found. Writing empty cluster outputs.")
-        clustered_cols = list(df.columns) + ["cluster"] if "cluster" not in df.columns else list(df.columns)
-        empty_clustered = pd.DataFrame(columns=clustered_cols)
-        empty_clustered.to_csv(PROCESSED_DIR / "clustered_records.csv", index=False)
-
-        stats_columns = [
-            "cluster_id",
-            "size",
-            "volume_score",
-            "primary_zip",
-            "earliest_date",
-            "latest_date",
-            "representative_text",
-            "sources",
-            "urls",
-        ]
-        empty_stats = pd.DataFrame(columns=stats_columns)
-        empty_stats.to_csv(PROCESSED_DIR / "cluster_stats.csv", index=False)
-        return empty_stats
+        return create_empty_cluster_output()
 
     df["date"] = pd.to_datetime(df["date"], errors="coerce")
-    print(f"Loaded {len(df)} records")
+    
+    # Normalize and validate ZIP codes before clustering
+    if "zip" in df.columns:
+        df["zip"] = df["zip"].astype(str).str.zfill(5)
+        # Filter to only valid target ZIPs
+        invalid_zips = ~df["zip"].isin(TARGET_ZIPS)
+        if invalid_zips.sum() > 0:
+            print(f"Filtering {invalid_zips.sum()} records with invalid ZIP codes")
+            df = df[~invalid_zips]
+        
+        if df.empty:
+            print("WARNING: No records with valid ZIP codes after filtering")
+            return create_empty_cluster_output()
+    
+    print(f"Loaded {len(df)} records with valid ZIP codes")
     
     # Generate embeddings
     print("Generating embeddings...")
@@ -142,8 +167,15 @@ def run_clustering():
         # Calculate scores
         volume = calculate_cluster_strength(cluster_df, now)
         
-        # Get primary ZIP
-        primary_zip = cluster_df["zip"].mode().iloc[0] if len(cluster_df) > 0 else "07060"
+        # Get primary ZIP (normalized to 5 digits)
+        default_zip = TARGET_ZIPS[0] if TARGET_ZIPS else "00000"
+        primary_zip_raw = cluster_df["zip"].mode().iloc[0] if len(cluster_df) > 0 else default_zip
+        primary_zip = str(primary_zip_raw).zfill(5)
+        
+        # Validate primary ZIP is in target list
+        if primary_zip not in TARGET_ZIPS:
+            print(f"WARNING: Cluster {cluster_id} has invalid primary ZIP {primary_zip}, defaulting to {default_zip}")
+            primary_zip = default_zip
         
         cluster_stats.append({
             "cluster_id": int(cluster_id),

@@ -10,6 +10,15 @@ from nj_locations import extract_nj_cities_from_text
 RAW_DIR = Path(__file__).parent.parent / "data" / "raw"
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 
+# Import target ZIPs for validation
+try:
+    from config import TARGET_ZIPS
+except ImportError:
+    TARGET_ZIPS = []
+
+# Get default ZIP (first in list or fallback)
+DEFAULT_ZIP = TARGET_ZIPS[0] if TARGET_ZIPS else "00000"
+
 
 def normalize_record(text: str, source: str, zip_code: str, date: str) -> dict:
     """Standardize a single record."""
@@ -22,6 +31,14 @@ def normalize_record(text: str, source: str, zip_code: str, date: str) -> dict:
         actual_zip = location["zip"]
     else:
         actual_zip = str(zip_code).strip()
+    
+    # Normalize ZIP code to 5 digits with leading zeros
+    actual_zip = str(actual_zip).zfill(5)
+    
+    # Validate ZIP code is in target list
+    if TARGET_ZIPS and actual_zip not in TARGET_ZIPS:
+        # Default to primary ZIP if invalid
+        actual_zip = DEFAULT_ZIP
     
     return {
         "text": str(text).strip(),
@@ -44,7 +61,7 @@ def ingest_csv(path: Path, source_name: str) -> list[dict]:
             records.append(normalize_record(
                 text=row["text"],
                 source=source_name,
-                zip_code=row.get("zip", "07060"),  # Default to Plainfield
+                zip_code=row.get("zip", DEFAULT_ZIP),
                 date=row["date"],
             ))
         except Exception as e:
@@ -87,7 +104,7 @@ def run_ingestion():
                         record = normalize_record(
                             text=row.get("text", row.get("title", "")),
                             source=row.get("source", "scraped"),
-                            zip_code=row.get("zip", "07060"),
+                            zip_code=row.get("zip", DEFAULT_ZIP),
                             date=row.get("date", datetime.now().isoformat()),
                         )
                         # Preserve additional fields from scraper
@@ -117,7 +134,7 @@ def run_ingestion():
                         record = normalize_record(
                             text=row.get("text", ""),
                             source=row.get("source", "twitter"),
-                            zip_code=row.get("zip", "07060"),
+                            zip_code=row.get("zip", DEFAULT_ZIP),
                             date=row.get("date", datetime.now().isoformat()),
                         )
                         # Preserve additional twitter fields
@@ -147,7 +164,7 @@ def run_ingestion():
                         record = normalize_record(
                             text=row.get("text", row.get("title", "")),
                             source=row.get("source", "historical"),
-                            zip_code=row.get("zip", "07060"),
+                            zip_code=row.get("zip", DEFAULT_ZIP),
                             date=row.get("date", datetime.now().isoformat()),
                         )
                         if "id" in row:
@@ -176,7 +193,7 @@ def run_ingestion():
                         record = normalize_record(
                             text=row.get("text", row.get("title", "")),
                             source=row.get("source", "NJ Attorney General"),
-                            zip_code=row.get("zip", "07060"),
+                            zip_code=row.get("zip", DEFAULT_ZIP),
                             date=row.get("date", datetime.now().isoformat()),
                         )
                         for extra in ["id", "category", "url", "title"]:
@@ -202,7 +219,7 @@ def run_ingestion():
                         record = normalize_record(
                             text=row.get("text", row.get("title", "")),
                             source=row.get("source", "Reddit"),
-                            zip_code=row.get("zip", "07060"),
+                            zip_code=row.get("zip", DEFAULT_ZIP),
                             date=row.get("date", datetime.now().isoformat()),
                         )
                         for extra in ["id", "category", "url", "title"]:
@@ -228,7 +245,7 @@ def run_ingestion():
                         record = normalize_record(
                             text=row.get("text", row.get("title", "")),
                             source=row.get("source", "City Council"),
-                            zip_code=row.get("zip", "07060"),
+                            zip_code=row.get("zip", DEFAULT_ZIP),
                             date=row.get("date", datetime.now().isoformat()),
                         )
                         for extra in ["id", "category", "url", "title"]:

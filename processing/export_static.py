@@ -26,6 +26,15 @@ except ImportError:
     SAFETY_AVAILABLE = False
     print("WARNING: Safety module not available. Exporting without centralized safety checks.")
 
+# Import configuration
+try:
+    from config import TARGET_ZIPS
+except ImportError:
+    TARGET_ZIPS = []
+
+DEFAULT_ZIP = TARGET_ZIPS[0] if TARGET_ZIPS else "00000"
+PRIMARY_ZIP = TARGET_ZIPS[0] if TARGET_ZIPS else "00000"
+
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 BUILD_DIR = Path(__file__).parent.parent / "build" / "data"
 ARCHIVE_DIR = Path(__file__).parent.parent / "data" / "archive"
@@ -151,7 +160,7 @@ def export_for_static_site():
         clusters = apply_governance(clusters)
         
         # Generate silence context for ZIPs with no data
-        all_zips = {"07060", "07062", "07063"}
+        all_zips = set(TARGET_ZIPS)
         active_zips = {c["zip"] for c in clusters}
         inactive_zips = all_zips - active_zips
         silence_context = {
@@ -275,12 +284,12 @@ def export_for_static_site():
             safe_summary = scrub_pii(str(row.get("representative_text", "")).strip())
             latest_items.append({
                 "cluster_id": int(row.get("cluster_id", 0)),
-                "zip": str(row.get("primary_zip", "07060")).zfill(5),
+                "zip": str(row.get("primary_zip", DEFAULT_ZIP)).zfill(5),
                 "timestamp": row.get("latest_date").isoformat() if pd.notna(row.get("latest_date")) else None,
                 "headline": safe_headline,
                 "summary": safe_summary,
                 "source": source_label,
-                "priority": "high" if str(row.get("primary_zip", "")) == "07060" else "normal",
+                "priority": "high" if str(row.get("primary_zip", "")) == PRIMARY_ZIP else "normal",
                 "strength": float(row.get("volume_score", 0)),
                 "size": int(row.get("size", 0)),
                 "urls": urls[:2],

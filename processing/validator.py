@@ -363,7 +363,7 @@ class DataValidator:
             return {"status": "fail", "reason": str(e)}
     
     def _check_geographic_bounds(self) -> Dict:
-        """Verify all data is within Plainfield bounds."""
+        """Verify all data is within target geographic bounds."""
         print("[6/8] Checking geographic bounds...")
         
         try:
@@ -386,7 +386,7 @@ class DataValidator:
             pct_valid = (valid_zips / total * 100) if total > 0 else 0
             
             if pct_valid < 90:
-                self._warn(f"Only {pct_valid:.1f}% of records have valid Plainfield ZIPs")
+                self._warn(f"Only {pct_valid:.1f}% of records have valid target ZIPs")
             
             self._pass()
             return {

@@ -6,9 +6,26 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime
 import json
+import re
 
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 BUILD_DIR = Path(__file__).parent.parent / "build" / "exports"
+
+
+def scrub_pii(text: str) -> str:
+    """Redact common PII patterns from text fields before export."""
+    if not text:
+        return text
+    patterns = {
+        "ssn": r"\b\d{3}-\d{2}-\d{4}\b",
+        "phone": r"\b\d{3}[-.]?\d{3}[-.]?\d{4}\b",
+        "email": r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b",
+        "address": r"\b\d+\s+[A-Za-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct)\b",
+    }
+    scrubbed = text
+    for pattern in patterns.values():
+        scrubbed = re.sub(pattern, "[redacted]", scrubbed, flags=re.IGNORECASE)
+    return scrubbed
 
 
 def export_text_summary() -> str:
@@ -78,12 +95,13 @@ def export_text_summary() -> str:
     lines.append("-" * 50)
     
     for _, cluster in clusters_df.iterrows():
+        safe_summary = scrub_pii(str(cluster['representative_text'])[:200])
         lines.append(f"\nCluster #{cluster['cluster_id']}")
         lines.append(f"  Strength: {cluster['volume_score']:.1f}")
         lines.append(f"  Location: ZIP {cluster['primary_zip']}")
         lines.append(f"  Size: {cluster['size']} signals")
         lines.append(f"  Period: {cluster['earliest_date'][:10]} to {cluster['latest_date'][:10]}")
-        lines.append(f"  Summary: {cluster['representative_text'][:200]}")
+        lines.append(f"  Summary: {safe_summary}")
     
     lines.append("")
     lines.append("=" * 50)
@@ -109,6 +127,14 @@ def export_csv_dataset() -> str:
     # Remove any potentially sensitive fields
     columns_to_keep = ["text", "source", "zip", "date"]
     df = df[[col for col in columns_to_keep if col in df.columns]]
+    
+    # Apply PII scrubbing to text field
+    if "text" in df.columns:
+        df["text"] = df["text"].apply(lambda x: scrub_pii(str(x)) if pd.notna(x) else x)
+    
+    # Scrub source field as well
+    if "source" in df.columns:
+        df["source"] = df["source"].apply(lambda x: scrub_pii(str(x)) if pd.notna(x) else x)
     
     df.to_csv(output_path, index=False)
     
@@ -138,6 +164,7 @@ def export_json_api() -> dict:
     if clusters_path.exists():
         clusters_df = pd.read_csv(clusters_path)
         for _, row in clusters_df.iterrows():
+            safe_summary = scrub_pii(str(row["representative_text"]))
             output["clusters"].append({
                 "id": int(row["cluster_id"]),
                 "strength": float(row["volume_score"]),
@@ -147,7 +174,7 @@ def export_json_api() -> dict:
                     "start": row["earliest_date"],
                     "end": row["latest_date"],
                 },
-                "summary": row["representative_text"],
+                "summary": safe_summary,
             })
     
     # Analytics

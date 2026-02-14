@@ -15,8 +15,12 @@ from textwrap import shorten
 from config import (
     ALERT_TEMPLATES, ALERT_SPIKE_THRESHOLD, ALERT_SUSTAINED_HOURS,
     ALERT_DECAY_THRESHOLD, FORBIDDEN_ALERT_WORDS,
-    PROCESSED_DIR, BUILD_DIR, EXPORTS_DIR
+    PROCESSED_DIR, BUILD_DIR, EXPORTS_DIR, TARGET_ZIPS
 )
+
+# Get default ZIP (first in list or fallback)
+DEFAULT_ZIP = TARGET_ZIPS[0] if TARGET_ZIPS else "00000"
+PRIMARY_ZIP = TARGET_ZIPS[0] if TARGET_ZIPS else "00000"
 
 try:
     from notifier import send_sms_alerts, format_sms_message
@@ -36,22 +40,22 @@ def validate_alert_text(text: str) -> tuple[bool, str]:
         if word.lower() in text_lower:
             return False, f"Forbidden word detected: '{word}'"
     
-    return True, \"\"
+    return True, ""
 
 
 def scrub_pii(text: str) -> str:
-    \"\"\"Redact common PII patterns from text fields before export.\"\"\"
+    """Redact common PII patterns from text fields before export."""
     if not text:
         return text
     patterns = {
-        \"ssn\": r\"\\b\\d{3}-\\d{2}-\\d{4}\\b\",
-        \"phone\": r\"\\b\\d{3}[-.]?\\d{3}[-.]?\\d{4}\\b\",
-        \"email\": r\"\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b\",
-        \"address\": r\"\\b\\d+\\s+[A-Za-z]+\\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct)\\b\",
+        "ssn": r"\b\d{3}-\d{2}-\d{4}\b",
+        "phone": r"\b\d{3}[-.]?\d{3}[-.]?\d{4}\b",
+        "email": r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b",
+        "address": r"\b\d+\s+[A-Za-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct)\b",
     }
     scrubbed = text
     for pattern in patterns.values():
-        scrubbed = re.sub(pattern, \"[redacted]\", scrubbed, flags=re.IGNORECASE)
+        scrubbed = re.sub(pattern, "[redacted]", scrubbed, flags=re.IGNORECASE)
     return scrubbed
 
 
@@ -218,7 +222,7 @@ def generate_cluster_alerts(clusters_df: pd.DataFrame) -> list:
                 sources = eval(sources_raw)
             except Exception:
                 sources = [sources_raw]
-        zip_code = str(row.get("primary_zip", "07060")).zfill(5)
+        zip_code = str(row.get("primary_zip", DEFAULT_ZIP)).zfill(5)
         summary = str(row.get("representative_text", "")).strip()
         
         # Apply PII scrubbing before validation
@@ -232,8 +236,8 @@ def generate_cluster_alerts(clusters_df: pd.DataFrame) -> list:
         if not is_valid:
             print(f"Cluster alert skipped (validation): {error}")
             continue
-        priority = "high" if zip_code == "07060" else "normal"
-        alerts.append({afe_s
+        priority = "high" if zip_code == PRIMARY_ZIP else "normal"
+        alerts.append({
             "id": int(row.get("cluster_id", 0)),
             "zip": zip_code,
             "title": f"Attention in ZIP {zip_code}",

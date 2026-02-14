@@ -56,11 +56,30 @@ TARGET_CITIES = {
     },
 }
 
-# Primary focus location (default)
-TARGET_LOCATION = "Plainfield, NJ"
-TARGET_ZIPS = ["07060", "07062", "07063"]
-TARGET_CENTER = (40.6137, -74.4154)
-TARGET_RADIUS_KM = 10
+# Primary focus location (default) - dynamically set from TARGET_CITIES
+# To change primary location, set PRIMARY_CITY environment variable
+import os
+PRIMARY_CITY = os.getenv("PRIMARY_CITY", "plainfield")  # Default to first city if not set
+
+if PRIMARY_CITY in TARGET_CITIES:
+    _primary = TARGET_CITIES[PRIMARY_CITY]
+    TARGET_LOCATION = f"{PRIMARY_CITY.replace('_', ' ').title()}, {_primary['state']}"
+    TARGET_ZIPS = _primary["zips"]
+    TARGET_CENTER = _primary["center"]
+    TARGET_RADIUS_KM = _primary["radius_km"]
+else:
+    # Fallback to first city in TARGET_CITIES
+    _first_city = list(TARGET_CITIES.keys())[0]
+    _primary = TARGET_CITIES[_first_city]
+    TARGET_LOCATION = f"{_first_city.replace('_', ' ').title()}, {_primary['state']}"
+    TARGET_ZIPS = _primary["zips"]
+    TARGET_CENTER = _primary["center"]
+    TARGET_RADIUS_KM = _primary["radius_km"]
+
+# Get all ZIP codes from all cities for validation
+ALL_ZIPS = []
+for city_data in TARGET_CITIES.values():
+    ALL_ZIPS.extend(city_data["zips"])
 
 # Comprehensive ZIP code centroids (all regions)
 ZIP_CENTROIDS = {
@@ -372,11 +391,11 @@ ALERT_SUSTAINED_HOURS = 24   # Hours above threshold for Class B
 ALERT_DECAY_THRESHOLD = 0.5  # Below baseline for Class C
 
 # ============================================
-# Safety Thresholds (Buffer Stage) - MAXIMUM SENSITIVITY
+# Safety Thresholds (Buffer Stage) - PRODUCTION SETTINGS
 # ============================================
-MIN_CLUSTER_SIZE = 1      # MAXIMUM SENSITIVITY: Single records accepted
-MIN_SOURCES = 1           # MAXIMUM SENSITIVITY: Single source accepted
-MIN_VOLUME_SCORE = 0.0    # MAXIMUM SENSITIVITY: All volumes accepted
+MIN_CLUSTER_SIZE = 2      # Production minimum for data quality
+MIN_SOURCES = 2           # Production minimum for source corroboration
+MIN_VOLUME_SCORE = 1.0    # Production minimum volume threshold
 
 # ============================================
 # Digest Settings
