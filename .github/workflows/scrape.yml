@@ -29,6 +29,11 @@ jobs:
 
       - name: Install dependencies
         run: |
+          pip install --upgrade pip
+          # Install numpy first so thinc's C-extension compiles/links against it.
+          # Force-reinstall numpy and thinc to avoid stale cached binaries.
+          pip install --force-reinstall "numpy~=2.4.0"
+          pip install --force-reinstall "thinc>=8.2.2,<8.3.0"
           pip install -r requirements.txt
 
       - name: Download spaCy model

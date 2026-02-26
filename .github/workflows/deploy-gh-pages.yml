@@ -36,6 +36,10 @@ jobs:
       - name: Install core dependencies
         run: |
           pip install --upgrade pip
+          # Pre-install numpy so thinc's C-extension builds against numpy 2.x.
+          # Force-reinstall both to avoid stale cached wheels.
+          pip install --force-reinstall "numpy~=2.4.0"
+          pip install --force-reinstall "thinc>=8.2.2,<8.3.0"
           pip install -r requirements.txt
 
       # Install optional deps only if their secrets are configured
