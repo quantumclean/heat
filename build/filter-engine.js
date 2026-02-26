@@ -9,6 +9,11 @@ class FilterEngine {
         this.filters = [];
         this.activePreset = null;
         this.cache = new Map();
+
+        this._originalData = [];
+        this._namedFilters = this._getDefaultNamedFilters();
+        this._history = [];
+        this._initialized = false;
     }
 
     /**
@@ -276,6 +281,13 @@ class FilterEngine {
      * Get current filter state
      */
     getState() {
+        if (this._initialized) {
+            return {
+                originalData: [...this._originalData],
+                filteredData: this._applyNamedFilters(),
+                filters: JSON.parse(JSON.stringify(this._namedFilters))
+            };
+        }
         return {
             filters: [...this.filters],
             activePreset: this.activePreset,
@@ -292,6 +304,123 @@ class FilterEngine {
         this.clearCache();
         return this;
     }
+
+    _getDefaultNamedFilters() {
+        return {
+            zips: [],
+            strengthMin: null,
+            strengthMax: null,
+            dateStart: null,
+            dateEnd: null,
+            sources: [],
+            search: ''
+        };
+    }
+
+    initialize(data, options = {}) {
+        this._originalData = Array.isArray(data) ? [...data] : [];
+        this.data = [...this._originalData];
+        this._initialized = true;
+        if (!options.keepFilters) {
+            this._namedFilters = this._getDefaultNamedFilters();
+            this._history = [];
+        }
+        this.clearCache();
+        return this;
+    }
+
+    setFilter(key, value) {
+        this._pushHistory();
+        this._namedFilters[key] = value;
+        this.clearCache();
+        return this;
+    }
+
+    setFilters(filtersObj) {
+        this._pushHistory();
+        this._namedFilters = this._getDefaultNamedFilters();
+        Object.assign(this._namedFilters, filtersObj);
+        this.clearCache();
+        return this;
+    }
+
+    resetFilters() {
+        this._pushHistory();
+        this._namedFilters = this._getDefaultNamedFilters();
+        this.filters = [];
+        this.activePreset = null;
+        this.clearCache();
+        return this;
+    }
+
+    undo() {
+        if (this._history.length > 0) {
+            this._namedFilters = this._history.pop();
+            this.clearCache();
+        }
+        return this;
+    }
+
+    _pushHistory() {
+        this._history.push(JSON.parse(JSON.stringify(this._namedFilters)));
+    }
+
+    _applyNamedFilters() {
+        let results = [...this._originalData];
+        const f = this._namedFilters;
+
+        if (f.zips && f.zips.length > 0) {
+            results = results.filter(item => f.zips.includes(item.zip));
+        }
+        if (f.strengthMin != null) {
+            results = results.filter(item => item.strength >= f.strengthMin);
+        }
+        if (f.strengthMax != null) {
+            results = results.filter(item => item.strength <= f.strengthMax);
+        }
+        if (f.dateStart) {
+            const start = new Date(f.dateStart);
+            results = results.filter(item => new Date(item.date) >= start);
+        }
+        if (f.dateEnd) {
+            const end = new Date(f.dateEnd);
+            results = results.filter(item => new Date(item.date) <= end);
+        }
+        if (f.sources && f.sources.length > 0) {
+            results = results.filter(item => {
+                const itemSources = Array.isArray(item.sources) ? item.sources : [item.source];
+                return itemSources.some(s => f.sources.includes(s));
+            });
+        }
+        if (f.search) {
+            const search = f.search.toLowerCase();
+            results = results.filter(item => JSON.stringify(item).toLowerCase().includes(search));
+        }
+
+        return results;
+    }
+
+    getActiveFilters() {
+        const active = {};
+        for (const [key, value] of Object.entries(this._namedFilters)) {
+            if (Array.isArray(value)) {
+                if (value.length > 0) active[key] = value;
+            } else if (value != null && value !== '') {
+                active[key] = value;
+            }
+        }
+        return active;
+    }
+
+    getActiveFilterCount() {
+        return Object.keys(this.getActiveFilters()).length;
+    }
+}
+
+// Create global instances for browser
+if (typeof window !== 'undefined') {
+    window.FilterEngine = FilterEngine;
+    window.filterEngine = new FilterEngine();
 }
 
 // Export for use in other modules

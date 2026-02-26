@@ -360,6 +360,271 @@ RSS_FEEDS = {
         "category": "news",
         "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
     },
+
+    # ===== ACLU / LEGAL ADVOCACY (Free RSS) =====
+    "aclu_nj": {
+        "url": "https://www.aclu-nj.org/feed/",
+        "source": "ACLU-NJ",
+        "category": "advocacy",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "aclu_national_immigrants": {
+        "url": "https://www.aclu.org/issues/immigrants-rights/feed/",
+        "urls": [
+            "https://www.aclu.org/issues/immigrants-rights/feed/",
+            "https://news.google.com/rss/search?q=site:aclu.org+immigration+New+Jersey&hl=en-US&gl=US&ceid=US:en",
+        ],
+        "source": "ACLU National",
+        "category": "advocacy",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== ADDITIONAL REDDIT SUBS (RSS — no credentials needed) =====
+    "reddit_immigration": {
+        "url": "https://www.reddit.com/r/immigration/search.rss?q=New+Jersey+OR+NJ&restrict_sr=on&sort=new",
+        "source": "Reddit r/immigration",
+        "category": "community",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "reddit_hoboken": {
+        "url": "https://www.reddit.com/r/Hoboken/search.rss?q=ICE+OR+immigration+OR+sanctuary&restrict_sr=on&sort=new",
+        "source": "Reddit r/Hoboken",
+        "category": "community",
+        "cities": ["hoboken"],
+    },
+    "reddit_newbrunswick": {
+        "url": "https://www.reddit.com/r/NewBrunswickNJ/search.rss?q=ICE+OR+immigration+OR+sanctuary&restrict_sr=on&sort=new",
+        "source": "Reddit r/NewBrunswickNJ",
+        "category": "community",
+        "cities": ["new_brunswick"],
+    },
+    "reddit_newark": {
+        "url": "https://www.reddit.com/r/Newark/search.rss?q=ICE+OR+immigration+OR+sanctuary&restrict_sr=on&sort=new",
+        "source": "Reddit r/Newark",
+        "category": "community",
+        "cities": ["plainfield", "hoboken"],
+    },
+    "reddit_jerseycity": {
+        "url": "https://www.reddit.com/r/jerseycity/search.rss?q=ICE+OR+immigration+OR+sanctuary&restrict_sr=on&sort=new",
+        "source": "Reddit r/jerseycity",
+        "category": "community",
+        "cities": ["hoboken"],
+    },
+    "reddit_nj_politics": {
+        "url": "https://www.reddit.com/r/nj_politics/search.rss?q=ICE+OR+immigration+OR+deportation+OR+sanctuary&restrict_sr=on&sort=new",
+        "source": "Reddit r/nj_politics",
+        "category": "community",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "reddit_newjersey_daca": {
+        "url": "https://www.reddit.com/r/newjersey/search.rss?q=DACA+OR+dreamers+OR+undocumented+OR+asylum&restrict_sr=on&sort=new",
+        "source": "Reddit r/newjersey",
+        "category": "community",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== GOOGLE NEWS — CITY-SPECIFIC IMMIGRATION =====
+    "google_news_ice_hoboken": {
+        "url": "https://news.google.com/rss/search?q=ICE+immigration+Hoboken+NJ&hl=en-US&gl=US&ceid=US:en",
+        "source": "Google News",
+        "category": "news",
+        "cities": ["hoboken"],
+    },
+    "google_news_ice_trenton": {
+        "url": "https://news.google.com/rss/search?q=ICE+immigration+Trenton+NJ&hl=en-US&gl=US&ceid=US:en",
+        "source": "Google News",
+        "category": "news",
+        "cities": ["trenton"],
+    },
+    "google_news_ice_new_brunswick": {
+        "url": "https://news.google.com/rss/search?q=ICE+immigration+%22New+Brunswick%22+NJ&hl=en-US&gl=US&ceid=US:en",
+        "source": "Google News",
+        "category": "news",
+        "cities": ["new_brunswick"],
+    },
+    "google_news_nj_daca": {
+        "url": "https://news.google.com/rss/search?q=DACA+dreamers+New+Jersey&hl=en-US&gl=US&ceid=US:en",
+        "source": "Google News",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "google_news_nj_detention": {
+        "url": "https://news.google.com/rss/search?q=immigration+detention+New+Jersey&hl=en-US&gl=US&ceid=US:en",
+        "source": "Google News",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "google_news_nj_know_your_rights": {
+        "url": "https://news.google.com/rss/search?q=%22know+your+rights%22+immigration+New+Jersey&hl=en-US&gl=US&ceid=US:en",
+        "source": "Google News",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== SPANISH-LANGUAGE — ADDITIONAL QUERIES =====
+    "google_news_nj_deportacion_es": {
+        "url": "https://news.google.com/rss/search?q=deportaci%C3%B3n+Nueva+Jersey&hl=es-US&gl=US&ceid=US:es",
+        "source": "Google News (ES)",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "google_news_nj_redadas_es": {
+        "url": "https://news.google.com/rss/search?q=redadas+ICE+Nueva+Jersey&hl=es-US&gl=US&ceid=US:es",
+        "source": "Google News (ES)",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== NJ LEGISLATURE / GOVERNMENT (Free) =====
+    "nj_legislature": {
+        "url": "https://news.google.com/rss/search?q=site:njleg.state.nj.us+immigration&hl=en-US&gl=US&ceid=US:en",
+        "source": "NJ Legislature",
+        "category": "government",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== UNION COUNTY NEWS (Free) =====
+    "tapinto_union_county": {
+        "url": "https://www.tapinto.net/towns/union/sections/government/articles.rss",
+        "urls": [
+            "https://www.tapinto.net/towns/union/sections/government/articles.rss",
+            "https://news.google.com/rss/search?q=site:tapinto.net+union+county+NJ&hl=en-US&gl=US&ceid=US:en",
+        ],
+        "source": "TAPinto Union County",
+        "category": "news",
+        "cities": ["plainfield"],
+    },
+    "patch_scotch_plains": {
+        "url": "https://patch.com/new-jersey/scotchplains/rss",
+        "source": "Patch Scotch Plains",
+        "category": "news",
+        "cities": ["plainfield"],
+    },
+
+    # ===== COURTLISTENER (Free — Federal Immigration Court) =====
+    "google_news_nj_immigration_court": {
+        "url": "https://news.google.com/rss/search?q=%22immigration+court%22+New+Jersey&hl=en-US&gl=US&ceid=US:en",
+        "source": "Google News",
+        "category": "legal",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== MASTODON HASHTAG RSS (Atom — no auth needed) =====
+    # Mastodon feeds are Atom format with <content> (not <summary>).
+    # The scraper's parse_atom_entry handles this via the content fallback.
+    "mastodon_immigration": {
+        "url": "https://mastodon.social/tags/immigration.rss",
+        "source": "Mastodon #immigration",
+        "category": "community",
+        "feed_format": "mastodon_rss",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "mastodon_ice": {
+        "url": "https://mastodon.social/tags/ICE.rss",
+        "source": "Mastodon #ICE",
+        "category": "community",
+        "feed_format": "mastodon_rss",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "mastodon_sanctuary": {
+        "url": "https://mastodon.social/tags/sanctuary.rss",
+        "source": "Mastodon #sanctuary",
+        "category": "community",
+        "feed_format": "mastodon_rss",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "mastodon_deportation": {
+        "url": "https://mastodon.social/tags/deportation.rss",
+        "source": "Mastodon #deportation",
+        "category": "community",
+        "feed_format": "mastodon_rss",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "mastodon_abolishice": {
+        "url": "https://mastodon.social/tags/AbolishICE.rss",
+        "source": "Mastodon #AbolishICE",
+        "category": "community",
+        "feed_format": "mastodon_rss",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== MEDIUM (via Google News — personal blogs & opinion) =====
+    "medium_nj_immigration": {
+        "url": "https://news.google.com/rss/search?q=site:medium.com+immigration+%22New+Jersey%22&hl=en-US&gl=US&ceid=US:en",
+        "source": "Medium (via Google News)",
+        "category": "community",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+    "medium_ice_sanctuary": {
+        "url": "https://news.google.com/rss/search?q=site:medium.com+ICE+OR+sanctuary+OR+deportation+NJ&hl=en-US&gl=US&ceid=US:en",
+        "source": "Medium (via Google News)",
+        "category": "community",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== SUBSTACK (via Google News — independent newsletters) =====
+    "substack_nj_immigration": {
+        "url": "https://news.google.com/rss/search?q=site:substack.com+immigration+%22New+Jersey%22+OR+NJ&hl=en-US&gl=US&ceid=US:en",
+        "source": "Substack (via Google News)",
+        "category": "community",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== CHANGE.ORG (via Google News — civic petitions) =====
+    "changeorg_nj_immigration": {
+        "url": "https://news.google.com/rss/search?q=site:change.org+immigration+%22New+Jersey%22+OR+NJ&hl=en-US&gl=US&ceid=US:en",
+        "source": "Change.org (via Google News)",
+        "category": "advocacy",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== DAILY TARGUM — Rutgers student journalism =====
+    "daily_targum": {
+        "url": "https://dailytargum.com/feed/",
+        "urls": [
+            "https://dailytargum.com/feed/",
+            "https://news.google.com/rss/search?q=site:dailytargum.com+immigration+OR+ICE+OR+undocumented&hl=en-US&gl=US&ceid=US:en",
+        ],
+        "source": "Daily Targum",
+        "category": "news",
+        "cities": ["new_brunswick"],
+    },
+
+    # ===== DOCUMENTED NY — immigrant-community-first journalism =====
+    "documented_ny": {
+        "url": "https://documentedny.com/feed/",
+        "urls": [
+            "https://documentedny.com/feed/",
+            "https://news.google.com/rss/search?q=site:documentedny.com+New+Jersey+OR+Newark&hl=en-US&gl=US&ceid=US:en",
+        ],
+        "source": "Documented NY",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== NJ MONITOR — nonprofit civic journalism =====
+    "nj_monitor": {
+        "url": "https://newjerseymonitor.com/feed/",
+        "urls": [
+            "https://newjerseymonitor.com/feed/",
+            "https://news.google.com/rss/search?q=site:newjerseymonitor.com+immigration&hl=en-US&gl=US&ceid=US:en",
+        ],
+        "source": "NJ Monitor",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
+
+    # ===== WNYC NJ — NPR community reporting =====
+    "wnyc_nj": {
+        "url": "https://feeds.wnyc.org/nj-news",
+        "urls": [
+            "https://feeds.wnyc.org/nj-news",
+            "https://news.google.com/rss/search?q=site:wnyc.org+New+Jersey+immigration&hl=en-US&gl=US&ceid=US:en",
+        ],
+        "source": "WNYC NJ",
+        "category": "news",
+        "cities": ["plainfield", "hoboken", "trenton", "new_brunswick"],
+    },
 }
 
 # Civic keywords for filtering
@@ -371,6 +636,11 @@ CIVIC_KEYWORDS = [
     "community", "council", "hearing", "resolution",
     "legal aid", "know your rights", "advocacy",
     "plainfield", "union county", "new jersey",
+    # Grassroots / community-signal keywords (for Mastodon, Medium, petitions)
+    "petition", "organizing", "solidarity", "rally",
+    "protest", "march", "abolish", "resist",
+    "campus", "students", "rutgers", "documented",
+    "newsletter", "immigration court", "newark",
 ]
 
 # ============================================
@@ -396,6 +666,7 @@ ALERT_DECAY_THRESHOLD = 0.5  # Below baseline for Class C
 MIN_CLUSTER_SIZE = 2      # Production minimum for data quality
 MIN_SOURCES = 2           # Production minimum for source corroboration
 MIN_VOLUME_SCORE = 1.0    # Production minimum volume threshold
+MIN_QUALITY_SCORE = 0.4   # Composite quality floor (0-1) from signal_quality.py
 
 # ============================================
 # Digest Settings
@@ -448,7 +719,7 @@ ALERT_TEMPLATES = {
         "trigger": "rate_spike",
     },
     "class_b": {
-        "title": "Sustained Civic Focus Detected",
+        "title": "Sustained Community Focus",
         "body": (
             "ICE-related topics have remained elevated in your area over "
             "the past day.\n\n"
@@ -648,7 +919,7 @@ SEVERITY_BANDS = {
     },
     "moderate": {
         "score_range": (0.3, 0.5),
-        "label": "Moderate Discussion Activity",
+        "label": "Moderate Community Discussion",
         "description": "Slightly elevated attention. May reflect local news coverage or community conversations.",
         "color": "#FFF9C4",  # Light yellow
         "action": "Monitor for pattern development",

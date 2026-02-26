@@ -16,8 +16,25 @@ dist/
 data/raw/*.csv
 data/processed/*.csv
 data/processed/*.json
+data/processed/*.npy
+data/processed/*.duckdb
+data/processed/*.db
+data/processed/*.pkl
+data/processed/*.h5
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+
+# Data archives & logs
+data/logs/
+data/archive/
+data/tracking/
+
+# Agent bus (runtime)
+data/agent_bus.json
+
+# Temp files
+tmp*
+tmpclaude*
 
 # IDE
 .vscode/

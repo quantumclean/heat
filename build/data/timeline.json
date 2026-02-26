@@ -354,9 +354,9 @@
       "week": "2026-02-02/2026-02-08",
       "count": 89,
       "sources": [
-        "NJ Spotlight News",
         "NJ Attorney General",
-        "Google News"
+        "Google News",
+        "NJ Spotlight News"
       ]
     }
   ],

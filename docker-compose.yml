@@ -1,0 +1,79 @@
+# ===========================================================
+# HEAT — Docker Compose Production Deployment
+# Services: frontend (nginx+TLS), websocket, certbot
+# ===========================================================
+
+services:
+  # ---- Static frontend + TLS reverse proxy ----
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: frontend
+    container_name: heat-frontend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # TLS certificates (self-signed initially, certbot replaces)
+      - ./deploy/ssl:/etc/nginx/ssl:ro
+      - certbot-certs:/etc/letsencrypt:ro
+      - certbot-webroot:/var/www/certbot:ro
+      # Live data updates from pipeline
+      - ./build/data:/usr/share/nginx/html/data:ro
+      - ./build/exports:/usr/share/nginx/html/exports:ro
+    depends_on:
+      websocket:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - heat-net
+
+  # ---- WebSocket server ----
+  websocket:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend
+    container_name: heat-websocket
+    ports:
+      - "8765:8765"
+    volumes:
+      # Mount data directories for live pipeline output
+      - ./data:/app/data
+      - ./build/data:/app/build/data:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - HEAT_WS_HOST=0.0.0.0
+      - HEAT_WS_PORT=8765
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import asyncio,websockets;asyncio.run(websockets.connect('ws://localhost:8765').__aenter__())"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - heat-net
+
+  # ---- Certbot for Let's Encrypt TLS certificates ----
+  certbot:
+    image: certbot/certbot:latest
+    container_name: heat-certbot
+    volumes:
+      - certbot-certs:/etc/letsencrypt
+      - certbot-webroot:/var/www/certbot
+    # Renew certificates every 12 hours
+    entrypoint: /bin/sh -c "trap exit TERM; while :; do certbot renew --webroot -w /var/www/certbot --quiet; sleep 12h & wait $${!}; done"
+    depends_on:
+      - frontend
+    networks:
+      - heat-net
+
+volumes:
+  certbot-certs:
+  certbot-webroot:
+
+networks:
+  heat-net:
+    driver: bridge

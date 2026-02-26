@@ -1,5 +1,5 @@
 /**
- * HEAT — They Are Here | ICE Activity Attention Map
+ * HEAT — They Are Here | Community Awareness Map
  * Static frontend for aggregated public attention patterns
  * 
  * Cultural regions are emergent coordination systems whose boundaries
@@ -354,6 +354,7 @@ let timelineData = null;
 let keywordsData = null;
 let latestNewsData = null;
 let alertsData = null;
+let entropyData = null;
 let is3DMode = false;
 let clusterMarkers = [];
 let currentLanguage = 'en';
@@ -364,9 +365,9 @@ let analyticsQueuedClusters = null;
 let analyticsRenderPending = false;
 
 function getBaseUrl() {
-    return window.location.hostname.includes('cloudfront')
-        ? 'https://heat-plainfield.s3.us-east-1.amazonaws.com/'
-        : './';
+    // Always use relative paths — works on GitHub Pages, localhost,
+    // CloudFront, or any static host without hardcoded URLs.
+    return './';
 }
 
 function snapshotAnalyticsBaseData() {
@@ -406,6 +407,15 @@ function scheduleAnalyticsRender(filteredClusters) {
         try { updateQuickStats(); } catch (e) { console.error('Analytics updateQuickStats failed:', e); }
         try { renderSidebar(); } catch (e) { console.error('Analytics renderSidebar failed:', e); }
         try { wireSidebarToMap(); } catch (e) { console.error('Analytics wireSidebarToMap failed:', e); }
+        
+        // Additional analytics-specific updates
+        try { 
+            if (typeof updateDashboardWithFiltered === 'function') {
+                updateDashboardWithFiltered(analyticsQueuedClusters);
+            }
+        } catch (e) { 
+            console.error('Analytics updateDashboardWithFiltered failed:', e); 
+        }
     });
 }
 
@@ -447,15 +457,15 @@ function initAnalyticsIntegration() {
 
 const TRANSLATIONS = {
     en: {
-        title: "HEAT — They Are Here | ICE Activity Attention Map",
-        subtitle: "ICE Activity Attention Map — New Jersey",
+        title: "HEAT — They Are Here | Community Awareness Map",
+        subtitle: "ICE-Related Community Reports — New Jersey",
         searchPlaceholder: "Search ZIP, street, or topic...",
-        activeClusters: "Active Clusters",
+        activeClusters: "Report Groups",
         trend: "Trend",
         keywords: "Keywords", 
-        intensity: "Intensity",
+        intensity: "Report Level",
         timeline: "Timeline",
-        clusters: "Attention Clusters",
+        clusters: "Report Groups",
         resources: "Resources",
         about: "About",
         knowYourRights: "Know Your Rights",
@@ -474,20 +484,20 @@ const TRANSLATIONS = {
         recent: "Recent",
         past: "Past",
         lastUpdated: "Last updated",
-        noClusters: "No active ICE attention clusters at this time.",
-        interpretationNote: "This map shows aggregated ICE activity attention patterns, not real-time events.",
+        noClusters: "No ICE-related report groups at this time.",
+        interpretationNote: "This map shows aggregated ICE-related discussion patterns, not real-time events.",
         trustNote: "No tracking • ZIP-only precision • Shortest safe delay • No identities stored"
     },
     es: {
-        title: "HEAT — They Are Here | Mapa de atención de actividad ICE",
-        subtitle: "Mapa de atención de actividad ICE para Plainfield, NJ",
+        title: "HEAT — They Are Here | Mapa de reportes comunitarios ICE",
+        subtitle: "Reportes comunitarios sobre ICE — Nueva Jersey",
         searchPlaceholder: "Buscar código postal, calle o tema...",
-        activeClusters: "Clústeres Activos",
+        activeClusters: "Grupos de Reportes",
         trend: "Tendencia",
         keywords: "Palabras Clave",
-        intensity: "Intensidad",
+        intensity: "Nivel de Reportes",
         timeline: "Cronología",
-        clusters: "Clústeres de Atención",
+        clusters: "Grupos de Reportes",
         resources: "Recursos",
         about: "Acerca de",
         knowYourRights: "Conozca Sus Derechos",
@@ -497,7 +507,7 @@ const TRANSLATIONS = {
         tryAgain: "Intente una búsqueda diferente",
         zipCode: "Código Postal",
         street: "Calle",
-        cluster: "Clúster",
+        cluster: "Grupo",
         signals: "señales",
         high: "Alto",
         medium: "Medio",
@@ -506,41 +516,9 @@ const TRANSLATIONS = {
         recent: "Reciente",
         past: "Pasado",
         lastUpdated: "Última actualización",
-        noClusters: "No hay clústeres activos de atención ICE en este momento.",
-        interpretationNote: "Este mapa muestra patrones agregados de atención sobre actividad ICE, no eventos en tiempo real.",
+        noClusters: "No hay grupos de reportes sobre ICE en este momento.",
+        interpretationNote: "Este mapa muestra patrones agregados de discusión sobre ICE, no eventos en tiempo real.",
         trustNote: "Sin rastreo • Precisión solo por ZIP • Demora segura mínima • Sin identidades almacenadas"
-    },
-    pt: {
-        title: "HEAT — They Are Here | Mapa de atenção de atividade ICE",
-        subtitle: "Mapa de atenção de atividade ICE para Plainfield, NJ",
-        searchPlaceholder: "Pesquisar CEP, rua ou tópico...",
-        activeClusters: "Clusters Ativos",
-        trend: "Tendência",
-        keywords: "Palavras-chave",
-        intensity: "Intensidade",
-        timeline: "Cronologia",
-        clusters: "Clusters de Atenção",
-        resources: "Recursos",
-        about: "Sobre",
-        knowYourRights: "Conheça Seus Direitos",
-        emergency: "Recursos de Emergência",
-        submitInfo: "Enviar Informação",
-        noResults: "Nenhum resultado encontrado",
-        tryAgain: "Tente uma pesquisa diferente",
-        zipCode: "CEP",
-        street: "Rua",
-        cluster: "Cluster",
-        signals: "sinais",
-        high: "Alto",
-        medium: "Médio",
-        low: "Baixo",
-        active: "Ativo",
-        recent: "Recente",
-        past: "Passado",
-        lastUpdated: "Última atualização",
-        noClusters: "Não há clusters ativos de atenção ICE no momento.",
-        interpretationNote: "Este mapa mostra padrões agregados de atenção sobre atividade ICE, não eventos em tempo real.",
-        trustNote: "Sem rastreamento • Precisão apenas por ZIP • Atraso seguro mínimo • Sem identidades armazenadas"
     }
 };
 
@@ -1075,9 +1053,9 @@ function renderMidnightClocks() {
         // Time display
         const timeDisplay = score === 0 ? '6:00' : score === 100 ? '12:00' : `~${(6 + (score/100) * 6).toFixed(1)}`;
         let interpretation = 'Calm';
-        if (score > 25) interpretation = 'Low activity';
-        if (score > 50) interpretation = 'Moderate activity';
-        if (score > 75) interpretation = 'High activity';
+        if (score > 25) interpretation = 'Some discussion';
+        if (score > 50) interpretation = 'Active discussion';
+        if (score > 75) interpretation = 'Elevated discussion';
         
         // Get representative ZIPs
         const zipList = region.clusters.map(c => c.zip).slice(0, 3).join(', ');
@@ -1398,8 +1376,8 @@ function initRouteChecker() {
             resultEl.innerHTML = `
                 <div class="route-safe">
                     <strong>✅ No Active Reports on This Route</strong><br>
-                    <span style="font-size: 0.9em;">No ICE activity reports found between ZIP ${fromZip} and ZIP ${toZip}.</span><br>
-                    <span style="font-size: 0.85em; color: var(--text-muted);">Remember: no reports ≠ no activity. Always stay aware.</span>
+                    <span style="font-size: 0.9em;">No ICE-related reports found between ZIP ${fromZip} and ZIP ${toZip}.</span><br>
+                    <span style="font-size: 0.85em; color: var(--text-muted);">Remember: no reports ≠ nothing happening. Always stay aware.</span>
                 </div>
             `;
         } else if (routeClusters.length <= 2) {
@@ -1417,7 +1395,7 @@ function initRouteChecker() {
                 <div class="route-alert">
                     <strong>🔴 ${routeClusters.length} Reports Near Your Route</strong><br>
                     <span style="font-size: 0.9em;">Active reports near ZIPs: ${zipList}</span><br>
-                    <span style="font-size: 0.85em; color: var(--text-muted);">High activity on this route. Review the map for specifics and consider alternatives if possible.</span>
+                    <span style="font-size: 0.85em; color: var(--text-muted);">Multiple reports near this route. Review the map for specifics and consider alternatives if possible.</span>
                 </div>
             `;
         }
@@ -1543,7 +1521,7 @@ function initWhatsAppShare() {
 // Merge additional translation keys
 Object.assign(TRANSLATIONS.en, {
     smsSignup: "SMS Alert Signup",
-    smsDescription: "Get text alerts when new ICE activity is reported near your ZIP code. Free, no app needed.",
+    smsDescription: "Get text alerts when new ICE-related reports appear near your ZIP code. Free, no app needed.",
     subscribe: "Subscribe",
     submitReport: "Submit a Community Report",
     reportDescription: "Help keep your community informed. Reports are reviewed before appearing publicly.",
@@ -1561,7 +1539,7 @@ Object.assign(TRANSLATIONS.en, {
 
 Object.assign(TRANSLATIONS.es, {
     smsSignup: "Registro de Alertas SMS",
-    smsDescription: "Reciba alertas de texto cuando se reporte actividad de ICE cerca de su código postal. Gratis, sin app.",
+    smsDescription: "Reciba alertas de texto cuando se reporten temas de ICE cerca de su código postal. Gratis, sin app.",
     subscribe: "Suscribirse",
     submitReport: "Enviar un Reporte Comunitario",
     reportDescription: "Ayude a mantener informada a su comunidad. Los reportes se revisan antes de publicarse.",
@@ -1577,30 +1555,39 @@ Object.assign(TRANSLATIONS.es, {
     install: "Instalar"
 });
 
-Object.assign(TRANSLATIONS.pt, {
-    smsSignup: "Cadastro de Alertas SMS",
-    smsDescription: "Receba alertas por texto quando atividade do ICE for reportada perto do seu CEP. Grátis, sem app.",
-    subscribe: "Inscrever-se",
-    submitReport: "Enviar um Relatório Comunitário",
-    reportDescription: "Ajude a manter sua comunidade informada. Relatórios são revisados antes da publicação.",
-    routeChecker: "Verificador de Segurança de Rota",
-    routeDescription: "Verifique se há relatórios ativos ao longo da sua rota.",
-    checkRoute: "Verificar Rota",
-    map: "Mapa",
-    stats: "Estatísticas",
-    safety: "Segurança",
-    report: "Relatório",
-    route: "Rota",
-    installPrompt: "Instale o HEAT para acesso rápido",
-    install: "Instalar"
-});
-
 // ============================================
 // Initialization
 // ============================================
 
 document.addEventListener("DOMContentLoaded", async () => {
+    // Convenience helper — bus may not be ready if module hasn't loaded yet
+    const _bus = () => window.HeatAgentBus;
+
     try {
+        _bus()?.agentStart('app', { phase: 'init' });
+
+        // Check if running via file:// protocol (which causes CORS issues)
+        if (window.location.protocol === 'file:') {
+            const errorMsg = `
+                ⚠️ ERROR: This app must be run through a web server!
+                
+                Please use one of these options:
+                1. Double-click "start-server.bat" in the build folder
+                2. Or run: python -m http.server 8080
+                3. Then open: http://localhost:8080
+                
+                Opening HTML files directly (file://) causes CORS errors.
+            `;
+            console.error(errorMsg);
+            alert(errorMsg);
+            showError("This app must be run through a web server. See console (F12) for instructions.");
+            return;
+        }
+        
+        console.log("HEAT Dashboard initializing...");
+        console.log("Protocol:", window.location.protocol);
+        console.log("URL:", window.location.href);
+        
         // Show loading state immediately
         showLoading("Loading HEAT map data...");
         
@@ -1673,6 +1660,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         try { wireSidebarToMap(); } catch (e) { console.error('Sidebar-map wiring failed:', e); }
 
         try { initSafeCheck(); } catch (e) { console.error('Safe check init failed:', e); }
+        try { initMobilePanel(); } catch (e) { console.error('Mobile panel init failed:', e); }
+        try { populateMobileFeed(); } catch (e) { console.error('Mobile feed populate failed:', e); }
         try { init3DToggle(); } catch (e) { console.error('3D toggle init failed:', e); }
         try { initKeywordControls(); } catch (e) { console.error('Keyword controls init failed:', e); }
         try { initEventTracking(); } catch (e) { console.error('Event tracking init failed:', e); }
@@ -1691,7 +1680,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         try { initCommunityReport(); } catch (e) { console.error('Community report init failed:', e); }
         try { initRouteChecker(); } catch (e) { console.error('Route checker init failed:', e); }
         try { initAnalyticsIntegration(); } catch (e) { console.error('Analytics initialization failed:', e); }
+        try { initVulnerabilityLayer(); } catch (e) { console.error('Vulnerability layer init failed:', e); }
+        try { initKDELayer(); } catch (e) { console.error('KDE layer init failed:', e); }
+        try { initHotspotsLayer(); } catch (e) { console.error('Hotspots layer init failed:', e); }
+        try { initSpatialClustersLayer(); } catch (e) { console.error('Spatial clusters layer init failed:', e); }
+        try { initPropagationLayer(); } catch (e) { console.error('Propagation layer init failed:', e); }
+        try { initStabilityMode(); } catch (e) { console.error('Stability mode init failed:', e); }
+        try { initWebSocket(); } catch (e) { console.error('WebSocket init failed:', e); }
+
+        _bus()?.agentComplete('app', {
+            phase: 'init',
+            clusters: clustersData?.clusters?.length || 0,
+        });
     } catch (error) {
+        _bus()?.agentError('app', error.message, { phase: 'init' });
         console.error('Fatal initialization error:', error);
         // Show error message to user
         showError("Unable to initialize the map. Please refresh the page.");
@@ -1878,7 +1880,7 @@ function handleSearchSelect(type, data) {
             const zipNum = parseInt(data.zip, 10);
             const isNJ = (zipNum >= 7001 && zipNum <= 8989);
             if (isNJ) {
-                // Valid NJ ZIP - open Am I Safe panel and check it
+                // Valid NJ ZIP - open Check Your Area panel and check it
                 const panel = document.getElementById("safe-check-panel");
                 const zipInput = document.getElementById("safe-check-zip");
                 const toggleBtn = document.getElementById("safe-check-toggle");
@@ -2085,6 +2087,36 @@ function updateDashboard() {
             intensityFill.style.width = intensity + "%";
         }, 300);
     }
+
+    // Update entropy gauge (Shift 10)
+    updateEntropyGauge();
+}
+
+function updateEntropyGauge() {
+    const cei = entropyData?.system?.cei ?? null;
+    const dashEl = document.getElementById("dash-entropy");
+    const arcEl = document.getElementById("entropy-arc-fill");
+
+    if (dashEl) {
+        dashEl.textContent = cei !== null ? cei : "--";
+    }
+
+    if (arcEl && cei !== null) {
+        // Arc total length ≈ 50.27  (π * 16)
+        const arcLen = Math.PI * 16;
+        const filled = (cei / 100) * arcLen;
+        setTimeout(() => {
+            arcEl.style.strokeDasharray = `${filled} ${arcLen}`;
+            // Color based on CEI level
+            if (cei >= 70) {
+                arcEl.style.stroke = "var(--danger, #f85149)";
+            } else if (cei >= 40) {
+                arcEl.style.stroke = "var(--warning, #d29922)";
+            } else {
+                arcEl.style.stroke = "var(--accent, #58a6ff)";
+            }
+        }, 400);
+    }
 }
 
 function initDashboardClicks() {
@@ -2272,8 +2304,12 @@ function addClusterMarker(cluster) {
         ? `<div style="margin-top: 8px; border-top: 1px solid var(--border); padding-top: 8px;">
             <strong>📰 Media Links:</strong><br>
             ${cluster.mediaLinks.slice(0, 3).map(url => {
-                const domain = new URL(url).hostname.replace('www.', '');
-                return `<a href="${url}" target="_blank" rel="noopener" style="color: var(--accent); font-size: 0.8em; display: block; margin: 2px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">🔗 ${domain}</a>`;
+                try {
+                    const domain = new URL(url).hostname.replace('www.', '');
+                    return `<a href="${url}" target="_blank" rel="noopener" style="color: var(--accent); font-size: 0.8em; display: block; margin: 2px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">🔗 ${domain}</a>`;
+                } catch {
+                    return `<a href="${url}" target="_blank" rel="noopener" style="color: var(--accent); font-size: 0.8em; display: block; margin: 2px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">🔗 Link</a>`;
+                }
             }).join('')}
            </div>` 
         : '';
@@ -2333,20 +2369,33 @@ function addClusterMarker(cluster) {
 // ============================================
 
 async function loadData() {
+    const _bus = () => window.HeatAgentBus;
     try {
+        _bus()?.agentStart('app', { phase: 'loadData' });
         showLoading("Loading data...");
         
         // Detect if we're on CloudFront or S3 and adjust paths accordingly
         const baseUrl = getBaseUrl();
         const cacheBuster = `?t=${Date.now()}`;
         
-        const [clustersRes, timelineRes, keywordsRes, alertsRes, latestNewsRes] = await Promise.all([
+        console.log("Loading data from base URL:", baseUrl);
+        
+        const [clustersRes, timelineRes, keywordsRes, alertsRes, latestNewsRes, entropyRes] = await Promise.all([
             fetch(baseUrl + "data/clusters.json" + cacheBuster, { cache: "no-store" }),
             fetch(baseUrl + "data/timeline.json" + cacheBuster, { cache: "no-store" }),
             fetch(baseUrl + "data/keywords.json" + cacheBuster, { cache: "no-store" }),
             fetch(baseUrl + "data/alerts.json" + cacheBuster, { cache: "no-store" }),
             fetch(baseUrl + "data/latest_news.json" + cacheBuster, { cache: "no-store" }),
+            fetch(baseUrl + "data/entropy.json" + cacheBuster, { cache: "no-store" }).catch(() => null),
         ]);
+        
+        console.log("Fetch responses:", {
+            clusters: clustersRes.status,
+            timeline: timelineRes.status,
+            keywords: keywordsRes.status,
+            alerts: alertsRes.status,
+            latestNews: latestNewsRes.status
+        });
         
         if (clustersRes.ok) {
             clustersData = await clustersRes.json();
@@ -2396,6 +2445,13 @@ async function loadData() {
             latestNewsData = { items: [] };
         }
 
+        if (entropyRes && entropyRes.ok) {
+            entropyData = await entropyRes.json();
+            console.log("Loaded entropy:", entropyData);
+        } else {
+            entropyData = null;
+        }
+
         snapshotAnalyticsBaseData();
         if (analyticsInitialized) {
             initAnalyticsIntegration();
@@ -2404,10 +2460,38 @@ async function loadData() {
         updateDownloadSection();
         hideLoading();
         hideError();
+
+        _bus()?.agentComplete('app', {
+            phase: 'loadData',
+            records: clustersData?.clusters?.length || 0,
+        });
         
     } catch (error) {
+        _bus()?.agentError('app', error.message, { phase: 'loadData' });
         console.error("Failed to load data:", error);
-        showError("Unable to load data. Please check your connection and try again.");
+        console.error("Error details:", {
+            name: error.name,
+            message: error.message,
+            stack: error.stack
+        });
+        
+        // Check for CORS errors specifically
+        if (error.message && error.message.includes('CORS') || error.name === 'TypeError') {
+            const corsErrorMsg = `
+                ⚠️ CORS Error Detected!
+                
+                This usually means you're opening the file directly (file://).
+                Please run through a web server:
+                1. Double-click "start-server.bat" in the build folder
+                2. Or run: python -m http.server 8080
+                3. Then open: http://localhost:8080
+            `;
+            console.error(corsErrorMsg);
+            showError("CORS Error: Please run through a web server. See console (F12) for details.");
+        } else {
+            showError("Unable to load data. Please check your connection and try again. Error: " + error.message);
+        }
+        
         clustersData = { clusters: [] };
         timelineData = { weeks: [] };
         alertsData = { alerts: [] };
@@ -3148,15 +3232,10 @@ function truncate(str, maxLen) {
     return str.substring(0, maxLen).trim() + "...";
 }
 
-function escapeHtml(str) {
-    if (!str) return "";
-    const div = document.createElement("div");
-    div.textContent = str;
-    return div.innerHTML;
-}
+// escapeHtml defined earlier — removed duplicate
 
 // ============================================
-// Quick Stats (Today / Yesterday)
+// Quick Stats (This Week / Recent / Prior Week)
 // ============================================
 
 function updateQuickStats() {
@@ -3168,65 +3247,61 @@ function updateQuickStats() {
     if (!todayEl || !yesterdayEl) return;
     
     const now = new Date();
-    const todayStr = now.toISOString().split('T')[0];
-    const yesterdayDate = new Date(now);
-    yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-    const yesterdayStr = yesterdayDate.toISOString().split('T')[0];
     const sevenDaysAgo = new Date(now);
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-    const twentyFourHoursAgo = new Date(now.getTime() - (24 * 60 * 60 * 1000));
+    const fourteenDaysAgo = new Date(now);
+    fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
+    const threeDaysAgo = new Date(now);
+    threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
     
-    let todayCount = 0;
-    let yesterdayCount = 0;
-    let last24HoursCount = 0;
-    let last7DaysCount = 0;
+    let recentCount = 0;       // Last 3 days ("Recent")
+    let priorWeekCount = 0;    // 7-14 days ago ("Prior Week")
+    let thisWeekCount = 0;     // Last 7 days ("This Week")
+    let last7DaysCount = 0;    // Last 7 days ("Last 7d")
     
     // Count from clusters
     if (clustersData?.clusters) {
         clustersData.clusters.forEach(cluster => {
-            const endDate = cluster.dateRange?.end?.split('T')[0];
             const endDateTime = new Date(cluster.dateRange?.end);
+            const size = cluster.size || 1;
             
-            if (endDate === todayStr) todayCount += cluster.size || 1;
-            if (endDate === yesterdayStr) yesterdayCount += cluster.size || 1;
-            if (endDateTime >= twentyFourHoursAgo) last24HoursCount += cluster.size || 1;
-            if (endDateTime >= sevenDaysAgo) last7DaysCount += cluster.size || 1;
+            if (endDateTime >= threeDaysAgo) recentCount += size;
+            if (endDateTime >= sevenDaysAgo) { thisWeekCount += size; last7DaysCount += size; }
+            if (endDateTime >= fourteenDaysAgo && endDateTime < sevenDaysAgo) priorWeekCount += size;
         });
     }
     
     // Count from latest news
     if (latestNewsData?.items) {
         latestNewsData.items.forEach(item => {
-            const itemDate = item.timestamp?.split('T')[0] || item.date?.split('T')[0];
             const itemDateTime = new Date(item.timestamp || item.date);
             
-            if (itemDate === todayStr) todayCount++;
-            if (itemDate === yesterdayStr) yesterdayCount++;
-            if (itemDateTime >= twentyFourHoursAgo) last24HoursCount++;
-            if (itemDateTime >= sevenDaysAgo) last7DaysCount++;
+            if (itemDateTime >= threeDaysAgo) recentCount++;
+            if (itemDateTime >= sevenDaysAgo) { thisWeekCount++; last7DaysCount++; }
+            if (itemDateTime >= fourteenDaysAgo && itemDateTime < sevenDaysAgo) priorWeekCount++;
         });
     }
     
-    todayEl.textContent = todayCount;
-    yesterdayEl.textContent = yesterdayCount;
-    if (last24hEl) last24hEl.textContent = last24HoursCount;
+    todayEl.textContent = recentCount;
+    yesterdayEl.textContent = priorWeekCount;
+    if (last24hEl) last24hEl.textContent = thisWeekCount;
     if (last7dEl) last7dEl.textContent = last7DaysCount;
     
-    // Color coding based on activity level
-    todayEl.style.color = todayCount > 5 ? 'var(--danger)' : todayCount > 2 ? 'var(--warning)' : 'var(--success)';
-    yesterdayEl.style.color = yesterdayCount > 5 ? 'var(--danger)' : yesterdayCount > 2 ? 'var(--warning)' : 'var(--success)';
-    if (last24hEl) last24hEl.style.color = last24HoursCount > 10 ? 'var(--danger)' : last24HoursCount > 5 ? 'var(--warning)' : 'var(--success)';
+    // Color coding based on report level
+    todayEl.style.color = recentCount > 5 ? 'var(--danger)' : recentCount > 2 ? 'var(--warning)' : 'var(--success)';
+    yesterdayEl.style.color = priorWeekCount > 5 ? 'var(--danger)' : priorWeekCount > 2 ? 'var(--warning)' : 'var(--success)';
+    if (last24hEl) last24hEl.style.color = thisWeekCount > 10 ? 'var(--danger)' : thisWeekCount > 5 ? 'var(--warning)' : 'var(--success)';
     if (last7dEl) last7dEl.style.color = last7DaysCount > 30 ? 'var(--danger)' : last7DaysCount > 15 ? 'var(--warning)' : 'var(--success)';
     
-    // Update dashboard cards with recent activity emphasis
+    // Update dashboard cards with recent report emphasis
     const dashClustersEl = document.getElementById('dash-clusters');
-    if (dashClustersEl && last24HoursCount > 0) {
-        dashClustersEl.title = `${last24HoursCount} in last 24 hours, ${last7DaysCount} in last 7 days`;
+    if (dashClustersEl && thisWeekCount > 0) {
+        dashClustersEl.title = `${thisWeekCount} this week, ${last7DaysCount} in last 7 days`;
     }
 }
 
 // ============================================
-// Am I Safe? ZIP Check
+// Check Your Area ZIP Check
 // ============================================
 
 /**
@@ -3249,7 +3324,7 @@ function initSafeCheck() {
     
     toggleBtn.addEventListener("click", () => {
         panel.classList.toggle("hidden");
-        toggleBtn.textContent = panel.classList.contains("hidden") ? "🛡️ Am I Safe?" : "✕ Close";
+        toggleBtn.textContent = panel.classList.contains("hidden") ? "🛡️ Check Your Area" : "✕ Close";
     });
     
     goBtn?.addEventListener("click", () => checkZipSafety(zipInput?.value));
@@ -3300,7 +3375,7 @@ function checkZipSafety(zip) {
             if (endDate >= cutoff) {
                 signals.push({
                     date: cluster.dateRange?.end,
-                    summary: cluster.summary || cluster.representative_text || 'ICE activity cluster',
+                    summary: cluster.summary || cluster.representative_text || 'ICE-related report group',
                     priority: cluster.strength > 5 ? 'high' : 'normal',
                     source: Array.isArray(cluster.sources) ? cluster.sources.join(', ') : cluster.sources,
                     type: 'cluster'
@@ -3319,7 +3394,7 @@ function checkZipSafety(zip) {
             if (itemDate >= cutoff) {
                 signals.push({
                     date: item.timestamp || item.date,
-                    summary: item.headline || item.summary || 'ICE activity signal',
+                    summary: item.headline || item.summary || 'ICE-related report',
                     priority: item.priority === 'high' ? 'high' : 'normal',
                     source: item.source || 'Public source',
                     type: 'news'
@@ -3330,15 +3405,19 @@ function checkZipSafety(zip) {
     
     // Sort by date descending
     signals.sort((a, b) => new Date(b.date) - new Date(a.date));
-    
+
+    // Fly map to ZIP and update mobile panel immediately
+    flyMapToZip(zip);
+    updateMobileSafetyPanel(zip, signals);
+
     // Render results
     if (signals.length === 0) {
         resultDiv.innerHTML = `
             <div class="no-signals">
-                ✅ No ICE activity signals in ZIP ${zip} for the past 14 days.
+                ✅ No ICE-related reports in ZIP ${zip} for the past 14 days.
             </div>
             <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-muted);">
-                This is a valid New Jersey ZIP code. No activity reports have been recorded in this area recently.
+                This is a valid New Jersey ZIP code. No reports have been recorded in this area recently.
             </p>
             <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
                 ⚠️ This does not guarantee safety. Data may be delayed or incomplete. Always verify independently and stay informed through community resources.
@@ -3859,6 +3938,580 @@ function addHeatmapLayer() {
 }
 
 // ============================================
+// Vulnerability Overlay Layer (Shift 7)
+// ============================================
+
+let vulnerabilityLayer = null;
+
+function initVulnerabilityLayer() {
+    const toggleBtn = document.getElementById("toggle-vulnerability");
+    if (!toggleBtn) return;
+
+    toggleBtn.addEventListener("click", () => {
+        if (vulnerabilityLayer) {
+            map.removeLayer(vulnerabilityLayer);
+            vulnerabilityLayer = null;
+            toggleBtn.textContent = "Vulnerability";
+            toggleBtn.classList.remove("active");
+        } else {
+            loadVulnerabilityOverlay();
+            toggleBtn.textContent = "Hide Vulnerability";
+            toggleBtn.classList.add("active");
+        }
+    });
+}
+
+function loadVulnerabilityOverlay() {
+    fetch("data/vulnerability.geojson")
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null)
+        .then(geojson => {
+            if (!geojson || !geojson.features) {
+                console.warn("Vulnerability GeoJSON not available");
+                return;
+            }
+            // Color by vulnerability_index (0=green, 100=red)
+            vulnerabilityLayer = L.geoJSON(geojson, {
+                style: function (feature) {
+                    const idx = feature.properties.vulnerability_index || 0;
+                    return {
+                        fillColor: _vulnColor(idx),
+                        fillOpacity: 0.35,
+                        weight: 1.5,
+                        color: "#444",
+                        opacity: 0.6,
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    const p = feature.properties;
+                    const popup = `
+                        <strong>ZIP ${p.zip}</strong> — ${p.name || ''}<br>
+                        Vulnerability Index: <strong>${p.vulnerability_index}</strong> (${p.category})<br>
+                        <small>
+                        Median Income: $${(p.median_income || 0).toLocaleString()}<br>
+                        Linguistic Isolation: ${p.linguistic_isolation_pct}%<br>
+                        Foreign Born: ${p.foreign_born_pct}%<br>
+                        Renter: ${p.renter_pct}%<br>
+                        No Vehicle: ${p.no_vehicle_pct}%
+                        </small>`;
+                    layer.bindPopup(popup);
+                },
+            }).addTo(map);
+        });
+}
+
+function _vulnColor(index) {
+    // 0 → green, 50 → yellow, 100 → red
+    if (index < 20) return "#2d7d46";
+    if (index < 40) return "#81c995";
+    if (index < 60) return "#f9ab00";
+    if (index < 80) return "#ee675c";
+    return "#c62828";
+}
+
+
+// ============================================
+// KDE Density Heatmap Layer (GeoJSON polygons)
+// ============================================
+
+let kdeLayer = null;
+
+function initKDELayer() {
+    const toggleBtn = document.getElementById("toggle-kde");
+    if (!toggleBtn) return;
+
+    toggleBtn.addEventListener("click", () => {
+        if (kdeLayer) {
+            map.removeLayer(kdeLayer);
+            kdeLayer = null;
+            toggleBtn.textContent = "Density";
+            toggleBtn.classList.remove("active");
+        } else {
+            loadKDELayer();
+            toggleBtn.textContent = "Hide Density";
+            toggleBtn.classList.add("active");
+        }
+    });
+}
+
+function loadKDELayer() {
+    fetch("data/heatmap.geojson")
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null)
+        .then(geojson => {
+            if (!geojson || !geojson.features || !geojson.features.length) {
+                console.warn("KDE heatmap GeoJSON not available");
+                return;
+            }
+
+            // Find max density for normalization
+            const maxDensity = Math.max(
+                ...geojson.features.map(f => f.properties.density || 0),
+                0.001
+            );
+
+            kdeLayer = L.geoJSON(geojson, {
+                style: function (feature) {
+                    const d = (feature.properties.density || 0) / maxDensity;
+                    return {
+                        fillColor: _kdeDensityColor(d),
+                        fillOpacity: Math.max(0.05, d * 0.6),
+                        weight: 0,
+                        color: "transparent",
+                        className: "kde-cell",
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    const p = feature.properties;
+                    layer.bindTooltip(
+                        `Density: ${(p.density || 0).toFixed(4)}`,
+                        { sticky: true, opacity: 0.85 }
+                    );
+                },
+                filter: function (feature) {
+                    // Only show cells with meaningful density (top 60%)
+                    return (feature.properties.density || 0) > 0;
+                },
+            }).addTo(map);
+        });
+}
+
+function _kdeDensityColor(normalized) {
+    // 0 → cool blue, 0.5 → warm yellow, 1.0 → hot red
+    if (normalized < 0.15) return "#1a237e";
+    if (normalized < 0.30) return "#0d47a1";
+    if (normalized < 0.45) return "#00838f";
+    if (normalized < 0.60) return "#558b2f";
+    if (normalized < 0.75) return "#f9a825";
+    if (normalized < 0.90) return "#ef6c00";
+    return "#c62828";
+}
+
+// ============================================
+// Hotspot Zones Layer (Getis-Ord Gi* points)
+// ============================================
+
+let hotspotsLayer = null;
+
+function initHotspotsLayer() {
+    const toggleBtn = document.getElementById("toggle-hotspots");
+    if (!toggleBtn) return;
+
+    toggleBtn.addEventListener("click", () => {
+        if (hotspotsLayer) {
+            map.removeLayer(hotspotsLayer);
+            hotspotsLayer = null;
+            toggleBtn.textContent = "Hotspots";
+            toggleBtn.classList.remove("active");
+        } else {
+            loadHotspotsLayer();
+            toggleBtn.textContent = "Hide Hotspots";
+            toggleBtn.classList.add("active");
+        }
+    });
+}
+
+function loadHotspotsLayer() {
+    fetch("data/hotspots.geojson")
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null)
+        .then(geojson => {
+            if (!geojson || !geojson.features || !geojson.features.length) {
+                console.warn("Hotspots GeoJSON not available");
+                return;
+            }
+
+            hotspotsLayer = L.geoJSON(geojson, {
+                pointToLayer: function (feature, latlng) {
+                    const p = feature.properties;
+                    const zscore = Math.abs(p.gi_zscore || 0);
+                    const isHot = p.is_hotspot === true;
+                    const radius = Math.max(300, zscore * 600);
+
+                    return L.circle(latlng, {
+                        radius: radius,
+                        color: isHot ? "#ff1744" : "#448aff",
+                        fillColor: isHot ? "#ff1744" : "#448aff",
+                        fillOpacity: 0.2,
+                        weight: 2,
+                        opacity: 0.7,
+                        className: "hotspot-zone",
+                    });
+                },
+                onEachFeature: function (feature, layer) {
+                    const p = feature.properties;
+                    const type = p.is_hotspot ? "🔥 Hotspot" : "❄️ Coldspot";
+                    const popup = `
+                        <strong>${type}</strong> — ZIP ${p.zip}<br>
+                        Gi* z-score: <strong>${(p.gi_zscore || 0).toFixed(3)}</strong><br>
+                        p-value: ${(p.gi_pvalue || 0).toFixed(4)}<br>
+                        <small>Cluster #${p.cluster_id} · Weight: ${(p.weight || 0).toFixed(3)}</small>`;
+                    layer.bindPopup(popup);
+                },
+            }).addTo(map);
+        });
+}
+
+// ============================================
+// Spatial Cluster Centroids Layer
+// ============================================
+
+let spatialClustersLayer = null;
+
+function initSpatialClustersLayer() {
+    const toggleBtn = document.getElementById("toggle-clusters-geo");
+    if (!toggleBtn) return;
+
+    toggleBtn.addEventListener("click", () => {
+        if (spatialClustersLayer) {
+            map.removeLayer(spatialClustersLayer);
+            spatialClustersLayer = null;
+            toggleBtn.textContent = "Clusters";
+            toggleBtn.classList.remove("active");
+        } else {
+            loadSpatialClustersLayer();
+            toggleBtn.textContent = "Hide Clusters";
+            toggleBtn.classList.add("active");
+        }
+    });
+}
+
+function loadSpatialClustersLayer() {
+    fetch("data/spatial_clusters.geojson")
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null)
+        .then(geojson => {
+            if (!geojson || !geojson.features || !geojson.features.length) {
+                console.warn("Spatial clusters GeoJSON not available");
+                return;
+            }
+
+            // Find max weight for sizing
+            const maxWeight = Math.max(
+                ...geojson.features.map(f => f.properties.weight || 0),
+                0.01
+            );
+
+            spatialClustersLayer = L.geoJSON(geojson, {
+                pointToLayer: function (feature, latlng) {
+                    const p = feature.properties;
+                    const normWeight = (p.weight || 0) / maxWeight;
+                    const radius = 5 + normWeight * 12;
+
+                    // Color by spatial_cluster_id (distinct colors per group)
+                    const clusterColors = [
+                        "#e91e63", "#00bcd4", "#ff9800", "#4caf50",
+                        "#9c27b0", "#03a9f4", "#ff5722", "#8bc34a",
+                        "#673ab7", "#009688", "#ffc107", "#2196f3",
+                    ];
+                    const color = clusterColors[(p.spatial_cluster_id || 0) % clusterColors.length];
+
+                    return L.circleMarker(latlng, {
+                        radius: radius,
+                        color: color,
+                        fillColor: color,
+                        fillOpacity: 0.6,
+                        weight: 2,
+                        opacity: 0.9,
+                        className: "spatial-cluster-marker",
+                    });
+                },
+                onEachFeature: function (feature, layer) {
+                    const p = feature.properties;
+                    const popup = `
+                        <strong>Spatial Cluster #${p.spatial_cluster_id}</strong><br>
+                        ZIP: ${p.zip}<br>
+                        Signal Cluster: #${p.cluster_id}<br>
+                        Weight: ${(p.weight || 0).toFixed(4)}<br>
+                        <small>${p.timestamp || ''}</small>`;
+                    layer.bindPopup(popup);
+                },
+            }).addTo(map);
+        });
+}
+
+// ============================================
+// Propagation Waves Layer
+// ============================================
+
+let propagationLayer = null;
+
+function initPropagationLayer() {
+    const toggleBtn = document.getElementById("toggle-propagation");
+    if (!toggleBtn) return;
+
+    toggleBtn.addEventListener("click", () => {
+        if (propagationLayer) {
+            map.removeLayer(propagationLayer);
+            propagationLayer = null;
+            toggleBtn.textContent = "Waves";
+            toggleBtn.classList.remove("active");
+        } else {
+            loadPropagationLayer();
+            toggleBtn.textContent = "Hide Waves";
+            toggleBtn.classList.add("active");
+        }
+    });
+}
+
+function loadPropagationLayer() {
+    fetch("data/propagation_waves.geojson")
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null)
+        .then(geojson => {
+            if (!geojson || !geojson.features || !geojson.features.length) {
+                console.warn("Propagation waves GeoJSON not available or empty");
+                // Disable button if no data
+                const toggleBtn = document.getElementById("toggle-propagation");
+                if (toggleBtn) {
+                    toggleBtn.classList.remove("active");
+                    toggleBtn.textContent = "Waves (none)";
+                    toggleBtn.disabled = true;
+                    toggleBtn.style.opacity = "0.5";
+                }
+                propagationLayer = null;
+                return;
+            }
+
+            propagationLayer = L.geoJSON(geojson, {
+                style: function (feature) {
+                    const p = feature.properties;
+                    const speed = p.speed_kmph || 1;
+                    const weight = Math.max(2, Math.min(6, speed / 5));
+                    return {
+                        color: "#7c4dff",
+                        weight: weight,
+                        opacity: 0.7,
+                        dashArray: "12 6",
+                        className: "propagation-wave",
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    const p = feature.properties;
+                    const popup = `
+                        <strong>Propagation Vector</strong><br>
+                        ${p.origin_zip || '?'} → ${p.dest_zip || '?'}<br>
+                        Topic: ${p.topic || 'Unknown'}<br>
+                        Speed: ${(p.speed_kmph || 0).toFixed(1)} km/h<br>
+                        Delay: ${(p.delay_hours || 0).toFixed(1)} hours`;
+                    layer.bindPopup(popup);
+                },
+                pointToLayer: function (feature, latlng) {
+                    // Arrow markers at destination points
+                    return L.circleMarker(latlng, {
+                        radius: 4,
+                        color: "#7c4dff",
+                        fillColor: "#b388ff",
+                        fillOpacity: 0.8,
+                        weight: 2,
+                    });
+                },
+            }).addTo(map);
+        });
+}
+
+// ============================================
+// Stability Visualization Mode (Shift 9)
+// ============================================
+
+let stabilityMode = false;
+
+function initStabilityMode() {
+    const toggleBtn = document.getElementById("toggle-stability");
+    if (!toggleBtn) return;
+
+    // Restore saved preference
+    stabilityMode = localStorage.getItem("heat-stability-mode") === "true";
+    if (stabilityMode) _activateStability(toggleBtn);
+
+    toggleBtn.addEventListener("click", () => {
+        stabilityMode = !stabilityMode;
+        localStorage.setItem("heat-stability-mode", String(stabilityMode));
+        if (stabilityMode) {
+            _activateStability(toggleBtn);
+        } else {
+            _deactivateStability(toggleBtn);
+        }
+    });
+}
+
+function _activateStability(btn) {
+    document.body.classList.add("stability-mode");
+    btn.textContent = "Exit Stability";
+    btn.classList.add("active");
+
+    // Replace "heat level" text with "engagement level"
+    document.querySelectorAll(".heat-level-label").forEach(el => {
+        el.dataset.originalText = el.textContent;
+        el.textContent = el.textContent
+            .replace(/heat level/gi, "Engagement Level")
+            .replace(/heat/gi, "Engagement");
+    });
+
+    // Refresh map markers with stability colours
+    if (typeof renderMap === "function") renderMap();
+    if (typeof renderClusters === "function") renderClusters();
+
+    // Surface silence context as "monitored calm"
+    _showStabilityCalm();
+}
+
+function _deactivateStability(btn) {
+    document.body.classList.remove("stability-mode");
+    btn.textContent = "Stability";
+    btn.classList.remove("active");
+
+    // Restore original text
+    document.querySelectorAll(".heat-level-label").forEach(el => {
+        if (el.dataset.originalText) el.textContent = el.dataset.originalText;
+    });
+
+    _hideStabilityCalm();
+
+    if (typeof renderMap === "function") renderMap();
+    if (typeof renderClusters === "function") renderClusters();
+}
+
+/**
+ * Show silence_context data from clusters.json as "monitored calm" cards.
+ */
+function _showStabilityCalm() {
+    let container = document.getElementById("stability-calm-container");
+    if (!container) {
+        container = document.createElement("div");
+        container.id = "stability-calm-container";
+        container.className = "stability-calm-container";
+        const mapSection = document.getElementById("map-section");
+        if (mapSection) mapSection.appendChild(container);
+    }
+
+    const silence = clustersData?.silence_context;
+    if (!silence || Object.keys(silence).length === 0) {
+        container.innerHTML = `
+            <div class="stability-calm-card">
+                <span class="calm-icon">🟢</span>
+                <span class="calm-text">All monitored areas currently show civic engagement signals.</span>
+            </div>`;
+        return;
+    }
+
+    container.innerHTML = Object.entries(silence).map(([zip, ctx]) => {
+        const msg = typeof ctx === "string" ? ctx : (ctx.message || ctx.context || "Monitored calm — no reports ≠ nothing happening.");
+        // Compute trend indicator
+        const trend = _getStabilityTrend(zip);
+        const trendIcon = trend === "improving" ? "📈" : trend === "declining" ? "📉" : "➡️";
+        return `
+            <div class="stability-calm-card" data-zip="${zip}">
+                <span class="calm-icon">🟢</span>
+                <div class="calm-body">
+                    <strong>ZIP ${zip} — Monitored Calm</strong>
+                    <p>${msg}</p>
+                    <span class="stability-trend" title="Stability trend: ${trend}">${trendIcon} ${trend}</span>
+                </div>
+            </div>`;
+    }).join("");
+}
+
+function _hideStabilityCalm() {
+    const container = document.getElementById("stability-calm-container");
+    if (container) container.innerHTML = "";
+}
+
+/**
+ * Determine stability trend for a ZIP based on rolling cluster count.
+ */
+function _getStabilityTrend(zip) {
+    if (!clustersData?.clusters) return "steady";
+    const now = new Date();
+    const clForZip = clustersData.clusters.filter(c => String(c.zip).padStart(5, "0") === zip);
+    const recent = clForZip.filter(c => {
+        const d = new Date(c.dateRange?.end || c.dateRange?.start);
+        return (now - d) / 3600000 < 168; // last 7 days
+    });
+    const older = clForZip.filter(c => {
+        const d = new Date(c.dateRange?.end || c.dateRange?.start);
+        const h = (now - d) / 3600000;
+        return h >= 168 && h < 336; // 7-14 days ago
+    });
+    if (recent.length < older.length) return "improving";
+    if (recent.length > older.length) return "declining";
+    return "steady";
+}
+
+/**
+ * Get marker colour adapting to stability mode.
+ * In stability mode: green = high engagement, blue = calm; no red.
+ */
+function getStabilityColor(strength) {
+    if (!stabilityMode) return null; // use default colours
+    if (strength > 5) return "#2d7d46";  // green — active civic engagement
+    if (strength > 2) return "#4a90d9";  // blue — moderate
+    return "#6eb5ff";                     // light blue — calm/stable
+}
+
+
+// ============================================
+// WebSocket Real-Time Layer (Shift 13)
+// ============================================
+
+function initWebSocket() {
+    if (typeof HeatWebSocket === "undefined") {
+        console.log("WebSocket client not loaded — skipping real-time layer.");
+        return;
+    }
+
+    // Determine tier from local storage or default to 0
+    const tier = parseInt(localStorage.getItem("heat-tier") || "0", 10);
+    const wsUrl = localStorage.getItem("heat-ws-url") || "ws://localhost:8765";
+
+    HeatWebSocket.connect({
+        url: wsUrl,
+        tier: tier,
+        subscriptions: ["cluster_update", "heatmap_refresh", "alert", "pipeline_status"],
+    });
+
+    // cluster_update → refresh map markers
+    HeatWebSocket.on("cluster_update", function (data) {
+        console.log("[WS] cluster_update received");
+        if (data && data.clusters && typeof loadData === "function") {
+            loadData().then(() => {
+                if (typeof renderMap === "function") renderMap();
+                if (typeof renderClusters === "function") renderClusters();
+            });
+        }
+    });
+
+    // heatmap_refresh → reload heatmap layer if visible
+    HeatWebSocket.on("heatmap_refresh", function (data) {
+        console.log("[WS] heatmap_refresh received");
+        if (heatLayer) {
+            // Remove existing, then re-add
+            addHeatmapLayer();
+        }
+    });
+
+    // alert → show toast notification
+    HeatWebSocket.on("alert", function (data) {
+        console.log("[WS] alert received:", data);
+        // Toast is handled by websocket-client.js internally
+    });
+
+    // pipeline_status → update dashboard status indicator
+    HeatWebSocket.on("pipeline_status", function (data) {
+        console.log("[WS] pipeline_status:", data.status || data.stage);
+        const indicator = document.getElementById("pipeline-status-indicator");
+        if (indicator) {
+            const status = data.status || "unknown";
+            indicator.textContent = status === "pipeline_complete" ? "✅ Pipeline OK" : "🔄 " + status;
+            indicator.classList.toggle("pipeline-ok", status === "pipeline_complete");
+        }
+    });
+
+    console.log("WebSocket real-time layer initialized (tier " + tier + ")");
+}
+
+
+// ============================================
 // Region Navigation
 // ============================================
 
@@ -3917,80 +4570,229 @@ function setupRegionNavigation() {
 // Analytics Panel Integration
 // ============================================
 
+/**
+ * Initialize analytics system with data context
+ */
 function initializeAnalytics() {
-    if (!window.analyticsPanel) {
-        console.warn('Analytics panel not available');
+    if (!window.analyticsPanel || !window.filterEngine) {
+        console.warn('Analytics components not loaded');
         return;
     }
 
-    // Initialize the analytics panel
-    window.analyticsPanel.init();
-
-    // Set up filter change handler to update map when filters change
-    window.analyticsPanel.setFilterChangeHandler(function(filteredData, state, meta) {
-        console.log('Filter applied:', meta.type || meta.reason, 'showing', filteredData.length, 'clusters');
-        
-        // Update the map with filtered data
-        if (map && filteredData) {
-            updateMapWithFilteredData(filteredData);
-        }
-    });
-
-    // Load initial cluster data into filter engine
-    if (window.filterEngine && clustersData && clustersData.clusters) {
+    // Initialize FilterEngine with cluster data
+    if (clustersData && Array.isArray(clustersData.clusters)) {
         window.filterEngine.initialize(clustersData.clusters, { keepFilters: false });
     }
 
-    // Provide data context for stats calculations
+    // Set data context for analytics panel
     window.analyticsPanel.setDataContext({
         timeline: timelineData,
         keywords: keywordsData,
         latestNews: latestNewsData,
-        alerts: null
+        alerts: alertsData
+    });
+
+    // Set filter change handler to update map
+    window.analyticsPanel.setFilterChangeHandler(function(filteredClusters, state, meta) {
+        // Update map markers with filtered data
+        if (map && filteredClusters) {
+            updateMapMarkers(filteredClusters);
+        }
+        
+        // Update dashboard stats with filtered data
+        if (filteredClusters) {
+            updateDashboardWithFiltered(filteredClusters);
+        }
+    });
+
+    // Initialize the panel UI
+    window.analyticsPanel.init();
+}
+
+/**
+ * Update map markers with filtered cluster data
+ */
+function updateMapMarkers(clusters) {
+    if (!map) return;
+    
+    // Clear existing markers
+    if (window.clusterMarkers) {
+        window.clusterMarkers.forEach(marker => map.removeLayer(marker));
+    }
+    window.clusterMarkers = [];
+
+    // Add markers for filtered clusters
+    clusters.forEach(cluster => {
+        const marker = addClusterMarker(cluster);
+        if (marker) window.clusterMarkers.push(marker);
+    });
+
+    // Update cluster bounds
+    if (clusters.length > 0) {
+        const bounds = L.latLngBounds(clusters.map(c => getClusterCoordinates(c)));
+        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 12 });
+    }
+}
+
+/**
+ * Update dashboard with filtered statistics
+ */
+function updateDashboardWithFiltered(clusters) {
+    if (!window.statsCalculator) return;
+    
+    const summary = window.statsCalculator.clusterSummary(clusters);
+    
+    // Update dashboard cards
+    const dashClusters = document.getElementById('dash-clusters');
+    if (dashClusters) dashClusters.textContent = summary.totalClusters;
+    
+    const dashKeywords = document.getElementById('dash-keywords');
+    if (dashKeywords) dashKeywords.textContent = summary.uniqueZips;
+    
+    // Update intensity
+    const intensityFill = document.getElementById('intensity-fill');
+    const dashIntensity = document.getElementById('dash-intensity');
+    if (intensityFill && dashIntensity && summary.averageStrength) {
+        const percent = Math.min((summary.averageStrength / 10) * 100, 100);
+        intensityFill.style.width = percent + '%';
+        dashIntensity.textContent = summary.averageStrength.toFixed(1);
+    }
+}
+
+// NOTE: initAnalyticsIntegration() already exists at line 412
+// It's called from DOMContentLoaded (line 1693) and loadData() (line 2401)
+
+// ============================================
+// Mobile Full-Screen Panel
+// ============================================
+
+/**
+ * Fly the map to a ZIP code (reusable helper)
+ */
+function flyMapToZip(zip) {
+    if (!map) return;
+    const zipData = ZIP_BOUNDARIES[zip];
+    if (zipData) {
+        map.flyTo(zipData.center, 14, { duration: 0.8 });
+    } else if (ZIP_COORDS[zip]) {
+        map.flyTo(ZIP_COORDS[zip], 13, { duration: 0.8 });
+    } else if (isNewJerseyZip(zip)) {
+        map.flyTo(DEFAULT_CENTER, 10, { duration: 0.8 });
+    }
+}
+
+/**
+ * Update the mobile bottom sheet with danger level + signals for a ZIP
+ */
+function updateMobileSafetyPanel(zip, signals) {
+    const panel = document.getElementById('mobile-panel');
+    const safetyPane = document.getElementById('mpanel-safety');
+    if (!panel || !safetyPane) return;
+
+    let badgeClass, emoji, heading, subtext;
+    if (signals.length === 0) {
+        badgeClass = 'level-clear';
+        emoji = '✅';
+        heading = 'No Recent Reports';
+        subtext = `ZIP ${zip} — No signals in past 14 days`;
+    } else if (signals.length <= 2) {
+        badgeClass = 'level-active';
+        emoji = '⚠️';
+        heading = 'Some Reports';
+        subtext = `ZIP ${zip} — ${signals.length} signal(s) in past 14 days`;
+    } else {
+        badgeClass = 'level-elevated';
+        emoji = '🔴';
+        heading = 'Elevated Discussion';
+        subtext = `ZIP ${zip} — ${signals.length} signals in past 14 days`;
+    }
+
+    const signalHtml = signals.slice(0, 5).map(sig => {
+        const dateStr = new Date(sig.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        return `<div class="mobile-signal-item">
+            <div class="msi-date">${dateStr} · ${escapeHtml(sig.source)}</div>
+            <div class="msi-text ${sig.priority === 'high' ? 'high-priority' : ''}">${escapeHtml(sig.summary)}</div>
+        </div>`;
+    }).join('');
+
+    const moreHtml = signals.length > 5
+        ? `<p style="color:var(--text-muted);font-size:0.78rem;margin-top:0.5rem;">+${signals.length - 5} more signals</p>`
+        : '';
+
+    safetyPane.innerHTML = `
+        <div class="mobile-danger-badge ${badgeClass}">
+            <div class="mdb-emoji">${emoji}</div>
+            <div class="mdb-info">
+                <h3>${heading}</h3>
+                <p>${subtext}</p>
+            </div>
+        </div>
+        ${signalHtml}
+        ${moreHtml}
+        <p style="font-size:0.72rem;color:var(--text-muted);margin-top:0.625rem;">Always verify independently. 72-hour delay active.</p>
+    `;
+
+    panel.classList.add('expanded');
+    activateMobileTab('safety');
+}
+
+/**
+ * Switch the active tab in the mobile bottom panel
+ */
+function activateMobileTab(tabName) {
+    const panel = document.getElementById('mobile-panel');
+    if (!panel) return;
+    panel.querySelectorAll('.panel-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tabName));
+    panel.querySelectorAll('.mpanel').forEach(p => p.classList.toggle('active', p.id === `mpanel-${tabName}`));
+}
+
+/**
+ * Wire up the mobile ZIP bar and panel interactions
+ */
+function initMobilePanel() {
+    const panel    = document.getElementById('mobile-panel');
+    const zipInput = document.getElementById('mobile-zip-input');
+    const zipGo    = document.getElementById('mobile-zip-go');
+    const handle   = document.getElementById('mobile-panel-handle');
+    if (!panel) return;
+
+    const doCheck = () => {
+        const zip = (zipInput?.value || '').trim();
+        if (zip) checkZipSafety(zip);
+    };
+
+    zipGo?.addEventListener('click', doCheck);
+    zipInput?.addEventListener('keypress', e => { if (e.key === 'Enter') doCheck(); });
+    zipInput?.addEventListener('input', e => {
+        // Auto-trigger when 5 digits entered
+        if (e.target.value.length === 5) doCheck();
+    });
+
+    // Drag handle toggles expanded state
+    handle?.addEventListener('click', () => panel.classList.toggle('expanded'));
+
+    // Tab switching
+    panel.querySelectorAll('.panel-tab').forEach(tab => {
+        tab.addEventListener('click', () => activateMobileTab(tab.dataset.tab));
     });
 }
 
-function updateMapWithFilteredData(filteredClusters) {
-    // Clear existing markers
-    if (map) {
-        map.eachLayer(layer => {
-            if (layer instanceof L.CircleMarker || layer instanceof L.Marker) {
-                map.removeLayer(layer);
-            }
-        });
+/**
+ * Populate the mobile feed tab with latest news items
+ */
+function populateMobileFeed() {
+    const feedEl = document.getElementById('mobile-feed-items');
+    if (!feedEl) return;
+    const items = latestNewsData?.items || [];
+    if (items.length === 0) {
+        feedEl.innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;">No recent reports available.</p>';
+        return;
     }
-
-    // Re-render only the filtered clusters
-    if (filteredClusters && filteredClusters.length > 0) {
-        filteredClusters.forEach(cluster => {
-            renderClusterMarker(cluster);
-        });
-    }
-
-    // Update dashboard stats with filtered data
-    updateDashboardWithFilteredData(filteredClusters);
-}
-
-function updateDashboardWithFilteredData(filteredClusters) {
-    const count = filteredClusters ? filteredClusters.length : 0;
-    
-    // Update cluster count
-    const dashClusters = document.getElementById('dash-clusters');
-    if (dashClusters) {
-        dashClusters.textContent = count;
-    }
-
-    // Update intensity based on filtered data
-    if (window.statsCalculator && filteredClusters) {
-        const summary = window.statsCalculator.clusterSummary(filteredClusters);
-        const dashIntensity = document.getElementById('dash-intensity');
-        if (dashIntensity) {
-            dashIntensity.textContent = summary.averageStrength.toFixed(1);
-        }
-    }
-}
-
-function initAnalyticsIntegration() {
-    console.log('Initializing analytics integration...');
-    initializeAnalytics();
+    feedEl.innerHTML = items.slice(0, 15).map(item => {
+        const dateStr = new Date(item.timestamp || item.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        return `<div class="mfi-item">
+            <div class="mfi-source">${dateStr} · ${escapeHtml(item.source || 'Source')} · ZIP ${escapeHtml(String(item.zip || '--'))}</div>
+            <div class="mfi-headline">${escapeHtml(item.headline || item.summary || 'Report noted')}</div>
+        </div>`;
+    }).join('');
 }

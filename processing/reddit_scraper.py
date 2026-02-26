@@ -1,8 +1,19 @@
 """
 Reddit Scraper for NJ Community Discussions
 Fetches relevant posts from New Jersey subreddits.
+
+Modes:
+  1. PRAW API (preferred) — requires REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET
+  2. RSS fallback (free, no credentials) — uses Reddit .rss and search.rss endpoints
 """
-import praw
+try:
+    import praw
+    PRAW_AVAILABLE = True
+except ImportError:
+    PRAW_AVAILABLE = False
+
+import requests
+import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 import time
 import csv
@@ -14,6 +25,7 @@ import os
 from config import (
     CIVIC_KEYWORDS, TARGET_ZIPS,
     SCRAPER_USER_AGENT, SCRAPER_REQUEST_DELAY,
+    SCRAPER_TIMEOUT,
     RAW_DIR
 )
 
@@ -31,7 +43,7 @@ SUBREDDITS = {
         "default_zip": "07060",  # Plainfield
     },
     "plainfield": {
-        "name": "PlainFieldNJ",
+        "name": "PlainFieldNJ",  # Note: This subreddit may have different capitalization
         "cities": ["plainfield"],
         "default_zip": "07060",
     },
@@ -68,6 +80,7 @@ def init_reddit():
     """
     Initialize Reddit API client.
     Requires credentials (Reddit no longer allows unauthenticated access).
+    Returns None if credentials not available (graceful skip).
     """
     # Check for credentials in environment
     client_id = os.getenv("REDDIT_CLIENT_ID")
@@ -75,10 +88,10 @@ def init_reddit():
 
     if not client_id or not client_secret:
         print("\n" + "=" * 60)
-        print("ERROR: Reddit API credentials required")
+        print("⚠️  Reddit API credentials not found - skipping Reddit scraper")
         print("=" * 60)
         print("\nReddit requires authentication for API access.")
-        print("\nTo get credentials:")
+        print("\nTo enable Reddit scraping:")
         print("  1. Go to: https://www.reddit.com/prefs/apps")
         print("  2. Click 'create another app...'")
         print("  3. Choose 'script' type")
@@ -94,8 +107,8 @@ def init_reddit():
         print("\n  Linux/Mac:")
         print('    export REDDIT_CLIENT_ID="your_client_id"')
         print('    export REDDIT_CLIENT_SECRET="your_client_secret"')
-        print("=" * 60)
-        raise ValueError("Reddit credentials not found in environment variables")
+        print("=" * 60 + "\n")
+        return None  # Graceful skip instead of raising error
 
     try:
         reddit = praw.Reddit(
@@ -242,6 +255,239 @@ def is_relevant(record: dict) -> bool:
     return False
 
 
+# =====================================================================
+# RSS FALLBACK MODE — no credentials needed
+# =====================================================================
+
+# Subreddits to scrape via RSS (mirrors SUBREDDITS dict above)
+_RSS_SUBS = [
+    # (subreddit_name, default_zip, cities)
+    ("newjersey", "07060", ["plainfield", "hoboken", "trenton", "new_brunswick"]),
+    ("nj_politics", "07060", ["plainfield", "hoboken", "trenton", "new_brunswick"]),
+    ("Hoboken", "07030", ["hoboken"]),
+    ("NewBrunswickNJ", "08901", ["new_brunswick"]),
+    ("Newark", "07102", ["plainfield", "hoboken"]),
+    ("jerseycity", "07302", ["hoboken"]),
+    ("immigration", "07060", ["plainfield", "hoboken", "trenton", "new_brunswick"]),
+]
+
+# Civic search queries run against each relevant subreddit's search.rss
+_RSS_SEARCH_QUERIES = [
+    "ICE OR immigration OR deportation OR sanctuary",
+    "immigrant OR undocumented OR asylum OR DACA",
+    "enforcement OR checkpoint OR detention",
+]
+
+_RSS_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; HEAT-CivicResearch/1.0)",
+    "Accept": "application/rss+xml, application/xml, text/xml, */*",
+}
+
+
+def _fetch_reddit_rss(url: str) -> list[dict]:
+    """Fetch a single Reddit RSS URL and return parsed items."""
+    try:
+        time.sleep(SCRAPER_REQUEST_DELAY)
+        resp = requests.get(url, headers=_RSS_HEADERS, timeout=SCRAPER_TIMEOUT)
+        if resp.status_code == 429:
+            print(f"    Rate limited, waiting 10s …")
+            time.sleep(10)
+            resp = requests.get(url, headers=_RSS_HEADERS, timeout=SCRAPER_TIMEOUT)
+        if resp.status_code != 200:
+            print(f"    HTTP {resp.status_code} for {url[:80]}")
+            return []
+
+        root = ET.fromstring(resp.content)
+
+        items = []
+        # Atom format (Reddit uses Atom for .rss endpoints)
+        ns = {"atom": "http://www.w3.org/2005/Atom"}
+
+        for entry in root.findall(".//atom:entry", ns):
+            title_el = entry.find("atom:title", ns)
+            content_el = entry.find("atom:content", ns)
+            updated_el = entry.find("atom:updated", ns)
+            link_el = entry.find("atom:link[@href]", ns)
+            id_el = entry.find("atom:id", ns)
+
+            title = title_el.text.strip() if title_el is not None and title_el.text else ""
+            # Content is HTML — strip tags
+            raw_content = content_el.text if content_el is not None and content_el.text else ""
+            content = re.sub(r"<[^>]+>", " ", raw_content)
+            content = re.sub(r"\s+", " ", content).strip()
+
+            text = f"{title}. {content}" if content else title
+            text = text[:500]
+
+            link = link_el.get("href", "") if link_el is not None else ""
+            entry_id = id_el.text if id_el is not None else link
+
+            # Parse date
+            date_str = updated_el.text if updated_el is not None and updated_el.text else ""
+            try:
+                dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+                date = dt.strftime("%Y-%m-%d")
+            except (ValueError, AttributeError):
+                date = datetime.now().strftime("%Y-%m-%d")
+
+            if title:
+                items.append({
+                    "id": entry_id,
+                    "text": text,
+                    "title": title,
+                    "url": link,
+                    "date": date,
+                })
+
+        # Also try standard RSS 2.0 <item> format as fallback
+        for item_el in root.findall(".//item"):
+            title_el = item_el.find("title")
+            desc_el = item_el.find("description")
+            link_el = item_el.find("link")
+            pubdate_el = item_el.find("pubDate")
+            guid_el = item_el.find("guid")
+
+            title = title_el.text.strip() if title_el is not None and title_el.text else ""
+            desc = desc_el.text if desc_el is not None and desc_el.text else ""
+            desc = re.sub(r"<[^>]+>", " ", desc)
+            desc = re.sub(r"\s+", " ", desc).strip()
+
+            text = f"{title}. {desc}" if desc else title
+            text = text[:500]
+
+            link = link_el.text if link_el is not None and link_el.text else ""
+            entry_id = guid_el.text if guid_el is not None and guid_el.text else link
+
+            date_str = pubdate_el.text if pubdate_el is not None and pubdate_el.text else ""
+            try:
+                from email.utils import parsedate_to_datetime
+                dt = parsedate_to_datetime(date_str)
+                date = dt.strftime("%Y-%m-%d")
+            except Exception:
+                date = datetime.now().strftime("%Y-%m-%d")
+
+            if title:
+                items.append({
+                    "id": entry_id,
+                    "text": text,
+                    "title": title,
+                    "url": link,
+                    "date": date,
+                })
+
+        return items
+
+    except ET.ParseError as e:
+        print(f"    XML parse error: {e}")
+        return []
+    except Exception as e:
+        print(f"    Error: {e}")
+        return []
+
+
+def _run_rss_fallback() -> dict:
+    """
+    Scrape Reddit entirely via public RSS — no credentials needed.
+    Fetches .rss listing + search.rss for civic queries across all target subs.
+    """
+    print("\n" + "=" * 60)
+    print("Reddit Scraper — RSS FALLBACK MODE (no credentials needed)")
+    print("=" * 60)
+
+    all_items: list[dict] = []
+    cutoff = datetime.now() - timedelta(days=14)
+
+    for sub_name, default_zip, _cities in _RSS_SUBS:
+        # 1) Fetch hot/new listing
+        listing_url = f"https://www.reddit.com/r/{sub_name}/.rss"
+        print(f"  r/{sub_name} listing …")
+        items = _fetch_reddit_rss(listing_url)
+        for it in items:
+            it["default_zip"] = default_zip
+        all_items.extend(items)
+        print(f"    {len(items)} items")
+
+        # 2) Civic search queries (only for broader subs to avoid rate-limiting)
+        if sub_name in ("newjersey", "nj_politics", "immigration"):
+            for query in _RSS_SEARCH_QUERIES:
+                from urllib.parse import quote_plus
+                search_url = (
+                    f"https://www.reddit.com/r/{sub_name}/search.rss"
+                    f"?q={quote_plus(query)}&restrict_sr=on&sort=new&t=month"
+                )
+                print(f"  r/{sub_name} search: {query[:40]} …")
+                items = _fetch_reddit_rss(search_url)
+                for it in items:
+                    it["default_zip"] = default_zip
+                all_items.extend(items)
+                print(f"    {len(items)} items")
+
+    # Dedup by id
+    seen = set()
+    unique = []
+    for item in all_items:
+        key = item.get("id") or item.get("url") or item.get("title")
+        if key and key not in seen:
+            seen.add(key)
+            unique.append(item)
+
+    print(f"\nTotal unique items: {len(unique)}")
+
+    # Filter relevance + date
+    records = []
+    for item in unique:
+        try:
+            item_date = datetime.strptime(item["date"], "%Y-%m-%d")
+            if item_date < cutoff:
+                continue
+        except (ValueError, KeyError):
+            pass  # keep items with unparseable dates
+
+        fake_record = {"text": item.get("text", ""), "title": item.get("title", "")}
+        if not is_relevant(fake_record):
+            continue
+
+        zip_code = infer_zip_from_text(item["text"], item.get("default_zip", "07060"))
+        content_hash = hashlib.md5(
+            f"{item['id']}{item['url']}".encode()
+        ).hexdigest()[:12]
+
+        records.append({
+            "id": content_hash,
+            "text": item["text"][:500],
+            "title": item["title"][:200],
+            "source": "Reddit",
+            "category": "community",
+            "url": item.get("url", ""),
+            "date": item["date"],
+            "zip": zip_code,
+        })
+
+    print(f"Relevant records: {len(records)}")
+
+    # Save
+    if records:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_file = RAW_DIR / f"reddit_{timestamp}.csv"
+
+        with open(output_file, "w", encoding="utf-8", newline="") as f:
+            fieldnames = ["id", "text", "title", "source", "category", "url", "date", "zip"]
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(records)
+
+        print(f"Saved to: {output_file}")
+    else:
+        print("No relevant records to save")
+
+    return {
+        "total": len(unique),
+        "relevant": len(records),
+        "mode": "rss_fallback",
+        "timestamp": datetime.now().isoformat(),
+    }
+
+
 def run_scraper(subreddits: list = None, time_filter: str = "week", limit_per_sub: int = 50) -> dict:
     """
     Main scraper entry point.
@@ -259,16 +505,20 @@ def run_scraper(subreddits: list = None, time_filter: str = "week", limit_per_su
     if subreddits is None:
         subreddits = list(SUBREDDITS.keys())
 
+    # ---- Attempt PRAW API mode first ----
+    if not PRAW_AVAILABLE:
+        print("  praw not installed — using RSS fallback")
+        return _run_rss_fallback()
+
     # Initialize Reddit API
     try:
         reddit = init_reddit()
+        if reddit is None:
+            # No credentials → RSS fallback
+            return _run_rss_fallback()
     except Exception as e:
-        print(f"\nFailed to initialize Reddit API: {e}")
-        print("\nTo use authenticated mode (recommended), set environment variables:")
-        print("  REDDIT_CLIENT_ID=your_client_id")
-        print("  REDDIT_CLIENT_SECRET=your_client_secret")
-        print("\nGet credentials at: https://www.reddit.com/prefs/apps")
-        return {"total": 0, "relevant": 0, "error": str(e)}
+        print(f"\nPRAW failed ({e}) — falling back to RSS mode")
+        return _run_rss_fallback()
 
     all_posts = []
 

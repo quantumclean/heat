@@ -21,10 +21,14 @@ import hashlib
 
 from config import BASE_DIR, TARGET_CITIES, ZIP_CENTROIDS
 
-TRACKING_DIR = BASE_DIR.parent / "data" / "tracking"
+TRACKING_DIR = BASE_DIR / "data" / "tracking"
 EVENTS_DIR = TRACKING_DIR / "events"
 SOURCES_DIR = TRACKING_DIR / "sources"
 VALIDATION_DIR = TRACKING_DIR / "validation"
+
+# Ensure tracking directories exist
+for _d in (TRACKING_DIR, EVENTS_DIR, SOURCES_DIR, VALIDATION_DIR):
+    _d.mkdir(parents=True, exist_ok=True)
 
 
 class EventCatalog:

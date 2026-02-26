@@ -1,0 +1,176 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4178,
+          40.6161
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 55,
+        "timestamp": "2026-02-03T00:00:00",
+        "gi_zscore": 0.7955,
+        "gi_pvalue": 0.2132,
+        "is_hotspot": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41850000000001,
+          40.6152
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 81,
+        "timestamp": "2026-02-03T00:00:00",
+        "gi_zscore": 0.7955,
+        "gi_pvalue": 0.2132,
+        "is_hotspot": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41210000000001,
+          40.6116
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 11,
+        "timestamp": "2026-02-01T00:00:00",
+        "gi_zscore": 0.7955,
+        "gi_pvalue": 0.2132,
+        "is_hotspot": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41120000000001,
+          40.6164
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 29,
+        "timestamp": "2026-02-04T00:00:00",
+        "gi_zscore": 1.1576,
+        "gi_pvalue": 0.1235,
+        "is_hotspot": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41340000000001,
+          40.6173
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 60,
+        "timestamp": "2026-02-03T00:00:00",
+        "gi_zscore": 1.1576,
+        "gi_pvalue": 0.1235,
+        "is_hotspot": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4128,
+          40.612700000000004
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 9,
+        "timestamp": "2026-02-04T00:00:00",
+        "gi_zscore": 0.7955,
+        "gi_pvalue": 0.2132,
+        "is_hotspot": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4179,
+          40.6128
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 30,
+        "timestamp": "2026-02-04T00:00:00",
+        "gi_zscore": 0.7955,
+        "gi_pvalue": 0.2132,
+        "is_hotspot": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41890000000001,
+          40.6156
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 80,
+        "timestamp": "2026-02-03T00:00:00",
+        "gi_zscore": 0.7955,
+        "gi_pvalue": 0.2132,
+        "is_hotspot": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4116,
+          40.6167
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 47,
+        "timestamp": "2026-02-04T00:00:00",
+        "gi_zscore": 1.1576,
+        "gi_pvalue": 0.1235,
+        "is_hotspot": true
+      }
+    }
+  ]
+}

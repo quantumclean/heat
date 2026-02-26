@@ -350,7 +350,7 @@ class AnalyticsPanel {
                 <div class="stat-change neutral">${summary.topZips[0]?.count || 0} reports</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">Recent Activity</div>
+                <div class="stat-label">Recent Reports</div>
                 <div class="stat-value">${summary.recentActivity.slice(-1)[0]?.count || 0}</div>
                 <div class="stat-change neutral">Last 24h</div>
             </div>

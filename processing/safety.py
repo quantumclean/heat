@@ -42,10 +42,10 @@ logger = logging.getLogger("heat.safety")
 @dataclass(frozen=True)
 class SafetyThresholds:
     """Production safety thresholds. Immutable."""
-    min_cluster_size: int = 1       # k-anonymity floor (MAXIMUM SENSITIVITY - show single records)
-    min_sources: int = 1            # Corroboration requirement (MAXIMUM SENSITIVITY - single source OK)
-    min_delay_hours: int = 0        # Minimum time delay (MAXIMUM SENSITIVITY - no delay required)
-    min_volume_score: float = 0.0   # Signal density threshold (MAXIMUM SENSITIVITY - all volumes)
+    min_cluster_size: int = 2       # k-anonymity floor (aligned with buffer.py)
+    min_sources: int = 2            # Corroboration requirement (aligned with buffer.py)
+    min_delay_hours: int = 24       # Minimum time delay in hours (aligned with buffer.py)
+    min_volume_score: float = 1.0   # Signal density threshold (aligned with buffer.py)
 
 
 PRODUCTION_THRESHOLDS = SafetyThresholds()
@@ -55,7 +55,7 @@ DEV_THRESHOLDS = SafetyThresholds(
     min_cluster_size=2,
     min_sources=1,
     min_delay_hours=0,
-    min_volume_score=0.5,
+    min_volume_score=0.001,
 )
 
 

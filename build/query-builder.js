@@ -5,11 +5,9 @@
 
 class QueryBuilder {
     constructor(containerId, options = {}) {
-        this.container = document.getElementById(containerId);
-        if (!this.container) {
-            console.error(`Container ${containerId} not found`);
-            return;
-        }
+        this.rows = [];
+        this.queries = [];
+        this.groupLogic = 'AND';
 
         this.options = {
             fields: [],
@@ -19,10 +17,23 @@ class QueryBuilder {
             ...options
         };
 
-        this.queries = [];
-        this.groupLogic = 'AND';
-        
-        this.init();
+        if (containerId) {
+            this.container = document.getElementById(containerId);
+        } else {
+            this.container = null;
+        }
+
+        if (this.container) {
+            this.init();
+        }
+    }
+
+    get logic() {
+        return this.groupLogic;
+    }
+
+    set logic(value) {
+        this.groupLogic = value;
     }
 
     /**
@@ -482,7 +493,45 @@ class QueryBuilder {
      * Get current query
      */
     getQuery() {
-        return this.buildQuery();
+        if (this.container) {
+            return this.buildQuery();
+        }
+        return {
+            logic: this.groupLogic,
+            conditions: this.rows.map(row => ({
+                field: row.field,
+                operator: row.operator,
+                value: row.value
+            }))
+        };
+    }
+
+    addRow(row = {}) {
+        this.rows.push({
+            field: row.field || '',
+            operator: row.operator || '',
+            value: row.value || ''
+        });
+        return this;
+    }
+
+    removeRow(index) {
+        if (index >= 0 && index < this.rows.length) {
+            this.rows.splice(index, 1);
+        }
+        return this;
+    }
+
+    clear() {
+        this.rows = [{ field: '', operator: '', value: '' }];
+        this.groupLogic = 'AND';
+        if (this.container) {
+            this.container.querySelector('#query-conditions').innerHTML = '';
+            const logicSelector = this.container.querySelector('#group-logic');
+            if (logicSelector) logicSelector.value = 'AND';
+            this.updatePreview();
+        }
+        return this;
     }
 
     /**
@@ -498,6 +547,11 @@ class QueryBuilder {
     destroy() {
         this.container.innerHTML = '';
     }
+}
+
+// Create global reference for browser
+if (typeof window !== 'undefined') {
+    window.QueryBuilder = QueryBuilder;
 }
 
 // Export for use in other modules

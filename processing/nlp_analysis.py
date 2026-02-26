@@ -132,12 +132,16 @@ def detect_bursts(
     time_col: str = "date",
     window_hours: int = 24,
     threshold_std: float = 2.0,
+    adaptive_thresholds: dict | None = None,
 ) -> pd.DataFrame:
     """
     Detect unusual bursts in signal frequency.
     Uses rolling mean + standard deviation to identify anomalies.
     
     This is a simplified version of Kleinberg's burst detection.
+
+    If *adaptive_thresholds* (from volatility.py Shift 6) is provided,
+    per-ZIP adaptive z-score thresholds replace the static threshold_std.
     """
     df = df.copy()
     df[time_col] = pd.to_datetime(df[time_col])
@@ -411,6 +415,31 @@ def run_nlp_analysis():
     df["keywords"] = df["keywords"].apply(lambda x: ",".join(x))
     df["categories"] = df["categories"].apply(lambda x: ",".join(x))
     df.to_csv(PROCESSED_DIR / "records_with_nlp.csv", index=False)
+
+    # --- DuckDB dual-write: persist NLP results (Shift 14) ---
+    try:
+        from duckdb_store import init_db
+        conn = init_db()
+        nlp_rows = []
+        for idx, row in df.iterrows():
+            nlp_rows.append({
+                "signal_id": idx + 1,
+                "keywords": str(row.get("keywords", "")),
+                "topics": str(row.get("categories", "")),
+            })
+        nlp_df = pd.DataFrame(nlp_rows)
+        nlp_df["processed_at"] = pd.Timestamp.now(tz="UTC")
+        conn.register("_tmp_nlp", nlp_df)
+        conn.execute("""
+            INSERT INTO nlp_results (signal_id, keywords, topics, processed_at)
+            SELECT signal_id, keywords, topics, processed_at
+            FROM _tmp_nlp
+        """)
+        conn.unregister("_tmp_nlp")
+        conn.close()
+        print(f"DuckDB: stored {len(nlp_df)} NLP results")
+    except Exception as exc:
+        print(f"DuckDB NLP dual-write skipped: {exc}")
     
     print(f"\nNLP Analysis Complete:")
     print(f"  Burst score: {burst_score:.2%}")

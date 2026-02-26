@@ -1,0 +1,67 @@
+==========================================
+   HEAT DASHBOARD - HOW TO VIEW
+==========================================
+
+IMPORTANT: Do NOT open index.html directly in your browser!
+The dashboard needs to run through a web server to load data properly.
+
+==========================================
+  OPTION 1: Double-click the batch file
+==========================================
+
+1. Double-click "start-server.bat" in this folder
+2. A command window will open showing the server is running
+3. Open your browser and go to: http://localhost:8080
+4. The dashboard should now load with all data visible
+5. To stop the server, close the command window or press Ctrl+C
+
+==========================================
+  OPTION 2: Run manually in PowerShell
+==========================================
+
+1. Open PowerShell
+2. Run these commands:
+   cd "C:\Users\villa\.cursor\worktrees\heat\yuf\build"
+   python -m http.server 8080
+
+3. Open your browser and go to: http://localhost:8080
+4. To stop: Press Ctrl+C in PowerShell
+
+==========================================
+  TROUBLESHOOTING
+==========================================
+
+Problem: "Loading..." never completes
+
+Solution: 
+- Make sure you're accessing http://localhost:8080 (NOT file:///)
+- Check that Python is installed (python --version)
+- Check that port 8080 is not blocked by firewall
+- Open browser console (F12) and check for errors
+
+Problem: Port 8080 already in use
+
+Solution:
+- Use a different port: python -m http.server 8081
+- Then access: http://localhost:8081
+
+Problem: No data showing
+
+Solution:
+- Check that all JSON files exist in the "data" folder
+- Check browser console (F12) for error messages
+- Verify internet connection for map tiles
+
+==========================================
+  DATA FILES LOCATION
+==========================================
+
+All data files are in: build/data/
+- clusters.json
+- timeline.json
+- keywords.json
+- alerts.json
+- latest_news.json
+- reported_locations.json
+
+==========================================

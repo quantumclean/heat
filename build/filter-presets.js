@@ -171,7 +171,7 @@ class FilterPresets {
                 id: 'trending-up',
                 name: 'Trending Up',
                 icon: '📈',
-                description: 'Areas with increasing activity',
+                description: 'Areas with increasing reports',
                 filters: [
                     {
                         field: 'trend',
@@ -185,7 +185,7 @@ class FilterPresets {
                 id: 'burst-detected',
                 name: 'Burst Detected',
                 icon: '⚡',
-                description: 'Sudden spikes in activity',
+                description: 'Sudden spikes in reports',
                 filters: [
                     {
                         field: 'burst',
@@ -459,10 +459,11 @@ class FilterPresets {
     }
 }
 
-// Create global instance
+// Expose class and create global instance
 if (typeof window !== 'undefined') {
-    window.FilterPresets = new FilterPresets();
-    window.FilterPresets.loadCustomPresets();
+    window.FilterPresets = FilterPresets;
+    window.filterPresets = new FilterPresets();
+    window.filterPresets.loadCustomPresets();
 }
 
 // Export for use in other modules

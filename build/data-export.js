@@ -72,9 +72,9 @@ async function loadData() {
 }
 
 function getBaseUrl() {
-    return window.location.hostname.includes('cloudfront')
-        ? 'https://heat-plainfield.s3.us-east-1.amazonaws.com/'
-        : './';
+    // Always use relative paths — works on GitHub Pages, localhost,
+    // CloudFront, or any static host without hardcoded URLs.
+    return './';
 }
 
 // Render Summary

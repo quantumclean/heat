@@ -18,6 +18,13 @@ from config import (
     PROCESSED_DIR, BUILD_DIR, EXPORTS_DIR, TARGET_ZIPS
 )
 
+# Adaptive volatility — replaces static 2σ / 1.5σ thresholds (Shift 6)
+try:
+    from volatility import get_adaptive_thresholds
+    VOLATILITY_AVAILABLE = True
+except ImportError:
+    VOLATILITY_AVAILABLE = False
+
 # Get default ZIP (first in list or fallback)
 DEFAULT_ZIP = TARGET_ZIPS[0] if TARGET_ZIPS else "00000"
 PRIMARY_ZIP = TARGET_ZIPS[0] if TARGET_ZIPS else "00000"
@@ -314,6 +321,18 @@ def run_alert_engine():
     print("They Are Here Alert Engine")
     print("=" * 60)
     
+    # Load adaptive volatility thresholds if available (Shift 6)
+    adaptive_thresholds: dict = {}
+    if VOLATILITY_AVAILABLE:
+        try:
+            records_path = PROCESSED_DIR / "all_records.csv"
+            if records_path.exists():
+                _signals = pd.read_csv(records_path)
+                adaptive_thresholds = get_adaptive_thresholds(_signals)
+                print(f"Loaded adaptive thresholds for {len(adaptive_thresholds)} ZIPs")
+        except Exception as e:
+            print(f"Adaptive volatility unavailable, using static thresholds: {e}")
+
     # Load timeline data
     timeline_path = BUILD_DIR / "data" / "timeline.json"
     
@@ -324,7 +343,7 @@ def run_alert_engine():
     with open(timeline_path) as f:
         timeline_data = json.load(f)
     
-    # Generate alerts
+    # Generate alerts (uses adaptive thresholds when available)
     alerts = generate_alerts(timeline_data)
     
     print(f"\nGenerated {len(alerts)} alert(s):")

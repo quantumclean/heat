@@ -62,6 +62,17 @@ def fetch_feed(feed_config: dict, retries: int = SCRAPER_MAX_RETRIES) -> tuple[l
                     last_error = msg
                     break  # Try next URL immediately
 
+                if response.status_code == 429:
+                    retry_after = int(response.headers.get("Retry-After", 30))
+                    msg = f"HTTP 429 rate-limited, retry after {retry_after}s"
+                    print(f"    ✗ {msg} for {url}")
+                    logger.warning(f"{source}: {msg} — {url}")
+                    last_error = msg
+                    if attempt < retries - 1:
+                        time.sleep(min(retry_after, 60))
+                        continue
+                    break
+
                 response.raise_for_status()
                 
                 # Parse XML
@@ -114,23 +125,39 @@ def fetch_feed(feed_config: dict, retries: int = SCRAPER_MAX_RETRIES) -> tuple[l
 
 
 def parse_rss_item(item, source: str, category: str) -> dict:
-    """Parse standard RSS 2.0 item."""
+    """Parse standard RSS 2.0 item (also handles Mastodon RSS quirks)."""
     try:
-        title = item.findtext("title", "")
-        description = item.findtext("description", "")
-        link = item.findtext("link", "")
+        title = (item.findtext("title") or "").strip()
+        description = (item.findtext("description") or "").strip()
+        link = (item.findtext("link") or "").strip()
         pub_date = item.findtext("pubDate", "")
-        
+
+        # Mastodon & some feeds put body in content:encoded
+        content_encoded = item.findtext(
+            "{http://purl.org/rss/1.0/modules/content/}encoded", ""
+        ).strip()
+        body = content_encoded or description
+
         # Parse date
         date = parse_date(pub_date)
-        
-        # Combine title and description for text
-        text = f"{title}. {description}" if description else title
+
+        # Combine title and body for text
+        if title and body:
+            text = f"{title}. {body}"
+        else:
+            text = title or body
         text = clean_html(text)
-        
+
+        # If title was empty (common for Mastodon), synthesize from text
+        if not title and text:
+            title = text[:80].rsplit(" ", 1)[0] + ("…" if len(text) > 80 else "")
+
+        if not text:
+            return None  # Skip empty items entirely
+
         # Generate unique ID
         content_hash = hashlib.md5(f"{title}{link}".encode()).hexdigest()[:12]
-        
+
         return {
             "id": content_hash,
             "text": text[:500],  # Limit length
@@ -147,22 +174,49 @@ def parse_rss_item(item, source: str, category: str) -> dict:
 
 
 def parse_atom_entry(entry, source: str, category: str) -> dict:
-    """Parse Atom format entry."""
+    """Parse Atom format entry (handles Mastodon, standard Atom, etc.)."""
     ns = {"atom": "http://www.w3.org/2005/Atom"}
-    
+
     try:
-        title = entry.findtext("atom:title", "", ns)
-        summary = entry.findtext("atom:summary", "", ns)
-        link_elem = entry.find("atom:link", ns)
-        link = link_elem.get("href", "") if link_elem is not None else ""
+        title = (entry.findtext("atom:title", "", ns) or "").strip()
+        summary = (entry.findtext("atom:summary", "", ns) or "").strip()
+        content = (entry.findtext("atom:content", "", ns) or "").strip()
+
+        # Prefer <content> over <summary> (Mastodon puts full post in content)
+        body = content or summary
+
+        # Atom links: prefer rel="alternate", fall back to first <link>
+        link = ""
+        for link_elem in entry.findall("atom:link", ns):
+            rel = link_elem.get("rel", "alternate")
+            if rel == "alternate":
+                link = link_elem.get("href", "")
+                break
+        if not link:
+            first_link = entry.find("atom:link", ns)
+            link = first_link.get("href", "") if first_link is not None else ""
+
+        # Date: try <published> first, then <updated>
+        pub = entry.findtext("atom:published", "", ns)
         updated = entry.findtext("atom:updated", "", ns)
-        
-        date = parse_date(updated)
-        text = f"{title}. {summary}" if summary else title
+        date = parse_date(pub or updated)
+
+        # Build text
+        if title and body:
+            text = f"{title}. {body}"
+        else:
+            text = title or body
         text = clean_html(text)
-        
+
+        # Synthesize title from text when empty (common for Mastodon)
+        if not title and text:
+            title = text[:80].rsplit(" ", 1)[0] + ("…" if len(text) > 80 else "")
+
+        if not text:
+            return None  # Skip empty entries
+
         content_hash = hashlib.md5(f"{title}{link}".encode()).hexdigest()[:12]
-        
+
         return {
             "id": content_hash,
             "text": text[:500],
@@ -204,7 +258,12 @@ def parse_date(date_str: str) -> str:
 
 
 def clean_html(text: str) -> str:
-    """Remove HTML tags and clean up text."""
+    """Remove HTML tags and clean up text (handles Mastodon markup)."""
+    if not text:
+        return ""
+    # Remove Mastodon invisible spans (used for content folding)
+    text = re.sub(r'<span class="invisible">.*?</span>', '', text, flags=re.DOTALL)
+    text = re.sub(r'<span class="ellipsis">.*?</span>', '…', text, flags=re.DOTALL)
     # Remove HTML tags
     text = re.sub(r'<[^>]+>', '', text)
     # Decode HTML entities
@@ -214,6 +273,7 @@ def clean_html(text: str) -> str:
     text = text.replace("&quot;", '"')
     text = text.replace("&#39;", "'")
     text = text.replace("&nbsp;", " ")
+    # Strip Mastodon hashtag fragments (e.g. #<span>Immigration</span> → #Immigration already handled)
     # Clean whitespace
     text = re.sub(r'\s+', ' ', text).strip()
     return text

@@ -1,0 +1,225 @@
+{
+  "tier": 0,
+  "name": "Public",
+  "generated_at": "2026-02-25T23:52:10.739807",
+  "delay_hours": 72,
+  "framing": "This map reflects aggregated civic attention over time.",
+  "zip_summary": {},
+  "concept_cards": [],
+  "historical_timeline": [
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "elevated"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "elevated"
+    },
+    {
+      "period": "",
+      "relative_attention": "elevated"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "elevated"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "elevated"
+    },
+    {
+      "period": "",
+      "relative_attention": "elevated"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "elevated"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "elevated"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "elevated"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "moderate"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "low"
+    },
+    {
+      "period": "",
+      "relative_attention": "elevated"
+    },
+    {
+      "period": "",
+      "relative_attention": "high"
+    },
+    {
+      "period": "",
+      "relative_attention": "elevated"
+    },
+    {
+      "period": "",
+      "relative_attention": "high"
+    },
+    {
+      "period": "",
+      "relative_attention": "high"
+    }
+  ],
+  "_schema_version": "1.0.0",
+  "_provenance": {
+    "generated_at": "2026-02-26T04:52:10.866118Z",
+    "generator": "tiers.py",
+    "tier": 0,
+    "ruleset_version": "ruleset-2026-02-25",
+    "inputs_hash": "sha256:empty",
+    "signals_n": 475
+  },
+  "attention_results": []
+}

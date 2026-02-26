@@ -1,20 +1,38 @@
 """
-AWS SNS SMS Notifier for They Are Here
-Sends buffered alerts to opt-in subscribers via AWS SNS (free tier).
+Multi-backend Notifier for They Are Here
+Sends buffered alerts to opt-in subscribers via email (free) or AWS SNS SMS.
 
-Setup:
-1. Install: pip install boto3
-2. Set environment variables:
-   - AWS_ACCESS_KEY_ID
-   - AWS_SECRET_ACCESS_KEY
-   - AWS_REGION (default: us-east-1)
-   - SNS_TOPIC_ARN or direct phone numbers in config
-3. Enable: export ENABLE_SMS_ALERTS=true
+Alert dispatch priority:
+  1. Email via SMTP (free — stdlib smtplib, zero dependencies)
+  2. AWS SNS SMS   (requires boto3 + AWS credentials + paid beyond 100/mo)
+  3. Log-only      (fallback when neither is configured)
 
-Rate limiting: Max 1 SMS per ZIP per hour to avoid spam.
+Email setup (recommended — completely free):
+  Set these environment variables:
+    SMTP_HOST       — SMTP server (e.g. smtp.gmail.com, smtp-mail.outlook.com)
+    SMTP_PORT       — Port (587 for STARTTLS, 465 for SSL)
+    SMTP_USER       — Login email address
+    SMTP_PASS       — App password (NOT your regular password)
+    ALERT_EMAIL_TO  — Comma-separated recipient addresses
+
+  Free SMTP providers:
+    • Gmail:   smtp.gmail.com:587  — enable 2FA, create App Password
+    • Outlook: smtp-mail.outlook.com:587 — use regular credentials
+    • Yahoo:   smtp.mail.yahoo.com:465  — enable App Password in security
+    • Mailgun: smtp.mailgun.org:587     — free tier: 5,000 emails/month
+
+SMS setup (optional — AWS costs apply):
+  pip install boto3
+  Set AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION, SNS_PHONE_NUMBERS
+
+Rate limiting: Max 1 alert per ZIP per hour to avoid spam.
 """
 import os
 import json
+import smtplib
+import ssl
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from datetime import datetime, timedelta
 from pathlib import Path
 from textwrap import shorten
@@ -24,8 +42,14 @@ try:
     SNS_AVAILABLE = True
 except ImportError:
     SNS_AVAILABLE = False
-    print("WARNING: boto3 not installed. SMS notifications disabled.")
-    print("Install with: pip install boto3")
+
+# Email configuration from environment
+SMTP_HOST = os.getenv("SMTP_HOST", "")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+SMTP_USER = os.getenv("SMTP_USER", "")
+SMTP_PASS = os.getenv("SMTP_PASS", "")
+ALERT_EMAIL_TO = [e.strip() for e in os.getenv("ALERT_EMAIL_TO", "").split(",") if e.strip()]
+EMAIL_AVAILABLE = bool(SMTP_HOST and SMTP_USER and SMTP_PASS and ALERT_EMAIL_TO)
 
 TRACKING_DIR = Path(__file__).parent.parent / "data" / "tracking"
 TRACKING_DIR.mkdir(parents=True, exist_ok=True)
@@ -90,6 +114,127 @@ def format_sms_message(alert: dict) -> str:
         msg = msg[:157] + "…"
     
     return msg
+
+
+# -----------------------------------------------------------------------
+# Email alerts (FREE — uses stdlib smtplib, zero external dependencies)
+# -----------------------------------------------------------------------
+
+def format_email_body(alerts: list) -> str:
+    """Format multiple alerts into an HTML email body."""
+    rows = []
+    for alert in alerts:
+        zip_code = alert.get("zip", "?")
+        priority = alert.get("priority", "normal").upper()
+        body = alert.get("body", "")
+        sources = alert.get("sources", [])
+        source_count = len(sources) if isinstance(sources, list) else 1
+        color = "#d32f2f" if priority == "HIGH" else "#f57c00"
+        rows.append(
+            f'<tr><td style="padding:8px;border:1px solid #ddd;">{zip_code}</td>'
+            f'<td style="padding:8px;border:1px solid #ddd;color:{color};font-weight:600;">{priority}</td>'
+            f'<td style="padding:8px;border:1px solid #ddd;">{body}</td>'
+            f'<td style="padding:8px;border:1px solid #ddd;">{source_count}</td></tr>'
+        )
+
+    return f"""
+    <html><body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+    <h2 style="color:#333;">HEAT — Civic Attention Alert</h2>
+    <p style="color:#666;">The following buffered, delayed alerts met community salience thresholds.</p>
+    <table style="border-collapse:collapse;width:100%;max-width:600px;">
+      <tr style="background:#f5f5f5;">
+        <th style="padding:8px;border:1px solid #ddd;text-align:left;">ZIP</th>
+        <th style="padding:8px;border:1px solid #ddd;text-align:left;">Priority</th>
+        <th style="padding:8px;border:1px solid #ddd;text-align:left;">Summary</th>
+        <th style="padding:8px;border:1px solid #ddd;text-align:left;">Sources</th>
+      </tr>
+      {''.join(rows)}
+    </table>
+    <p style="color:#999;font-size:12px;margin-top:16px;">
+      This is a delayed aggregate signal — not real-time information.<br>
+      Powered by HEAT (They Are Here) civic attention mapping.
+    </p>
+    </body></html>
+    """
+
+
+def send_email_alerts(alerts: list):
+    """
+    Send alert digest via SMTP email. Uses Python stdlib only (free).
+
+    Requires env vars: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, ALERT_EMAIL_TO
+    """
+    if not EMAIL_AVAILABLE:
+        print("Email not configured. Set SMTP_HOST, SMTP_USER, SMTP_PASS, ALERT_EMAIL_TO.")
+        return
+
+    # Filter to only rate-limit-eligible alerts
+    sendable = [a for a in alerts if should_send_alert(a.get("zip", ""))]
+    if not sendable:
+        print("All alerts rate-limited. No email sent.")
+        return
+
+    subject = f"HEAT Alert — {len(sendable)} civic attention signal(s)"
+    html_body = format_email_body(sendable)
+
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = subject
+    msg["From"] = SMTP_USER
+    msg["To"] = ", ".join(ALERT_EMAIL_TO)
+    msg.attach(MIMEText(html_body, "html"))
+
+    try:
+        if SMTP_PORT == 465:
+            # SSL connection
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=context) as server:
+                server.login(SMTP_USER, SMTP_PASS)
+                server.sendmail(SMTP_USER, ALERT_EMAIL_TO, msg.as_string())
+        else:
+            # STARTTLS connection (port 587)
+            with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=30) as server:
+                server.ehlo()
+                server.starttls(context=ssl.create_default_context())
+                server.ehlo()
+                server.login(SMTP_USER, SMTP_PASS)
+                server.sendmail(SMTP_USER, ALERT_EMAIL_TO, msg.as_string())
+
+        # Mark all as sent
+        for alert in sendable:
+            mark_alert_sent(alert.get("zip", ""))
+
+        print(f"  ✓ Email sent to {len(ALERT_EMAIL_TO)} recipient(s) with {len(sendable)} alert(s)")
+    except Exception as e:
+        print(f"  ✗ Email send failed: {e}")
+
+
+# -----------------------------------------------------------------------
+# Dispatcher — picks the best available backend automatically
+# -----------------------------------------------------------------------
+
+def send_alerts(alerts: list):
+    """
+    Send alerts through the best available channel:
+      1. Email (free, preferred)
+      2. SMS via AWS SNS (paid, legacy)
+      3. Log-only (no credentials configured)
+    """
+    if not alerts:
+        print("No alerts to send.")
+        return
+
+    if EMAIL_AVAILABLE:
+        print(f"Sending {len(alerts)} alert(s) via email...")
+        send_email_alerts(alerts)
+    elif SNS_AVAILABLE and os.getenv("AWS_ACCESS_KEY_ID"):
+        print(f"Sending {len(alerts)} alert(s) via AWS SNS SMS...")
+        send_sms_alerts(alerts)
+    else:
+        print(f"LOG-ONLY: {len(alerts)} alert(s) generated but no notification backend configured.")
+        print("  Configure email: set SMTP_HOST, SMTP_USER, SMTP_PASS, ALERT_EMAIL_TO")
+        print("  Configure SMS:   pip install boto3; set AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, SNS_PHONE_NUMBERS")
+        for alert in alerts:
+            print(f"  - ZIP {alert.get('zip', '?')}: {alert.get('body', '')[:80]}")
 
 
 def send_sms_alerts(alerts: list):

@@ -1,10 +1,12 @@
 """
 Tiered Access System for HEAT
 Generates separate data exports for each audience tier.
+All tier outputs wrapped in AttentionResult + Provenance (Shift 18).
 """
 import json
 import re
 import pandas as pd
+import numpy as np
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -13,6 +15,20 @@ from config import (
     PROCESSED_DIR, BUILD_DIR, EXPORTS_DIR,
     FORBIDDEN_ALERT_WORDS
 )
+
+# Import canonical schema (Shift 18)
+try:
+    from result_schema import (
+        SCHEMA_VERSION as RESULT_SCHEMA_VERSION,
+        AttentionResult, TimeWindow, TrendInfo, SourceBreakdown,
+        Provenance, Explanation,
+        classify_attention_state, build_default_explanation,
+        compute_inputs_hash, generate_ruleset_version,
+    )
+    SCHEMA_AVAILABLE = True
+except ImportError:
+    SCHEMA_AVAILABLE = False
+    RESULT_SCHEMA_VERSION = "0.0.0"
 
 
 def filter_by_delay(records: pd.DataFrame, delay_hours: int) -> pd.DataFrame:
@@ -281,6 +297,83 @@ def categorize_attention(count: int) -> str:
         return "low"
 
 
+def _build_tier_provenance(tier: int, clusters_df: pd.DataFrame, all_records: pd.DataFrame = None) -> dict:
+    """Build _provenance block for a tier export."""
+    # Compute inputs_hash from the data feeding this tier
+    input_data = []
+    if not clusters_df.empty:
+        for _, row in clusters_df.head(200).iterrows():
+            input_data.append({
+                "text": str(row.get("representative_text", ""))[:100],
+                "source": str(row.get("sources", "")),
+                "date": str(row.get("latest_date", "")),
+            })
+    if SCHEMA_AVAILABLE:
+        inputs_hash = compute_inputs_hash(input_data) if input_data else "sha256:empty"
+        ruleset = generate_ruleset_version()
+    else:
+        inputs_hash = "unavailable"
+        ruleset = "unknown"
+    return {
+        "generated_at": datetime.utcnow().isoformat() + "Z",
+        "generator": "tiers.py",
+        "tier": tier,
+        "ruleset_version": ruleset,
+        "inputs_hash": inputs_hash,
+        "signals_n": len(all_records) if all_records is not None and not all_records.empty else 0,
+    }
+
+
+def _build_tier_attention_results(clusters_df: pd.DataFrame, delay_hours: int) -> list:
+    """Construct AttentionResult dicts per ZIP for a tier (canonical schema)."""
+    if not SCHEMA_AVAILABLE or clusters_df.empty:
+        return []
+
+    delayed = filter_by_delay(clusters_df, delay_hours)
+    if delayed.empty:
+        return []
+
+    zip_groups: dict[str, list] = {}
+    for _, row in delayed.iterrows():
+        z = str(row.get("primary_zip", "07060")).zfill(5)
+        zip_groups.setdefault(z, []).append(row)
+
+    results = []
+    for zip_code, rows in zip_groups.items():
+        total = sum(int(r.get("size", 1)) for r in rows)
+        avg_strength = np.mean([float(r.get("volume_score", 0)) for r in rows])
+        raw_score = min(avg_strength / 10.0, 1.0)
+        confidence = min(total / 20.0, 1.0)
+
+        sources_bd = SourceBreakdown(news=len(rows), community=0, advocacy=0, official=0, other=0)
+        trend = TrendInfo.from_slope(0.0)
+
+        dates = [str(r.get("latest_date", "")) for r in rows if r.get("latest_date")]
+        window_end = max(dates) if dates else datetime.utcnow().isoformat()
+        earliest = [str(r.get("earliest_date", "")) for r in rows if r.get("earliest_date")]
+        window_start = min(earliest) if earliest else window_end
+
+        state = classify_attention_state(raw_score, confidence)
+        explanation = build_default_explanation(state, total, sources_bd, trend)
+
+        input_sigs = [{"text": str(r.get("representative_text", ""))[:100], "source": str(r.get("sources", "")), "date": str(r.get("latest_date", ""))} for r in rows]
+        ih = compute_inputs_hash(input_sigs)
+
+        prov = Provenance(
+            model_version=generate_ruleset_version(),
+            inputs_hash=ih,
+            signals_n=total,
+            sources=sources_bd,
+        )
+        ar = AttentionResult(
+            zip=zip_code, window=TimeWindow(start=window_start, end=window_end),
+            state=state, score=round(raw_score, 3), confidence=round(confidence, 3),
+            trend=trend, provenance=prov, explanation=explanation,
+        )
+        results.append(ar.to_dict())
+    return results
+
+
 def export_all_tiers():
     """Generate and export data for all tiers."""
     import re  # Import here to avoid circular import
@@ -320,7 +413,17 @@ def export_all_tiers():
         "total_clusters": len(clusters_df),
         "total_records": len(all_records),
     })
-    
+
+    # Wrap each tier with canonical schema fields (Shift 18)
+    for tier_data, tier_num, delay in [
+        (tier0, 0, PUBLIC_DELAY_HOURS),
+        (tier1, 1, CONTRIBUTOR_DELAY_HOURS),
+        (tier2, 2, 0),
+    ]:
+        tier_data["_schema_version"] = RESULT_SCHEMA_VERSION
+        tier_data["_provenance"] = _build_tier_provenance(tier_num, clusters_df, all_records)
+        tier_data["attention_results"] = _build_tier_attention_results(clusters_df, delay)
+
     # Save tier exports
     EXPORTS_DIR.mkdir(parents=True, exist_ok=True)
     

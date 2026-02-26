@@ -67,7 +67,7 @@ def fetch_with_delay(url: str, headers: dict = None) -> requests.Response | None
 
 
 def parse_rss_feed(xml_content: str) -> list[dict]:
-    """Parse RSS feed XML into records."""
+    """Parse RSS feed XML into records (handles RSS 2.0, Atom, Mastodon)."""
     records = []
     
     try:
@@ -83,20 +83,53 @@ def parse_rss_feed(xml_content: str) -> list[dict]:
             pub_date = item.find("pubDate")
             link = item.find("link")
             
+            # content:encoded fallback (Mastodon RSS, WordPress, etc.)
+            content_encoded = item.find(
+                "{http://purl.org/rss/1.0/modules/content/}encoded"
+            )
+            
             # Atom format fallback
             if title is None:
                 title = item.find("{http://www.w3.org/2005/Atom}title")
             if pub_date is None:
                 pub_date = item.find("{http://www.w3.org/2005/Atom}published")
+            if pub_date is None:
+                pub_date = item.find("{http://www.w3.org/2005/Atom}updated")
+            # Atom: prefer <content> over <summary>
+            if description is None:
+                description = (
+                    item.find("{http://www.w3.org/2005/Atom}content")
+                    or item.find("{http://www.w3.org/2005/Atom}summary")
+                )
+            # Atom link: check for rel="alternate"
+            if link is None:
+                for link_el in item.findall("{http://www.w3.org/2005/Atom}link"):
+                    if link_el.get("rel", "alternate") == "alternate":
+                        link = type("obj", (), {"text": link_el.get("href", "")})()
+                        break
             
-            title_text = title.text if title is not None else ""
-            desc_text = description.text if description is not None else ""
+            title_text = (title.text if title is not None and title.text else "").strip()
+            # Use content:encoded if description is empty
+            desc_text = ""
+            if content_encoded is not None and content_encoded.text:
+                desc_text = content_encoded.text
+            elif description is not None and description.text:
+                desc_text = description.text
             
             # Clean HTML from description
             desc_text = re.sub(r'<[^>]+>', '', desc_text) if desc_text else ""
+            desc_text = desc_text.strip()
             
             # Combine title and description
-            full_text = f"{title_text}. {desc_text}".strip()
+            if title_text and desc_text:
+                full_text = f"{title_text}. {desc_text}"
+            else:
+                full_text = title_text or desc_text
+            full_text = full_text.strip()
+            
+            # Synthesize title from text when empty (Mastodon posts)
+            if not title_text and full_text:
+                title_text = full_text[:80].rsplit(" ", 1)[0] + ("…" if len(full_text) > 80 else "")
             
             if full_text:
                 records.append({
@@ -264,8 +297,15 @@ def run_scraper(days_back: int = 30, save: bool = True) -> pd.DataFrame:
         # Add default ZIP (would need geocoding for accuracy)
         df["zip"] = "07060"  # Default to central Plainfield
         
-        # Ensure required columns
-        df = df[["text", "zip", "date", "source"]].copy()
+        # Rename 'link' → 'url' for pipeline consistency
+        if "link" in df.columns:
+            df["url"] = df["link"]
+        
+        # Ensure required columns (preserve url if available)
+        keep_cols = ["text", "zip", "date", "source"]
+        if "url" in df.columns:
+            keep_cols.append("url")
+        df = df[[c for c in keep_cols if c in df.columns]].copy()
     
     # 6. Save
     if save and len(df) > 0:

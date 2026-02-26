@@ -2,19 +2,19 @@
 
 A delayed, aggregated map of when ICE-related issues become a topic of collective attention in Plainfield, NJ — grounded in public records and opt-in community signals.
 
-**Not** a real-time alert system. **Not** a sighting tracker. A **memory map** of civic attention over time.
+**Not** a real-time alert system. **Not** a report tracker. A **memory map** of civic attention over time.
 
 ---
 
 ## 🚀 Quick Start
+
+### 1. Install Dependencies
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
 # or
 .venv\Scripts\activate  # Windows
-### 1. Install Dependencies
-
-
 
 pip install -r processing/requirements.txt
 ```
@@ -45,8 +45,10 @@ Then open: http://localhost:8000
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed hosting instructions.
 
-**Current Status:** v4.1 with 26 active data sources (RSS, NJ AG, Facebook)
+**Current Status:** v4.2 with enhanced social media integration and community safety features
 - ⚠️ Development mode active - See [STATUS.md](STATUS.md)
+- ✨ New in v4.2: Advanced analytics system, poster reports, Time to Midnight clocks, Community Safety Hub
+- 🚀 **NEW:** Strategic vision & roadmap for phases 4.3-5.0 - See [VISION_COMPLETE.md](VISION_COMPLETE.md)
 
 ---
 
@@ -125,6 +127,15 @@ heat/
 │   ├── ALGORITHMS.md          # Algorithm documentation
 │   └── MOBILE.md              # Mobile & text features guide
 │
+├── VISION_COMPLETE.md         # 🚀 Strategic enhancement plan overview
+├── ROADMAP_v4.3-5.0.md        # Comprehensive 39-week roadmap
+├── VISION_SUMMARY.md          # Executive 2-page brief
+├── SPRINT_PLAN_FEB2026.md     # Immediate 4-week sprint
+├── SPRINT_CHECKLIST.md        # Day-by-day implementation tasks
+├── DOCUMENTATION_INDEX.md     # Guide to all documentation
+├── ANALYTICS_INTEGRATION_COMPLETE.md  # v4.2 analytics system report
+└── ANALYTICS_COMPLETE_SUMMARY.md      # Analytics quick reference
+│
 └── README.md
 ```
 
@@ -149,43 +160,56 @@ Toggle button in map header switches to:
 - Enhanced cluster visualization
 - Pulse animations for high-attention areas
 
-### Text Submission
-**Web Form**: `submit.html` — Mobile-optimized signal submission
-- ZIP selection dropdown
-- Category picker (discussion/concern/rumor/confirmed)
-- 10-500 character validation
-- PII detection (blocks names, addresses, phones)
+### Printable Poster Report
+**NEW in v4.2**: Generate professional printable civic signal reports
+- Click "🖨️ Printable Report" in download section
+- Auto-generates formatted A4/Letter page with:
+  - Current statistics and trends
+  - Top 5 report groups with summaries
+  - ZIP code breakdown
+  - Source trust panel
+  - Verification guidance
+- Opens in new window with print dialog
+- Clean typography optimized for physical distribution
 
-**SMS Handler** (Phase 2): Ready to deploy with Twilio
-```python
-# processing/sms_handler.py
-handle_sms_webhook(phone_number, message_body)
-# → Auto-parses ZIP, validates, returns TwiML
-```
+### Time to Midnight Clocks
+**NEW in v4.2**: Visual civic attention intensity indicators
+- Three regional clocks (North, Central, South Jersey)
+- Clock hand position represents composite score:
+  - 6:00 = calm baseline
+  - 12:00 = maximum civic attention
+- Score combines:
+  - Recent signal volume (last 7 days)
+  - Trend direction and magnitude
+  - Burst detection
+  - Active alert levels
+- Color-coded: Green (calm) → Amber → Red (high activity)
+- **NOT a threat level** — shows collective civic awareness patterns
 
-### Text Exports
-Generate all formats: `python processing/export_text.py`
+### Community Safety Hub
+**NEW in v4.2**: Actionable rapid-response resource center
+- **Verified Resource Panel**: Click-to-call hotlines (ACLU NJ, United We Dream, Make the Road NJ)
+- **Printable Safety Checklist**: Interactive checkboxes with Know Your Rights guidance
+- **Shareable Neighbor Advisory**: Auto-populated with live cluster data
+  - Copy to clipboard with one click
+  - Share via text/WhatsApp/community groups
+  - Includes current status, trends, and action guidance
+- **Traditional Know Your Rights**: Full legal guidance (expandable section)
 
-1. **report.txt** — Plain text summary (email/SMS friendly)
-2. **heat_data_YYYYMMDD.csv** — Full dataset
-3. **heat_api.json** — Mobile app API format
-4. **sms_digest.txt** — 160-char summary
-
-**Example SMS Digest:**
-```
-HEAT: 3 clusters, increasing (+18%), top: community
-```
-
-### Event Tracking
-Built-in analytics (no external services):
-- Map interactions (zoom, pan, clicks)
-- Cluster card views
-- Submit button usage
-
-Export via console:
-```javascript
-exportHeatEvents()  // Returns text log
-```
+### Social Media Integration
+**NEW in v4.2**: Enhanced community signal collection
+- **Reddit**: Free API integration ($0 cost)
+  - Subreddits: r/newjersey, r/nj_politics, r/hoboken, r/immigration
+  - Gracefully skips if no credentials provided
+  - Set `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` to enable
+- **X/Twitter**: Paid API support (Basic tier $100/mo)
+  - Updated to API v2
+  - Gracefully skips if no credits
+  - Includes cost disclaimer in UI
+- **Facebook**: CSV-import mode (manual export)
+  - Removed broken HTML scraping
+  - Users export via browser extension, pipeline imports CSV
+  - Graph API v19.0 for users with tokens
 
 📖 **Full Mobile Guide**: See [docs/MOBILE.md](docs/MOBILE.md)
 

@@ -1,3089 +1,14 @@
 {
-  "generated_at": "2026-02-08T06:27:14.029847",
-  "clusters": [
-    {
-      "id": 10,
-      "size": 7,
-      "strength": 1.86,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-29T00:00:00",
-        "end": "2026-02-04T00:00:00"
-      },
-      "summary": "Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown - Patch. Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown Patch",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMisAFBVV95cUxNRkR1QklkeDRyWTVQUlY0OXBjcWFDMGxFb0RLVjlwakIzVDRCQm1IM2l4dEhnVVlkRFJnZmV6ZjFjeG44aGhtODJyMFlJUHJoWXlGeGJtNEhuX1F3aTJlLUxoSlZHS3RlYWRtVW9SZ0dxRmFBdFNaVkNMVGhDVS1TcUFfUENfb1ZjQVJOaEp1aXg3V2tnS3hEWDlLNWJNXzB5VVh3ckdNUUQtc0NGQ1pXY9IBxgFBVV95cUxNQnRKT3ZBVklaRjNlU1hyUlRFdE4zUEFoMlZwX1EtNllKTE93LURUdVVQLWhfekRmRXRpNzhrVlB0d0xPT3NnOThQN1hibEd6QW5iRTdkUTBuUDNQMTRtRjlvd2l0YU1rbGNMaG5FRjFoSW5wTUhPOWlHbVlUelAzQWpDMVBvMlhDRDl3N3VDTXgzd19uM2pPLTlMeGhtN2ZaMXN3Tml0SVBkbWRycnlCNVZBWVpUank5blJnb0g4TEFyZGVrUVE?oc=5",
-        "https://news.google.com/rss/articles/CBMilAFBVV95cUxPZl9tbFByZm1fRVNoYl9Kd3dZd1ZEcTF0M1BMdUpJb1BHNER6Z19nTXB3V3RET1dZV2hIc0cxT29OZmdGNlZkR0stV2dwMkVMU0pmcDR4bk9STXJmNEpWbkJmSEJZWl95TThTZTNCbWxuaHZjOTdBbEFDRDR5N0VEdExpdWU5UWlWUVN1eXlDQ2ZOTm9G?oc=5",
-        "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPYnJFSlNoMHBpUXdDMmJCandXZXg2dFZvM2xvRnhLbGpCanZwdUdoTXNxd2FVZDV5WFNxQ3dMOHFJSllxbndXRDFYVUJqOXVvVjh6TU5kanVfaDljeGo3S0ZNLUJWTXZBelZIT1puTGNCdGxzbjBxaW5fUDgzWXF5Y0x2REFDZmJQemxNWm1fT0kzX3hNV3lxckJ2VGlQU25vWEtmRU1ia0FYT2_SAcQBQVVfeXFMTmxqc3VUdUxYcmpheGRWRWpyQkptNWVHNFZZVGxybDQteXdxUWIybWtJV1RMU1ZxRG42dUVqVVZzOGdRZV9Za084V0huLUZNQ2lJOWZuanN2S0Q2a0xoTlZTYWl1UEl0VU1admJrd0oyNm1WNFJjaGFYdGhIem55V09pcTRYeWRMc2M3VG91MDJRcjRYSUJGcWliX2xpOXh3aGhHWWtqbW9KVE8xajFoekxzUlEwVXJZNmZ0ekE1ZjBreE9Vag?oc=5",
-        "https://news.google.com/rss/articles/CBMikAFBVV95cUxNWXFLNzNNdnlYa0pDaUhpYnVwQjdlUGtSeFkycjNsblA5aFBiZ1Z5eE5na0dDNFB3Rm5rdHl6VWJUVjgwNUs4Z2FmTTVXUC1iYm1RREUtUjBEaVd3Y09qTjhxUUR2aVFWOGV3RjVyUDdYQVZzZjBDWlotYmtoTEVLY3c5WTFIenlsaklmam9IdlPSAZYBQVVfeXFMTWM5Z2ZVak1KdUdBeXJwTC1kY3JOaEhMcWQ2dTJINEpRWktUSGJqeGxaYjAzTHhLVklVdFBDUm52eGxod01MZHhnaS11OXQ5dGs4dmowbkt5dEc1d0M5bWdNRlE5MDUtLTl2cURpeC1IeVFlVEhvOUsxRzlmNURVN0psa0QxMXc1b2ZOekdzMmJXcnc2a01n?oc=5",
-        "https://news.google.com/rss/articles/CBMipgFBVV95cUxQVS1kaEZtT1g1bU5tWnp2V3FONHNyd2l5bVhEVE1Lc3VwNTAtM2NZczRIR2RXUFpaQnU1clV4UndBLXAzaDIzMmQwU1B2NVM2SEwyUjBKWGpQVEhJOTVicGM2WlFTYjN6OGl5Y0wySVdrYTNVVWhBNVF3aVBmdDlxX080cWFHQ0k2OEdkbVBnQkZ6UU93dEM5U000N2ZWZlhoSGpXSEdR0gHEAUFVX3lxTE1RSnFUOTlMWm5pTkdWLW1GVDF0UTdMZHVRZjR6MTBGOHFvOUpDVXVYRzNXZHdGMWZqdUFEVGpQSk1URnhzVXU0QzlobXpCWXFsX0RxSllqR25KNGRoME9WdDQ3QnZPYWFUOFg0TXkyTjhCU21JSjkyNnVIM2FRczhMb2lkYnc1QlJaQjBtY3FOYjR4bG1LbE9FOGd6MU9jWmNfWFdpTXRBYjRRZVRPNHp3ZlZZT2Z0OTRqMDk5OWVvR3RSdHg?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.77,
-        "confidence_interval": [
-          0.62,
-          0.92
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 4,
-      "size": 4,
-      "strength": 1.43,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2026-02-04T00:00:00",
-        "end": "2026-02-04T00:00:00"
-      },
-      "summary": "Acting AG Davenport, Sherrill Administration Continue New Jersey\u2019s Fight to Preserve Consumer Financial Protection Bureau and Protect Consumers. [redacted], 2026|Acting AG Davenport|affordability crisis|C",
-      "sources": [
-        "NJ Attorney General"
-      ],
-      "mediaLinks": [
-        "https://www.njoag.gov/acting-ag-davenport-files-multistate-complaint-against-novartis-and-sandoz-alleging-prescription-drug-price-fixing/",
-        "https://www.njoag.gov/acting-attorney-general-davenport-joins-multistate-coalition-condemning-doj-threats-against-minnesota/",
-        "https://www.njoag.gov/acting-attorney-general-davenport-warns-new-jersey-sellers-against-price-gouging-as-governor-sherrill-declares-state-of-emergency-ahead-of-major-winter-storm/",
-        "https://www.njoag.gov/acting-ag-davenport-sherrill-administration-continue-new-jerseys-fight-to-preserve-consumer-financial-protection-bureau-and-protect-consumers/"
-      ],
-      "uncertainty": {
-        "confidence": 0.73,
-        "confidence_interval": [
-          0.58,
-          0.88
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 70,
-      "size": 5,
-      "strength": 1.39,
-      "zip": "07030",
-      "dateRange": {
-        "start": "2026-02-02T00:00:00",
-        "end": "2026-02-04T00:00:00"
-      },
-      "summary": "Hoboken mayor: ICE fails \u2018to make community safe\u2019 - NJ Spotlight News. Hoboken mayor: ICE fails \u2018to make community safe\u2019 NJ Spotlight News",
-      "sources": [
-        "Google News",
-        "NJ Spotlight News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPSlE5S1ZzdEFhbldNNE9iR0dmYTlBd1IxTW41RHRSemxwcm1McTRBV0lJQ0loelFDcVhEeUM4RXdnTE1odjJoNzdFbkZMWmVROGJtUHVMU1cza0Z6MjFZRTgxdUtTN3FZcFR3TzA0b0NxZHRtdXpyUGxwUUY3WUlyVXFPcHV5V29iWGdpZVFWN3lHbnFnV2c4M0o0U3pXYVRiZjdIdmlhMFZMbFRxTDlWYWxoVndPUTFEZGlQbHViaWtzVl84NUJiS9IBzgFBVV95cUxOMjI3UVNSR0lkZGVIVEJzRUlIcmk1WGxWbEd1ZlQtaVVvNFVnY0hwYWdjMmtUeC14dDBIMDBOQUl0alVmcmxhdThrN01VTUVEZzdmOVhPUmc4bzYwdjVSSzhnNGpncWRPTnpfWjQ0c2xxQnI2OWlMYWw4c3NOeUdVOWZlVkdhY3k0cWdLRmJLOUtvTEpzYXF0bVpIbTNNNk9hNmJTUEJDMERPVlhhNkxPMmlaWVNJYVpyZGN4bWFROUkwcU80UXpEOE5HRlhXUQ?oc=5",
-        "https://news.google.com/rss/articles/CBMikAFBVV95cUxPYzhhZ2J5XzFNVWxoVFB0QUtoSkZRb2pWX1N6LWpNbUlCMXAwLWdkeTFTYjZSRWZ3V3hyRUt6R19jTFJRNFdYWmg2LWFkbVRYdlRjVUN0ME1oMExsUlgwZFJyTkl3VWhVNkYxM3owQWcwR3lmaFZtdkctbjZEX09iQ1RUV2xWT0hfcFFMcGR2LWw?oc=5",
-        "https://news.google.com/rss/articles/CBMioAFBVV95cUxNUGNTTTd1UXktR0lveTBrVlNCVTZLOXNaeTZRQVB2LU4tNFl6Tlo0b0FxWi1iWjlhaHdFVzM4UjQzT3dzYVFiemtDT3FROU9nRXhObnBFYXNfRkZKQzJlanRScGVyWm1salVtSnpuVkxlcXRtZVphV1lNT01LNzBVeWFtOVJiUXczWkN5N0J0b0lQTnFIYWhKUHBZeEx0MFRt?oc=5",
-        "https://news.google.com/rss/articles/CBMilwFBVV95cUxNU1RQcUFMVUNXV0F4aUZnYmVrSUQ4RjduV2NYRHZ3bFVzWFN0RlMxdTJLbm12cThlbno2d2FINTdkX2pIVjJSRGx2UlZCd0hrMHYtUC1GWWtUR1h4VGt0NE93RkFpdTNFcXZ2LTVXQXF0Y3BhRFFndG9OWG5lOWJRNmwybFI0SEhwNnZlLWdob3o1OUhaSGNj?oc=5",
-        "https://www.njspotlightnews.org/2026/02/hoboken-mayor-ice-fails-to-make-community-safe/"
-      ],
-      "uncertainty": {
-        "confidence": 0.77,
-        "confidence_interval": [
-          0.62,
-          0.92
-        ],
-        "data_quality": "medium",
-        "limitations": [
-          "Standard data quality"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 7,
-      "size": 2,
-      "strength": 1.26,
-      "zip": "07102",
-      "dateRange": {
-        "start": "2026-02-04T00:00:00",
-        "end": "2026-02-08T00:00:00"
-      },
-      "summary": "UPDATE: Attorney General\u2019s Office Releases Identities of the Decedent and Newark Police Officer Involved in Fatal Shooting in Newark, N.J., on January 19, 2026. [redacted], 2026|Attorney General Directive",
-      "sources": [
-        "NJ Attorney General"
-      ],
-      "mediaLinks": [
-        "https://www.njoag.gov/update-attorney-generals-office-releases-identities-of-the-decedent-and-newark-police-officer-involved-in-fatal-shooting-in-newark-n-j-on-january-19-2026/",
-        "https://www.njoag.gov/update-attorney-generals-office-releases-the-identity-of-the-decedent-and-officer-involved-along-with-the-audio-and-video-footage-from-investigation-of-fatal-police-involved-shooting-in-jers/"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 13,
-      "size": 2,
-      "strength": 1.26,
-      "zip": "07102",
-      "dateRange": {
-        "start": "2026-02-04T00:00:00",
-        "end": "2026-02-08T00:00:00"
-      },
-      "summary": "New Jersey, New York Sue Trump Administration for Illegally Withholding Gateway Tunnel Funding. [redacted], 2026|Press Release|Protecting NJ From Attacks Out Of DC",
-      "sources": [
-        "NJ Attorney General"
-      ],
-      "mediaLinks": [
-        "https://www.njoag.gov/new-jersey-new-york-sue-trump-administration-for-illegally-withholding-gateway-tunnel-funding/",
-        "https://www.njoag.gov/update-new-jersey-new-york-sue-trump-administration-for-illegally-withholding-gateway-tunnel-funding/"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 0,
-      "size": 3,
-      "strength": 1.07,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2026-02-04T00:00:00",
-        "end": "2026-02-04T00:00:00"
-      },
-      "summary": "Accountant Charged with Stealing from Two Businesses that Hired Him. [redacted], 2026|accountant|bookkeeper|clients|Division of Criminal Justice (DCJ)|Division of Taxation-Office of Criminal Investigation",
-      "sources": [
-        "NJ Attorney General"
-      ],
-      "mediaLinks": [
-        "https://www.njoag.gov/former-executive-of-manufacturing-company-charged-with-allegedly-stealing-1-million-from-the-company-to-start-a-competing-business/",
-        "https://www.njoag.gov/accountant-charged-with-stealing-from-two-businesses-that-hired-him/",
-        "https://www.njoag.gov/two-women-charged-with-health-care-fraud-for-allegedly-illegally-providing-medical-services/"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 1,
-      "size": 3,
-      "strength": 1.07,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-02-04T00:00:00",
-        "end": "2026-02-04T00:00:00"
-      },
-      "summary": "Three Men Charged for Roles in Trafficking, Sexual Assault of Minor, Production of Child Pornography. [redacted], 2026|aggravated sexual assault of a minor by aiding and abetting|child pornography|DCJ|Div",
-      "sources": [
-        "NJ Attorney General"
-      ],
-      "mediaLinks": [
-        "https://www.njoag.gov/new-york-man-convicted-for-attempting-to-lure-and-sexually-assault-minor/",
-        "https://www.njoag.gov/three-men-charged-for-roles-in-trafficking-sexual-assault-of-minor-production-of-child-pornography/",
-        "https://www.njoag.gov/operator-of-prostitution-and-human-trafficking-ring-sentenced-to-60-years-in-prison/"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 19,
-      "size": 3,
-      "strength": 0.92,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2026-02-03T00:00:00",
-        "end": "2026-02-04T00:00:00"
-      },
-      "summary": "ICE in NYC: Observers from attorney general's office will monitor, document federal immigration enforcement across New York - [redacted] York. ICE in NYC: Observers from attorney general's office will m",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQSThzVnNGekRjUlcxYWRja0xPN1NrMF9CMEdGX1BDcG5pUG5Zb2Qzd1M4WTNBSE5lLUFWMlFNTG1ueFBOSXZoakU3UUZUTUxUVWJQVVNXMFl4SkpmWm1TUl9JeUp2VlBlaHZsQ2tjc05TZ3RRMUlKNFpQRW1udzlGZWU1SWhJT1loYjR6MXdFdGlwdjh3U1hCODh1NGUtZ3lXb3ZuZWhrT3V2c3Zzbm5LT2xRc1VxT0ZoeUFzakd5MlNmYnJRVDNXTDB3NDBKWW05T3dLTjlWSHdPVEE?oc=5",
-        "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPeER4bjZWd3VTTV82UWxwbHlEMmlZUXZseUxfbDF5UXRzbkJLeERuWWd4cnpmQ3NSZ3B2S2E3WnV6bXJFSkhwc0VBQ21uS3ptanA5VlBMakkzRUR4cnpOaFpMRjZQa3hUbC04c1dBeGRxSDFkZmxCYThnc25tYVdqSWVEdGVDZDNacVJ3WGpLTU5EOFZTWGVvbVF4enpQcEhYX0loeTFMZDdpMjVhZUlxSWNQT0xTdTNNcEcycFp1MWtua1RaNzMyQUhLem14eGJpZXJHekxn0gHbAUFVX3lxTE9GMDFOZTVsWVVZUzREZXJ0T2ZEZGZvTzFwMDdMOEd5YU1USjYwNkZwcmJadVR6VTA4bFloYi1SN1psUFc4eWY3cnlGZlpWWVZ3OHdydFNaek14Y2NTYnpfVlJwR0RWRlU0Zi15RTJ2X00xejRHZ0ZCQ2YzN2U3R1JiY2VhWUp2Rkl0eGp0SlRlUGI4MkN2c2RUdXF6VW9ZZW40S1R4cVZ3RW80eG1LM3JySjZtMkJuLTFXbW1heDAyNUhjdWplc2hlVWM4SlljRGYzQnFCN2hpZGdWNA?oc=5",
-        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQR2lQUzJqUk5jU0d6VmdlaWFjYVhidjNDNExtZmZwUXFxaUZEczFwLTNwa2l5Nnc4emR6d1VSRjdzcm1pV0MxSXNTLTJYZkwyRzVXYnM5OFRRYUp2UjBHTkNnX0hwalVOWVdyVmxKQ2EtY2N1cW9ON1J1dDV2Q0FJUF91VmtDeEVZblFzQ0xOeHhadXdDMXVQRDhVRkVma29DdExfcjN0eHFHd9IBpgFBVV95cUxNOW5WanZ4Y0lHbjA2LWItdEF5QjI3YlJOMWljTE5RRzBWNWprQ3YzNDZsTFE1WENZb3lxMTFxNHNFNHpGd1pKakJ6a2xMMl95TnJCM3JtckJ5SXB4b0U0SXVwdzVMekY2UW5rSUpwWkJ3YVFvU2R1cURqN2VVUmpiMlYzQVN1WTZCMnZPUzBhbzBFS0xkR1FTcGVYclZsTHdFa2xTYVhB?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 81,
-      "size": 3,
-      "strength": 0.79,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-02-02T00:00:00",
-        "end": "2026-02-03T00:00:00"
-      },
-      "summary": "Do ICE agents really need a warrant in NJ\u2014Here are the facts - New Jersey 101.5. Do ICE agents really need a warrant in NJ\u2014Here are the facts New Jersey 101.5",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBXWExieVZwNTRDZVpXQzRjejQ1WThyekJ5WUt0YjlEYk9NSU5UN1Z5a2RJdm1tRXZwRVdEUUR1S0o2aFJlNkdCUFZTOHRnM1VQQ0Fj?oc=5",
-        "https://news.google.com/rss/articles/CBMipwFBVV95cUxON2EwREdZbV9GbktwWkVnSHlwZGFfbDVBdUphakE0RHVfa0podzBZT25Nb2dNRHpzQjBlb2Z1dzdFZUN4VWhsdWNISUlVZWd1eERfQjR1bW5JbzBya3ZuU01zbHpVdVg1RWhzSGN6ZjlyRDJXSHdjNzlGRmh4a0xOWUQ2dlBlYzZPVUktSTZBTXRPdkl5ZmxYVTltdG05WFVyckFqSHRSc9IBuwFBVV95cUxNa2NodkEySDNFR0NUVUJWSkpZaldNLU5hX3NrSWhMNnRhb0xnTWN5cUZQd3FGTDJPOXB0TG5LenN0N1A3dFNKNGVyazd2VmloTnVsQ0g5MTJKWDdVTVdsWV9xbW80dGJwQUMzWVk2OGZFNWF4elRxNldWallINDJOcThtR0FuY0syazFiZzJMaC0yeXJEWTZGcGs5dzFOTDZ2Yk54V0JHcXlPMWtiUlRucVVRaDlCSlB0TXNB?oc=5",
-        "https://news.google.com/rss/articles/CBMilgFBVV95cUxQb3Rub0VhNWY3Z05QS3ZkRGJ3NEk1VDJuYkc2M3dmNFdNMEUzUjVxb04tdVRzU2tJaXphMm1LYnpiWnlPWlhUWTUzdDI2SHgxWkprUG5JaHJqRDdic3BlbGZneHBVSmNOY1M1dm82MjUtSlZtSW5lc2pCN25QcXczQ0wtZW4zbjFrdVQ4Nkl0RUtidlpfS2c?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 29,
-      "size": 2,
-      "strength": 0.71,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2026-02-04T00:00:00",
-        "end": "2026-02-04T00:00:00"
-      },
-      "summary": "Congress delays action on changes to ICE, immigration enforcement - NJ Spotlight News. Congress delays action on changes to ICE, immigration enforcement NJ Spotlight News",
-      "sources": [
-        "Google News",
-        "NJ Spotlight News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPUDdpQmo3U0U1dE1kNy10YzZmNG81OFc4R1AxbTBrZTRWczlMcUFub0NMUmVCMWxIRkxLY0RFbFByM1luR3IzMnJRdUQ5QTlZR1o1QTRaTmZxR1VXQl9tZDhpZ1plOVJSZnhwY0NtclhJbmxWMFhKVzFHTVRsRU1kdEhPckpCeXhSOUlOdmtPNE5EVzdzdGZ4a2JEMFdEd0hZQnJTMzdFU0Y?oc=5",
-        "https://www.njspotlightnews.org/2026/02/congress-delays-action-on-changes-to-ice-immigration-enforcement/"
-      ],
-      "uncertainty": {
-        "confidence": 0.69,
-        "confidence_interval": [
-          0.54,
-          0.84
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 49,
-      "size": 3,
-      "strength": 0.67,
-      "zip": "07302",
-      "dateRange": {
-        "start": "2026-02-02T00:00:00",
-        "end": "2026-02-02T00:00:00"
-      },
-      "summary": "Reported ICE activity in Hoboken and Jersey City, N.J. leaves many residents on edge - CBS News. Reported ICE activity in Hoboken and Jersey City, N.J. leaves many residents on edge CBS News",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMihwFBVV95cUxPd3NBN1lmR0FqOWh2UHZmQ281ckx0VDRjV1BoOGo0ZWJkeXlPU296VWNneWxLdzlRYWZFVmExd1JUblNPazJiQVBsODhNSThfWGxJeDBUN0E1Wko0cVFLelhGUHBCVTFWRWhDTEpkLXpnYVA2NTFpVnlMSU5mbENONlNFNVBpT2c?oc=5",
-        "https://news.google.com/rss/articles/CBMikAFBVV95cUxOaGc1YUVZR0U4UldReTZtQXRPSDFrM25PaFdZR2JOQ0NBTUZVSnRWWEc3WFh1bzUyZElvTDBoYnB0VllkTUNzMnFPa2tRQjN0YTdGSzFfYzc2alJfaXlTcjc5QjRHRXpzUXBlV3dmYzdiTmMzODlKdTVXMVFDRVdseG1LOW5ya2dPeEQwSXJvSWbSAZgBQVVfeXFMTmFwMFUtMXZHa1FKZGZJUWp1VWY5QXh4enZ6UTRDbWd4UG16R21HOGFKNUhuYU85RUNHT1R1bDFicjVScnFxVWxkU0pEck5SeUQ4NlM4NkJ1SVZlaTJvaDJsQmQ1emZYRHQ0T1dtN1NiZExVaFRlcHhQdHBfN0UtVXFwZ0NMSWVmSE9SckgtMG1wSnoxbDJGbUk?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 8,
-      "size": 2,
-      "strength": 0.64,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-02-03T00:00:00",
-        "end": "2026-02-04T00:00:00"
-      },
-      "summary": "An autistic 19-year-old vanished. His mom fears he may have been taken by ICE - The Independent. An autistic 19-year-old vanished. His mom fears he may have been taken by ICE The Independent",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMisAFBVV95cUxPcVdodkNYN2FGdlFrbmhhOTc0WHZiVDI4UzlVeXNkNTFrTWpCTlN1ZERMblZJb09NcVBaRFRMXzYxUTBscjU2eU9FNXpISkZydTFjd0R4YjF4cWVGdUZfUDJNQVJqMkVWWHg3OUZTWkRacHp3VkQxbXJkdWQ2T2cyZ080b3NzWjl1LVl1SklhNzc3YTFUM2NxQUpVTnA0bHJsVnIteUlhNHhIenJLMi1sWA?oc=5",
-        "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOUlRKZFVyZDR0THRVNU55QUlIOEYyMVBoRjBWTExDZ0R1UUJuZzFzTXhyMGdqMUJXa2RhM3NCcHZvWVpUVjBCdURkWDFCdF9yU0lzTl9sWF9waDhkdGRoM0JhcGlPX2Y3VWpvNEhBV3Rsb2Fxa0d2QzdaOWU0S3o5YzBKY0FsZkgzMERPMFVoNlFtbUl4MXZEN0xJa1dMc05lVjU1ZGhOS1BlNi1UWENuV2FnRWszc0dRaWJGN0I0MkNWVzVfOS1lNExESDlxY2NBZmJmOWozX25rQjjSAe8BQVVfeXFMTk91UEprNUJ4T19nRXByX1VBd045emZnTXRiU1p6OFZlaG0wUThiWi1ZSDlEbGNTUGpndkNxdmp0ZzNNQWJtUk9ES1lGMndYTl90RHc0cm0xTzU2TUtkSGZ0MExoU1Q5VkoxNW9vQzJFSkM0VmZVYy0zQkRGalpWUEFRMVRkS2c5M2cyM1BxaHJUcHlFM1JYbEs0cjRFUFprUFVCaFJOaHFuZlRvcTdIamZhSVNpSEV4eWRUZUtKeTE5aWFQbllUblNYREc3Y0hDT3NBdVYzYVBjVlFZUzhEemxreU4zUnlqT1FXdjM1QWM?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 47,
-      "size": 5,
-      "strength": 0.59,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-10-18T00:00:00",
-        "end": "2026-02-04T00:00:00"
-      },
-      "summary": "Where Do New Jersey and Virginia Gubernatorial Candidates Stand On Immigration? - America's Voice. Where Do New Jersey and Virginia Gubernatorial Candidates Stand On Immigration? America's Voice",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMisAFBVV95cUxNdlhWWG11ZHEydnlGcjhWeENLY25jMVc0ZGxLdHlnOFpkNms5XzE0OFhTeTVTUUkzT2JPX0pFcW5MejlMMmRzZlJUeWNFaDR1Qy1jT0Jaal9vSXY4d3lRODdOQTBrZWF2LU9YNXV5MWpsV1FZZHNoSm1PUXY4SDRlWnZUM1dNNHkza19NMzNaQk9aY0ZYRk42RHVSaFFNZkVvNFN1aXF0bjJDYWcyYmlHXw?oc=5",
-        "https://news.google.com/rss/articles/CBMirwFBVV95cUxNWjhydjNKT1ZNeDl6bFZZandKU19nd1kwbnhlQkpjaGpaYnBpS1Y2RjlhZ3pYMHJGS1g3SEpuUE9jaEtJLTNDRkZadXhtdTlkeENGby15UkNUSmRQUlQyTEtwV3UxQzJrc3dJUnpEanRWY09ZdEFNTURGQWpWTmdoZUFnNlJrZG1aODlDSnZ0SkxacnZicUxtdXltWU9XYUV4NURILUtGSExVLUlkbTQ0?oc=5",
-        "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1iR0QyWmY4ZVd2c3NScDZHUzJlRFJBazlYVV9iSk0ySzU4c0h3a0lrTjljUWc4Z0JJTWlCTE9wSDViQjlmRFZZTUhwR2dPNUpQc2J1c3A0ODhLbkc1dVE?oc=5",
-        "https://news.google.com/rss/articles/CBMivwFBVV95cUxOc0tyaVVBeUpPVGVkckNZeU1ySEVucHJKOEUtTVZlNVVMbDh0ZldVMnlfNUNrWFBSZlM3UUJ5ODNzZ1FVTk9QRmJUUGNlRDhVTEgwMHBSZHl6T04wNnpnU2VnTk5RX2I3aEpFV21RY3J5NGVTX2toalpranlnd0hONWg2OU01UDROdXNuQy01dFpGNVNFYWlJSWlpMDNHekZMQVIyazk4RW9mdkplNld3NnZhUXF6N1NBa1ozREJ1cw?oc=5",
-        "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOWGhyYjkyLXNtTklTWUo0ZzlWM1hpOUpYd1FETlJBUzlkbGFFUTBlMXF4V2hGODBVU2JEOEZIZmxuQnBVQVFscjVuY1JqVGdwWTd4TDFSS0VDSWljWlZOSUZCNmV6MHBnVkJDQkxGbEZNU2ZNYVlKazh3ZDNBUzRqZmlEN1J0aXNQc0d3VTFaMEhEU0t5czcwNTBZZmYtTG5YN2xXWmxKQmpLcF94aFA4VlVUb0Nmd1FON1VTM3NrcVF1aVBjUVNfSdIBzgFBVV95cUxOWlV1VUhuMnYtOXYtNjg2OEtGSWg2VHB1bzZyakdnbVdUbHpBOUFRcXFqckViOG9GZklpS3ZSZ3NwNXJVTUxMd3ZYNWp6ZjBUdkc2RnBPZW1iTnV5MHNoRWVZVFYzaUliTTJfZDFLQVYtSTNxcmt3bENLVFI5SERZVHh0bmF5b1luNV9TNi1XMXlRbl80ck4zZzNrMlA1cXBhYWNHV0VVbGU3akktcXYzclhoWUNFSDlxbHlPWDZhaWJGbnZQVWF4UEdFaE9RQQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.77,
-        "confidence_interval": [
-          0.62,
-          0.92
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 80,
-      "size": 5,
-      "strength": 0.59,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-10-09T00:00:00",
-        "end": "2026-02-03T00:00:00"
-      },
-      "summary": "New details emerge about NJ ICE arrests\u2014NJ Top News - New Jersey 101.5. New details emerge about NJ ICE arrests\u2014NJ Top News New Jersey 101.5",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5DelRUblNaaWp1elhMWm9odkxGa21pTVQwUWgwYXp0Qld6bVQyVHAzOE4yTmh4N2QwbjZDS2dUNXBvSnpkTHFyWHB5VnQtRHhjdHNrWg?oc=5",
-        "https://news.google.com/rss/articles/CBMid0FVX3lxTFBvaE5FNXFLYm5oLWRDUHFtM1N1SGFwWXNwd2E2RGE2cVlGMlh4d2tzUms1MjBDcXlnM0JuZk40bGdzc25lWklfU1BiTU02QXVnb1d2OE56SmhVT0FSVndKTzhpdndfWUh0TnV5VlZqX1VTdm5zSTZv?oc=5",
-        "https://news.google.com/rss/articles/CBMiY0FVX3lxTFA0OHZNM3E2QWtqUk13ZFNfNkNEel9USDBJMlVQYkFrcUZkM1h0bXh2TXNDQ0tveVRScmpBaS05YUd2alZKZ09ZcU5wMk9EaDNUVDlzd2FsaUhfd2xXdWhEcGk0SQ?oc=5",
-        "https://news.google.com/rss/articles/CBMipwFBVV95cUxQZ0VpSnU3R0RoMEk1MDBSb0dRdGJPUk56QVVkcFdzdzAtY0I4UlZ6UnExVFBtWkk0ZFl5SzQ1SXZnb3JTTmc5c1RxdjVXQjBsRHVvLUd6cjlrbFpvdVRrSklqb2RaYXNOTzZGeXpuT0ZtUVRWSUo3ZEJ5eUdQYWdiQThLd1VvdUk1NktDbC1TTWJ1aFNleUhabzhSTjhoR0Ftd1M4X0FhYw?oc=5",
-        "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1ZTE0teWZFTXZXclB6bkNxS3JWSEI3eExJYTZ2ZDNGd014NXMzNWRhTGNsYVJ4MV9IQ1hhelZCdkZ3RFI5N09PQ1hTR1NDY0owcHNfaQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.77,
-        "confidence_interval": [
-          0.62,
-          0.92
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 55,
-      "size": 2,
-      "strength": 0.57,
-      "zip": "07302",
-      "dateRange": {
-        "start": "2026-02-03T00:00:00",
-        "end": "2026-02-03T00:00:00"
-      },
-      "summary": "Daytime ICE action in Jersey City prompts know-your-rights push - NJ Spotlight News. Daytime ICE action in Jersey City prompts know-your-rights push NJ Spotlight News",
-      "sources": [
-        "Google News",
-        "NJ Spotlight News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMipwFBVV95cUxNeHdJdERvQVkzZUotZzA1cFRXeVVUQXd6MFVyRmJNLVFWa3NSeVVsdlRLVkgya01fdDBJQTIwZkpHTERKMUhhWUVVNHozdzFuX2pQVUZWLVd3QUhDRWI5TXpPV1g4bC1DR3hsT284OTVBcC1UMVFZcl9ydVBkNHhPcEJSRHRVVWhUd1VYQl9jWEo2S01VQVdqSS1QTUpKWFVoQjFVYlh1QQ?oc=5",
-        "https://www.njspotlightnews.org/2026/02/daytime-ice-action-in-jersey-city-prompts-know-your-rights-push/"
-      ],
-      "uncertainty": {
-        "confidence": 0.69,
-        "confidence_interval": [
-          0.54,
-          0.84
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 11,
-      "size": 3,
-      "strength": 0.43,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2026-01-30T00:00:00",
-        "end": "2026-02-01T00:00:00"
-      },
-      "summary": "\u2018Get your phone out.\u2019 Gov. Sherrill announces portal to track ICE activity - News12 | New Jersey. \u2018Get your phone out.\u2019 Gov. Sherrill announces portal to track ICE activity News12 | New Jersey",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMikgFBVV95cUxQTkxJYkY3SC12a1hKdUUyYnVkMEFQT05Pc1VyZFZBd3YzRW5qZUJoY2NocUVkcVMzRmVuLTJ3X240TGVVNkRtdE5ua0R5NFh6Y29YZUhvU3lrZXhscTB4T01yZDRmYlNHU3owUlZFNzBOSnhzQWZMUURVYVlWNEJrYzZoTk1Ic1ZTOXhUUzdKUWE5Zw?oc=5",
-        "https://news.google.com/rss/articles/CBMioAFBVV95cUxQSWEwMlFLOHNBZDBYbEJhX3h0bHp6YXA3UlBISEhDVkMtbHZHZ3BmUlp4Q29vVXhfeUt4SEVRMkxvZ2hkXy1xeWlwX0Z1OGJrd0hxWm1RTGdaYkY4QVpDa0I1NWt2ak5rYTRlU0Fwb2JBdm84aTN6dG9oSlU3NnY2aklyNk05R0l6TGNHUDQxR2F4R1JWa2t2YklWc3RWN1NT?oc=5",
-        "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQa25EbGpTU1ZqNFlrMTdVRlZHWWpiSWpZZFhEUWFLUGI0SVl6SnR2aEs3LTlmQ3VIX0hjTmVLWHFRV05EdlpGai1aV2k1NXdOMy1HQ3Vsbi1RSUZyWDcxMHFQYllCYTBUUWNBdXdYYWRURHVZR1NGUFdqQ19saUFYZnQzS195MkE2bXZ6OGs4RXZEX3dibjRDbDZ5dGJnNWFVU3piSFZ3M18wWnJmdUR1dHM1WlV4RG1tMGpUQW9TRDhCeDB4eDNxREtXSmpfYnhDSnNyQ3djT2pLUDd2aklMRG1zYWF0MGdDN2NwTExXRXQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 30,
-      "size": 6,
-      "strength": 0.36,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-10-21T00:00:00",
-        "end": "2026-02-04T00:00:00"
-      },
-      "summary": "NJ lawmakers want to ban masks for ICE agents - NJ Spotlight News. NJ lawmakers want to ban masks for ICE agents NJ Spotlight News",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5fZXVzOEtzZ0FEeS1rcTZtR2NtMXllbG1hOU5HUkRia3JrZVExVmY2a3JqOEpmMXJrWTlzS01CVVF5S0VNLUdfRHBRTl9kVU92YjVGb0tn?oc=5",
-        "https://news.google.com/rss/articles/CBMieEFVX3lxTE5NVXNMdjlDTHlfVWlUa1g1c2ExNHAwbS1mT29nQ2E2SW1vN2gwRHVEdUxOdUpwV2ZTTi1VUm1NeUxsSmpkQlBKZ2lqTnRUMzVGWlpKbUNxeFVOcGNxLTRFTzVkMXc0d0VYWVFNQ0JEUVczeDVJTkxPWA?oc=5",
-        "https://news.google.com/rss/articles/CBMiugFBVV95cUxNRkQtdm55RHlvbmVnVWR4N2VhRC1ybVp1SF85OXUxb3V2eE0xNjlMTVBLaWNhT0ZSU1BEbmstVE9seWJRcnNKVWNZc0FLMmdZZEpXSHVRUFA0VlFidUJwcnphS3J2ekdXSVY3aG92cl9sNGhVRGx1WDViUGJ2QWVaUkdhSnkwNjJ3N3hNZEFMV2NjLWFDdHFDUlpBVEw3VlR0TS1QcWFtY0hTSUtZenMyaVByM3pQczhKT1E?oc=5",
-        "https://news.google.com/rss/articles/CBMif0FVX3lxTE1jZUlzQ19aMHRXT05RaVo0OTlPNkx3UUlBX0tBX0xpV0Q4cHNWMVUxS1FHRzVoTGthTm5PYU9YdDA0cDg3Y3JxVm9HMTgtMHp0S2J2cnJDLUhnUnNfd2hZMGlXTUx3c2trMmRIUV9xTkVxbDQwZU5fdU93YVdWU28?oc=5",
-        "https://news.google.com/rss/articles/CBMifkFVX3lxTFB2NEFmMjhpWUVSNnQ0Nndpc1F1cDM3NGoyMlR2ajg1SnJmQkhFSHRfRUpQVE1pR0FwRkF5Ml91d0REdXF3TlBMeXk4RUp2QjNqdVFJTDkyeHh5eWwwaGZIVHpYNVB5V0lYVGV5TUJDRW1peFN3cFJJZS1VQVU0dw?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.77,
-        "confidence_interval": [
-          0.62,
-          0.92
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 9,
-      "size": 2,
-      "strength": 0.36,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-11-21T00:00:00",
-        "end": "2026-02-04T00:00:00"
-      },
-      "summary": "Today\u2019s audio update: N.J. man accused of driving suspect to Mexico border, child speaks out against ICE raids - NJ.com. Today\u2019s audio update: N.J. man accused of driving suspect to Mexico border, chi",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1nWmxubWp1enA5SVpCbUFfcWJYN2Qxa2lsbWNRY3dxbk9yRzdURWZKbTNvWUNCQ2JhT29tMFQwc0UxNkNwODZWWTBSTTkyTFhmY2hGUHh2RWltMGw0LVZwR09lQ0k2VlnSAXtBVV95cUxNaFRTUWx6VEJyMi0yRXZ1QTdhUjVkQUFUbjhTVFM0aXluaXBvckpqY1hjMzM4OFFDTkE3enpsNS1UUUUxUi0tak04aTA4am96SmxUY3o4Sm9Sc19uVHd1NUNRTDYycFpoVkdWa1RoTndleVF4eWFfUnlXSTg?oc=5",
-        "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOYzJQSE81bmhPaTJ2bW8zYno4V01sbkxyQ2dhZHdyTk9Tc3UyVUx5OGFxNzcxRjJuTExaQkUzb1Y3d1VFTzN1M3Y5anJXX0ZDZXB6Tk04YmVRX2xQcHpBUkZpSm9xU1NaN0JpZWIzLXh6alZiYjUtNHkwWnRXRS1URTlhWXlZOEJILWxLYncwek1BYnNLcjFXRVg0Rldmd1dMR2huQ1RYbkJ4eXlub0dLV3pjblpPWjIyZ1lTcm9hQ095UdIB1gFBVV95cUxPcFM1MHFyeWl0Si1kUzJBLUJnRmE3Qk5sellvaktpb25pX0VWRTBjZ1FNNngwaURjOFRhaWo1ckNid1plcnpWV2p0bGtESUlRZlpKUzNJUTdyckVHbU9LLWlnTHVWSndZUjYzV1BrbDRnMWIza1lPdUVfLUZycWlnZW5kcFpOZXZIQ0p2TWo2YzBaWW04VDk3dzlQazZLc1d0eUVndXl4dzVLNHF2RHpZazhkYlJ2bWp1dkMzdmxlNWNFS3FkRDN1WjhYeHFDUHo0NmNWWWhn?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 60,
-      "size": 2,
-      "strength": 0.33,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-26T00:00:00",
-        "end": "2026-02-03T00:00:00"
-      },
-      "summary": "ICE arrests in N.J. city were \u2018lawless,\u2019 and \u2018reprehensible\u2019 state lawmaker says - NJ.com. ICE arrests in N.J. city were \u2018lawless,\u2019 and \u2018reprehensible\u2019 state lawmaker says NJ.com",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPUUVmMk83bmhWY1BWTHA3cVRnaGswdFM4VTlyMnB1M2RsaTZlYUJzLUdsVzZmSFg0OTNUUlB4cWw5bWxGZE15QlJzc1dqa3FsY3NjZ2QyR1M4X0NTbmNhMjJ5dElvb0RUWjVaRHpPQVJ6UG8zYlpUVDdzcG5JT3JOaXpBV05ZV21PaHFfaEJpZGhaUXhxUm9aR3lpblN5MXo1ZF81MWxvc0Z2UGRqNS0wNU81Q21FSW00UUs3RXV6Z2jSAdQBQVVfeXFMTTFXVGIzdnBhX2xoQTg1MW8zbTV6aVM4UmJCSHA1ckYwQ09KcERvRDRoSUYzRC1lT1d5Q3hpVDNFLWV3RzBDeDR1UEVsOUU1MGhpeHluem55eGRsMTl3ZGdYSlFydFdRWlF5V1FvNTZTOWV3ZWtXU2Jhc3ozM21IT3pvNnh4NWhCNzZHWEpiaEE4Q0dzWTNQV1ctc3lUbmJ0UXFBZ2xmQ2RKTTU4RE9nSl80TjRzbFhtUlNacV9WeGM3ZVl6YkFMV3NsOGlYXzlFN0FTYmg?oc=5",
-        "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNYnJRUHlqWlBZME52UUUweEhyMXFwWTd3MUNXUWQ5TUw5Y1NvQlptVFJpQW5rbXBDWlJnTmw4aHFtanNfY2xfMUdzb21UekF5RjE3V0tXbi1EcjFBWE1aMVRIMnVfYVlHbDR4cV84d1VOdWN4LTZNSE9LR2FvNkJqcHVDVjAwaWVmc2tITkZFWHM3WHd3Zjg2S0l1a1N1djV4OWZUWU1IdHJRNGZBYVE0Y1pGdS04OGpJUUhqemMwQUNsMFptT244elBfcENFbldTNnBHZ0hIRdIB6wFBVV95cUxQTGc3bl9IampMdEJrNFlTMmtlZ3dQQXNSazYwblA4bmJhcXZzS2xlcEpqV19uRk53WTNZc1UzU05mNEdld01wSzk0UHRCeHItaThYY3RvNTZvc1F1TFktakR4VC1jRjNxellzd01Nek8tbnBnV0YxaFNDVXBobkVQbW1tYUJ0RHpwZnY3dld4eUtFVTJvampxNW0yUWdLNFdncUtOelJYMGhzQmRmTE1kODIwY2oxdnAzU2xaY3R5Qkh3UExlVzFoT1FVcUNsdU40Sl9oUkVtamI1M1AtWURSaTE0d2REd3ZIbzc4?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 14,
-      "size": 2,
-      "strength": 0.28,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2025-04-11T00:00:00",
-        "end": "2026-02-03T00:00:00"
-      },
-      "summary": "For-profit immigration detention expands as Trump accelerates his deportation plans - Stateline. For-profit immigration detention expands as Trump accelerates his deportation plans Stateline",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiugFBVV95cUxONEFIWUtjdFpKcko0Sl9zT0V5RHlWbEpYTk0wTVRaTDZXYzZ6UkJ3S1o0VXFCcmhRRWlSdkszY2VMSGlFQmo5Ry1BU2cwLWVNMi1aYmpfZTU5akYyWm1DVl8zaXBXcTBYMEsxUGRfSjRTYkRGUU9oQVl6d19lQlA5dkZmMDd5MTFxN1drNmFZMkFxdndTYmhFNGY1N2ZuVVN6clU2ZkktOEVvNDVHVDBYRW5JaHFhbXV4Z2c?oc=5",
-        "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRnNVOE9MYXZMVnJOZEJSSmxQa3YxNXhkRGZJc3MtRWZCcmNfTmhtWjA4ZFlVN19oMjJ1bzByRlRwNVBQcVB1RU04RkxqRmlzQzVSX1VSUWw1VE5ERjJ5MV9hZ3gzMl9EVHczODBPLXNlX29RYlV0dUxaRVJCVjRTTjQ2MWJwTkFfNDFZUGNhYjV0MzRTZDJGTnZfSnZmaGszYUt2dG8zNVk2R1RlYnpoeDhMMERRckNq?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 44,
-      "size": 2,
-      "strength": 0.27,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-29T00:00:00",
-        "end": "2026-02-01T00:00:00"
-      },
-      "summary": "N.J. governor wants residents to record ICE agents, upload videos to new state database - NJ.com. N.J. governor wants residents to record ICE agents, upload videos to new state database NJ.com",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMixgFBVV95cUxPY3VvQXlxa3k3ZlI5Q1VIdlpJY2pxckRCbEw0bURFOHAyWjRBZ2J6dWE3Y3d3NnVaWGJ1aF9Na3EzMmxEaHZpMkJZdks3algyVXM3ZEgwV3ZmZnhmR3hWd1M0T3RZdzZPWVM4RnJBeEszYmxEdDY4Wm81YzVobkhCNmVMX3h2TFNWN25BWEtidXFtZE43c3NpdUlnRVVKanJaY0tlRUdWa2JKYnkydXNET3Z2ZkpsNTNJVEZ0S0FPOWROaXNhaWfSAdoBQVVfeXFMTThyRzVqYjVyTGNraVZtdkVEWUdnNzFIZDd2SnN6ZHdDSFRXTjhpMTlvQzhVVjFFcXhBeEN5VUJMajE5c0lHc0haMjNGVVFRS0lkYnFaTFVHQlREMTZTS2VPMXlXcWRnNWtRQThTSktYVkhvSldUN09mUFl3UE1RSmh1NUxvc1Z4V0ctVWpyMXZfNndKOUJfYjVCVzdHZEgzS1A4dTZaNmFsRHF0MWdsZzhhNGh3UWdqQTVGY0NYeDltMjhlaWR3LXZhMnBIMlZnYWtTVHBWSjVPc0E?oc=5",
-        "https://news.google.com/rss/articles/CBMilgFBVV95cUxNc1pHeU1yV0RGNHp5dTlWTGxvQ1pxNTNrNkhBeUcwek5YN0F2bUxNMlhVeVF5OHdWUzJ6MEtfS2c3MVFXbzE5VC1mSGlqbm54VVZlMW13aXFUY2gwa1NXS1JLZkxVQnhFOV8yUTdDSjhGU1BCZXJXNzZIdS1aTnNNRlVpaGptdzNDSWF3X2VheFh6Nm13Mnc?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 34,
-      "size": 2,
-      "strength": 0.23,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-12T00:00:00",
-        "end": "2026-02-02T00:00:00"
-      },
-      "summary": "Multiple ICE Raids, NJ Transit Train Smashes Car, Dispensary Fire Hurts 2: NJ Weekend - Patch. Multiple ICE Raids, NJ Transit Train Smashes Car, Dispensary Fire Hurts 2: NJ Weekend Patch",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMijwFBVV95cUxNNXlVY2JwQ1dMOUlFRUFCdkpfNHhhZEJyVklDY1l2SEhQSmdEUkxsV0FvOHJxVGhPbi04ZGhNRndObzlaUDZkS2J4Z3RxeWpJWnNGYUVJVnV0cDNGWGp3b3kwMXNJZlpNN3B0WUZwcGVibzZ3ckJSS0JYeEZzdG1NT0NzRVRfVmk2MFgyemlTONIBzwFBVV95cUxPZFdQemk2NTdTUlctQUZiUkVtOUQxbl9jNENYVVpxVnIwR0hMalpSWERPZ0syYXliZWpyWWd0UWZCUEdmTWNwOXpQQWt1LXRPTzlrWUtPeFhlUHZoN1hTbS1qdGJpMGZ0RE5qQ1p3UmpOWlNnX1dqbFZGOEpPWFdMZXBBWVpjcjNFWU9mLWw3eUk0ZGVhWW9pMnRXRjVBZHJyMF9PcHhBQzNKcF9HeWJENmo2LTN5SUMtcFhVSHY5OUV1Y21hdEIxQ3ozMk9hQm8?oc=5",
-        "https://news.google.com/rss/articles/CBMipgFBVV95cUxOSmpfcmstWXo3Uy1QUlh3VVNKblBIYXEtQThEcC1mWE1MS1J0azFOMUFrODYxYmtQa0lDTkREVVZoQU53WWpabFl6ZWRKdlU0QWo4Q3JzZzc5SXBqMlBta1drT3dYQW9wR09sWVdZZVRjQ3VEVC1qLXQ5VGF3RmUwVFpQZ0xNM0NoNko2WWVMdEZfWjUwOVVQUjEwQmt6U3pFQl9kdDB3?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 79,
-      "size": 2,
-      "strength": 0.11,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-06-12T00:00:00",
-        "end": "2026-01-30T00:00:00"
-      },
-      "summary": "Protests held to keep ICE out of New Jersey - News12 | New Jersey. Protests held to keep ICE out of New Jersey News12 | New Jersey",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMifEFVX3lxTE1VY3Y5aG9zWjFOMm9HWl9pa1E1dERVQkJVY29Oemw4bVJyOC1EVG00SXNJVW04cTlSUEhleFRUYktub3c5U1gyVnFuNjQ4U2N5U0FLbFVIdzI3Ml9TQmRvRl9wVy1GN0lMM0xPVTk5M3RRUjZPVlJSZVRoZGc?oc=5",
-        "https://news.google.com/rss/articles/CBMieEFVX3lxTE1EVXJhZDBCYy1aWjRtdHdPN2JjNUwyS29ockJvaVJsczNRa3k5OTFyUWVnY0YwclRCZjhJYl9fcG5nbFVOVzktSEZTcDBzbkJGTnotV0FibVNXakRCV1hoeE1iQXlZei11SFU3UmFkREZfa2dPMTNISA?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 23,
-      "size": 3,
-      "strength": 0.09,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-08T00:00:00",
-        "end": "2026-01-29T00:00:00"
-      },
-      "summary": "NJ moves toward restricting ICE cooperation, but unclear if Murphy will sign bills - Gothamist. NJ moves toward restricting ICE cooperation, but unclear if Murphy will sign bills Gothamist",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMipwFBVV95cUxOekRrUkNreWJ0ZlRId1dYbHdkZzR1T0E4dWlSZmR6bWVldkZRRmVxUUlxZzluUTZZRmg5dTN2VHRWS3BzX1U3UktBeFc4Mml4XzhGWURjcWU0aVB3NDBITEpGWW4za040dHJyM196S0gtdms4dHRvNmV1Y0NiVXZiUDJVVW5zQTVIMmhHbGlrcjdWak03OWpGLWxXdFdGMDNhYTBLZzI5VQ?oc=5",
-        "https://news.google.com/rss/articles/CBMioAFBVV95cUxNclg2bE5MdU1LZ0dZVjh3Rng0d0YyNUo3ZVZnbzNvaEhSSzVINXpoXy1rV2JvUFhhMkZCUUNwUlF2TWdOWFIyaHBCeEU1bTZQTU8xUHVQYVh5OURfSXA4NUNvYnJXRm5JdndlalRwYVpXTjFLLU9EMkcwTUthVkpYUWVjOVZTdVZPbmQ5OUIzTHMzTmZvcUN6MmxLdkQta0Fy?oc=5",
-        "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNX3dOM2k2emJrZ3YyamxBeTltcm5mSng0MXlqS01Vc3M2V29FV0NMM1BYanZVOFp6VWN5TDcxMW9TOFI0TXVRUE5NeFFHcTEweFpIYUhySFl0RGNXNm84QUZZWVpvcmRfazlLM3EyNk1FblhDaHR0T2tDbF9GN29GTi1BSnhXOFozd3dpVzcweFh1M1ZWZlpRUm92WGsyRHl4YmlYZHhVQ2pfN01LeUtQaFRwWFRNUUJmT19oenZOTmpVQdIB1gFBVV95cUxNbjdEZXo4c0ZlTnZHa3RqUnNVTFhrcWxxanhiLTdzLVhhMGpMSVVMQTN6NW1WYzQ1ZGgwQmJzRnk0SnIzcFhGcGk0ZWxzM0JDQWhhNVIzNC00eHZidUlCb0hBYXowQnl6b3hmQjdVNGh4NmNpZnRacG5ReG5rdGY2NDhYUEhsSnlTV2ZoWkowa3dSWTJHR1ZGMnh0eHZwd0pQdnVVaGptUHVtWXc2MFZieEJ4ODhWWjJHdElrR0JoUks3YlZJc213SWthbHhYVVVkc2IyWGNR?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 46,
-      "size": 2,
-      "strength": 0.02,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-20T00:00:00",
-        "end": "2026-01-20T00:00:00"
-      },
-      "summary": "On His Way Out, New Jersey Governor Vetoes Legislation to Bar Local Assistance to ICE - boltsmag.org. On His Way Out, New Jersey Governor Vetoes Legislation to Bar Local Assistance to ICE boltsmag.org",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMifEFVX3lxTE51SDVTMk9JTmhOa2xTSkpkRXRTM0FDREdVazB5XzJubl9HSmgzdzZqaHpFeXZMNExYcGQyUkJzSXFwb3dwWV9EX0lpSE1aV25CMmVETUxQd0hqWFRFb1kwd0oyZ1liRkxscDBPMVQ4dnpYa3VOcjVYVkdtckc?oc=5",
-        "https://news.google.com/rss/articles/CBMiigFBVV95cUxPMVF4WGhIQVlGV1NNOXZvbWR1WmxGS0Ewc3NiRWppY2xvTmNsaDNKR19yc2dGZnZaMEs2dkMwNWViNldQME5JbzhCT0syMnpUZTBtY2VrTUQwYmhnc2RJZk1RMWV5OUkwZ2V4MUZodEwzdkdUdEdGQTlOWXBMZUp6bzFxSmdDYjhLLVE?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 35,
-      "size": 2,
-      "strength": 0.02,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-16T00:00:00",
-        "end": "2026-01-22T00:00:00"
-      },
-      "summary": "Immigrant protection bills await Murphy\u2019s signature as ICE raids continue in NJ - NJ Spotlight News. Immigrant protection bills await Murphy\u2019s signature as ICE raids continue in NJ NJ Spotlight News",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQclVxcU0xR3BrY2gxN0FPa2JJU1FmMkRjYmYwZHp2aS1keVhnZXEyMzJuMmJ1eDZJd2dLd1FjaURzVjhoRGRLYUM5NzhPdDFnVy1LbzQwMXBVS1BzQ3lqZ2tGT0NMN2FiQzd0aWhOM1p5eUFuS2k5ODE1Zkk2MkE2RDd3SUZhQ3R2SVpxLTlGRzNOOXVVSm1RUXpYMktyUzVtWkxmaS1MYzliRDIydklMMkRzUHlvRU16Q25j?oc=5",
-        "https://news.google.com/rss/articles/CBMixAFBVV95cUxPOGpoVVNvM3A5SHhwN1J1VVZHVjBZVGJ6NjhiYmRaRXQ2R2xwOVE1YTR5NElaSHl2UkZmWVlRdFZ0UXhsbEhPRm5FaVdMemkzcHk3Nm5EX2kxTk56a2VUVC0yd3MyeUdSNzgzdWZWeTZNOGw5aUNINWlPV3RlbFZLd2oyTGNnaHlLYWpvdmJkdnRGaFRHV1FLUUxqU0FVbUczVHJLcUNGc1pFcEpQeC1vM1h5RFJ0RmxIWFpSNkJzakt1U2E3?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 68,
-      "size": 2,
-      "strength": 0.02,
-      "zip": "07960",
-      "dateRange": {
-        "start": "2026-01-15T00:00:00",
-        "end": "2026-01-21T00:00:00"
-      },
-      "summary": "Morristown residents gather for 'know your rights' session in response to ICE raids - News12 | New Jersey. Morristown residents gather for 'know your rights' session in response to ICE raids News12 | ",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPS1R3LXFGQU1DYTVCMGJKUDRvN2NZaG1IQVEyVWRFY00xdUVfQVY5YWlZM3dVOHVxS01nSDRzRzNNV0dFMFI2ZFRQSXdRbVpraTVyQjFhcjJPd0g5bmdWQVFTNDNicWNPa1plREk0WkVVN21hUHR6anJrZlVEb2k2ZDZsX3NaeWgxeDNsZnJXbDVHaExlUnYwZmtaT0xWcjd5VmJiUVJ6UkVWWlRNa08xWTFBRnF4SzVOQ0FSbDJibkJuN1hlNHd6Y1ZPMU1razBQZURr?oc=5",
-        "https://news.google.com/rss/articles/CBMipgFBVV95cUxNR05lakJLUFBxZ3MzNDdxNnc5VGlSYU5NTjBuRWI2ZWdXdi00MmUzcEZHM2VLSDVZemNMYmZFWnhaYm9rR1BaS0h6aTNvUXBFWkd5dFFNcTBMM2tOZ1ZVUXFGWENnYWg3ODhsTHQ1RWszWVFXOVVOek5vQkY2THVuamIwdDgxRGlPV2tCX1MwRS1PVlNsRVNDeFIwZ1FweDBrSzlxMEZ3?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 52,
-      "size": 3,
-      "strength": 0.01,
-      "zip": "08540",
-      "dateRange": {
-        "start": "2026-01-15T00:00:00",
-        "end": "2026-01-16T00:00:00"
-      },
-      "summary": "ICE arrests two Princeton residents (updated 5:30 p.m.) \u22c6 Princeton, NJ local news % - Planet Princeton. ICE arrests two Princeton residents (updated 5:30 p.m.) \u22c6 Princeton, NJ local news % Planet Pri",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMilwFBVV95cUxQd21WaVpmcFNFNnVJeWNoQXJYWEpURUVpM2pQX2hsQ0FOU2RVUkNHQVg0MU9ya004Y0lpS1dDYzFrbzFpQy1uRzVwVUo0WExqVmRPeTFSNzJHV3JXMldZMkIyX2hIUHFIdVczZ1F4TVJVRGVfamxoNFROTnFFVlRnZXlROFpOclJJb05WWEQzVFhieUhjb1R30gGcAUFVX3lxTE9kLTYyY1JOTV9HLWtRcy0yN0kzVXlGcE1nTWVlU0hVQlVNTF9vdklXZENqUGxMM2FTRGNNZVRPWUNISGRQMzR2RHU1bW4wNmI5VnpOV1dzQ2kwRE1rTGNXV3p5dHJiYzlLeVo5bnJPM0QtNWExOUNkeHVmalU3cFR4ZUdlcHZEVEZTaTdzMVktUTlmTElFMHc2NVhXeQ?oc=5",
-        "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQLWpEZ25CRURGRjhfanNMNW9Vb2Jrcjl4X1ZBRDZqM05pTFBZUVg5SmM4MEQ3anFkOXdzY0tMczRQN211amR4NVBWNnZQWmFCVDZQMFhjTjRuYkpVSWhmZThydnNRY2dqUDRfc2stLVlTQjh3aHhRM2U1Ui1jYjNDYUx5ZzZxbU1SaVJGNHVhMndJSkpwSHU0Mm9sMlVSaTdPUjV6eTRvUno?oc=5",
-        "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1EcUVBbFpub3hkdERxM3Q5N3hqOGRmZEdsQUFUVndWdGZ5UGQ5cTJMaXVYUG9uQTN3OEhlUVVia3R4U2xjUFd3NWxsU1dJUkt5QnVDS2hibXluZw?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 69,
-      "size": 2,
-      "strength": 0.01,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-14T00:00:00",
-        "end": "2026-01-17T00:00:00"
-      },
-      "summary": "NJ residents rally against ICE raid aftermath - [redacted]. NJ residents rally against ICE raid aftermath [redacted]",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMihwFBVV95cUxQSTkyb2lWTG14VnZIVHZsdjNfLUg1YThxX3NrRnVaaThSblBINjRCZmJGT0RfeHNJS1NPSjdUeS1KOG8tLVJfUkRMMVhrbEpHa3pIV1JUR1RuVkdvc2czQWtRcS1YeWxSZ3cxNVpVbE5YX1U3eTh4Qm9IbTVpTGhUQWEzOXVfXzDSAYwBQVVfeXFMTjBwRU1JLURXbHltM1E1a21qaDdQQW5XbzlHTUg2dldGUzBKaF9mUXgyN1p4NjE3ckQwZC03dlRGbkFrV2RtRlFrcDBuNXhaQTI3ZHRJVUdWUTNCbVp1bTFRN1hpVzZCQnVSUWlSczdiazFMQUk0VWtIU3BlTzlFa2MtdElPVlNoaUl4U3k?oc=5",
-        "https://news.google.com/rss/articles/CBMiowFBVV95cUxORTMwZ2ZWMnEzdW5pSmp2VHBqdGtvYkl6UUpfcE11VnpOZlJfOWFESFdVajlrLTBGZ1N6MVJJd3p6R2NoazF6MVBWS2FieUVJUDd0WVhzaHdhbElNbDBaczFZb1ItYWZQcFY0U3dpdUxwYnNBalJQcE9fLURMR29yUmFSTHl2QTJqMDFQRjJDWTJJZTBYZWVFdkFnTmFOWjQzanEw0gGoAUFVX3lxTE9YT1h3WHU4YkpoU3ZjNUFack5EcTNEMVFscEs4S1pyemFsaVA0aUFaTS1hcGhVMjZsQkhRQnQwTUdQdERtaHQyRnIwQWhJM1U4ZjYzb0hiYVZDR2VwT3JiVzNET21uWkVoTXFVOWM0dXdfME5sTHdXbW9LOVRkd1RMUTFEc3QyenpQNlBRWjdnZ1B1SzJzQVItdi1iR2tjQ1VYR2kyeVBZZg?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 72,
-      "size": 2,
-      "strength": 0.01,
-      "zip": "07960",
-      "dateRange": {
-        "start": "2026-01-12T00:00:00",
-        "end": "2026-01-15T00:00:00"
-      },
-      "summary": "ICE says 11 arrested in Morristown raid face deportation - Morris County NJ News | Daily Record. ICE says 11 arrested in Morristown raid face deportation Morris County NJ News | Daily Record",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMipAFBVV95cUxONmloMnkzQmlHNW42SHkxRnMza3J3X2J4dzNTRzl1VHNuaV9raVhKSkpGM0t0bFEzcDRTbVlIUWFEZDhIcmRrYThpUjRNTlRUUU00bWczZy1fZVFRV2VvYkh3Z2hXeDhzSjNXTGlJbVNNdExzVm11Y3Ewc3ZwWnhHaVFYS2U5Q2xmZ2wzODl3SUlpOERMQzNQT1BuVTZrLU9FdmQ0WQ?oc=5",
-        "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTjQ0c2dRc3Z3N3liR1FINDgza1BwRzRNSkhzcDd0VHowZXVjS1duWVkxM2F6aEQwdjM1aXZFUmlzcS1YTTJMVTNyQ25LZGtXaDBwRXAzd0JYSWJkQzVmZ3Q4WnZCejJCVGtQWTNOQzhwbi1kTWxMclJ4M2dtTERMSXNVUWVHOFJGdTkzVzVUaE11aWhnRXJYeg?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 20,
-      "size": 2,
-      "strength": 0.01,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-14T00:00:00",
-        "end": "2026-01-14T00:00:00"
-      },
-      "summary": "NJ Democrats demand ICE cease plans for Roxbury detention center - New Jersey Monitor. NJ Democrats demand ICE cease plans for Roxbury detention center New Jersey Monitor",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMieEFVX3lxTE9nRFd5TG1yUEFmMzYxdE5qODVPUG9Rakh3MXo0Ri1ZZWhGRndxQ3hFZ09RNTlpQ3VvT1pDT2lfT1N0NGRyWFNQQnNpc2hpYUJMRzRnVml1Sm5qbzNubjEtSXNzemVPUGxCbW1pZXNNMGhXMW1PWS1UVA?oc=5",
-        "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPNkJJbXVyYVh5R2NJajhrclBBMW44YjdoRS1iSG55ZWVMcHRNeDlzcC1BWVpjUzRXd1ZONEhuUTJzVDRBTHhKTzh4X21YWXYtNllMZU52M2JTUjA3Vm52cFpNdWRFSVpUM3FOcVZMZVMzUG1uLVkxcjdFdS0tZnJuSGZaUHZIR3FQTjZxSFBPcWdlSlVDM0VNcENDQllFQ1hUY3cxVkcyMk4?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 5,
-      "size": 2,
-      "strength": 0.01,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-12T00:00:00",
-        "end": "2026-01-17T00:00:00"
-      },
-      "summary": "ICE MOVES TO DEPORT RED BANK'S BICYCLING LANDSCAPER - Red Bank Green. ICE MOVES TO DEPORT RED BANK'S BICYCLING LANDSCAPER Red Bank Green",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiigFBVV95cUxOZnV1ZDIxdHp1NVNmRFpZN3NkWUZMRTMxV194MjZrOWhreTJyVTNKU0pSdGxIc0dJektkNlJ3UG5KSzllZW5DX29jTkxrOGJuWW9aRFZOcUd5bk5NSlEzTEJ6dkdhbk9iVU9INi1HX3dtZjlSV0NjVG4tX3Y4amdnLUdlbzR1NmZRRGc?oc=5",
-        "https://news.google.com/rss/articles/CBMieEFVX3lxTE1YQno2RnF2SGE0QXIwM1N1NzdCUHNZR1U3S0VTVHJPMmQ0bzBkVmhOVHE3cExDeE8tTldyaUlvRG9GR0dCMS1VdGdwcjI0Z0lKYmpMSV9VY1Z4bjVNdjhVWDNialNxdDNySnE0OEk2M1VWX1RQQ3R6Tg?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 86,
-      "size": 3,
-      "strength": 0.01,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-04-28T00:00:00",
-        "end": "2026-01-14T00:00:00"
-      },
-      "summary": "Trump threatening \"significant\" cuts in federal funding to states with sanctuary cities - cbsnews.com. Trump threatening \"significant\" cuts in federal funding to states with sanctuary cities cbsnews.c",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMioAFBVV95cUxPanJyVkhxZ1RCaE9ONzJGeVhWdzhDRmhjN08tNkk0VGs1UzVJQnZXOENkMXJWS2NlZkw0TUlsSUVfX0Z6VXl6enF4eWYwRDN3UHBaSFl0SlZJdFdQNTY1cnhjR2M5Vm1QN3dRM3JEb1ZZbWhkMGxxM2hXN1R2OTNKWU13T1dGblJVX293V294NkJLTFNrc3pWVHpkTDdENnhv?oc=5",
-        "https://news.google.com/rss/articles/CBMinwFBVV95cUxQclVhYUhGUG4zajZ1WHFfTE40X0RxZHpmQUtUX0lyaXVqX2pYUGM3Qy13b3VNTnFUZDdpSU5zai1icTR2cnpsSlZqNXlfNFNUNEpGWDlTTEV2cVFqQjBnNzJoOUktSkhOUzV3bFNjRW1hbVdnRlFsbUllVWRyUWJXRWdoQk9nUlNGT2lsQTVVVDEwMm9VLUJETW5xd0Z2eWM?oc=5",
-        "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOQlVSQjlBajJhNzMzUkxmbDZWZkQ5WXJPd2J5VlJNd1V5bE9PdDVzSlBhRTNORTIzVUhFcXFibS04aGZTVU54UUs3MXJ1eGk1SDFlUktLZUgtVGo0SDVHMjM5VGlKeEhHV2d1NkZ2RWtsa2txSG1qN3hoR01VRHpQalFvVElkWXdYaEtGRmVBb0x4NjA5TjRMNUNHYTB0dDA4VHNlMHNvbXFwb0FxdFo1OExwWHp2SWo3N2k5aGhBajZCdw?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 71,
-      "size": 2,
-      "strength": 0.01,
-      "zip": "07960",
-      "dateRange": {
-        "start": "2026-01-12T00:00:00",
-        "end": "2026-01-15T00:00:00"
-      },
-      "summary": "Morristown High School student taken into custody in ICE raid on Speedwell Avenue - New Jersey Hills Media Group. Morristown High School student taken into custody in ICE raid on Speedwell Avenue New ",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMikAJBVV95cUxNeVlRTFdFZHNxVXdLb0xtTGxrZ1BqOW9zbnhtOUhrZ05DQm4xdmkwdWd2VGRMLVdKVGxoT3pxdkQ4bUtKckI0dDBZUkR0MkFHYVR0TUVSM2FWWmJsQmNVd0MtRHpON09wQjBZbFE3ZVktTURIdWhqNWZKNUR0NEo5UTdOSUVwTGpLUnN3ZmFWNUhhX1VHSUh3SV9TYXhBX0JkM1ZTV0JSVG10VEMzWUJmM1BpWTlBcmtUU1duTnhqOWRHUms1aUlWX09IcHlpbS15LXRyMGNycGRMaU1jUVFVbFd6UzUtOHUzMFBlcWNWSFZWZjhLMGI2S3BmWnlxNjRnMVdLdzBsOGNjcWN0dVR5QQ?oc=5",
-        "https://news.google.com/rss/articles/CBMinwFBVV95cUxPY2hyQWlQaUNpWjRJV0VtX2dVRHktQ3M1SmFoNFg3b3dMUTZxazhRbGNKT3N3Q2VZeXQtMUhiQXhraWV1NTdFX0FjU1hOczBLWVpUSGQxV01RaVNQMVVsTlUtaUtjdWxjeGREUTNnNmNqeV9SUDF4U0VHdzRxOHB3Rno5eV9nN1c0eHowVURydW9iNlkwckQycElTTlRERVU?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 67,
-      "size": 2,
-      "strength": 0.01,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-15T00:00:00",
-        "end": "2026-01-17T00:00:00"
-      },
-      "summary": "Dad detained in ICE raid after dropping kid off at school, 2nd man identified - NJ.com. Dad detained in ICE raid after dropping kid off at school, 2nd man identified NJ.com",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdDFtQmtPVnl6a0Y2bGZQR2dxcHNMV0VmQmFlQVU1cjNGbDZiclRuUnpZaUVIMk9EWmM1STZKYnNwUDRKaU12ZG5waldaT01tSFJLZFpscGlVTGgydjRhNlBNemRDWVp2UEQtb29SV3hjU003TnQ3bzJZdFlWNzdjeklvcUJPalEzaVE3RzIwNWRZel9CRldWaVRhcEZ5Z3V6SDBCOHFiWmRXS29TQlRRTlQ1QdIBxwFBVV95cUxPLTVYVWNpaHpsci02eGtSOFRCWmI5MlF4TXN6U090RzN3UDJLTVJDbG1LYnJMbzh0MzdzcTJiZEVmNXdVOUF1SWp3UEpUS2VlUEtaZ0Q3NVNiOGViV0NLWi1JejBEZXJGVUhSbTFZSXNGMjA2VGNHeU4ybDk0R3BTYWlSOVJQOXUxcjdsN3FuY2w0YmEtcUZVejJ2LUdXaE95UFVDN3IxV3c3cGZ2S1hVbTJqbS1DajMxNEdqM3J4aWltczNZcThn?oc=5",
-        "https://news.google.com/rss/articles/CBMivwFBVV95cUxQd254YzZUMXpZdUtCamdQMnBqRVpaUHJHd1dXNU9iTXZUWHNqbVh3RTI2MF9zcUhaZUtseUJoNGZodEtGNmJ0ekJlVHo1Vkt0NDZ6VFRwVnowR3FMVDlUeEdaekFNMHdUcElTVGNDOGdfMTdTRkRHMTRiWGtWTDNCY19QY3htaDRFMjRxLWlOY1BldUZYQ2lnZzlvQVdSLXF0WnlrZWVCcDUxVnpMUlg1WmhsdTZuVndXRjJBVWNpVdIB0wFBVV95cUxOZ1NGZ21pMmxSamVrMFFVek53VXJqMl9ZTjhZYmRHS282SUVMbTZVcDB2TXJwRHZnNUFEeGJ1a05aengwQXhEbHFXb19fNldHODlGTW5JRkpsc3FOeVF1TVRMR2dteHNIY0oxNnVtTEVORjNxemFiaTJUY1RRd1JpX09sV25iSWgwaDNOZWFqenI1enN1X3E2Nm5Md0lUTzdodUhfLVVjQThlLWlybFJyZWJWY0NNcGlGSU8yek16Ri0zOGZNYmxyTEJvLTJSSXdWV01z?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 53,
-      "size": 2,
-      "strength": 0.01,
-      "zip": "08540",
-      "dateRange": {
-        "start": "2026-01-15T00:00:00",
-        "end": "2026-01-16T00:00:00"
-      },
-      "summary": "ICE detains two men in first Princeton raid [redacted] - The Daily Princetonian. ICE detains two men in first Princeton raid [redacted] Daily Princetonian",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMivAFBVV95cUxOTHR6M1BWRTIxNUFnWmdVNEdiSkVvdTRhSmk5cUktbmdpSEF5ZE5PUXVYV3pDR0ZWZjY3dzJWaERnQnI2NzdOeWJGTGxlbWhVQTJicG1pMUFfdVdCVFNscVJkLXFIenFhSklTdWE0SkNhMFM2V3NDMWt0VDZYTTduY0lFS015QXJCR3ZEU1A3YmphX0cwLVJ5QzA2am94YlNaeWx5eDgzWkJtTkh2MlFhMmtoTUtkcTg4QXdCbQ?oc=5",
-        "https://news.google.com/rss/articles/CBMieEFVX3lxTE50THN3QVlMdUFuNk5QblZ1d2tIS3NRVXl2bWlpQ1ZJdHhnZllZTTdXV21ndlJUbTd4dkJoeW9qVkFBaUpWanAzUFFhZDdFSjJNOE50NGpKVW83cjI4SlBod1FDd3A1cjhOX1ZVaUM5QWJrWHB1bDAtWA?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 73,
-      "size": 2,
-      "strength": 0.01,
-      "zip": "07960",
-      "dateRange": {
-        "start": "2026-01-17T00:00:00",
-        "end": "2026-01-17T00:00:00"
-      },
-      "summary": "Morristown, N.J., community fearful after ICE raid outside laundromat - cbsnews.com. Morristown, N.J., community fearful after ICE raid outside laundromat cbsnews.com",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMie0FVX3lxTE11SW5mMlZiU2UxS2Z1SkpUTXZUSlBZVk12MmhMaUFXWUdMbmstbWVUMmRuaFp4MUpVWVZ6YmU2QlRFcWlwRFlpdUlqU0UwTUNiTnBzV1A1bzJyTHpCZG9NV2tqSndIRUc3Zl9aTzh0cnBsbkkzcXpnT05xTQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 64,
-      "size": 3,
-      "strength": 0.01,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-12T00:00:00",
-        "end": "2026-01-16T00:00:00"
-      },
-      "summary": "High School Student Doing Laundry Among Those Detained In Morris Co. ICE Raid - Patch. High School Student Doing Laundry Among Those Detained In Morris Co. ICE Raid Patch",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9Gd2NvTHFEQWJHVzFsVXBsbWswZFBrckJVVHdGcTNFWWRHT2RlZFNxcElHaDUtNFpoTVlGT1RZclUtaGZ6NmJiUHhHNTI4bGM?oc=5",
-        "https://news.google.com/rss/articles/CBMijwFBVV95cUxNUUZ5Qy12RUlJYmhSUUZjMzZ5V1NGamtoU3d5T0gzLXozMTVWU2I0Szh5TGJ1c3ZrQXB2QmtoeERPMXVRVWtzc3QxVjVseHBjT2VyV0NzMXNhTktlY3NmQnFvOWltVFUyTlYzOENiYlM3SGNtNGpMMkFOVy1abVFmZ3lWWHE5U29aNGowSDZLTQ?oc=5",
-        "https://news.google.com/rss/articles/CBMiigFBVV95cUxQT1JteXRrZldPa0lqZS1PY0F6TWttQ2JYaWtVUDREV3NqTzYxb05oMDRxLUpEMWdJTGU0MkJmRzVZUTRudTJzT3pMXzFxbVdvcVdkUkZJWUlYNXhYakZvRVYwY0cyQUdLVFRGdzRsM3JQNTgwTzRpZmExUVIxdXhHNUp0V0xXdTQ0aHc?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 62,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-05-23T00:00:00",
-        "end": "2025-05-23T00:00:00"
-      },
-      "summary": "Feds [redacted].J. cities over immigration policies, mayors say they won\u2019t back down - NJ.com. Feds [redacted].J. cities over immigration policies, mayors say they won\u2019t back down NJ.com",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQbWlKU0tEZWp5dlJUNU5vUzNBalliTS0tZnc5eXpFQmlBY20zQlNNS1ZsLTJVV3lXYVZaOGozdjdPQ1gtS19hS0VaSzVKTVI1UTNDbWRURkdKWDNiYVpqd2xvRmttUlNwbjY1QXQwZnZEeW9IU3NaSllfbEJwVExQOTVuMDZpdnk0UWNLSWl6MlgyTEZuWlotRHBfWWRZb09OaXBETDV3b2xjcXFTaG1qal9MRWx1R2N5ZE5pRWNQdHpWOTJPamlNWA?oc=5",
-        "https://news.google.com/rss/articles/CBMikgFBVV95cUxPMUh2TW8yS19WbmNDVmM0OUVUOElfRUtPMXBPSjd3RHRqb2tyNnZvYURMOHc1dGFHbHU3Y25rZE9TM2VvZzlXNndISXhDYUtMS1R2bE9RNGVIUy0zNnhUdW5falNadWFjcTYtTVl3a09OQ3psY2xDcG5CVlJuNk9JaTJ5TWFvNGtPMlJXamd1TmxRQQ?oc=5",
-        "https://news.google.com/rss/articles/CBMitgFBVV95cUxObHRab3V2UW53dkRoeVJWbmhyekdlb0diVVZOT3ZRUTNPRjVjamEwdTFBVlNUT25id2ZSck9iVldRQ3h2bUJvRGU3bWppY2h4cUFFWjdFdWU0QUdoWjl2NGhlYkF5T1h2SEdCQU1rOXFDeU1aZlBWbEtfQ3ZULUJ4Q3c5U256am96NzE5aU9TSloxYkZ4MHdhMTNHX0ROUU44SjA4R3Z5b1N2bTBRT2N2WEJZZWhuZ9IBygFBVV95cUxPS0RhVkM1ZkdiZnJ1TmxPOVFzU2RTdEJHMFZnNjlCdkU5amtDRTQ5MnROOGtXWm03bGNBVzJvQndrc1FlX0ZtQjdia3FQSURQRWJaU1RJUG1BbW5FWmxoVXpMQzhPS0VidGJNUnluSjUweEpqdGtkUUhSakpPNGZMcll0OXpJU2tCYTZvbnZNNU9nVmFCNjZCdk9PX3lKT3FhNnJ0Nk5xM21YdDNoMFlSZXpsYzA1YThlVDVYVWQyWWJ3UmJLeFpFaXBB?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 26,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-07-18T00:00:00",
-        "end": "2025-07-21T00:00:00"
-      },
-      "summary": "NJ governor candidates split on housing immigrant detainees at Fort Dix - New Jersey Monitor. NJ governor candidates split on housing immigrant detainees at Fort Dix New Jersey Monitor",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMirAFBVV95cUxOTWxNZXdxUkdBNE1KLTV0NGNNLXNSNGNyRWZaT0x5R0dSaEhPZGx3WU9TR2pxcHp0SzJybWhXRGtNRUJZTHIxNThkbmpGMVIyREwtR0NERUxCSFpuclZUSzJsbXhxcjJ4N1pJSWtZZzNsLVV4TEpTYmtlNEZRanRDQTBVMHV3Q1NrSGFXWlZxdGg2YmxDRjNRakl6NHdGSGp1Wk1CZkNUR2Y2Vk9H?oc=5",
-        "https://news.google.com/rss/articles/CBMipgFBVV95cUxQLUpKUk5TV2J4QUlCeGg4UWNfRFdINXBwMWZWTHNZQlNmRXdVczIyTlJ2N21RLXM1OEZaMWUxTHVzbEFfbUYwcG5HQ2NlZGVTUjRJOXpxY2J5TGIzcXdYMmNDbDRhenNfZlBzbUU3cmFBaVhMN1RIU21XWFBYSTI5TjQ4MEV0bnBnMmtMNUdsb2thYWVFSm5sTW1IbWxVa3hRZ1FCbTd3?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 31,
-      "size": 4,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-04-28T00:00:00",
-        "end": "2025-07-22T00:00:00"
-      },
-      "summary": "Contested New Jersey law banning private immigration jails gets its day in court - New Jersey Monitor. Contested New Jersey law banning private immigration jails gets its day in court New Jersey Monit",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMirwFBVV95cUxQRGJyeklOYTlHRE5xTnYwRzVBMF9ZemlwaVk2Sl95MklPeFpSQi1sc0tmaU5qOVVkeV9EeW1nNjBIZW51RGVEb0U0c245NFM2RjVpVkJfVlo0OWxNaGQwVENEal9yanhvVWdITF8zcnBtdXJWVHVJNlkzSzVaYzU5X3FhUXo4bnZCX2tyRjJ6Y2tBT1JBZ0RyUDNsTXlaSkxvNGFpdTVwQXIzRm1HVGdZ?oc=5",
-        "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQQi0xZFZpd2ZSbzNyOXBwSUxNN2ZpMWhXUWtqV19ZMEhMMVlGODNEbXJKLUZfTTRFS20wejJNZXFyTmZRSXhMZ0tnbUVpaXNoRU80SWdzVTNVWVliYUE0R0M1Q1U0aTVoZVpvQVlEYmVVa1VRSzk5eTc1RFU3Q3NQNW9tdnRIN3YzNTFDYkhlRnI4azd3N1NQQmx6bnd6bWhhRk9lN3RubXRMX3A2LVdZWHd0SVhEMXM1UEhyZkoyMDVSUQ?oc=5",
-        "https://news.google.com/rss/articles/CBMirAFBVV95cUxNZktzX1liY1ltVURaallLc0R2OHNRSDB1VHlPWk9pd0Y4alRPalFwbEVFNG9nZ21BQ2lucFVIcTg3ZDYyWGFKM2dabHA4Smw2VHZwWXZNUUhGeXpKM0tfeWxmZHJpRzZBenllXzhwanRzMUVod3psaEp3aDVLbVJmeTFZTFQ1dTlhQURHU3ZsVWlkWF95S3VxUzhBZW1sZjNuZ2FtVkRMRjc4LTdi?oc=5",
-        "https://news.google.com/rss/articles/CBMivgFBVV95cUxNcWNTX3Z1akdDLXFITDZrYnNoY3ZBSkg2U0lXYzJqY1V2RDhhRndJc193ajVLMl9fWnMxT3hyTW5kWWkxa2pEMzloWExFbkNBR29oM1RIVkdwUFExVl94aGk3LVFnRTJFbnNkc0ZuREtmRGs2ZXRfYmhIZFh5TmVUdzhRam1ldjFXYzM2TnItVlI1WTU1b2J5YlhpbnRsZ0lqYXFFTjRMN3JjWmRoS0N6ZHcteFRhUzZBNklXc293?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.73,
-        "confidence_interval": [
-          0.58,
-          0.88
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 65,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-06-09T00:00:00",
-        "end": "2025-08-05T00:00:00"
-      },
-      "summary": "States, sheriffs puzzle over Trump\u2019s error-filled list of immigration sanctuaries - New Jersey Monitor. States, sheriffs puzzle over Trump\u2019s error-filled list of immigration sanctuaries New Jersey Mon",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPcllpN2czcnFERk5EbXVmY2sxdHlLS1BER244QXV6ekE5RGppcmtiektKdndkVi04Vnl6M25BMnc2d0NFNkNHRzJZaFNsUDlwTDBETzVzQTJrT0tjVEIweFBxTGhkSzhQSGNkd1lBcm0xVFpTd0IyQXFBRjJ5eWhIRWtNb1BIdXBYOUJ5Q2Y3VnlLdmVReWcxY2lUT0FocUJZZHRuNHAzWW5GQQ?oc=5",
-        "https://news.google.com/rss/articles/CBMivAFBVV95cUxOMXFnSk12ZWwzdzlaNjF6dkVDeWF1MHJkUi1VRmppQW1OWDBJLUMxODVZM0pGTUtDOXFjb0kwUXdzMWpxelp3eFN3aGdla0FPOGt4YkJRRlhOYW1sYWRlY0gzSTRDYzdCYzZPWmJjS2lScVdobkprVE02WUtpSDhjVGQ1akdFai1iRC1SM1hCSVVzaEZtOEJHd2VuTU1SNDMyUXZYem5DTjRpaW9QUllPNlh1YkVldGcwZ2c4SQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 51,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-08-21T00:00:00",
-        "end": "2025-11-19T00:00:00"
-      },
-      "summary": "Pair of Immigration Raids Disrupts a New Jersey Shipping Hub - The New York Times. Pair of Immigration Raids Disrupts a New Jersey Shipping Hub The New York Times",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMipwFBVV95cUxQNEE3NnRMMVNPRHo2S3pHb0oySkNIQmJDQklCMlJMdEVrci1JaU1EVnloYmRqeTlyQWw4MGRTbHl3d2Rwb3BjVWE5SER6RE5pMEM0Y0pld0syX3lBeDU2N0Q1WU54MDljMV9hNUlfSElzZGxCNDA1NURvUm9Jalpmam9QR09yVktnODVrcmdGYzFZcXRneGNQNjB3UnZHa1VaZGtHQXZtYw?oc=5",
-        "https://news.google.com/rss/articles/CBMijAFBVV95cUxNUm1pQXFnc1FtQTVhZmhsQ1ZQZFFOWEMwNVl0SVJCNzFsM3Nick5fQXdjOHJmaFNkZlVSWUY2RTVlX2JVTDdRQVJGNWxJbng0ZHVwVkRTUXdtX2RCd0EzMk5OTDF0SUwwX0s0MDNYaFVWTC1TNlZlTFNmZ05ZTzJZUjM4UlVjNDkyQkRZaQ?oc=5",
-        "https://news.google.com/rss/articles/CBMimgFBVV95cUxNb2x0V1RUX0VwY2FNZzNwLTkwcjlwaThDb2ViOUVUMENYOFVGZFFxZEF4aGlNb3ZweDVJMFRkQS0xQU9GQnVYbjNJakJlZ2RIc2ZGVGdlZDhwdkl3bUlScm01S0ZzN2VueXhYVjVkREFWdDBUZXlIN3k3MGh6Q3hleHJNd1JsOXlrWEd0d1pDRFB2VFctbUxkZjJn?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 45,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-12T00:00:00",
-        "end": "2026-01-13T00:00:00"
-      },
-      "summary": "New Jersey lawmakers pass 3 bills designed to protect immigrants from ICE raids - WHYY. New Jersey lawmakers pass 3 bills designed to protect immigrants from ICE raids WHYY",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMidEFVX3lxTE8xcE5JMFlHMWZ4SndRRjlOOENCU0wxa3NmM2xkbTVGeXVNLVozdVZ3RDU2bHYyYlQ2Ukxic3AxN3BacGlteW1DMENTWm9yX2Rrcl9DYzZxYWZMc0tCOVZ6dmlFcjc3cEthc3hZR0ZScWJDQjVK?oc=5",
-        "https://news.google.com/rss/articles/CBMikAFBVV95cUxNMGI3eFVWN0NTcDF4VnZJOVowYzg5eEtXS2dWcW5HUklVbVJIbzJBaFFDMDJFWC1BOGRfRTFEcXZrdjM1WlI0WHFPN3NOb1RFQndDNGNjR3RBZ3VXSnNMemFBRld2Q0ZGQmZpczJDTmQ2cFNrd21TT0hMSUNMSmZnX2JlRkxZemdWNDlIdmFvR2M?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 3,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-06-06T00:00:00",
-        "end": "2026-01-13T00:00:00"
-      },
-      "summary": "A Push to Expand the Rights of Immigrants in Defiance of Trump - The New York Times. A Push to Expand the Rights of Immigrants in Defiance of Trump The New York Times",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMihAFBVV95cUxQWGhGenJhZWZTbUQ1bzRWZVZQemh4T3ZMak5UU2V3TS1FZm9mSmdoTGpHcEpGSU8wajVmcEF1QWlfTnNSTHNYZTNVcWJHVE5fdVRrcXotN3RmR242NjQ1M0tOY3ZhQTVDejg1bWk0QXprRklkamJ2eHN6MHVTSWVJU3Byb0E?oc=5",
-        "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQSjVJVlYxT2w2UTVxeFlXX2xFQWZFRkhBRlhsTDBjWmZvNG9VZzdpUnI4YU5tcVFMMmJkYnNXZHBUNnlNbHFMNEpDWU5Bd19NRzJhNEJLQTAtS0lTcG5XSUNTTHRGaVhEejVnVlVzMTR2RUppSnlwOW9kblpORGlqTm1nakplQi12bzVhcVBaa1NwcVdOYjVnb2xsT2RsRkxtYUs1OFRTT1g?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 41,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-08T00:00:00",
-        "end": "2026-01-09T00:00:00"
-      },
-      "summary": "\u2018They're killing Americans on the street\u2019: NJ lawmakers push anti-ICE bills following fatal Minnesota shooting - Politico. \u2018They're killing Americans on the street\u2019: NJ lawmakers push anti-ICE bills f",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMif0FVX3lxTE95b1gtRHJRdDNucmZkZllJdnc0UEljT0JsTU1kZmxwREZXSVRxaEJkVGpZbUxabzF2ZHd4NXl6cWNZQ0pMTjNkNm9Lem5JNGExdWk0MWk3M1lnamJXWEgwV0dtYmtLeGY3eWJpdEtBV05zeXE4TDhtTThTVmVxR3c?oc=5",
-        "https://news.google.com/rss/articles/CBMixgFBVV95cUxNY2pMTzRRS3VLVVFuMURGY2toZG5rdl9XVk15ZjltOHNUOEliZ3lnZHhYLUJuZjZXR2FhM3p5WC1LWWxoV3hsZmhCZXc4cHR6YncySldWTUZyVGhRX2U3NjMwNlJFWUNBcmlhQTVFSnNpY2NKVGc1cVNYcXhNR3o4clZqRVppRjB4dThBYTYyTlNjcGJJdThTb0lfUkhUSG44bEd5R0k2T29udHliWkJHNnpRbkVUeTlWZXBkd2J6RmNBemdkbFHSAdoBQVVfeXFMTXdsN0lMR0NNMHdyb3BNbmp1djNsQm5CMXZ5OWN4d1J6a0VuYmpEc3dLUGppODVpUDh1SENLbW1vT0JQUFJLY0pFRnN0c1hidVRDMDBNNUNqNllpNVRRdnNUWWt0bEhUQlNWLXg1RkRuYjNhQ0FiZEladzdNeG5tMnhBWTFoWklTVVBvdmZtVEwyVHdyMGhlNzROamw5aFQ2SXVrS0tmbkVIQ3p1TU13YjM4OG5rZXFLeHdDbnZzWmxiVG44OURkWERSVmhyYUZpWDFfR1NTR2pEZlE?oc=5",
-        "https://news.google.com/rss/articles/CBMipwFBVV95cUxNWFVmYWhhT3d6LWhNejhPNUJ2RGhHcDllR2xuWk9GTVRaYUFHU2NzNnZvWWFpclhDMnVMcUQ2d0Q2VnVHZjdGQ21kSzVGb0pRb1BVMk15dUd1dWdJSG1sNDZDOWdiblIwU1N6MHpUeDEteko4THpWVDhYMEJldHlEWnF3TWl1dkg5VktVUnUxcGRDYl96RVRDbXVrR3pXT3ZlZUNXMHFrYw?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 61,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2025-04-09T00:00:00",
-        "end": "2025-09-22T00:00:00"
-      },
-      "summary": "Where NJ\u2019s governor hopefuls stand on allowing cops to aid immigration agents - New Jersey Monitor. Where NJ\u2019s governor hopefuls stand on allowing cops to aid immigration agents New Jersey Monitor",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQRGx3ZHhqLU5ERHFpVndJM24wc3ljcXhvUzJBZTNreVNfMnA1YlBrY29nWXpWOVozYWxBMkFQbVg4cmtfSFlXN2pveGp4YldHQUEtbnh1aVIydTN3OUVrR2ZjVUxTb3lzcmR3dXpQX0s1aHNlT29RcFFsNUV5Rms2WFdtbzJBWmdJUXZDazhqM0xhMnJaRXRweHY4T2dfMVJ6X0R0b01UekMxWGRkcFdDYXZobnZZbl8t?oc=5",
-        "https://news.google.com/rss/articles/CBMirgFBVV95cUxOd2lIQlF6QzJRa0JMVld3RDlRRi1fWlJBM2dndEN0Wk91LTRpN1l6TEJra2k4WEFjQkZ2NGtKbmlYb21wNE1iQjVtYlVDSmVQb3NjQkpzbV9DbGtoTjhGTkhEaWl0eVRPYS1lcjY1YTdDMXp0ZnRRaVMwa20zd24xWjEyS3BQNnpLd2JuSTAyaU5zT1daNmhCNmc4ZFpJckZCLUFYcFFNSWpmY0g4aFE?oc=5",
-        "https://news.google.com/rss/articles/CBMitAFBVV95cUxQYTdNYlhWVTZsT3BjTXBiaGpyNmFKWXp5STk1NTdEUlNWQWRudkZham5ZNy1WWEhsZWpFdGVVdVh2YXdtbnpxLUZDRGlYeV9fdlR5cV9ndDNfa256S2tLSDE2b3pma1VSLTdfdW8xNmdhbVo3b21kM0xWTVl2VXBDSWt6QXBIUm5rOEFBSWJFYi1KSEhUdXdHVm9UVjIxRUg2Q19GOFFNSWtrd2JHTXFWN1Q4RDY?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 74,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07960",
-      "dateRange": {
-        "start": "2026-01-13T00:00:00",
-        "end": "2026-01-14T00:00:00"
-      },
-      "summary": "ICE agents raid Morristown, NJ laundromat; community members speak out - [redacted] York. ICE agents raid Morristown, NJ laundromat; community members speak out [redacted] York",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMinwFBVV95cUxOSGRPbW1ZMENqa3cwM25tU1o0ZGZBUFJzYVJpQmlkRXJaMG1iaFNUcldrcEhyV1V0TzA4NVdsVVdFbDNjRXVLWEZwWEk3NGtkdVpEd2t2Mm1ObEdQWDQ4MzZmQ1BYSF8wWDhDQk8xTFZ6Wk1uOXB5dFBLRkxLMGdMaUV4RHlZXzVueTFoNjBtUmMwTWV6eklPazlYUDhtd1nSAaQBQVVfeXFMUFdNenlvajZVbUsyY29fM2dZS0N4cTBEdVQtekFaVGI4ZHhFNnN1c3FXSmRiZk5HeUlxRlBENUlnNUdtVlBqZmN0QU4zRWk2SVRGLWxZRk13Y000cU15dzFDSWlCb3N3WlZmOTlCeGRlZURsTjFyVVpwU3FOUklPd3pZWHFKZDhlX3o2RnBUaUk1UEg3X3Z2c20tc1EtV2hnUDl0aEU?oc=5",
-        "https://news.google.com/rss/articles/CBMioAFBVV95cUxNY3JFTUVRTHRuQmlJMl9UVkZYcnRTaEpFMjV3MEhhUlMzU2lFbGd5alNzNTJnRTd1NkxyUzNHaXRtZlpzRGlrcnpqeUMwX1JFNjZyT1pDc0NhdGQwZDBoQkU4REx3enljb0dmb0tJYmNFZkZQbkRVQkZBR0MzR3NITkEtQklCZ1FkQTA0SV92OEJtcHlqUDc5Nm85c2EtZGcw0gGmAUFVX3lxTE5Zc3VNQjJBT0hEYldrdUswVGZnbl9lR1NFd0tRbkZwOFZ0cW5BX2NQZVBqU2hoUElFLWlTMHF5UTRPM0ZCS016di1iQThrcW4yeDYxdGRxOUxQWjBlSHRiWWs4aldOZ3RQam5rWUVoTzNfUV9iZHpDUWdCeUg3VF9BQkdjWW13YlpOc3d6djQ3YUFkRkFaNFhocHVVNXdsT1VvZzdwMXc?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 50,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-05-27T00:00:00",
-        "end": "2025-12-26T00:00:00"
-      },
-      "summary": "[redacted]: The year in immigration - NJ Spotlight News. [redacted]: The year in immigration NJ Spotlight News",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMifEFVX3lxTE8xU2k0ZmZ2S3FkUG1DOExzNl9LMEpxbkN1aXR3cU5IRkNWWTI2SVJmVURLS3pVcFZheWYtaDF4azl2SzFhYmtJdWt4czF5T05xb2lVSlRKckR6cUlRUmp6WmUwN09uYXFnOUdWMVpPRlFJZGhZSlgwZ3JsY2Q?oc=5",
-        "https://news.google.com/rss/articles/CBMikwFBVV95cUxPbktienRfVFhvYU1Td2cxV2dfalhjMzVocEExRUk3VXR1Vi15bW02SnhTNEZWbkhrUkRCMkVkaFB0dG8yUElPWDZxcFM2eWdGZzBtaXBJa1dsXzNidW91U2x0cmtJM2VjZnZuNWhWM203aWJkaF9aN1FhODJsR1U3UVpnWnp1UkY4emRocUhjNDMxNHc?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 75,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-10-30T00:00:00",
-        "end": "2025-11-13T00:00:00"
-      },
-      "summary": "ICE raid at Avenel warehouse leads [redacted]arrests - News12 | New Jersey. ICE raid at Avenel warehouse leads [redacted]arrests News12 | New Jersey",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOd21IM25kTTBUN1J2RVAydTBDUU1LaElFY1JENEVPb0toaE1PTFJqdWhxZ3ZuTDBVMVZ4cVpnbTFXanJ3ODBEM3VkdnN6X3ZjemdGTUtvbjhwT2N3YmNkcmRic3VpaHZVRVk0d3ZuOWRxb3hfemlBMXJqM1piVUJxTkhvRG04eG1HcmZLMWwwOE5Zejh2c05DZVVodzZoclpId1FydHZQR25wYmE1ZlJRbTQtWVAyNWds0gG-AUFVX3lxTE1qb2U5d0tJcjEwTnZ1SHZCY091N09FN3lJY3dpUDJnNmFvWGFJOXItMkp5cnVwUm10eUUyTVA0OTd6RzFvUmdfd3MyQndDYmNsSUlJajRQcEJadXR4LWpyQVdpX3FMSS1GazVxVmYycmM5X2tiTlJQSlpkaTMwWGJLTlRnQ2ZFZHd6WVBYQjlUbUJGWXMzWm1DUm50M3M3SDhZRFJIQUxTV2RpRjEwak1IQWZJWVNxQi1ha0I5RWc?oc=5",
-        "https://news.google.com/rss/articles/CBMibkFVX3lxTFBJZUdXZVpaN3hUdDdTcnNoeUF3Z1lnSUJlWVQ3aGU5YXF4OVNzS2xtM3BTYXFfUEU3WUUxSUk3VVV4QXJrYzg4ejVsVmFWZkFFcHJ0X016S3ZvWWUyZlFBNENJUjd2b0tmeXMzaXhn0gFzQVVfeXFMTlpaM0VhNWNreGUyWmp1VHNVR2hpcTVyYWVyYXU2X3ByRUIzZW5RakFnSDE5R1IxZTVVcTh2b0RxdVlzVnhxNkQtRlplbEpnbDRsTW5CeE5hcS1ZOFM0SnpLNWFxMl9pa2l6cmRyWUJyZXNHYw?oc=5",
-        "https://news.google.com/rss/articles/CBMigwFBVV95cUxQdFF1WUVWdTZxREU1Nl9HQXJpVGQ3a2Nhc08yUkhxZmtrUEJJaE9iS0lGelFudlFqQ0RmSWtjVWxWTk5aakJ6WmZZajlUcl82am5LdTZYQVVuZUotam9Ca1hINHVtNTRyaWV6U29sbERMT3c0ZDR2VFBzaHB6b2w3WGFHOA?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 48,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07030",
-      "dateRange": {
-        "start": "2025-08-20T00:00:00",
-        "end": "2025-08-21T00:00:00"
-      },
-      "summary": "Hoboken won\u2019t \u2018bend its knee\u2019 to Trump admin demand on sanctuary policy, mayor says - New Jersey Monitor. Hoboken won\u2019t \u2018bend its knee\u2019 to Trump admin demand on sanctuary policy, mayor says New Jersey",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMivAFBVV95cUxPX25OaExqY0RFM2tNSFJrTkZlOFBzOHUtQzBkNlI1YlBSdkRScVNuTk1uT3ZjWUJaSERNMkdjYkh5NHV6YWtVZndUYzBWVW80djNrRzNTdUJ1d21MYS1nYnJpRDI1YS1hMU1hUnRRNlBCd3YtWXg4WjAtYzNNUnNUeGpiUUhoNzlmaG1VMHhFeWRWeWN5TTJIUGNTVjhxNGJLSzlzdHdjaG5uWWFreUJxNmRUVHJWSkJfUkFMMQ?oc=5",
-        "https://news.google.com/rss/articles/CBMirgFBVV95cUxNZlpsSVFhazVXUnYzSkRVZVZCajlyTDRST3BWcG1nTVE1YnpvcFI5cWI1RUNBMWd2eE5oZTMyU1d6c1ZKT2RZQi05cFJpYW1raklCaHJoeTU5S3g5T1o2TmtVVkJmaWQ0QjlXeGVuUUw4Q2U0SXBXM1dUbERFcEtJTGQwRU51dUVMS1RZNFRDbUZiV0V1cjlFSEYxa00zWmotRmIzZ1B0TElpT3prOGc?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 28,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-08-08T00:00:00",
-        "end": "2025-12-08T00:00:00"
-      },
-      "summary": "ICE Newark arrests another 4 illegally present child sex offenders as part of ongoing operation - U.S. Immigration and Customs Enforcement (.gov). ICE Newark arrests another 4 illegally present child ",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiswFBVV95cUxPVXZPRmwyTWtzeWpCQjlHOHFETEYzQldmR0RZX0FzRmMwdWFFdllxakFaLXczUm5hNllQcFZjVE40NXZUVmxvZnIyeUtCWWdmT0VGNHc2U2l2aUpLZlFOdWZCSjBObzV5ZHY1UHJSenJRVHBqV0NRZHF3c1ZpclJxVGkzSkFzektjRFF0bU1saFlUcnR4NlNuU1A0ZWZFWkNvM2lrZTJVREFkTVhXd3FGWk1fNA?oc=5",
-        "https://news.google.com/rss/articles/CBMipAFBVV95cUxPVUpMNFVXcEdQcEhTXzJkdFZzZFF1bk5FMmNPLU80MXhRMDJuY0Z2N0ZEeXV1N2tUTkZsVW1GV3NuWW51bmJEaUI3U3BhdmUyRW5NamhtR2FFbzVFc2pCUTZuTmtMNnYtRi1LZmlLaU5STWR6Q1VaQTZrZGhRYkdnRWJ3X2U5UTJXRXlsemVKRnlUUmFVajY1dmdQSzRkdG0tY2Y3WQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 18,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2026-01-07T00:00:00",
-        "end": "2026-01-13T00:00:00"
-      },
-      "summary": "N.J. is fighting back against Trump and ICE with 3 bold proposals - NJ.com. N.J. is fighting back against Trump and ICE with 3 bold proposals NJ.com",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMivAFBVV95cUxPNGZSQUFHUFF2YUJfdzZ2bUlwTGZBcDhPSUtrMXRCSXRFUXZCanNLZ1VLX0RJWWQ3TnNIUTN1MXFSSHNNV3JoNmFuR1hUcWVBTy1DakdBNzZweFB6RmJCUURYd2xYTEwwa29jV3ZJNWNQVENuY0R6Uk1pZG9BempmelJUVnhNeXhHbGpwYTlnQ1R5SmVFNTl2ZmVwam5FRXZZRnVqaWZJTVZ5QXBuOUNmeUttWi1hY1ZfN2pibNIB0AFBVV95cUxOMVVzeDRnLXNObUh3cEhzc3lIN3N6UUpoei1JOGR0X3gybElrTWFKVGRYNVZ4TjdiTEZFTWhrSVUtTHVSeFk2bHUxQ190cUdadXFfT0hhSVJpLWRoRVNDa3hNU1V1ZHdtN3NZOTZ4cnM2VExMUmhaM1VkT01qNU43X2lWaEFkbkxadXNNOVRTMzZ6TnUxamxCOXlTdHQ0OWZiUkdxVVZ6MklNVDB5SXJiOU81QnBhUHZIUjNwMWJLMFFWSUdZQjB2NnJHMmd2aWR3?oc=5",
-        "https://news.google.com/rss/articles/CBMipwFBVV95cUxQQi1SVWdTWGVQTmdjcV9uQ0JRN05GeWEzUTRhMUs4N3labjRHRmpFOF9hWE9wdEVmS2c0dV9HN1puS3JMTGdwdC10d09VT0U5MWV3NFlXV2xoR0ZjUFhrdGh3YWRBWlRTZzZaOGhndV9OLXBXR1hhdDIzY3F5V0V2NXRWbW1iY1FvQk9YcnRFdF90eGljR2pxNzdZOG5zcVRWVXEwWnRWMNIBuwFBVV95cUxPNEVEUEZpX3I1VEhtWjVMR2NETWFLUUd6WmlHeU05dlJfSkdyOGdEblljM0szcjRTVFkybFhuRE5tb1BJZndvVVhWbWJLckxQdGR3TkpmWjJ4R3NlUzdJZGJIZTlINFE2ZDhoSnNBV0Q1R2FrcS1rVFNuc1g1QnZxS19LNzdjcUpheXBfaEp4dklLWjh1dkJ6UkxBRTRHcXRjcGFuWEdsckVZMVN5eHgyMGtycG9WLXN0Vmlr?oc=5",
-        "https://news.google.com/rss/articles/CBMirgFBVV95cUxNbTRMZnprRDd2Ykhtcm5pVVdxbDdoNnoyS1VfTjhXVmFVMzZXVmJnWXY1TXdzZ0x0YWJJQmk5YmNBWUJSZ1B4LVlqZWdnQm5hWks2UXdLRzRQODRhbDliUHFKNGlSdGw2emFxZnQ5eDBjeUhpRWdFc1pIMEZGaVFzc01UblhhWjVVbExWVEhGUW9WUmdOY2ZZSlE5YWsybFdGQzQ2Umo2Zi16aGtKRVHSAcIBQVVfeXFMTTZpNENpWTJnM1hLWVdJak1pUW92Nk9oUF9RVlRsekxPSURPWlM4S1dadnJ5X05KczBTV3I3RHZEVUZCZXhHWDVLZkpRVGE3UkdVWGlKWjduUFJzcUw3MkRVTkxzY3VXYWpKUDNNanpXdmswRnJvRlhRRkZoN2RBYzcwc0h3Y01Yd1RKWDJENXBHYThuVXA4LTlQZ0szbUU0YWNxV0FCRS1JUzJOZGtUMC1QQ2o5UDNpVURhQml5LWdQemc?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 25,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-06-13T00:00:00",
-        "end": "2025-06-16T00:00:00"
-      },
-      "summary": "2 people recaptured after escaping New Jersey immigration detention center - PBS. 2 people recaptured after escaping New Jersey immigration detention center PBS",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMirwFBVV95cUxOdjhYYlZXWkhTN0UtZnlxd2Y4VjZEN3lnOUxoWkdCSFhuaHF6OWdfZ0EzMTdWVU1GRnlzTHdsQ3pSeWxCYjg5TzlZUFc5WDZLdHBnLVI3RkwyUXczU0sxQzRKTkFfdVdNcGdlUW1rV3pjT096dE1WNFZDdFEtM2k5SzJTa1ExZmxLYUxtQWY4RERSRlo4aDVOT0VYNERLMjNzMjYteWFPU21vYTYyWUJv0gG0AUFVX3lxTE1xRjhoazk0VHlralR5UUw4dUtNNW44UkI2c1NhODV0SFR2ak4yMi1yZmNqWktjalF5U2JlMVEtX2gwNFRnODMyQjdVMDJPRzYyaWl0elBSTktjSTYyRV9RenZ1QklLMGRhb2ZFM2VNcVZ1Q3lZYWFTaVM0bHA3ODhYOW5IMWVGcFFOSTV1bU9yc1RkcnJTQnNQRTNHVTJuaHBrUFVjc3NHYkpFWE1EYzUxbWR4dg?oc=5",
-        "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTWhfS1VacUMzWlo2LThUNExHTXZkS1VXcFRQM2Rzck05YmFCRmJNZ2NwSmpVaW5YWnI3OEN3MzBKR0J0VW5wRzlCa3hpeE9nLURQck8xQzhVLVktT045MW9lSmxVSGU0ZzdwR2ZhYmllVnJlR2hYd0F1TklYYlRoTWgtZS11VVdHdzZvZWo4MlVpMXFiRTBkdV9hYTZ2S3IzeEYzRkJRMzN2Wk1FTzRCdFc3NG01Z9IBuwFBVV95cUxORnFRT1NxdlZ5NU5IQ2RFX2J1cWtteTFWWVFrNGZRcndINEZRbHNrSGp5WjZqREFSWmg1cWZ2cWJ2VC1sMVpJaXJ2RTdoUzltWkZwa1RINXIxMUREUFFZQzJRbVdPQzBQeml5VlhFdFVBTjRQdlFrQTFPNlpRYnFRQkxWdklFc1NONUMwcVc4THNaSnlaZHdHelBhNkZNUWEyOHpJODZMV3VtS3ZnUG9oTlR3Ynppa0FnOFFB?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 21,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07102",
-      "dateRange": {
-        "start": "2025-08-05T00:00:00",
-        "end": "2025-09-04T00:00:00"
-      },
-      "summary": "Archived: ERO Newark arrests 33 criminal noncitizens in week-long surge operation - U.S. Immigration and Customs Enforcement (.gov). Archived: ERO Newark arrests 33 criminal noncitizens in week-long s",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMipAFBVV95cUxNRUs1S0hwTWlNU3ZvZnhGNnZ5YXBTd1Y5LXVxb0l1YVdJV2dDYUhFQ3o0ajlCVlc4dmwzcjZHbDM5VkRwalRDX2lLcTFPR0loSk5qSlgwYlU1Z0taaFFKT0EweWZtTmxVOUlWTHdNZjFZT19vLUFkMWNvVUt1LXV2R1pmSS1SS2liQnc5OUhwVHA3WHk4dW5keVdlMS1NQWtWRmRDOA?oc=5",
-        "https://news.google.com/rss/articles/CBMirwFBVV95cUxORlNWQXdoX3ZzOGdSMkVLT2hGaVZNZ1plQ09EMFVGdFZtRWN1emZva0YxZWxLbGFDZV9uT3lJdW1GNlhDMmZaSlREWUlSaFZtcGRVa2ZxSTFCUDR5ZU9GajdTa3pFUmJTMVVsTVh0RWl2V1F6RGthSFVGY0JDUnpiRW80azJBUWZ2V1RRLTFqLTdqcDRVSjJNenJoMVdPUGpXaEhRRXVHMzBPUktSQmJV?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 90,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-05-23T00:00:00",
-        "end": "2025-08-06T00:00:00"
-      },
-      "summary": "DOJ files lawsuit against \u2018sanctuary\u2019 cities in New Jersey - NJ Spotlight News. DOJ files lawsuit against \u2018sanctuary\u2019 cities in New Jersey NJ Spotlight News",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMimwFBVV95cUxQVU5lWU5IWlg0QUdNNjFlMW9fTVg5dGtyX0R4MzhGN3JVXzBWM3ZvUnFZMVJRRWNhNHVyZ3FoWVhEOTk5eFdaTHBianM0ZFpZdWM1SDhYOFEtenc3YTBPMDNyanlFTlY4cV9sWWRNcnlrTjRZQjJyVHRhSUw2Y1o0OXhwS1R5MndjckdrX3daelNpYnJsTHFicHJvOA?oc=5",
-        "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQNjJtWGdLa0YtclVoUE9rR01pOFpaWTRfZEVWMnlxeTNGaDhoSVgzcWpoVHdEcXRDTm56cWE3T2t0eHR5WGRsaERPWVV2ZWt0TjhYLUhZZjRyaXFfSUlxbkUzVjVESW82TlZBZzJhRXFvUXJXQmRQWHBfRENwdVlydElGckJ0cDl1d3NCUWk5aHpfY2FGSkh0d29GcEs3U0R2c2JNODU2ZGxlbktCMnVBUWM0QVgxM3JzQ29R?oc=5",
-        "https://news.google.com/rss/articles/CBMioAFBVV95cUxORU9TcEZqazdkNE5taUtLVzhnS1l4UlZjMjB5YUJINVdZTXBseEM5S0JzLWJxQmY3U19vV3laNzVZZ19QSmxnX3VwZmpJTHdlaHdJWFBaVDBnSENjT2hxUDg3alhmTHlfZ2tHMUdXakxlLWdBaXNaaU1yV09iOHVTX0szczg4X1otbFNxbG1qcm9nUk9tcUp4Q2xTZTViNzho0gGmAUFVX3lxTE8xUFNrUVlBdUpWem5ZOGhPZFZCZ1VLOVRvNERZbi1FYzRuOXY0aFVfSkZUeThDaEJuSWFwT3pVVE54T0hGZ0RwbWNjNURjVUItclcxVXlqaDVjRnFFZVdqZENVOG80bHNRSmp3bWVtX1VnVWVndUU3bGgxcjZWMmVYOXB3eDBKN2o3YkFESEU3elY5NzJCWDAxRW5wRDJKYk5FQVZsSlE?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 92,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-07-24T00:00:00",
-        "end": "2025-07-25T00:00:00"
-      },
-      "summary": "Trump Administration Sues Adams and New York City Over Sanctuary Laws - The New York Times. Trump Administration Sues Adams and New York City Over Sanctuary Laws The New York Times",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMihAFBVV95cUxNSmFCeHk5aVBpMUYxQXBqWlFaVDZ0U0Yzc1lrRWh5RUZUTEJMY0F6S2Yyb2YwYzdTY2tFQmNlTFJ6eXRGaVZ4dWtkX2ctRlRpUnZNVXlubi01dk1fUDlHdmJyZDZkVGx4ZFJKMG5sMVFEYnNLWGE5eVE2d3JZWS02S0hzWmo?oc=5",
-        "https://news.google.com/rss/articles/CBMihwFBVV95cUxObVp6UW5MNmVlQ2JLa1AySENvRmtRVVRSaHg2ZTl4U1A0OUI4OGJUN1h2UEFJbVNVWU1BNDRGb1JENi1WLTIxeU1NOXp4a01RazVRZlZFVDdxYVNsMHZldzJEQm9zNDZ4a1pMcG90d0w2YkUteTNZeGV6TVVrSE5qa3hybWpJMHM?oc=5",
-        "https://news.google.com/rss/articles/CBMiugFBVV95cUxObC11R05zV3FDaVRNeV9QcWxiaHp0ODZLTUtRZTZuVV9rNTI0bG9qWHFBOWxRamlhcjdhR3N5VFF2SkFQTFpPZlFUWU5JYUZleXNucGYyblpYclI1WU5xRldOYUtNQnVxNkV5UGpXYWFyVndhdlpOUGlnaUxaY2lyWVhITnNLZWxJQW5TRkhrWklnWTBXbjgtMUpOdi1jdTJyS29sUDdZNl9zVjIydHJRQ3dlYjB1eHVkaVHSAcIBQVVfeXFMT3pNQ0RxY3ZWVU1aQmlJVDlKcWdySE41YnZHeGNucDR0cDJvamwxLUFJWTI5dGJTZ2hCcWVraldJRFlWZjE1ZDgzdVhJVm9KUkJUVVF3N1lnYW1ObUI2RE9DWnh1X2lmMldjWDJac1pQQm92N0V4UUVoeHBXOUp5bVNBMFVUVEhEbDVaYkNSdDFxN3RtWGk0MXJnTWtUU1U0d2dHVFY5M0ZyUGxrR2s3QXh3Y0tuQTVCMGdwd1VUSnl5Q3c?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 94,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-05-23T00:00:00",
-        "end": "2025-05-23T00:00:00"
-      },
-      "summary": "Trump administration sues 4 New Jersey cities over \u2018sanctuary\u2019 policies - AP News. Trump administration sues 4 New Jersey cities over \u2018sanctuary\u2019 policies AP News",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQcVRyN2RybE9FWTdjQ19JNU1YVTE3cXpjQkdOZjh4UXgzR1V6UmFraG9KRGE2N2FUbDhHOFRxR2plWlgwLWxmUlZrQzRSQ0xYV0NyMnhmdUEyZUpramlOdFpRdFR4QzQ1aXZlYU9KNEE2Yi1taV9YSzNYdzloUEd0UFprdXNzQlZqaWNCSFEySTdrcjVaYWNZck1jdjZUSlR6X2lqM3FQbjE?oc=5",
-        "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOVVlfSGNBbWtHLVRfVUhIcDhZZUFHX004TlRYUGN4bUdFVE5LYUliQzN6T0dJanpaSHZkaFVIMUJQcWw0b2t1djN1dVJqRGJzT1N1cVd6T1o0WG9oemljcXcwc3ZfS3h0MjNsLXdQTEprUjNTYTR0ZDBTUVB4ck5PODQ4U2VuNENFdVRua1hCOGNrT2dmZ1cwbXVPUTZkaVRPekxQNnI2Z291NFJqcVI2cW9Sa3ZLdV9RVlVjNDFNeEc?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 27,
-      "size": 4,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-07-18T00:00:00",
-        "end": "2025-07-21T00:00:00"
-      },
-      "summary": "South Jersey military base to temporarily hold immigrant detainees - WHYY. South Jersey military base to temporarily hold immigrant detainees WHYY",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMifkFVX3lxTE5JTFJjY2Mwd2VIWGM4b0txSUt3Skt4cG1Kb0pOQjFEMVluTE4wYVBOcUsxQm5hRDVJRkVlVktZZ3pvblZwUWdINTROZUlMNjhsYnBNY1FTdTFfRkNBNDF5RDZBRXJKV1dRa1RlNmRTMS0xV3E0TjRfTnFibmgxdw?oc=5",
-        "https://news.google.com/rss/articles/CBMihgFBVV95cUxOSlpWa3FsR3owWXpxNktVVXJ5VUN6dUJWc1ZlQ2hHN3Y0R0U4a21HNjNYX1hMTDNfVmlzOEF4Sm5FZDhKdDRnZHdaU2RyNUpZb1NNVDBKandXRTZzQmNLcUNrbTkxY1lJMjVENURzcHVpc1JHTTdSLVFCdVNlV2hCU1F4VjRodw?oc=5",
-        "https://news.google.com/rss/articles/CBMiygFBVV95cUxPeGE4SFE0U2NlYkFHbkdpcTFmaUF4ZjhKYmROd2hiVW1qMnlsSFFuU2t2VmFKMFBBOU0zRjJ0VlB6REhZNk5JaUZBS1R0NFlHV2FDajFhS3BneHV2TmRya3lyLXJDdFgxWTJwb21xQXBlM2xDV193QnVyZ2ZsUkczUkdBRHdzck9CZW5pU3czZmNDTXAwOFFSeW1wb2ZsUm9qQktEWnRPNHBYd3A1MXNpSmRqWmdfM056RDR5Vm1HVGtPa3RaS2duSU5R?oc=5",
-        "https://news.google.com/rss/articles/CBMiwAFBVV95cUxORDBELV95Tm5yMVU4SkZsLUJPb21xdFYxbnlYdzJJUTNpZm5objFnY1BJTnNMOEJwR3NXenVRZmliTkJPWnNETXBRN3FnRThJck8tbElnV1VLT2J4SGZaSzVSNzJJaS1JWDRqUFgwUzFvSGtueW9sNU5NclNzRUkzanI2TUloMDhJU3FDRzVjVGVRNXJ4Wnhhb1lOcHM1bzB3OTVrSDBIM3ZfSS1pTFN4NTdMMExwTGpTWnpnWmVNakI?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.73,
-        "confidence_interval": [
-          0.58,
-          0.88
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 16,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "08540",
-      "dateRange": {
-        "start": "2025-08-11T00:00:00",
-        "end": "2025-08-11T00:00:00"
-      },
-      "summary": "After ICE raids, Norristown, Princeton residents step up to aid impacted families - WHYY. After ICE raids, Norristown, Princeton residents step up to aid impacted families WHYY",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMilAFBVV95cUxPNmdnNnBpdHQ5UGNCOHU1YTZGVS1aNnpWbzRFWDN0ZDZVMkRGZjlqTEEzenNhNDk1bEVTd2xUeG90YTNwZ04yc1RQenk4MGZXUHU5NlAtN2dzR0FsdFdNbVVibXY4N0xrbjhQOUxqRDhZN0pJRUVZNFdWWHZnaVNPanJGQkFCTmtIeVF4X2xvZjVzWFpN?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 76,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "08817",
-      "dateRange": {
-        "start": "2025-07-09T00:00:00",
-        "end": "2025-08-21T00:00:00"
-      },
-      "summary": "Dozens of workers detained by ICE in raid on Edison warehouse - NJ Spotlight News. Dozens of workers detained by ICE in raid on Edison warehouse NJ Spotlight News",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiogFBVV95cUxNNnFlcjBUd2F0NGc2UzhjZEs1YWoxSER4ajJsbHBGT2xlZTFzV2hMUndiUjcwRjlvRHF5eTlxbVJDYkkyMlV6MFBMQmNDUGZwWEtWZ2Q1Ym1fcm1lX0pfenEyZUM4a1VtN292NHVmM3NCUjJLbE9wT09nRG02aEVfWkh5RVFsUDd4eXV6TndJRGJtTlJUcldjckZPVWwwMVgxQ1E?oc=5",
-        "https://news.google.com/rss/articles/CBMioAFBVV95cUxQcllHRVRFc3dXWVIydDNRaFpBcnVISVE3Sy1SU2xNU09OcW8zbVlTanlWSHhWeFYyLTJrVTdHUjNoSzg2MDNmZ1pmMVpXS1FNcXN6MXl1T1JOMTlsb25BV3VBVzlPLUMtbVFYUmxvaXlfclE0ckwza1BNaVpNblRZeEdCeVhna3hXR3hqeWJVRGJiQk95aUVuSXB2VGlfaXZ5?oc=5",
-        "https://news.google.com/rss/articles/CBMirwFBVV95cUxOY0tNRFlINWlyTXNhTWtMdVoyd0ZITXpaT3hiVXBUaGRRNG5QeXpfM1hBbFowbmN3Q0tGZXRmcUkzd1B2VnkzemJ3bndsN1F3QkYxUEp1NkRYbUljUVlTRXdpM0FpaU1rRndqWjR2dDhLTU9qbGxxLS1DUlFjcndoNEdTU0d1U1VpYVlyWWl5MHNwZnZoMzVJaTd0dGV1S1RfVXZvZWZSNGx1NEZiMDdz0gG0AUFVX3lxTE1sTHdZTnhLbGJKRUxtWWdzNlk2ZlVOeFVlX3FmVmczV2dyX3FGdHo1M0l4QWhaV2dubHFzMTF2SC1Jc1pyNEtVR0ZSS0Uzdl9BVS1qcUM1d2MwTlI2cmY5MTJMUzBFVEZxZGwwTGVWX1NSQjZTZVJhbk5yWkM2SC16bDZ1NEpqQmZlMlNwcl9jcG1jTU5hOVJyLWJmcUFPenNiMndYVDZ6eEFxRjc4bVl5ZW1zTA?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 56,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-08-11T00:00:00",
-        "end": "2025-12-29T00:00:00"
-      },
-      "summary": "ICE raids and protests: Look back at immigration in New Jersey [redacted] - Bergen Record. ICE raids and protests: Look back at immigration in New Jersey [redacted]Bergen Record",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiswFBVV95cUxOWExXUnlwc2VyRWVUc0F6TWJvamtCM0w3T2prYS1USWRLZ0lqcnhaSHJWWnN5NUYtSjl5ejYyUXh5c25ZTUpCRHRRaWN5bGxzU3Y4Si1HemcyZWVrbmh1cHFIcnRGZ0FFVzNRVzcyeEVfUndBNjhvZE0xTUlBWklyeFFCWTV1eEJZNy14QmZ0YWtYaTJ4M3ZiWE5RMnF3c21CVFdWc25FMnRoVV9BQjFGa0N5dw?oc=5",
-        "https://news.google.com/rss/articles/CBMizgFBVV95cUxOcmlzTVBXWGxvN3pBLUI4ZTdiVXBlVWt3YUZYSmFPVnVaYThvWi05bDNDUVpFYXRjVkd6NWJUUWk0U3JEbk5uZDdoV1gweWRURVJHZThTdk5RS0pGeHZWMThMWlJYUjVXZk1fNDZqZE85SldYbWloVmxOM0F4RndhdTNub3lGcng3WEhhWGlqZWVNZEIwYXVzTXpvUnZmTkVxTEc2UDJncW5zcE5xVDh4Y1dmRVFYTDNHa1JzREpxdmtmUG16MmNMbWg3S1NPUQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 89,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-05-30T00:00:00",
-        "end": "2025-05-30T00:00:00"
-      },
-      "summary": "21 New Jersey spots included in federal list of targeted sanctuary towns and counties - Bergen Record. 21 New Jersey spots included in federal list of targeted sanctuary towns and counties Bergen Reco",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZTNUYUNjV25aT2hDX3ktRTYxQmtzeGw0S1RrY1JLd1dwb0s1MjhrZ1RDbG55Z1h3bDIzTThfQXlVUzF3TlZlQnNwbkEtaTdzcVEyVjZNMHRFLW1fLWxiUlV5WGVpcWhuZnYxZk83RTJtZE9mdXNJOENaOExSajJId0hpQlZ4ZjFtYjd1emc1M0tiUmtycWRHaUFzbFF2NWx2bUhCdmwxTzFnb2hSZU9sSUx5UUJkd21r?oc=5",
-        "https://news.google.com/rss/articles/CBMizgFBVV95cUxQUjF5OGVzc0xpYzM5NzFETUVCSWZ5NlotblFsM0MtdFBmMWVybGZGM3c3cGFGRUR6aGNtR0VFNVRNVElKT3BiQmtmQmZPbnZNSDRDTF81a2pVWDFnR1R2NUdXQzZWb3owQjRoT2RXcXgwQ1gtSy1jTDNhaGwtMXFfUmNFU0xMT0ZDeTZKVW1LZVBZb3ZROTA2MnFKbU1ld19vNGR5WGd4YjB3d25PTGI1cHFXUDdGcDI3Vks4Z0JqS2ppdGxQVlk0T2tIQmhkUdIB4gFBVV95cUxQYzVsa0lpcXZLUWRhbDVldzNyeGVNZ2ItUlFQVmZYX2dNSVFqbUxyVlRxYjk1dGFJNWozUGVkWnhTZlE2Rm9BdFpoNkRva01NTUI3SThMVTh3MWlpNjJyNnhyenFoRmRLT0JxbktZZk42SDZ2U0J5ZFNlbHJKcWZzdFRjQ1dQMEc2NndMZEQ0Uzlkd09yQVgyZmFlOUQwa2ZDM200SUx0RG1oai1USjJMNGRzV2psS3RpLVFRam5kVzJKSy05TFJsbTdzQlhxd1pnWEZHaEE1cnZLYkNFTHJnN0JB?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 84,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-07-03T00:00:00",
-        "end": "2025-09-30T00:00:00"
-      },
-      "summary": "Justice Department Sues Los Angeles Over Sanctuary City Ordinance - Law Commentary. Justice Department Sues Los Angeles Over Sanctuary City Ordinance Law Commentary",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMinAFBVV95cUxPc2VqRVN5UTRxMTVEVFJMX2xoYzNOMlhteDRaUmFGN0J0QTZNam4xMlNLeHlzY20xYnFIQm5kQ09keDhqZVc1Zm9qd2RPdUd3RER2ZkdndFdrUXRDQnZZM21Dck9ZZVFlcHB1R1huUXdiY2NKRGpxV3VJQjNXd2tlcHpuelMtUldYVmZLN1FVV1AzSm5IaWNaMWJfU0c?oc=5",
-        "https://news.google.com/rss/articles/CBMipwFBVV95cUxQcmVYaE90WDZ5NWc5a0tsT3YxZF9DSlJmSUZtRlF0OU42dGFjdXBaOVJzMlFPSDBLNDZZLVlUZDJobW1qbjNsX0tTb0E3MFZ1Q1hHd3VfaW5ESmxXWDJ0SS1OaEJlWFVSaElIZXZJbzk2Ui00QV9FMUFLQnhjU1RMcENZa3RWUzZESmpqZHRZWHlLN3NCNnZaVkxFN2VmSEd1N3hibVFzbw?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 83,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2025-10-01T00:00:00",
-        "end": "2025-10-01T00:00:00"
-      },
-      "summary": "Trump's legal crackdown on \"sanctuary\" cities and states yields few results so far - cbsnews.com. Trump's legal crackdown on \"sanctuary\" cities and states yields few results so far cbsnews.com",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiekFVX3lxTE9VV1ZjT0xHYVNISHZMdUxjRy1GUkdQVk1YeXZpOW80SkI5Y2NQbVpjYnpCbUZnOC1NcTVhYmphbjlDNWY4cm5jdE5MTlQyQTVkUlV3OFIydnVqN25VOHludWJVeF8xekZGOXQ3VGNtNzZISXRuQV9VcnR30gF_QVVfeXFMTldyMmllV3B3eER1cmstM0xieU9YcXYwWHlKckJFUXhObjVPQ1BRcHVlU2hYVGxzNmpOWUtfS01NUXpMOVJHNkhjeDYwbmZrOG4tanBtUFp3MnZSR29SUUZJVkdLbHVnaHZBYjBRdGxWaldhUC1FZE1qU2MwM2liRQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 93,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-05-22T00:00:00",
-        "end": "2025-06-02T00:00:00"
-      },
-      "summary": "New Jersey \u2018Sanctuary Cities\u2019 Sued by Trump Administration Over Immigration Policies - Bloomberg.com. New Jersey \u2018Sanctuary Cities\u2019 Sued by Trump Administration Over Immigration Policies Bloomberg.com",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMikgFBVV95cUxNTUhNU0pBdFEtODBhYVhtNk80cEQ1WVdNbkdSNkVVYXdlbXFCakNxcm9Uc0tUZ2REOWdiUHhraFIxU2Utb3p6MlI3YldZR0VXZENEcVdGM3ZGR0ctTklpbmlxSUZmUk4zeU44bTE0RFZEc2hqQ1VPUjF6RS13Yk5nenZ2UkZ0dnZVS3FxRklJMjN5Zw?oc=5",
-        "https://news.google.com/rss/articles/CBMirgFBVV95cUxPc2FJT1hIYjhLQ2V0TURHRnduTW5KMklMNWV2ang1RFMwY0tVTlZoOW51Z1F4U2k2Y2pBV282QmtQT0xVY0hpd2stWEtCaEkzOXRqOHVxdm80QU0tbkgzUE1YU2VMZEMtS1BucFRHaElER2JxZ1BxNkRWSVJzR2FVMXhyWC1xeGZJY2JIZWFCTTVFRlJGLVR5a21UNmRBSVJXcmh6M2dPd3A5NTFmMGc?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 82,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-06-03T00:00:00",
-        "end": "2025-09-18T00:00:00"
-      },
-      "summary": "Bergen County town removed from federal list of sanctuary cities. Here's why - Bergen Record. Bergen County town removed from federal list of sanctuary cities. Here's why Bergen Record",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPVFBKTjF0NlpVdGdiLUhEVTJVT21kTElGSzdmNjB2Q0ljMlFfbjBDLVFkblhMUFpydzVBb21fX0pCMWNBX0xYNHJrTktNTDlmeXlnZ1dOUUxySVVEMGE1dE9qUE1TYkJHb2FwMGdxNnNLS0VJVk1tQTVYczhMUVA5ZDNEMDVMa1FEZzVTQkljX1FlQ0NHU05MRExIYTJhbkJkNG1RM2IzWkJjV29seEE3cUlqc2VEWTFHNG83U2UxalljMUxza0Ezb1JHc1NHa3VnTXhLS0RibXU?oc=5",
-        "https://news.google.com/rss/articles/CBMixgFBVV95cUxNZHNIdXlyQUtuWEtFWURPODF4amFZV0VHTnhSU3hwekVjQ2h4OC16SzkwRTkwbzVTV3BPbTVVOV9HdkFxem14cUYtUTdDWlJMNXY3Z3B3VHNvenkzNC1QVVpxN1JsWmF1cHBtcW5abGU1OFFaTkh1akZ1UGh1OEdYSWtaWmNYcUtmSm1oQ0RCNGh4N3NaanJzSDAtc2tkbEFyWUVkSFBnalJ4Vm10NUR3eXVDUGxWbDcxcUVoaGQ0UzlRUTV2N1E?oc=5",
-        "https://news.google.com/rss/articles/CBMiowFBVV95cUxOUnZUMkNna19pX2ZpZjEwWDlrMDJjS0V2TzgySlk4N2dRX3lMZ1R5eUNNOXFjWTlSU0t1QWlYNmx0Z3FFaTV6YmlTcTI4b1BycDg3VXBqdDFHcDMwQzhzbjVibFlvTzMyVkNtMEgtWmhxZ2pFdHB4WGtfS1dHSDd3NlZTLURIRGpOR3VQSjlSZjh3TUZ0dk5tVUZIVkxaeFBhS25B?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 54,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-05-30T00:00:00",
-        "end": "2025-08-05T00:00:00"
-      },
-      "summary": "Philadelphia stays on the Trump administration\u2019s new, shorter list of sanctuary cities - York Daily Record. Philadelphia stays on the Trump administration\u2019s new, shorter list of sanctuary cities York ",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMingFBVV95cUxOa2EwS3piYkNQb3V2ZHpWaFBFV0J1cHdLSmhJWjJWMDhSTnR0REdOZldHdTNhUEJ3U2V6eEhyNkF2Uld6b2N3VXZ4anF0QUtGdDVtalV4bXJKM0ZvRzdrQjBIc29RN1FyMkgzb3hhRUFwRkRpejU3OXg1Z2RBclB2MGFtWWtFR3p3aFVNN1VVb0VoUERxUmJSZnplMzR5Zw?oc=5",
-        "https://news.google.com/rss/articles/CBMizgFBVV95cUxQWjJXVi1VQlR4WkY1Yi1GQlg2MzhvQnNYa090Z0RjQUlUVjEtYlZoNHhnNlFBc0tCTnlXRF9RMzByOVBzRWh1R1lPSENwSWNSUHFBX282dUNLcGk5R01fRWhCMGpDWGZXc2d5cks4SEktcGV4ZU9ZcV9tMk1mb09HWjEtMUhDSENjU1lQLVlDNzhCVkJISEI2VjJKNkZkODBxTUZvS3hma3UyVHFwWDd3R0JZb1MzbGduN1E1RTFMOUhPdWctMWlXQTFJaW5BZ9IB0wFBVV95cUxOSXFoUXI2UlpVNFl5OXFHa1pBaG4yN0dEalA5SU53SlFnWXlfSEM1NlFzbXJlaXh6NFZ4TXBsMDNyZkFCRnY3b2pGMzBtLXcxVUo0VS1DcEFVck1KZC1WSVkzWmpOMDhBOXJESHc3M1NjdkJZdTRvRVRQRFVHM2NrQ0JWaWJCTVFiOEMxSi1Qclh1WkxrSlBzSFR5M19XNHBEU2VHSWVFYm1rdk53X2FocXJWZFV3Q283MW1pWUJPSXJXeUhVMG5uUngxelRIb25LeE93?oc=5",
-        "https://news.google.com/rss/articles/CBMizgFBVV95cUxQRy1uSmtGdUQyaDNnZGxBdXZ6eVp2T3ZRUXpUU0p5bFZ2TjMyNS1kX1FBTEVNN3lIYzM2OHM5eURuYkRpdC1xQjlmTkhoNFZRdWVvZ2xUTUQ2ZGZINS1aQ1ZkbFBJeWhyZ1R4aEpZTVkwenFsWXcyT0xrTWZxTElRZTlRbURabFowc0NScGpQV3hGQU1VZzItcVJ3NGxEZ3k4UkRNRm5Gc2xfM21lOE5GVXRyaWVjNXRXQ1N0c3Vzb3lQVDBMUlFQTW9pLUtWdw?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 17,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-06-12T00:00:00",
-        "end": "2025-06-12T00:00:00"
-      },
-      "summary": "WATCH: Governors from NY, IL and MN testify at hearing on 'sanctuary' policies and immigration - PBS. WATCH: Governors from NY, IL and MN testify at hearing on 'sanctuary' policies and immigration PBS",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMizgFBVV95cUxNbXJIUmtEVDFqMS1GeHdlSjE4aVl3N2wtQlV3OHdESTNqVHYwN2dSY1JuX1M1SmpwVlhuSy1zSXFUUG9zQ3cydUpEai1QbmRLM3JNQjNlVVZ0bElPYWtSNzMxeEhrYVJkSXhpcTA2RGZvaWl3T1FUUnY1OGRZN3pYZkZubnA4TG4xd0xLS2drcFhHVkNuVDdZaldrMzZxa3FmZGhwVVRXeUZ4aTdRYmF1czVCZVRmY3FuazJSTXBxdktxQnBVVEN3LUh3M0poUdIB0wFBVV95cUxNbGIyeE5vdklvSEhDaFRYak5NTGtZbEtBMzlDMHN5Y1AtMWlGdk9hNkF3S01wR3dxTTgwLThGODJKSzhIZnhCTkNsWmN5NXNFX1NiQlJrNlhQeGJOLUJibjR0NUx6LVZzUFJBNzQyQ3gtSTVLRE4yc28xVVUzUmtGemdJTDhoWGVyMUZNZWxzSnBSc1d0Y1dYLTlqRHc1LWhwX1dJV3VMSXdhMzNBYWJvZ21NdnN0ZTNmbmtyZUlVZ3h6MDdKZjZSd2tEdTlldGozbm1J?oc=5",
-        "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNZS1Jcl9zSUZpeUlFSkhlcjAwbG4zUVlTWW1DSjR5RzZkY3lISEhJc3BocFFDNzR2Z2hCT1VFbTkyZVg5OS1oRzdTTGFrYXJxcm5NVlFuYnlBT25ySkVaLTF2SkN5T0xPclBCRXdEMGFTVy1ubFBaUzBjbE5faUhJUi1NODh4Ull5OTZvclQ5aUZJa3JsbGJvNHBZQjFHdVJzZGlvd3lxOUNnYzd4UWYzb09tdEpVcWFxbWhXNWx0emg1VXhrZHNMeTZ4YjFXZjh0WFY3dtIB2gFBVV95cUxQdlhleWFQTF95MzBtVVJmQXJCMnhkU0xjdGQ1WkpfMUNBUW5PVklQczdSYWdGSmFad2xqbVVSNVVQVWNxT05QSEgtdkExM3hIUFpmSmh1SVhIb3N4UzRQR3V4ZzFMcS1VYUlEUklZOHlCbFNKY3lLYkFDcFIxcktlekFSU0FVNzhyQVdWNU9LbWFVanhPaEJ4eGdScmFyd3hJdmVubmtlc2xySFB4WmJGdWdwaFR4LTFQenhDb1ZNS0NBY3VtR2F1TG1QVXk1NjJBaEI1ZWd3b0xDZw?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 77,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-08-23T00:00:00",
-        "end": "2025-08-23T00:00:00"
-      },
-      "summary": "Judge blocks Trump from cutting funding from 34 cities and counties over \u2018sanctuary\u2019 policies - WHYY. Judge blocks Trump from cutting funding from 34 cities and counties over \u2018sanctuary\u2019 policies WHYY",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMijAFBVV95cUxNSEYyUlpyUEtfQUJvUEo1eHZnY1JJMDNkWlBkTnJzalRrQ0ZyLVlTbmpvalh5Yl9XWUdwMFgyLVN1Mm9vUmNJaWJmZDNYSlRBVUpMam9CVzNMSllPM3lscDdFdHluY1BUY3V3cVFSdUVhTnNZbTVWRjdoNjFlM1ZWRkxSbzRqZDUxZmdRUNIBkgFBVV95cUxPRTA0Tkt0YTV6MDJDYnlJLXVNa1lsMFBzSEVQSVBZWXVickw0WUNYSko5SWRkTUxrbFRfeU9QRi1ucnUxTTE1Ml9wbGp6WkRXTkotZlBhMDM0MmV6cjNiSEdiUXFTaXhReUFRNmNHVjZtTW9rY0FTU1IwZkR4TlBVTi1hSTM4ZGx3SWpsbGhTNTlBQQ?oc=5",
-        "https://news.google.com/rss/articles/CBMioAFBVV95cUxPaGxpT2RaM3JWNllHUHdGWUw5cUpJcnFKV0szTDRab29JSDYyYTNQSE0tazZobG5EYU93NWtvd2xKOUt5M21QTzc0alJ4T3dhcGJQSlRzTmFIenV1bHh0aG1JUGdsYjdPUUhLTjFBTjB6NV9SSmRLbmV0ZGFaNFBMMVZKX0M1eDNSWV9RRFFnbTFSVDMtcU1nS0Z2clZqdjk20gGmAUFVX3lxTE9ackw0OW1GQVJhRnJuVnRwdkJLTmlhenhoS2NGUlNlY21xa1FqalVxX0lyRTRZb2F6RWFQZ3JhZldwVjJGME1HNHZmMnNWOVRqMlllOU9EeXlRYVV3dmlpZUdNNldsOHFQbXZFMXhzNjdROGJxei1oNXJ4bDZCLVRUaFBXLXVsTUNwcnFLU0QtNlY3dGtCUFJRMlhvTk1mX2NteTFva3c?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 63,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-06-03T00:00:00",
-        "end": "2025-08-06T00:00:00"
-      },
-      "summary": "DHS removes list of \u2018sanctuary jurisdictions\u2019 - Police1. DHS removes list of \u2018sanctuary jurisdictions\u2019 Police1",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQZHRkYUtUSnpTald4MU52X09MTGpYR0xPQkhtbEtMaWNyUVRYdUc2akI5bUxBWEc2dmxOdFAtaVd3Tm0zb3h6MjBpMHVzRXRWVWRDRFB2S3BKNHhkNkFQN2FESVhLdFNsUG54MXJCRDZ5dTlNZFRPNENpd3JzWFJHNnRTeHFWVW1GR29PdzZQVXVzZzJJX0NtMTJWZUZ5TjhPMDZUU3dsOUhvM1dSdjlrUDQ3RHRoXzdESlNjU2FHckRMblFrYmM2Mnd3OTFHY2EwMlpYbUdabnMxUThOdXBYcQ?oc=5",
-        "https://news.google.com/rss/articles/CBMirgFBVV95cUxPSGNaMVhPMjdRajVYX19icjU3VjdBcDJCdENYYWdTZUUxZFFCbGFUX1Iwa2s1RXR1WWJxbzVTcnJtbDdrMFI4b2NkUm95dzBrd05pcWRycXliWUhXU3d4Yzl3YzJDNjdEZi0xRkxIYm1POUFYNG42ZTJtSU9nc0VhZmhvTHdKOFdJNm91NkU4b1I3c0FzY0U3cndnWHVob2hlanlLaXptYVZkaHUwUEE?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 85,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2026-01-13T00:00:00",
-        "end": "2026-01-13T00:00:00"
-      },
-      "summary": "'Fraud and crime': Trump to halt payments to sanctuary cities beginning Feb. 1 - thenationaldesk.com. 'Fraud and crime': Trump to halt payments to sanctuary cities beginning Feb. 1 thenationaldesk.com",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQYkx0TmdFN1BrbFBfTDFRekpFMTI5OGE0S2wwXzhnMG1QdmxONG10c2ZFUWkwb2FkdmxnVnlxWXV5cFBnX2FKQm1TaHRPRWFpUjZTWjRjNnlSMFpNdE1SZjhjSWVMZ0ZMcTBWaG1FS0tLdUw1T3ZONG1JUW9mYXlWekZQSWNRSVpRQXRQLU1PNzQyRTJESGcwN1FkakQzdzdqd3o5amtsNTZ6M1JFU09UbHpzZS0yOVV4cGFoNjB6ZFNjdnYxS3p1b2tQZFc3SDdIMkYwUDJWdmc1WVlidnVWOV9XdFlSVWk5RU1lSGlyTkZTUENwN3h0WlBaYWFNUUwzUG4xb0pHTlZKZjg?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 87,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-05-30T00:00:00",
-        "end": "2025-06-02T00:00:00"
-      },
-      "summary": "DHS names 21 NJ towns, counties as \u2018sanctuary jurisdictions\u2019 - New Jersey 101.5. DHS names 21 NJ towns, counties as \u2018sanctuary jurisdictions\u2019 New Jersey 101.5",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5GQjBOY3hnT0YtRTJCYy1sM0dfV2drY2dRYWI2V09GODJ0UWFEb2F0NEFzek9obDFkbDIzdzNYamV0S3RWWXo5V3pqWGNNMURIamlZOGlDUVcyNjYzX2lTMA?oc=5",
-        "https://news.google.com/rss/articles/CBMihgJBVV95cUxOT2ZUNFlESXdUVFBWU3Y1ZXRJd3Jzb2tBdmg0UTZSUjlUNUFVZUtGQkF1OTNLOHZnUTMwenhkd04wLVVORHpheUlERzl5c0NLSEhacS1GRmxzd2NIV05TTlZhTmRyX1BPZm5CMC0ybGJ2b0xDRlJtRWdFVzRmeFVkY0NZMTE5Mk1OeGU2bVhTZzhlNFp0WmpBd3U4VlZsU3l5ZjJEMkdBSUZwNy1oWXhzUE5VaUpWQmhfMlZkN2FSY2xuVDBOT1d4X3I4OFJiWktFWklxQlpvWkZqaEc0OXdWM1BIQllLNktJRVhKVFR3aUFVamJpS1c2elV0a29jNmJKS3lnWXdR?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 2,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2025-06-17T00:00:00",
-        "end": "2025-08-27T00:00:00"
-      },
-      "summary": "Six Months of Trump\u2019s Immigration Agenda: A State and Local Snapshot - American Immigration Council. Six Months of Trump\u2019s Immigration Agenda: A State and Local Snapshot American Immigration Council",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbjNoaUpBUDk2ZkpGYkJESGpnS3RvTHl3UEJobk5PMU1HczZVTXFZWC1oc25WR0o2QXV6TFZCSFBiS0RZOUJEeG9yRFZLa1B2OU92VUZ0Z2tSQXBZbTg1V3NKOFozV3lZM2NYY0s5RW5oWnFxbTNGNnV2UjJ1U2pIY3lyZDIxM20tTUFoS1B2b3JLdW1nbHdDbVhCLV8tWm9PZjI4cVJR?oc=5",
-        "https://news.google.com/rss/articles/CBMitgFBVV95cUxQTkZ2NHY5RUoxNzkwbm5kMmk2YUU5d21TNFNVQjlXcGsxbkJXTjVTVGNoQTNRMDlmQk9IQW4zXzlhVkhXYmhCc19TSGI0ZnRiOFF5Z2o2RUpCTy1kWnZVMURkRl9zS0JLZVIySTFKdVVwWEtOVHdiZFRIU19xNDJxdDAxcDJlWk9oRElMbFBMNzBzRHFfTTVWUTB6ejI3MnVoSVVxV2NidjkzX2c4VlhqdmZNVTZzUQ?oc=5",
-        "https://news.google.com/rss/articles/CBMimAFBVV95cUxQT0VzOU5MdjQxa3FZOGx0dXRjRV9GQnJaemtBVXFlUmEtVGI2RkZQZjJkckpjNlVBb1Z4bDNwM0dkRnZoSE4zb1BGcTExYmI0b082NmZtd3VXVE43dU52TXVHRWJGOWwwUktZMTlBOVhKMjVzRk1LNlpQT3hzOXhUT3o2WUVOYW5aVGJWdEJTQkdyakk5V3Rzdw?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 91,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-08-05T00:00:00",
-        "end": "2025-08-05T00:00:00"
-      },
-      "summary": "DOJ publishes list of 'sanctuary jurisdictions,' includes NY and NJ - [redacted] York. DOJ publishes list of 'sanctuary jurisdictions,' includes NY and NJ [redacted] York",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMihAFBVV95cUxOVmpveTlQNUhxazVZanhwRDZGYnFBbGttSWlFQlc3YXpZWS1DcGgzd0VFamo2VGUtSXRidTF6Q3I2UmRvNUpjcDQ3ZTI1V0V2WmJ0YVhVVFB6cllKM3NNSjlfcGNmdUVGSkpXcUZVblBSOWF4Tnk2VUpRdGg0ckJVbHhoQUnSAYoBQVVfeXFMTV83TU9LSGFkYU9qWWpGd3ZWendTb2NjR3YyV1N1R21zZHJWVXo2bTMxSkpmdzdteE9zUWJSS0xXUHBDNTZQNHBwUHQ0X0tZYnNwZHdWMEJ1LU56ZmdnU3lxQ0t2Y3BjU2M5Q18zV25NMzdaM3o0MmZLcjhVckppWFFKdHpJZ2lpQmlR?oc=5",
-        "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPSWwwT01OZXdrdkJpMHU1ZFU1OTNXNFNuWVl6bjlkaVJCSDdwSzFQSGxoSGNFWlJqbGdvY1BRSy1tVHFqdF9YT0tFX3U3aTRESFRUVzZURkM3M1EzT0Y3UTZjYWltUzdycWU2dzBVTkpyQVJlS2NabkJmemRMOE1nd045dlh0TmdrY3BiNWJwYy15SkZpS1IxZFdGT01VMUItcEtqTk9yaGZDQTR3U25ETUE1ZGF3QXpMMEVucXFVSnRYNzjSAdcBQVVfeXFMUFpkVnRjakMxYkJQMlh2eW5HbWZZU0RUcjh4SDY0MG1RSkJMN2FFU1hCdE50alB2eFFwbFJFRFVYWTVWckJyS2RpX3J5bWp4ZndqRWI0UzNpQWdtVTJtdU1GUFhiMWt2ekd3bXdWSUdMSzdYX0lSVUhsbF9NUmp0TEV1cmdpUzZPRDBJQUVkdlRrYUdUeXV0VmU1SjJ1UGtfejdVellmTElxOVAtV2F1Ul9sZldqSE5mX3d0UzFkUTBGTnFYRGNReXNKeXMySHlVREpyaG1fOFU?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 88,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-08-05T00:00:00",
-        "end": "2025-11-18T00:00:00"
-      },
-      "summary": "Trump Targets NJ Sanctuary Cities \u2014 Again - Patch. Trump Targets NJ Sanctuary Cities \u2014 Again Patch",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiowFBVV95cUxPOWFtOUNzTFBXWkp4djhWeTFnanZiVXpFT0R1Q1E0MVBYaDF1eHV1VjF2ZktrU3V5d3NSWTlBWTlNRFFkTW9kRWgwVjJiNW96RlJFTVhlZmxIOFVBTFo0LXk0ek0tZHhCY2E1U1pBbTEwM0NXaERKczBkSlBibmE2MzJmWVhkMG5vZWgyRmhpTXJmR2Z4S1QzZWFqblZXM29HZUNF?oc=5",
-        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPMU9QdWdjQm5ycHNiUUo2WGt0UDViR1BPeFNqWkRLQ3ZVYWc4REdXckdJa0pBOWVyVGRJTWtJTHRseGdBMTJwS3VrbEtHOVdQZ3VSWTFRUmdyTmdUbFZQcGhLa0dtS1NhMThQSDVaX0ZNVU44QlpIYlJ6VEk0SVBpZHJGcFNxZ2hrZnd1cXA4LWFPb2xFVDZYWVJueHd6ZHFyZmxqcmdIS25pQQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 6,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-05-29T00:00:00",
-        "end": "2025-06-10T00:00:00"
-      },
-      "summary": "McIver, fellow Delaney Hall Dems come to sanctuary cities\u2019 defense in letter to Trump admin - New Jersey Globe. McIver, fellow Delaney Hall Dems come to sanctuary cities\u2019 defense in letter to Trump ad",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMixAFBVV95cUxNYnk1WmZXSnE3Ujh6MmxuNjhQcDlQQ0J1QU5qNTJQODg1bTRuNmZpZlk5SnMxeFdFYW1kZTljYlJzQnp5b2xOdWZ2UkthODVGTjlaUWtTOUh4N3diTWo1T3kwUWc4a3FHNWtXaTlMWHZlUGkzZV8xR0N1V2dlT1ZaQUw1V3k4eEIyN2hhaUt3Mko1UkJ4MFVrajV6TjBCX0JZQ05TLThOWFB2ek9mSllPUlg2ZzQ3eDNVZlV1elNyOWMwWDRm?oc=5",
-        "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQdDlSY1h2WTkxemlHZV9fSUJvekhQcHp0YjhKc2VwcmpWZU9Ma0d3bmVvcGVJZXRqeFFGajJ0anM0UkdLT0plX1B0RjJ5ZE5nMGhVRlpjRmY4UnExRFVvN0J4dFVqemNwRTRIblMxdnhNaTVhbG82cHh3MzFJWWhaRFNJeFQ4cW5LOHBNRndMenQ0M3dTMDJkZUtycmdfSGQ1X21rWXd2N1pwSG5oM1dUNXZaS3VaZlViTmRiNnhlcnF1X2cya3FpbWNSQ3h3Q3p2UGY0MDRoeGZ4VlhBeHRzRVhzSQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 78,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-09-05T00:00:00",
-        "end": "2025-09-05T00:00:00"
-      },
-      "summary": "Trump administration sues Boston in the latest escalation of its confrontation with sanctuary cities - EL PA\u00cdS English. Trump administration sues Boston in the latest escalation of its confrontation w",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQenRuOW1PSkg4NlRMRkVxUUFNdExSMU9leTRCYkZWd0liU3Z5WUVaSWFzXzBBazFaRnMyX2Nsa0gzVFd0VTA0RDhLYVBlLUFNQm9ZbFFBRndEbFc2WTh0X0RQbHJ3TUpVclpUVWw1MHA4S1BEYURXZGM2Zm4wQkc2d0ZUYkV2QUxoN3ZPSUw1bTBYZDBneEFHQi1fU3YwTV9LOVc1OE1jNGZraVZ6SUdtNVZnYW81MWtMT0MzLVZRaC1lUkdJQ3FKbU9ERDJZUW5SZ0pVdWpFaVVOUTZUU1R0OdIB9AFBVV95cUxPRExnM250Nk9hN0hTM0t1UFNmb1poUk1FWm5Qd2ttMjRybzY3bklpTEhpa3NCeVFNd0toNEVvOEQzcjJMZUMwcHFVdWtucnUtc25DVFZ1Q3NpR2kxZ3o3YzFKMU5QMFZfZ3Q1M1d5eTltSVc1dGF6V0ttdlpZU2U0RGtUUVZIMmprSzJ0Y3RhbElhc2x3bmZmZTRHejFWYVd6MHhIdUNTdjh4a2JlblMyZmZZeXpsWWxpMHFfU2RpclZqdmF6VEJoSTdZS3EycVNNVkJSejd6a2xfd0U0NVc3eXotTms5d2pUMWhpQWh4b0I5bUpB?oc=5",
-        "https://news.google.com/rss/articles/CBMiswFBVV95cUxNY0ZNMm40NGFvVWU1YldhNDRNcml1UWxENlRVcGtzNDZMQ2hFS3phMW5zN3Rob2E1U2Vzc3g3NjJxLXFoaEFwMzdVMzdzZTM4LURNRlp4SEt2RmZFbDFkbEJaMVN6c0pLWjdOV0pNWlRERXllWl9SQ1NSM2lSZzZUX3hzLWR1cnFDQllwcnlUOHpLeGpNRS15Rmc2Qy1VcDdRRVlWR3A5d3U0eFZNaktnckxMRdIBuwFBVV95cUxOOEZVZGhaOVV6cEllc1dzMUJPeG1ZSC1XRWlEaGZWQ2xnQjNMYU9ob0ZQQlh1Y3hJRks3TnFYblZHU3lRV1pKVk50VWpwVVVNSG9xTW1QbjF5NFYyQWJuMjhxd3M5M2o1RDMtcmhvc0NtRnM5VGgySjBtNkNUQnNkbXZTMnMydVBOOWg2LXByT1JhWVVOZkc2aUhneW43REFiUUFXOXFhektDQjVKbFZsakRVOS1TTTZJUlRR?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 57,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-08-08T00:00:00",
-        "end": "2025-08-13T00:00:00"
-      },
-      "summary": "Is your community an immigrant sanctuary? See Trump's new target list - USA Today. Is your community an immigrant sanctuary? See Trump's new target list USA Today",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMivwFBVV95cUxPckhxdzB4TnBaMThFZnlyZVR6NDEwbXc4N3BMYUItZ0ltX0UxSlExV25xMkpOWkVaYW5oSFlHV3R3eDlFQUFycElWa3NhaFpzem9iRlNId0lXa28zT3JtUE9QTTNfUWVfdjNqY2ZTSE1PZFNlQWJpY2RDbjV0dkJRYkt0VnFkV2JXQ3A1ajdhWktsdGpRa1d1S1NleVo5SVBpSmh2WTFlc2otdTJrNnJ3UlpkcGIxcDBvLW9FdFU3aw?oc=5",
-        "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdlNSbWRBQlQyVENFSXZSTHlHYXdsNU1lc0ZRcTF2S3NMMWlFQ3g2d2xkaUZ3aUhjVjFqNEFTdmoxdWpCNF8wd2trSVpaanRlYTlqNS15SmtTSHpZYnlqQnQtZmFGZWw4b1IzUnJJaGhTbVR6dUxMcjBrVUN5VWNmZWcwdS1MVDIwWFprUkZHNERJRlB3SW9oLWRtU2d2ZUZwUUI3d0pqWWxSSGZBUWNOMVFuT1ZlVGpGMEkzUUQ1eW1MdkIycEo4OXpxWVZuOW9kd2s0U2t0RQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 12,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-09-24T00:00:00",
-        "end": "2025-09-25T00:00:00"
-      },
-      "summary": "Dylan Lopez Contreras: NYC high school student has asylum case denied, judge orders he be deported following ICE arrest - [redacted] York. Dylan Lopez Contreras: NYC high school student has asylum case ",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOT19FUjNsaW5ZY004OGJYc0RhZTdNRlA4RnRCLXJTTTRXZDEyR2MwZWdUY3FPNk1kV25SUWpCWThOckNwdl80Vi1RZGZyZVNpYlNoWEthVG5xN2hfVEdZM0NPcFZobl90YjgxMm1XQUdqZkpLaHVJZFNvNWdxZ2JKeEQtblZOSE5rZ21WZ2JLd2h0MHU2RW45aDhhS0ZtNWprNzc3cDBGSGYxbHMtaTNWejhnYV9Jem1GMFFMWnZmai01UU5Oc19xWm92bkIyeE0yOWY0R2NaU0JQMG9lTFduS2530gHnAUFVX3lxTE5RWGExMFNJQ0FVRlY0eDhZaF9fS0U5R0FqN3ZTWWRiRmtLOC1IRXRTSDBPQzAxcGZyOTY2cEJRRjBBQkFFUlhYSk5vVC1QNF8ySDl1NUo4a1lYZkplNU1zUFphRXpzT2NSRHFJRXFnN3JPU29PT2I0Mk5WS2NWNUI0OUJZak5GOTRjRUpiT0wyRFdVV2xQSVItWlg5YTg2SkNKNTBWYVF1bGRwcV9QWExURFRjc3d6N1NmSi12YnZsR1YxMU5uRFo4YzY1NWhKbnZfSjNZRmhmcFo4UG9aQ2ItN0Q3X0J2VQ?oc=5",
-        "https://news.google.com/rss/articles/CBMid0FVX3lxTE9UN0ZhZ2V3VDJkS3VubW1ORENqXzBPbTFPanBsYlRNbElfY0NBbGYyT0lVWjI1M29jNnFvd0hkUm1Hc2NzNHhaMExmaXhmNFN0WEFHa1lfaG1LVnd4ejRzZENkT2ZSZXlGVjZQSHIyTHN1RFRsVUJ3?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 36,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2025-05-29T00:00:00",
-        "end": "2025-07-22T00:00:00"
-      },
-      "summary": "Trump admin, judge battle over order to halt deportation of Columbia U. activist - New Jersey Monitor. Trump admin, judge battle over order to halt deportation of Columbia U. activist New Jersey Monit",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNcm9peW9kZjUxeVp0WUdib3VnX3I1MWlYVEs3YjVJcmE3cWxlOUtMa0gwMjhaZ2VySEZJRFBxRFliamhqWTRUZFJlMXk4bFlZcnN2ZjhFaFpIZEFVc0NHRFNDMmRVVWE1akNLYjVIZk91bzBhQ2QxTUdYa01IT1hiLU9sbFJqR0FxMXVUYkNjdkxwZnM4d3VQb1NnZ0FYSlJTbG9fVGc5WndqSFgtNHBvaExXSzlGUk1XdlE0?oc=5",
-        "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNblRCazk0RlNiNzF6UjdCck1ZZEVGSDU3SWl6d3d0R0VibG9Bam5NQ2NoNmZWRzVPVXIweHlKTWN4ODZoZXhjeXpLMUp0NjVSWWFVTENXczJycGpQQ0N1S2t0UktJZnFxTnQzZlA4NUJjTlVCNmVoMlNNRXNWdk5CU3liN0FvNWdIaHA1bzdOYllXMW9zZDZ3T1ZydVVKR0g3UzQzUjF4MEg0djJ0T0hOel9yQkgtOXhlLWlpSmozYW5LdFhtWThLNDluUzR6SnVKT21oUQ?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 37,
-      "size": 5,
-      "strength": 0.0,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2025-03-19T00:00:00",
-        "end": "2025-06-13T00:00:00"
-      },
-      "summary": "Judge rules Columbia University activist is eligible for deportation - New Jersey Monitor. Judge rules Columbia University activist is eligible for deportation New Jersey Monitor",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMitAFBVV95cUxQUElDRHozZHV3MmE4WTVzODRUZzZRRWJSdlZ2YVEwdE1sZXVBU2pBYzVNUEI2X0tidjN1dUpXTGxaaFNGMTVYYl82U3diVzctbkJiNVBmZUZ5WHNzbWV1bWxpelFQVGdvYk02Zy1UUzB4MGhqeUJCU25qcklyUTY5bXNSaGc0OGp3cS1rUzJQZlpqYWk2c0F0X3lueVlDMVRKUDlHOTdzaUJBUkMxcG1GUTd2NEc?oc=5",
-        "https://news.google.com/rss/articles/CBMiogFBVV95cUxQbUJxSTZ2N1l4WW42NkZMOXhWRjlpd2xOUlp5aUlBNWNjSmx6VTNSRl81c3otRnVuZ0xTa2hQbFFoUWZyUVFzNi1lbFVSanFNb0xKWVVQR1ZHWEdrZGtWNkFwbm5Xems0dU9QNU1NSEluU2s4bkUtd2RKM0ZtdXZtd0ZUYWk4aHNza2ZVTDB2MVZVYUdGUXZJS19xU1ZEU201M1E?oc=5",
-        "https://news.google.com/rss/articles/CBMisAFBVV95cUxOTG5feThCR1lvRTRfcGtUOUxRbWt3OVFnQkh3VG5OakZrX3p1YjFQWWl4QXBvYlE0anhxNzFwODhSNUZ4djM3OTlpbVJwUEVqZ3pRRmR4bTEway1mVWJtS1hfSm5ZYmpSd1dSckl3RzU3YkxWdnRkWVpZazdoVWg1ckg2Z2VPNExQUTRsdUNjWk1LR1FYWUhEYzY2V1F1NGFmMHdpVUdIQlltT0tXbG4tYg?oc=5",
-        "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOMUV2NEZrd2ZYUERKNUo0bzA4VWdkN2tqTXJfaWNYR3RkMGV0VlhFS203QWdtQ3R6R0hGenVLQnpfTGhhRXJhY0NWREVqSUx1d25FRHBWQXV5YzdJVURNN0Z0eURSNEM4U2VYcGh5SDZ6M0ZDX19XUHNnZjd6MWUwbGc3eUtVOTZReC1qWHJ1am5SQjVCcUx0TVh3WFRldzhuUVBCREFyc25HdnYtZjBuaHd1eWRKVzRpdHVkUm5RVW9EQlE?oc=5",
-        "https://news.google.com/rss/articles/CBMirgFBVV95cUxQMzdKUTN5YjYyNm9FQ0Rxem1DU3R3aS1fZWhUNVpHMjVYcHkwS3VTTEVsdlVjVzNoUW5vWUEteXlxRU15UW5tejhwREpRRC1SX3VDWS1aQU0xWFloTGhoQ3o4eE5SWEpzSGNjR1p1RjVDU0dGM0pNRVlkVEtRcjJXaXp4WVhuNWJmOHdVY2lvMUk4U3ZzUGVmNV9ZTVNNb09HY0dvQjdaREhFNVNsdWc?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.77,
-        "confidence_interval": [
-          0.62,
-          0.92
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 58,
-      "size": 5,
-      "strength": 0.0,
-      "zip": "08401",
-      "dateRange": {
-        "start": "2025-04-11T00:00:00",
-        "end": "2026-01-07T00:00:00"
-      },
-      "summary": "Trump administration fights obstacles to its deportation agenda - NJ Spotlight News. Trump administration fights obstacles to its deportation agenda NJ Spotlight News",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiygFBVV95cUxQTDNydFlBZzBlYlBVdk1Pdy16OVVaSHRHeEJ0Wkl3NDdjZ1dScEFFRzR1M1RxTUhEZEFXMzMzZVFKRlNqN2JoS2pvYzEzT2FHQ21lZ2l3WklfVFViTm5yNkxlVUtzdjNzWmV2WkpCa1Nucmk5ZXFnS2Y4UGtUbkdlSHhmamUyS2xDYXRFdWNNRldkd2ZISlF2Y1RkM3N1NlJTd01iaVJoclhaMTlFMUZnam5tTm45SklqaUFOalZtNzFKMlFZdHdzMGdB?oc=5",
-        "https://news.google.com/rss/articles/CBMirwFBVV95cUxPSnRnLUJWbURBQXFmQVkzcmZ4LTJ3NWQ5VlN2RUUtbXl4T1NGQU02WXJUMUp5SVVfb0poUFdGa05fT2VfbGtlOWJVNHNZMnJQWU9xVlgxSDRHbWlRV2tOTGNUZVBlNXRNYS0xd2N6SmliM1lEZXFyWjBsdGxXR1VDYUljWjRlbXlVVE1rc1JrUVhHQ2F3NnJsZWNScHVmTV8waGUzb0FqSEQ5Ry1CMmM0?oc=5",
-        "https://news.google.com/rss/articles/CBMirAFBVV95cUxQNmlMVHczYlp2emlIVHY3LTV4aXR3cW0tbldlcWx1Rk1NeGRLWk9PY2QxRElCSkQ0bjd4UHpwb1RsOEJRQ2xVOTlXTW5sMDE5MURhbUdidEhMd1ZSaURmZ0lVZlZxOWNVWXFEaTlieHFoejF2eEdLUXFjaWhNY2pldlN2N0x0ODVlaG5uUGtxVms4c2lnRXJDOWF0QTZyaTA2YmxYdm1seGlBU2Ni0gHAAUFVX3lxTFBrSm1Id3cwempuOWV1ejc0WlpmOWRQTlU4VEt3MXhoSGxQcXdEd2U3VmwzZ1VFeEpIN1RSOHplbTQ5NHo1a2x5LWt5VlB6bkw3c05Od05PRE81NVpaemE5M00xRlFHdXdLakU3TEpEMlBVbFhzX2UzVGRfbHFtUDNoek5XOHR2Si1DZGNRR3ltaWREQm50ME43YlB5a21lMHptRGNYYWV2cXdDSDByaWRNZlhqXzBGY2V3NUhJQlJ4Tw?oc=5",
-        "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSUZiYmtnMmxoSWdwRVM5NDNEZXdFXzlkQXpLc2NvRmdUckdrSGNULU5ub0dJQTVybkJWdkZBMFdTVUxkWTAxVnVfSWt0M2VuZVFIaV9OOTZTaHhZcmdLTFNYbnlZYjY5RlczV290bUtsNHlCZHBXbzBNYTZ1eWtWY2dYM04zcUFvRFJmaGtCQ2l5TzI0UGVFZlVyZ1haS0ozOEJ5bmxPWFA?oc=5",
-        "https://news.google.com/rss/articles/CBMisAFBVV95cUxQXzlSSDNPYXl4QnZoQ1ppVW1hLUtRX1RVOVRudEw3MVozanZvMjlCNVJwUHdsbUQtTXB0YnBieF9kY3AwRm9QWXBHMFNaZGhyYXdwVGpRZGg5M3AzZXVXc3RCNktfYW1qQXJsSTZXMTVOaEZXZ3k1bkpYQVBieFJnY0lSY0hMcV9zOVR6djJYNkRTUXVZOEN2bFVTWU8xLU1TUzNzbXJycERWYm9WVXNrdw?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.77,
-        "confidence_interval": [
-          0.62,
-          0.92
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 15,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-04-18T00:00:00",
-        "end": "2025-07-10T00:00:00"
-      },
-      "summary": "Trump\u2019s deportation agenda will destroy millions of jobs - Economic Policy Institute. Trump\u2019s deportation agenda will destroy millions of jobs Economic Policy Institute",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMingJBVV95cUxONF8zUE5iZnFSVTJaZUNUR1l4V2xGeko4X0VWbWU3ZkZ5LV9BT1RRS1FHanFrUk1ZbllSd3pZSHo3MnRzcG9BN2dacXNManl4WjZpX0VhSWVkNEQ0cUh3SVdpU2d3WUlEWTFrQnRQOFcyTWExdVFUZFpkYl9TRDBfMVFRcS0yNm1objZhZ3V1T0RRdVBpc0VvMm9CaW5FTjlhYWVKbWNjV2ZFSFdqZTZUTHhfaWUtMV93UE1NcW45VGVpTUNiTG1Yd085SnNpZGpMakRicFNhVTBVRTRtSFlORjc3aWxldm9qMnd2ZExkMGZYaHdwOHNMaUZtVDgzSV9PWjlGZmxNWlpnbno1UGVheHdhSHNfbmlYTkJETDFn?oc=5",
-        "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNM2I3SEt1Y1JGSS1uZDhJMm1pbGo5cUtlaDhib0xHSTd2UF9yOWxNVi0zbWdBT0V3dEV4TEFsWm51WUN1UjhlOTdXVVhWRFRJQzhlQVB5dVJBY0ZEal9SOHJKNm5WdE9oeUpNVjRHRWxnNGxOMEJ1VldOR0pweng2OEx2Wjc1TEZsbW1WaWh5U2dNRkdNaUZKNEpBb2FYUnRUYXpBOVptd1prSHAteDM4TUEyTk9JMUd0akh1V29vM1pIelQ5ajc0StIBzgFBVV95cUxQbThfLUt1dkZTX0NsM1JJZDBseEk5MkhQQnhmSzhsNHZsMnExd25yUkJGLUR1Ukg4QWV2QS1JaG51dldHalBZajkwc1ZjTUtfRGFDdU9XX1lDWkMzcFBrb2Vwc1p4SElqbXUxaVZCNHZ5Yl9SXzFERFludm54Z0NHVWpNZElaeEJJdlphX1V5T1hYRTdHMWFOWGUySE13NVR6aFNnN1FSMjkwSFNFZE9sbk9KMzR3SW91SkUzWXQ4SHVfT0ZUdVJVZEVlajhLZw?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 32,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07102",
-      "dateRange": {
-        "start": "2025-03-28T00:00:00",
-        "end": "2025-06-20T00:00:00"
-      },
-      "summary": "Closely watched deportation case of pro-Palestinian activist to go before judge in Newark - New Jersey Monitor. Closely watched deportation case of pro-Palestinian activist to go before judge in Newar",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMHR5Z1UxcHJIZXpxU2NuZjFnNTh5eFQycXViZnhLeG5tUTQxS2YtclZZeWQ4VFlQWERLUjJETnk4UDhacDZUdjhsZ2hYbllMTmVXS1NjS2hXenMxQ2RrODRxa0ZtU2NOczYzckJ4UC1FVFU2eUdfU04xNHJwYWluMHVzNEk0RTNtYWFnWUxIMHZoM0plZElDdmNWWnZpUEVOdHVNMXFuT2NlaDN1RWlweGt2SXRGbkFZREcwYlJkUjNDaVNNOWc?oc=5",
-        "https://news.google.com/rss/articles/CBMisgFBVV95cUxQTWtzaWszQTNydWhPdDBaTTI4SVBuZFppVFFvdnJRZkxJcGY4czRodVVhLUcwbVVobmNiaGg4Zy1ZYjAySHlrd2RXWks0Vk5lZm4xZThPdDFkWVYyZUdLbkhqUWcxcUxNbW5JZVNKdXQzWVRMbjFfd3pQYW5GRGFkMklfSEZweTRZY0sxN2hnZ09ST3Y3T1I0a25Va0JuZUt1UXJpc1cwa2FHNjB6QlgtOWF3?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 24,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-08-19T00:00:00",
-        "end": "2026-01-02T00:00:00"
-      },
-      "summary": "Deportation [redacted]Year-Old Puts Spotlight on ICE\u2019s Detention of Families - The New York Times. Deportation [redacted]Year-Old Puts Spotlight on ICE\u2019s Detention of Families The New York Times",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMidkFVX3lxTFBCVFFRUWttTnBqT2ZwSGctUlFmNFFYbERtTDRLbThqZ1VaRVN6R1FrekVlRm91MVFqWS1ySlNsR3JONUxfemtjWmVSejBjczR4Q3RpSmxuU2tZV1JqNkUzRkpGWXBmOEdWTTBWTFNrSm5EcjJhM3c?oc=5",
-        "https://news.google.com/rss/articles/CBMitAFBVV95cUxNaFBrTDZDeU0zQkUzdFJPdFBxNGZRNDBQcC1YNDFYNjZhZmR6QnNFR3lGNmJYcGV2dS1uUDd4QktEQkJiNDlWQVZ1VWk4ZmlSNjFjQ0dxZzB3U3Y0QjAwUlcwZ3dHLXNFMi01cWpqN0Z6X2VCZ1A2Y2ZZNlZBR3FCZlB5M2VrcnhOTWtfV2FsSklhTFdxdjFFOUFaRkNYb0EyU19fRDZ1dTdPM05fVXdBbkRCYlLSAboBQVVfeXFMT3M2SDYtQmVtcEI4N2NoaGV4eWs3dGFnV1QwZFNKUGxOblk0QUlHMXZ0V1BjVGdlQUVFX0lIaUprVGoyeGEzMUdYejhWTUo5eDFfa1l2WndVZGpsQWVWWFhJYi04ZUlPRkxvNXBrbGoxOTh2MTFxQ1NjVU9kaVp0TXhucU81Wmc4SUxxYndxWm94Sms2ZXROTnhheE5QdXI1NmJPLWNqdTBwQlNqdS1MVG83V2w2eW1LVmNB?oc=5",
-        "https://news.google.com/rss/articles/CBMilgFBVV95cUxPSTBzdGlvWmItMlc3NnUyODlCbDFCT1FnLThwQXd4Yk9qTW9iSlNWSGk3Z2V2eWx1V2xJWVBDeXljbVNtbzdSazdMTmZSc0IyOEpXLUV5RVZ5bllKSmQyWk5yYVVzaUVNdGw5V2dIbVl6Rnhzd2xPUWJpVnBqdW82Rm00enZEenpzNzNvSUwwXzktVEpoSlE?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 43,
-      "size": 6,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-04-08T00:00:00",
-        "end": "2025-09-18T00:00:00"
-      },
-      "summary": "Immigration judge rules that Columbia student Mahmoud Khalil can be deported - PBS. Immigration judge rules that Columbia student Mahmoud Khalil can be deported PBS",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMimAFBVV95cUxQdk5SdWU0T1FKS3Z4c3ltV1dpTEJZWHZ4cXU2LWc5ZkJWR3RITVY2ektmbVhrdnZYcC1VYV9XWXl5ajBfeUFKMm94QlkzTVczN1ZjOEVtLTlpMXZSQTZveUo0TUxyM25VX1JHOUpOMHkxQW9Rd2lXcjloN3Y2T1YzX3cxemlfUFFhS005aXlWZHlqZ1ZXeWROYQ?oc=5",
-        "https://news.google.com/rss/articles/CBMigAFBVV95cUxOeE5OakxjYWYyckR3QUktQlA4OEpLTkt3T3FzYnlJNGxkREU5UWYxVlBDdmdDTElDcjJ5dFJhSTE4dTQ1aVNxX21BOE13RFVuSjdUQ190cEctaWZWOWxuU2hCeDFJb00wbzB0LVhieE5peUdLZmJVd0Y2STFjTUV1Uw?oc=5",
-        "https://news.google.com/rss/articles/CBMitAFBVV95cUxONXlQQWNvenZndVVZLV9uclJFZ0NNTkdhcEV0RWRlNXd3d0t5R2ljTjBEUVlUX2p4OG5FYW5NdGsyeWMwcktWTl9fVWtSVTcySkI5aGtMc3pkQS1RNEVMMS1nU1lhUXVfbDBwS2xvbjdBa2VUbk41RXQ5NXVCcDVMcTllT0pGbnRFWVNYNmxEeEotbHl2bUtrQzM2aThIZkFSa0prMVFzYUF3b1FwTmdYei1RRDnSAboBQVVfeXFMTlRzeW11Q2NxY01zcE5DXzNrejhmUjhOamRvY2FLVHd5NERKR0RnY09xU2dpbnMzNE84YVhSY3RHaElkSGo3TTBoUnh6a3BQNDJUa05zNnNVakN0RlA0RnY4dm5TOENuUUhoMy1FcE1FZEdoYXpQZDFzdUtBbzk5MlZmdFV6dG8xMjdnSHVZRWlhRXRPcTlPbnJ5ZlZZSnRfWnRvVTJCUkJKZW42TzFKcVQ5RmRxdmRSNURn?oc=5",
-        "https://news.google.com/rss/articles/CBMihgFBVV95cUxNUE1pNnpoRjI5V1JGZnA4bVA5bmZqT0Q1TndJcWlXcjNqc0tLckZySFVxZE5WWWFNcDZ6QVNrcV9scnFhcXdVTkVsNzNlSlhIdWRtUlQzWTFBUkxzTVlBUjNNbk9oSzMzQ244ZU9kVGVoS2I1V3doYmdiYWEwLUtyUkZ6TllyZw?oc=5",
-        "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNVDJmbWhJdHpONy1GUkVrM204SVRuenMwN2o3RW1fVHpLTkJOOXlwNl83SmltQXlWQThNOFNHVzgwQmdTUTUwMkRWZU9HRmNNdGhWN1pqM1p1VkhRZ3Y4TkN4WU9JVnBtd3J5Tkx0UVFJaFlVWlVpdDdhUlJWam9KTlFHMGFtT29ZU1c0aTlyNGFrRVp5MlFNU3BKUGl4ZVhkNTZMYy1Ca2RVZmhlMVhONmJncWtXZnFoWHRuV1lpczFjNjVMMlhtbmItZVROcjBVMzlQUVRrM2FpZFdWRmJGLTBPY1VtODh6a2fSAe8BQVVfeXFMUFFyeUZQeWpMRXhLUF95bGZ5X1lFeUI1X2NNRzFVVmw5X0l6X3BuTFh3cGYzTEd1cE1pYzlkbzBFNFJxel9ZbmRQbkI3OHQ1aWFOXzlQdlVKY0lNZmJEUGNlNE9RWjRrZE1CME11OUtjSWpRN09hTGxnN08yYXd2S0l1S2FjazBEc29zVU50azFVaGZfRW9ScVNTNEJFanZiZmRXVTc3WHljeElHTXhIaXNYb0t5aGtYYmdLUkxlVm5sSlhRUW9qRDdsQkw3c05QWC1RYl9PSE0xWGFYcHI3b2FvRkNBYlhhSGNTN1dTZlE?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.77,
-        "confidence_interval": [
-          0.62,
-          0.92
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 59,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-03-05T00:00:00",
-        "end": "2025-04-07T00:00:00"
-      },
-      "summary": "Our deportation and immigration coverage: Everything you need to know in North Jersey - Bergen Record. Our deportation and immigration coverage: Everything you need to know in North Jersey Bergen Reco",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMivgFBVV95cUxNV3BCLUcyRkQySzlYQ2xjYWlzQkc2YVRoQWJtQkV1d0dER2VqQlNiZUVJcHhqLWpsTVNkalJnUmhPWTZLQjk3MmQxQlVhSTFNdGRrd0ltWEpTaDRQLVBXNG5DOGZCTk8wbWM0UGFIaVJHWWttQkEzbFFSNkJtRE5jU2hhZmtVZjRrYXQwQUhDMTZPNlAzaHRfenNhdmdHblNqSjRRZVZiVGIzMnRjMGdBVWlhQjRlX1hNNzFmamlR?oc=5",
-        "https://news.google.com/rss/articles/CBMivAFBVV95cUxONV9GUkZzZGViVHAtcHF2QnZxQXpZYmJnQjVtRzBqOVdES3VqeTRiRk0ydC16N1BCWm53WlZKOXdidDZzYlB6eVcycFVqcS1pZFd3VVNGTnhfZEdOUUJkYS1lZVNXRENYLUNpbzk4ckFEZ3hILVdaMUY2aVc1ZDB5QmV4ZGIzN1NibjFJcVZlTjFYREhCRVhybGdrRGpWZjdDOWt5dE1YcU93WndVTEoyXzByNmhFcjV6S2ZmYw?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 66,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-06-03T00:00:00",
-        "end": "2025-08-25T00:00:00"
-      },
-      "summary": "N.J. father detained by ICE [redacted]months despite deportation stay - NJ.com. N.J. father detained by ICE [redacted]months despite deportation stay NJ.com",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiogFBVV95cUxPVzh0QnAxdUV6Z3dOOXhOU0NiZEJpSC1sT2NoOTR3bEVUdUNfc21lQ2JuUW9pOERwd1FYaWswUC16eG1IZmRzRU5hQmRWMDJlWlBkeW1LZnpFN1hZMXdkQXQ5cHZQai1heW00bFVsejZzMXNhSTZVcjFIa01CMmlocXhaUmM1eUFjWjdtZFlxVERNd0ZaSGJTcGxPTnJXTHZJR1HSAbYBQVVfeXFMTWw0ZkRwb0JhSEpNbHVlLXJNTE0tVGhBLXVBYW1qSC16RGt4a3ltWUdSZVJ2THFCaEdzQVZVRHl1Nkl4U3JBcml1TEpKSm9WSjlIdmU1b0tfTFRla2NrVVViUHRjZU81RG10QkFCcFhhbFVaZ0x1ZjBMa2RrSE05MFZMSUcwZGxfUTl5YWxFbVJ4dERwT0NxcFJhN2JfUkp6cHptRVlldHFiZFB0WkN5NExiaFhjVWc?oc=5",
-        "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNUmZ0QktBRy10MGttcWZkWmVidW84NmMwMThBTGd3a1M4SDNnenRZek1zM2JMdzhUUWJLRWpQTjVtUlZSTV95SEUzUUNaSlFudjZKV2FHVExoaHJUYy1pcFNhU0k1Ujgxa0RDM3lVQkxFNDF3UktPdE81N3VmYXo3M3FZUnJMMXlIV0l4RUhyUngxTXRMVngyQlM0Q3VsWTB2NTNHVHdrT25JR0E?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 42,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-03-28T00:00:00",
-        "end": "2025-10-22T00:00:00"
-      },
-      "summary": "3rd U.S. Circuit Court of Appeals hears Mahmoud Khalil\u2019s appeal against deportation proceedings - Columbia Daily Spectator. 3rd U.S. Circuit Court of Appeals hears Mahmoud Khalil\u2019s appeal against depo",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPcTg5dW9zbTZHUkRoSTVLZXZLQmI4Y1V2eGoyUVpVMWQwbHZ6S1ZRcl9YUWNKQVN5MzNZWGk1Z2xVWi13ZFJiVktRQVhEMHlLNEljVjQ2VFZndzJMc3lXWktGeE9jWlJBQTZzV3J1Z21QOXVmR3MzVjRYNTRhLUFvckxTSG5WZkNFRnJjenEzcnB1RGlyY3JEa1hFckhXVkFJVElDODVjZjF0RzNqNGJPbDNjSC12cjZON1g4bGtMTmtXbVZkS1hJV0dBbVlsaU1yTmsxNU8zOXQtSE0?oc=5",
-        "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNdEg5ZUZSTl8yQlB6by1XTkdyYVZYMXAxWnRlTjN5WVRmREpsVlZOakU4eTVKVE9sYlhZd0ZWUDg0RTMtUTMzRjhXdHJzckFqLWNoWkYzVG9Mb0dwSkxmT0RabzJGM193NXkwZmtYNmhDQzNiUTR1WEZKaThacXJkcmFkRlRxcV9OOFg1YUUzUHcwYWd2VXRvaEhWbmVXZjF6aWx4S1FOeFZRcmtQNjM3cVhJcFBSNzhmUkVQZWw4VlJYbGl1ekJ2NzI5Vk1CWVhVTVFUSmNpYXEwdUl2cTA00gHkAUFVX3lxTFBDQVVxTTQyR29lbHNrYTJoS2NUczhtMDJISXg0VUNUMnR3RnpPdlV6cGNkcmZsUWpLNHUyUThBVFJBbDhndWxjZVV5azNfS3N4RE1kUUZ6R3luQXUyLUUyVG9aQzF6QnktQjdHYVJaa1ZaZEJIVkNxaWNCUGZxLTZuSFRzN2cwY0V0UGlSMC1Wd191QnhoNFVCcklCZE04Z2pOT0pyc3Vpd21kTFpZaGc1Z3QybHVnMmt1Ry1jN3h1MjIxOHF5dHZOaUZ0TVdZeGYxeFk1T3RRQW5rQkxwSWpmdWtoUg?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 22,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-06-15T00:00:00",
-        "end": "2025-12-11T00:00:00"
-      },
-      "summary": "Trump orders Ice to expand deportation of migrants - BBC. Trump orders Ice to expand deportation of migrants BBC",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMiWkFVX3lxTE80Qkl0N0pMMFNlejU0eUgxNmJWTy1lZk9ZZklBUVlVU0FLRTVBdGpZbnhtV09aNW9fcEk2eEpLeDBKZWNLRjkyejNsbVVUTkwySFN4Y2F4b0pKUdIBX0FVX3lxTE85a21ZMUJiNDVQMzZyanViZlZ3T01NQ2JVRkE0VktaWmJSZnRtSWdCV1BwNGM3ZzdSNDNmdHl6YkxINGlndXJ5T1hDT3VKUlJZOWg2a01OaWJjZEhmU284?oc=5",
-        "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOU1l1djVxTDNLVkdOUzdDT1dJdFdJc21CUVhFTk83VmFMZlZhYlpoZzh1Y192NjZtMUtKUGtnWXRDcWpLQ01EY2lSQllOVmxvUmIyblhlbTBwTGtoY2xEVE5uSXZnTlc4UnhXaTlQUnRlZnRDdzVDNlBBZTdBM3RJTHV2Mm9qbmpHTFpqdHBNdmt5b3VHZVhzOVpVTl8ydU8zRWNaaHFrRkVuTDBlVkFVRGJiYlpRRUxTUDVYd1M1a1Q?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 33,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-03-19T00:00:00",
-        "end": "2025-04-01T00:00:00"
-      },
-      "summary": "Judge rules Mahmoud Khalil\u2019s deportation case must continue in New Jersey - The Guardian. Judge rules Mahmoud Khalil\u2019s deportation case must continue in New Jersey The Guardian",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMihAFBVV95cUxQUDJGQUdyamxRWlVERFVzckEtVFZlZEZhOXlrLWRqbXZKSEo2a3c0RHpMU1Z6ZjQ5OUNKT3RvT1VOajJwRTFQZzNnLU1yMFVBU0VycUpQLTh0MnlzaEQ0N25pYm5NQkUwQ2RmSWh6QnlqendQVHZQaGRSRV9rMmt1QXlqVjI?oc=5",
-        "https://news.google.com/rss/articles/CBMilgFBVV95cUxQMURpQmNVT3lQYTBPVWFYRDRGNm8wcGxoYk1HQUYxV0dLV2x4eUVMT3Q2VFM1RUZuTzRsOWVzSWVrR0plQWhNQ1NoV1h3eGpycUhQSmVrSVpMVktUSGRrYTV6blpBUnRSWU5NeHpSRElyRWk2ZHE4NERxMkxjdE1fbHZ4SExDckJBTjA3QS0wQzF1MmF3cGc?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 39,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-03-19T00:00:00",
-        "end": "2025-03-19T00:00:00"
-      },
-      "summary": "Judge orders Mahmoud Khalil case to be moved from Louisiana to New Jersey - The Guardian. Judge orders Mahmoud Khalil case to be moved from Louisiana to New Jersey The Guardian",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMikgFBVV95cUxNRkhoSU5RWlBfOGR3MnFPQlFndS1NWXl0ZmdaUEVyTnA3U1M1aE5VZVMyS0t3aHVySElqUmJlVEhmXzZDbl9QNC01TXQ1Wm5XQVZyX2ROYnNqUThEdEZfX3FyNEVCcnZnNlNudmNiWXg1VkVNOURyelgzOEMzb1YxRjZnS0pSRHVoN0tlR0VUd1d2UQ?oc=5",
-        "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5seDJ2RkNEYWRBWW5sOXhBOUNHWEtsc2F5MEJLSGhoRTZoQ3Vld2xRYm9JOHNpUHVaSUxCVVhMaEJNRUpjaUlNSEJieWFHV2lCNnEwQ01IQ0gxUdIBX0FVX3lxTE1TUW1lelhVdFhHQnFDRVZPZGdQamxlMjNTUlNLTzU1c3JjWW9LZU51YWpRekg1NUVpTlE3Z3c5Zm5vb1RrdklvWWdvUkU3eHdwTkw3V1BjcWJhWEN0N2c4?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 40,
-      "size": 2,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-04-01T00:00:00",
-        "end": "2025-04-01T00:00:00"
-      },
-      "summary": "Mahmoud Khalil's legal case will play out in New Jersey, not Louisiana, judge rules - CBS News. Mahmoud Khalil's legal case will play out in New Jersey, not Louisiana, judge rules CBS News",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMihwFBVV95cUxONjJzeWpWOWN2eDNhTnNkSXZEcE1TdDBkT2NMNjRNd3Jmak55aE1VNm8tU1ZjRmwyUVM4a2xqbHBaLW5ReFRFUnpmck82SDJVNWptWnVaRWFQX2cxbExnVHFJVHpRbGo1UHZMa25jdjNBUGNseDZJWGs0Q0dIbTFsbTkzTEQ2aTA?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.56,
-        "confidence_interval": [
-          0.41,
-          0.71
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    },
-    {
-      "id": 38,
-      "size": 3,
-      "strength": 0.0,
-      "zip": "07060",
-      "dateRange": {
-        "start": "2025-03-19T00:00:00",
-        "end": "2025-06-21T00:00:00"
-      },
-      "summary": "Mahmoud Khalil arrives in New Jersey after release from ICE custody - CBS News. Mahmoud Khalil arrives in New Jersey after release from ICE custody CBS News",
-      "sources": [
-        "Google News"
-      ],
-      "mediaLinks": [
-        "https://news.google.com/rss/articles/CBMimAFBVV95cUxQQ3Y1SjR3ck8zLVNVMng2X1hJdW56VzEyUTJKd1dmUHp1ZWx0bXZ5VFhGb2VPVk51QzhPMEpjNVpKVENRQm5KVFJjVkczZzY4UW4yVVZ4a3lwbFBGNmNCRmpMUnJzV2c4dEp3VGJMLUZGSmpIZmMtdGlpTEZsOFRwd2ljRjd2bWRQa1YyQ1M4VG1rcWlEekg5cA?oc=5",
-        "https://news.google.com/rss/articles/CBMiswFBVV95cUxQMEpvbWMzMEdLeGY3cFp2M0QyTWh3YlZMT2lrUndhWkRxOHFJaGpwQzFyRHJiakVoT3FrbHVZVF93UHZlM2xrcmppM0pyQ04yYWdnS3BWVWlsVEN5emQtanRKcURtMUgzeUM2UEZCbVoyd1o2ak1BWEJ6WDZQZ0VYUG1sV2RVZmlaUk1Ic2xKa282Q2hSZXJaamUwQWdjSF80bXFNa2NPLUZ1X1l3YjMxZWI0a9IBuAFBVV95cUxNVDlRNEJaZ0tCT05CRmE4ZFpDTURxS3RYdS1zV1BwaUxXUVhpWGtVZnFyX2VJazZUYkNwUVRKR19EUmRNa25JNm91NjVwVWtsMVd3RkhjMFVlaHEyMlVwYlBrMzNZY1h3bGtOTzhyR0FLRVBpMG50bkVBZE51YjU5eVowTUNmZDE1SUVZcGFPRF80ZHJKb29aYmU3eThyVER0YVZOOGxzUnJoRW4wSHl6Mm5aOHVTSjFm?oc=5"
-      ],
-      "uncertainty": {
-        "confidence": 0.64,
-        "confidence_interval": [
-          0.49,
-          0.79
-        ],
-        "data_quality": "low",
-        "limitations": [
-          "Single source - corroboration recommended",
-          "Small sample size - pattern may not be significant"
-        ],
-        "not_claim": "This represents aggregated public attention, not verified events."
-      },
-      "source_diversity": 0.0
-    }
-  ],
+  "_schema_version": "1.0.0",
+  "_provenance": {
+    "generated_at": "2026-02-25T23:52:09.650498Z",
+    "generator": "export_static.py",
+    "ruleset_version": "ruleset-2026-02-25"
+  },
+  "generated_at": "2026-02-25T23:52:09.650538",
+  "clusters": [],
   "nlp": {
-    "generated_at": "2026-02-08T11:16:26.956342+00:00",
+    "generated_at": "2026-02-26T04:51:41.462895+00:00",
     "total_records": 475,
     "burst_score": 0.9978947368421053,
     "trend": {
@@ -3179,9 +104,7 @@
         "count": 61,
         "top_location": "07060",
         "locations": {
-          "07060": 38,
-          "08401": 17,
-          "07102": 5
+          "07060": 61
         },
         "top_source": "Google News",
         "sources": [
@@ -3191,16 +114,14 @@
           "start": "2025-02-07T00:00:00+00:00",
           "end": "2026-02-03T00:00:00+00:00"
         },
-        "recency_hours": 131.27415392305554
+        "recency_hours": 556.861516895
       },
       {
         "word": "cities",
         "count": 56,
         "top_location": "07060",
         "locations": {
-          "07060": 47,
-          "08401": 8,
-          "07102": 1
+          "07060": 56
         },
         "top_source": "Google News",
         "sources": [
@@ -3210,16 +131,14 @@
           "start": "2025-04-28T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415408277777
+        "recency_hours": 532.8615169197222
       },
       {
         "word": "deportation",
         "count": 48,
         "top_location": "07060",
         "locations": {
-          "07060": 28,
-          "08401": 16,
-          "07102": 3
+          "07060": 48
         },
         "top_source": "Google News",
         "sources": [
@@ -3230,16 +149,14 @@
           "start": "2025-02-07T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415409916668
+        "recency_hours": 532.8615169308333
       },
       {
         "word": "com",
         "count": 41,
         "top_location": "07060",
         "locations": {
-          "07060": 31,
-          "08401": 6,
-          "07302": 1
+          "07060": 41
         },
         "top_source": "Google News",
         "sources": [
@@ -3249,16 +166,14 @@
           "start": "2025-04-28T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415411083334
+        "recency_hours": 532.8615169388888
       },
       {
         "word": "york",
         "count": 40,
         "top_location": "07060",
         "locations": {
-          "07060": 26,
-          "08401": 10,
-          "08540": 1
+          "07060": 40
         },
         "top_source": "Google News",
         "sources": [
@@ -3269,16 +184,14 @@
           "start": "2025-02-27T00:00:00+00:00",
           "end": "2026-02-08T00:00:00+00:00"
         },
-        "recency_hours": 11.274154120833332
+        "recency_hours": 436.86151694666665
       },
       {
         "word": "raid",
         "count": 38,
-        "top_location": "07960",
+        "top_location": "07060",
         "locations": {
-          "07960": 14,
-          "07060": 11,
-          "07102": 3
+          "07060": 38
         },
         "top_source": "Google News",
         "sources": [
@@ -3288,16 +201,14 @@
           "start": "2025-07-09T00:00:00+00:00",
           "end": "2026-01-17T00:00:00+00:00"
         },
-        "recency_hours": 539.2741541305555
+        "recency_hours": 964.8615169541667
       },
       {
         "word": "spotlight",
         "count": 35,
         "top_location": "07060",
         "locations": {
-          "07060": 22,
-          "08401": 6,
-          "07030": 2
+          "07060": 35
         },
         "top_source": "Google News",
         "sources": [
@@ -3308,16 +219,14 @@
           "start": "2025-03-07T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415413916667
+        "recency_hours": 532.861516963611
       },
       {
         "word": "after",
         "count": 34,
         "top_location": "07060",
         "locations": {
-          "07060": 15,
-          "08401": 7,
-          "07960": 6
+          "07060": 34
         },
         "top_source": "Google News",
         "sources": [
@@ -3327,16 +236,14 @@
           "start": "2025-03-12T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415414777778
+        "recency_hours": 532.8615169733333
       },
       {
         "word": "judge",
         "count": 33,
         "top_location": "07060",
         "locations": {
-          "07060": 23,
-          "08401": 9,
-          "07102": 1
+          "07060": 33
         },
         "top_source": "Google News",
         "sources": [
@@ -3346,16 +253,14 @@
           "start": "2025-03-19T00:00:00+00:00",
           "end": "2026-01-29T00:00:00+00:00"
         },
-        "recency_hours": 251.2741541561111
+        "recency_hours": 676.8615169808334
       },
       {
         "word": "immigrant",
         "count": 31,
         "top_location": "07060",
         "locations": {
-          "07060": 21,
-          "08401": 5,
-          "08901": 1
+          "07060": 31
         },
         "top_source": "Google News",
         "sources": [
@@ -3365,16 +270,14 @@
           "start": "2025-02-07T00:00:00+00:00",
           "end": "2026-02-03T00:00:00+00:00"
         },
-        "recency_hours": 131.27415416444444
+        "recency_hours": 556.8615169877778
       },
       {
         "word": "over",
         "count": 30,
         "top_location": "07060",
         "locations": {
-          "07060": 23,
-          "08401": 4,
-          "08101": 1
+          "07060": 30
         },
         "top_source": "Google News",
         "sources": [
@@ -3384,16 +287,14 @@
           "start": "2025-04-22T00:00:00+00:00",
           "end": "2026-01-30T00:00:00+00:00"
         },
-        "recency_hours": 227.2741541725
+        "recency_hours": 652.8615169947221
       },
       {
         "word": "policies",
         "count": 27,
         "top_location": "07060",
         "locations": {
-          "07060": 22,
-          "08401": 4,
-          "08901": 1
+          "07060": 27
         },
         "top_source": "Google News",
         "sources": [
@@ -3404,16 +305,14 @@
           "start": "2025-02-19T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415418
+        "recency_hours": 532.8615170016667
       },
       {
         "word": "record",
         "count": 26,
         "top_location": "07060",
         "locations": {
-          "07060": 17,
-          "08401": 5,
-          "07960": 3
+          "07060": 26
         },
         "top_source": "Google News",
         "sources": [
@@ -3423,16 +322,14 @@
           "start": "2025-03-05T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.2741541886111
+        "recency_hours": 532.8615170116667
       },
       {
         "word": "arrests",
         "count": 24,
         "top_location": "07060",
         "locations": {
-          "07060": 13,
-          "07960": 3,
-          "07102": 2
+          "07060": 24
         },
         "top_source": "Google News",
         "sources": [
@@ -3442,16 +339,14 @@
           "start": "2025-02-19T00:00:00+00:00",
           "end": "2026-02-03T00:00:00+00:00"
         },
-        "recency_hours": 131.27415419722223
+        "recency_hours": 556.8615170194445
       },
       {
         "word": "patch",
         "count": 24,
         "top_location": "07060",
         "locations": {
-          "07060": 13,
-          "08401": 3,
-          "07302": 2
+          "07060": 24
         },
         "top_source": "Google News",
         "sources": [
@@ -3461,15 +356,14 @@
           "start": "2025-08-05T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.274154205
+        "recency_hours": 532.8615170280556
       },
       {
         "word": "list",
         "count": 23,
         "top_location": "07060",
         "locations": {
-          "07060": 21,
-          "08401": 2
+          "07060": 23
         },
         "top_source": "Google News",
         "sources": [
@@ -3479,16 +373,14 @@
           "start": "2025-05-30T00:00:00+00:00",
           "end": "2025-09-18T00:00:00+00:00"
         },
-        "recency_hours": 3443.274154213055
+        "recency_hours": 3868.86151704
       },
       {
         "word": "bergen",
         "count": 22,
         "top_location": "07060",
         "locations": {
-          "07060": 14,
-          "08401": 6,
-          "07960": 1
+          "07060": 22
         },
         "top_source": "Google News",
         "sources": [
@@ -3498,16 +390,14 @@
           "start": "2025-03-05T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.2741542211111
+        "recency_hours": 532.8615170519445
       },
       {
         "word": "governor",
         "count": 21,
         "top_location": "07060",
         "locations": {
-          "07060": 11,
-          "08401": 9,
-          "07102": 1
+          "07060": 21
         },
         "top_source": "Google News",
         "sources": [
@@ -3518,16 +408,14 @@
           "start": "2025-03-13T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415422861112
+        "recency_hours": 532.8615170638889
       },
       {
         "word": "khalil",
         "count": 21,
         "top_location": "07060",
         "locations": {
-          "07060": 18,
-          "08401": 2,
-          "07102": 1
+          "07060": 21
         },
         "top_source": "Google News",
         "sources": [
@@ -3537,14 +425,14 @@
           "start": "2025-03-19T00:00:00+00:00",
           "end": "2026-01-15T00:00:00+00:00"
         },
-        "recency_hours": 587.2741542358333
+        "recency_hours": 1012.8615170755555
       },
       {
         "word": "morristown",
         "count": 21,
-        "top_location": "07960",
+        "top_location": "07060",
         "locations": {
-          "07960": 21
+          "07060": 21
         },
         "top_source": "Google News",
         "sources": [
@@ -3554,16 +442,14 @@
           "start": "2026-01-11T00:00:00+00:00",
           "end": "2026-01-21T00:00:00+00:00"
         },
-        "recency_hours": 443.2741542427778
+        "recency_hours": 868.8615170866666
       },
       {
         "word": "mahmoud",
         "count": 20,
         "top_location": "07060",
         "locations": {
-          "07060": 17,
-          "08401": 2,
-          "07102": 1
+          "07060": 20
         },
         "top_source": "Google News",
         "sources": [
@@ -3573,16 +459,14 @@
           "start": "2025-03-19T00:00:00+00:00",
           "end": "2026-01-15T00:00:00+00:00"
         },
-        "recency_hours": 587.2741542497222
+        "recency_hours": 1012.8615170977778
       },
       {
         "word": "raids",
         "count": 19,
         "top_location": "07060",
         "locations": {
-          "07060": 13,
-          "08401": 2,
-          "08540": 2
+          "07060": 19
         },
         "top_source": "Google News",
         "sources": [
@@ -3592,16 +476,14 @@
           "start": "2025-02-07T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.2741542575
+        "recency_hours": 532.8615171088888
       },
       {
         "word": "detention",
         "count": 19,
         "top_location": "07060",
         "locations": {
-          "07060": 11,
-          "08401": 5,
-          "08901": 1
+          "07060": 19
         },
         "top_source": "Google News",
         "sources": [
@@ -3611,16 +493,14 @@
           "start": "2025-02-27T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415426611111
+        "recency_hours": 532.86151712
       },
       {
         "word": "detained",
         "count": 19,
         "top_location": "07060",
         "locations": {
-          "07060": 11,
-          "07960": 2,
-          "07030": 1
+          "07060": 19
         },
         "top_source": "Google News",
         "sources": [
@@ -3630,16 +510,14 @@
           "start": "2025-03-28T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415427444444
+        "recency_hours": 532.8615171325
       },
       {
         "word": "out",
         "count": 18,
         "top_location": "07060",
         "locations": {
-          "07060": 13,
-          "08401": 3,
-          "07960": 2
+          "07060": 18
         },
         "top_source": "Google News",
         "sources": [
@@ -3649,16 +527,14 @@
           "start": "2025-04-01T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415428249999
+        "recency_hours": 532.8615171441667
       },
       {
         "word": "court",
         "count": 17,
         "top_location": "07060",
         "locations": {
-          "07060": 11,
-          "08401": 4,
-          "07102": 2
+          "07060": 17
         },
         "top_source": "Google News",
         "sources": [
@@ -3669,16 +545,14 @@
           "start": "2025-03-28T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415428972222
+        "recency_hours": 532.8615171522222
       },
       {
         "word": "mayor",
         "count": 17,
-        "top_location": "07030",
+        "top_location": "07060",
         "locations": {
-          "07030": 7,
-          "07060": 7,
-          "08401": 1
+          "07060": 17
         },
         "top_source": "Google News",
         "sources": [
@@ -3689,16 +563,14 @@
           "start": "2025-03-13T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.2741542975
+        "recency_hours": 532.8615171602778
       },
       {
         "word": "hoboken",
         "count": 16,
-        "top_location": "07302",
+        "top_location": "07060",
         "locations": {
-          "07302": 8,
-          "07030": 7,
-          "07102": 1
+          "07060": 16
         },
         "top_source": "Google News",
         "sources": [
@@ -3709,15 +581,14 @@
           "start": "2025-05-23T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415430555556
+        "recency_hours": 532.86151717
       },
       {
         "word": "times",
         "count": 16,
         "top_location": "07060",
         "locations": {
-          "07060": 13,
-          "08401": 3
+          "07060": 16
         },
         "top_source": "Google News",
         "sources": [
@@ -3727,16 +598,14 @@
           "start": "2025-02-27T00:00:00+00:00",
           "end": "2026-01-31T00:00:00+00:00"
         },
-        "recency_hours": 203.2741543125
+        "recency_hours": 628.8615171819445
       },
       {
         "word": "against",
         "count": 16,
         "top_location": "07060",
         "locations": {
-          "07060": 12,
-          "08401": 3,
-          "07960": 1
+          "07060": 16
         },
         "top_source": "Google News",
         "sources": [
@@ -3746,7 +615,7 @@
           "start": "2025-05-23T00:00:00+00:00",
           "end": "2026-02-04T00:00:00+00:00"
         },
-        "recency_hours": 107.27415432527778
+        "recency_hours": 532.8615171938889
       }
     ],
     "category_distribution": {
@@ -3762,100 +631,100 @@
     },
     "related_terms": {
       "enforcement": [
-        "including",
-        "economies",
-        "rocks",
-        "platkin",
-        "apartment",
-        "thugs",
-        "feds",
-        "friends",
-        "diligence",
-        "survival"
+        "notification",
+        "princeton",
+        "cammie",
+        "hillsborough",
+        "latest",
+        "bass",
+        "released",
+        "fought",
+        "transferred",
+        "congress"
       ],
       "community": [
-        "including",
-        "economies",
-        "rocks",
-        "thugs",
-        "apartment",
-        "feds",
-        "friends",
-        "diligence",
-        "survival",
-        "violates"
+        "notification",
+        "princeton",
+        "cammie",
+        "hillsborough",
+        "latest",
+        "bass",
+        "transferred",
+        "fought",
+        "released",
+        "congress"
       ],
       "legal": [
-        "including",
-        "economies",
-        "rocks",
-        "platkin",
-        "thugs",
-        "apartment",
-        "feds",
-        "friends",
-        "diligence",
-        "survival"
+        "notification",
+        "princeton",
+        "cammie",
+        "hillsborough",
+        "latest",
+        "bass",
+        "transferred",
+        "fought",
+        "released",
+        "play"
       ],
       "safety": [
-        "including",
-        "economies",
-        "rocks",
-        "platkin",
-        "thugs",
-        "apartment",
-        "feds",
-        "friends",
-        "diligence",
-        "survival"
+        "notification",
+        "princeton",
+        "cammie",
+        "hillsborough",
+        "latest",
+        "bass",
+        "transferred",
+        "fought",
+        "released",
+        "congress"
       ],
       "response": [
-        "including",
-        "economies",
-        "rocks",
-        "platkin",
-        "apartment",
-        "thugs",
-        "feds",
-        "friends",
-        "survival",
-        "suspect"
+        "notification",
+        "princeton",
+        "cammie",
+        "hillsborough",
+        "latest",
+        "bass",
+        "transferred",
+        "fought",
+        "released",
+        "congress"
       ],
       "education": [
-        "including",
-        "economies",
-        "rocks",
-        "platkin",
-        "thugs",
-        "apartment",
-        "feds",
-        "friends",
-        "diligence",
-        "survival"
+        "notification",
+        "princeton",
+        "cammie",
+        "hillsborough",
+        "latest",
+        "bass",
+        "released",
+        "fought",
+        "transferred",
+        "congress"
       ],
       "workplace": [
-        "including",
-        "economies",
-        "platkin",
-        "thugs",
-        "apartment",
-        "feds",
-        "friends",
-        "diligence",
-        "survival",
-        "violates"
+        "notification",
+        "princeton",
+        "cammie",
+        "hillsborough",
+        "latest",
+        "bass",
+        "transferred",
+        "released",
+        "congress",
+        "play"
       ],
       "government": [
-        "including",
-        "economies",
-        "rocks",
-        "platkin",
-        "apartment",
-        "thugs",
-        "feds",
-        "friends",
-        "diligence",
-        "survival"
+        "notification",
+        "princeton",
+        "cammie",
+        "hillsborough",
+        "latest",
+        "bass",
+        "transferred",
+        "fought",
+        "released",
+        "play"
       ]
     },
     "burst_periods": [
@@ -4673,6 +1542,26 @@
     "timestamp": null
   },
   "silence_context": {
+    "07060": {
+      "zip": "07060",
+      "status": "no_data",
+      "interpretation": {
+        "what_this_means": "No aggregated public signals met display thresholds",
+        "what_this_does_not_mean": [
+          "Area is confirmed safe",
+          "No activity is occurring",
+          "Situation has been resolved"
+        ],
+        "possible_reasons": [
+          "Signals below visibility threshold",
+          "Data delay (24-72 hours)",
+          "Low reporting in this area",
+          "Signals filtered by safety buffer"
+        ]
+      },
+      "recommendation": "Absence of data is not evidence of absence. Consult multiple sources.",
+      "last_checked": "2026-02-26T04:52:09.627416+00:00"
+    },
     "07063": {
       "zip": "07063",
       "status": "no_data",
@@ -4691,7 +1580,7 @@
         ]
       },
       "recommendation": "Absence of data is not evidence of absence. Consult multiple sources.",
-      "last_checked": "2026-02-08T11:27:14.014621+00:00"
+      "last_checked": "2026-02-26T04:52:09.627434+00:00"
     },
     "07062": {
       "zip": "07062",
@@ -4711,7 +1600,7 @@
         ]
       },
       "recommendation": "Absence of data is not evidence of absence. Consult multiple sources.",
-      "last_checked": "2026-02-08T11:27:14.014634+00:00"
+      "last_checked": "2026-02-26T04:52:09.627441+00:00"
     }
   }
 }

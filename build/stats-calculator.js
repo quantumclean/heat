@@ -330,6 +330,81 @@ class StatsCalculator {
 
         return rows.map(row => row.join(',')).join('\n');
     }
+
+    mean(values) {
+        if (!Array.isArray(values) || values.length === 0) return 0;
+        return values.reduce((a, b) => a + b, 0) / values.length;
+    }
+
+    median(values) {
+        if (!Array.isArray(values) || values.length === 0) return 0;
+        const sorted = [...values].sort((a, b) => a - b);
+        return this._calculateMedian(sorted);
+    }
+
+    clusterSummary(clusters) {
+        const data = clusters || this.data;
+        const totalClusters = data.length;
+        const strengths = data.map(c => c.strength).filter(s => s != null);
+        const sizes = data.map(c => c.size).filter(s => s != null);
+
+        return {
+            totalClusters,
+            avgStrength: strengths.length > 0 ? this.mean(strengths) : 0,
+            avgSize: sizes.length > 0 ? this.mean(sizes) : 0,
+            maxStrength: strengths.length > 0 ? Math.max(...strengths) : 0,
+            minStrength: strengths.length > 0 ? Math.min(...strengths) : 0,
+            uniqueZips: [...new Set(data.map(c => c.zip))].length
+        };
+    }
+
+    groupByZip(clusters) {
+        const data = clusters || this.data;
+        const groups = {};
+        data.forEach(item => {
+            const zip = item.zip || 'Unknown';
+            if (!groups[zip]) groups[zip] = [];
+            groups[zip].push(item);
+        });
+        return Object.entries(groups).map(([zip, items]) => ({
+            zip,
+            clusters: items,
+            count: items.length
+        }));
+    }
+
+    sourceBreakdown(clusters) {
+        const data = clusters || this.data;
+        const counts = {};
+        data.forEach(item => {
+            const sources = Array.isArray(item.sources) ? item.sources : [item.source];
+            sources.forEach(s => {
+                if (s) counts[s] = (counts[s] || 0) + 1;
+            });
+        });
+        return Object.entries(counts)
+            .map(([source, count]) => ({ source, count }))
+            .sort((a, b) => b.count - a.count);
+    }
+
+    strengthDistribution(clusters) {
+        const data = clusters || this.data;
+        let low = 0, medium = 0, high = 0;
+        data.forEach(item => {
+            const s = item.strength;
+            if (s == null) return;
+            if (s <= 3) low++;
+            else if (s <= 6) medium++;
+            else high++;
+        });
+        return { low, medium, high };
+    }
+}
+
+// Create global instance for browser
+if (typeof window !== 'undefined') {
+    window.StatsCalculator = StatsCalculator;
+    window.statsCalculator = new StatsCalculator();
 }
 
 // Export for use in other modules

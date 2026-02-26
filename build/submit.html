@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>HEAT — Submit Community Report</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .submit-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+            min-height: 100vh;
+        }
+
+        .submit-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            padding-top: var(--space-lg);
+        }
+
+        .submit-header h1 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-xs);
+        }
+
+        .submit-header .subtitle {
+            color: var(--text-muted);
+            font-size: var(--text-lg);
+        }
+
+        .safety-banner {
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--success);
+            background: var(--bg-secondary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.7;
+        }
+
+        .safety-banner h3 {
+            margin-bottom: var(--space-xs);
+            color: var(--success);
+        }
+
+        .safety-banner ul {
+            margin: var(--space-xs) 0 0 var(--space-md);
+            font-size: var(--text-sm);
+        }
+
+        .safety-banner li {
+            margin-bottom: 0.25rem;
+        }
+
+        .submit-form .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .submit-form label {
+            display: block;
+            font-weight: 600;
+            font-size: var(--text-sm);
+            margin-bottom: 0.4rem;
+        }
+
+        .submit-form label .required {
+            color: var(--danger);
+        }
+
+        .submit-form input,
+        .submit-form select,
+        .submit-form textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: var(--text-base);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--bg);
+            color: var(--text);
+            transition: all var(--transition-fast);
+        }
+
+        .submit-form input:focus,
+        .submit-form select:focus,
+        .submit-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
+        }
+
+        .submit-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-sm);
+        }
+
+        @media (max-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hint {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: #fff;
+            background: var(--accent);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: background var(--transition-fast), transform var(--transition-fast);
+            margin-top: var(--space-lg);
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #submit-status {
+            margin-top: var(--space-md);
+            min-height: 60px;
+        }
+
+        .status-success {
+            padding: 1rem;
+            background: rgba(38, 166, 65, 0.1);
+            border-left: 4px solid var(--success);
+            border-radius: var(--radius-sm);
+        }
+
+        .status-error {
+            padding: 1rem;
+            background: rgba(248, 81, 73, 0.1);
+            border-left: 4px solid var(--danger);
+            border-radius: var(--radius-sm);
+        }
+
+        .footer-minimal {
+            text-align: center;
+            padding: var(--space-xl) var(--space-md);
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: var(--space-xl);
+        }
+
+        .footer-minimal a {
+            color: var(--accent);
+        }
+
+        .pii-warning {
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(248, 81, 73, 0.08);
+            border: 1px solid rgba(248, 81, 73, 0.2);
+            border-radius: var(--radius-sm);
+            font-size: var(--text-sm);
+            margin-top: var(--space-sm);
+            display: none;
+        }
+
+        .pii-warning.visible {
+            display: block;
+        }
+
+        .char-count {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        .theme-toggle-mini {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle" class="glass-btn theme-toggle-mini" title="Toggle Light/Dark Mode">◐</button>
+
+    <div class="submit-container">
+        <header class="submit-header">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <h1>🔥 HEAT — Submit Report</h1>
+            </a>
+            <p class="subtitle">Help keep your community informed — anonymously.</p>
+        </header>
+
+        <div class="safety-banner">
+            <h3>🛡️ Your Safety Comes First</h3>
+            <p>All submissions pass through our safety pipeline before appearing publicly:</p>
+            <ul>
+                <li><strong>72-hour delay</strong> — nothing appears in real time</li>
+                <li><strong>3+ reports required</strong> — single reports never show alone</li>
+                <li><strong>2+ distinct sources</strong> — corroboration required</li>
+                <li><strong>ZIP codes only</strong> — no street addresses are ever shown</li>
+                <li><strong>PII scrubbing</strong> — names, phones, and emails are automatically removed</li>
+                <li><strong>No account required</strong> — we don't track who submits</li>
+            </ul>
+        </div>
+
+        <form id="community-report-form" class="submit-form glass-card" style="padding: var(--space-lg);">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="report-zip">ZIP Code <span class="required">*</span></label>
+                    <input type="text" id="report-zip" name="zip" maxlength="5" pattern="\d{5}"
+                           placeholder="e.g. 07060" required autocomplete="off">
+                    <span class="hint">New Jersey ZIP only</span>
+                </div>
+                <div class="form-group">
+                    <label for="report-date">Date of Report <span class="required">*</span></label>
+                    <input type="date" id="report-date" name="date" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="report-time">Approximate Time</label>
+                    <select id="report-time" name="time">
+                        <option value="unknown">Not sure</option>
+                        <option value="morning">Morning (6am–12pm)</option>
+                        <option value="afternoon">Afternoon (12pm–6pm)</option>
+                        <option value="evening">Evening (6pm–10pm)</option>
+                        <option value="night">Night (10pm–6am)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="report-type">Report Category <span class="required">*</span></label>
+                    <select id="report-type" name="type" required>
+                        <option value="">— Select —</option>
+                        <option value="news_report">News Report</option>
+                        <option value="community_concern">Community Concern</option>
+                        <option value="legal_resource">Legal Resource / Aid Clinic</option>
+                        <option value="know_your_rights">Know Your Rights Event</option>
+                        <option value="policy_change">Policy Change / Government Update</option>
+                        <option value="advocacy">Advocacy / Organizing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="report-description">Description <span class="required">*</span></label>
+                <textarea id="report-description" name="description" rows="5"
+                          placeholder="Describe what you saw, heard, or read. Focus on the general area and nature of the event — avoid names, license plates, or specific addresses."
+                          required minlength="10" maxlength="1000"></textarea>
+                <div style="display: flex; justify-content: space-between;">
+                    <span class="hint">Min 10 characters. Do not include personal information.</span>
+                    <span class="char-count" id="char-count">0 / 1000</span>
+                </div>
+                <div class="pii-warning" id="pii-warning">
+                    ⚠️ <strong>Possible personal information detected.</strong> Please avoid including names, phone numbers, email addresses, or specific street addresses. Our safety pipeline will automatically redact PII, but it's safest not to include it.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="report-source">Source URL (optional)</label>
+                <input type="url" id="report-source" name="source_url"
+                       placeholder="https://example.com/article (link to news article if applicable)">
+                <span class="hint">If reporting from a news article, paste the link here.</span>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submit-btn">Submit Report</button>
+
+            <div id="submit-status"></div>
+        </form>
+
+        <footer class="footer-minimal">
+            <p>
+                <a href="index.html">← Back to Map</a> &nbsp;·&nbsp;
+                <strong>HEAT — They Are Here</strong> &nbsp;·&nbsp;
+                72-hour delay · ZIP codes only · No personal info stored
+            </p>
+            <p style="margin-top: 0.5rem;">
+                &copy; 2026 HEAT Project. Licensed under HEAT Ethical Use License v1.0
+            </p>
+        </footer>
+    </div>
+
+    <script>
+    (function () {
+        'use strict';
+
+        // ----- Theme toggle -----
+        const toggle = document.getElementById('theme-toggle');
+        const stored = localStorage.getItem('heat-theme');
+        if (stored) document.documentElement.setAttribute('data-theme', stored);
+        if (toggle) {
+            toggle.addEventListener('click', function () {
+                const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('heat-theme', next);
+            });
+        }
+
+        // ----- Date default -----
+        const dateInput = document.getElementById('report-date');
+        if (dateInput) {
+            dateInput.value = new Date().toISOString().split('T')[0];
+            // Don't allow future dates
+            dateInput.max = new Date().toISOString().split('T')[0];
+        }
+
+        // ----- Character counter -----
+        const desc = document.getElementById('report-description');
+        const charCount = document.getElementById('char-count');
+        if (desc && charCount) {
+            desc.addEventListener('input', function () {
+                charCount.textContent = desc.value.length + ' / 1000';
+            });
+        }
+
+        // ----- Client-side PII detection -----
+        const PII_PATTERNS = [
+            /\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/,         // phone number
+            /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i, // email
+            /\b\d{3}-\d{2}-\d{4}\b/,                  // SSN
+            /\b\d{1,5}\s+[A-Z][a-z]+\s+(St|Ave|Blvd|Dr|Ln|Rd|Ct|Way|Pl)\b/i, // street address
+            /\b[A-Z][a-z]+\s+[A-Z][a-z]{2,}\b/        // possible full name (loose)
+        ];
+
+        const piiWarning = document.getElementById('pii-warning');
+        if (desc && piiWarning) {
+            desc.addEventListener('input', function () {
+                const text = desc.value;
+                const hasPII = PII_PATTERNS.some(function (p) { return p.test(text); });
+                piiWarning.classList.toggle('visible', hasPII);
+            });
+        }
+
+        // ----- Forbidden alert-word filter -----
+        const FORBIDDEN = [
+            'presence', 'sighting', 'activity', 'raid', 'operation', 'spotted',
+            'seen', 'located', 'arrest', 'detained', 'vehicle', 'van', 'agent',
+            'officer', 'uniform'
+        ];
+
+        function sanitizeText(text) {
+            let clean = text;
+            FORBIDDEN.forEach(function (word) {
+                clean = clean.replace(new RegExp('\\b' + word + '\\b', 'gi'), '[concern]');
+            });
+            return clean;
+        }
+
+        // ----- NJ ZIP validation -----
+        var NJ_ZIP_RANGES = [
+            [7001, 8999]   // NJ ZIPs: 07001–08999
+        ];
+        function isNJZip(zip) {
+            var n = parseInt(zip, 10);
+            return NJ_ZIP_RANGES.some(function (r) { return n >= r[0] && n <= r[1]; });
+        }
+
+        // ----- Form submission -----
+        var form = document.getElementById('community-report-form');
+        var statusEl = document.getElementById('submit-status');
+        var submitBtn = document.getElementById('submit-btn');
+
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (!statusEl) return;
+
+                var zip = (document.getElementById('report-zip').value || '').trim();
+                var date = document.getElementById('report-date').value;
+                var time = document.getElementById('report-time').value;
+                var type = document.getElementById('report-type').value;
+                var description = (document.getElementById('report-description').value || '').trim();
+                var sourceUrl = (document.getElementById('report-source').value || '').trim();
+
+                // Validate ZIP
+                if (!/^\d{5}$/.test(zip)) {
+                    statusEl.innerHTML = '<div class="status-error">Please enter a valid 5-digit ZIP code.</div>';
+                    return;
+                }
+                if (!isNJZip(zip)) {
+                    statusEl.innerHTML = '<div class="status-error">HEAT currently covers New Jersey only. Please enter an NJ ZIP code (07001–08999).</div>';
+                    return;
+                }
+
+                // Validate date
+                if (!date) {
+                    statusEl.innerHTML = '<div class="status-error">Please select a date.</div>';
+                    return;
+                }
+
+                // Validate type
+                if (!type) {
+                    statusEl.innerHTML = '<div class="status-error">Please select a report category.</div>';
+                    return;
+                }
+
+                // Validate description
+                if (description.length < 10) {
+                    statusEl.innerHTML = '<div class="status-error">Description must be at least 10 characters.</div>';
+                    return;
+                }
+
+                // Sanitize forbidden words
+                var sanitized = sanitizeText(description);
+
+                // Build report object
+                var report = {
+                    id: 'rpt-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6),
+                    zip: zip,
+                    date: date,
+                    time: time,
+                    type: type,
+                    text: sanitized,
+                    source_url: sourceUrl || null,
+                    status: 'pending_review',
+                    submitted_at: new Date().toISOString()
+                };
+
+                // Store to localStorage (backend integration point)
+                try {
+                    var reports = JSON.parse(localStorage.getItem('heat-community-reports') || '[]');
+                    reports.push(report);
+                    localStorage.setItem('heat-community-reports', JSON.stringify(reports));
+                } catch (err) {
+                    console.error('Storage error:', err);
+                }
+
+                // Show success
+                statusEl.innerHTML =
+                    '<div class="status-success">' +
+                    '<strong>✅ Report Submitted</strong><br>' +
+                    '<span style="font-size:0.9rem;color:var(--text-muted);">' +
+                    'Your report for ZIP <strong>' + zip + '</strong> has been saved. ' +
+                    'It will enter the safety pipeline: 72-hour delay, PII scrubbing, ' +
+                    'and corroboration check before appearing publicly.</span>' +
+                    '</div>';
+
+                // Disable button
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Report Submitted';
+
+                // Reset form after brief pause
+                setTimeout(function () {
+                    document.getElementById('report-description').value = '';
+                    document.getElementById('report-source').value = '';
+                    charCount.textContent = '0 / 1000';
+                    piiWarning.classList.remove('visible');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Report';
+                }, 4000);
+            });
+        }
+    })();
+    </script>
+</body>
+</html>

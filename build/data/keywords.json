@@ -1,14 +1,12 @@
 {
-  "generated_at": "2026-02-08T11:16:26.956342+00:00",
+  "generated_at": "2026-02-26T04:51:41.462895+00:00",
   "keywords": [
     {
       "word": "monitor",
       "count": 61,
       "top_location": "07060",
       "locations": {
-        "07060": 38,
-        "08401": 17,
-        "07102": 5
+        "07060": 61
       },
       "top_source": "Google News",
       "sources": [
@@ -18,16 +16,14 @@
         "start": "2025-02-07T00:00:00+00:00",
         "end": "2026-02-03T00:00:00+00:00"
       },
-      "recency_hours": 131.27415392305554
+      "recency_hours": 556.861516895
     },
     {
       "word": "cities",
       "count": 56,
       "top_location": "07060",
       "locations": {
-        "07060": 47,
-        "08401": 8,
-        "07102": 1
+        "07060": 56
       },
       "top_source": "Google News",
       "sources": [
@@ -37,16 +33,14 @@
         "start": "2025-04-28T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415408277777
+      "recency_hours": 532.8615169197222
     },
     {
       "word": "deportation",
       "count": 48,
       "top_location": "07060",
       "locations": {
-        "07060": 28,
-        "08401": 16,
-        "07102": 3
+        "07060": 48
       },
       "top_source": "Google News",
       "sources": [
@@ -57,16 +51,14 @@
         "start": "2025-02-07T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415409916668
+      "recency_hours": 532.8615169308333
     },
     {
       "word": "com",
       "count": 41,
       "top_location": "07060",
       "locations": {
-        "07060": 31,
-        "08401": 6,
-        "07302": 1
+        "07060": 41
       },
       "top_source": "Google News",
       "sources": [
@@ -76,16 +68,14 @@
         "start": "2025-04-28T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415411083334
+      "recency_hours": 532.8615169388888
     },
     {
       "word": "york",
       "count": 40,
       "top_location": "07060",
       "locations": {
-        "07060": 26,
-        "08401": 10,
-        "08540": 1
+        "07060": 40
       },
       "top_source": "Google News",
       "sources": [
@@ -96,16 +86,14 @@
         "start": "2025-02-27T00:00:00+00:00",
         "end": "2026-02-08T00:00:00+00:00"
       },
-      "recency_hours": 11.274154120833332
+      "recency_hours": 436.86151694666665
     },
     {
       "word": "raid",
       "count": 38,
-      "top_location": "07960",
+      "top_location": "07060",
       "locations": {
-        "07960": 14,
-        "07060": 11,
-        "07102": 3
+        "07060": 38
       },
       "top_source": "Google News",
       "sources": [
@@ -115,16 +103,14 @@
         "start": "2025-07-09T00:00:00+00:00",
         "end": "2026-01-17T00:00:00+00:00"
       },
-      "recency_hours": 539.2741541305555
+      "recency_hours": 964.8615169541667
     },
     {
       "word": "spotlight",
       "count": 35,
       "top_location": "07060",
       "locations": {
-        "07060": 22,
-        "08401": 6,
-        "07030": 2
+        "07060": 35
       },
       "top_source": "Google News",
       "sources": [
@@ -135,16 +121,14 @@
         "start": "2025-03-07T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415413916667
+      "recency_hours": 532.861516963611
     },
     {
       "word": "after",
       "count": 34,
       "top_location": "07060",
       "locations": {
-        "07060": 15,
-        "08401": 7,
-        "07960": 6
+        "07060": 34
       },
       "top_source": "Google News",
       "sources": [
@@ -154,16 +138,14 @@
         "start": "2025-03-12T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415414777778
+      "recency_hours": 532.8615169733333
     },
     {
       "word": "judge",
       "count": 33,
       "top_location": "07060",
       "locations": {
-        "07060": 23,
-        "08401": 9,
-        "07102": 1
+        "07060": 33
       },
       "top_source": "Google News",
       "sources": [
@@ -173,16 +155,14 @@
         "start": "2025-03-19T00:00:00+00:00",
         "end": "2026-01-29T00:00:00+00:00"
       },
-      "recency_hours": 251.2741541561111
+      "recency_hours": 676.8615169808334
     },
     {
       "word": "immigrant",
       "count": 31,
       "top_location": "07060",
       "locations": {
-        "07060": 21,
-        "08401": 5,
-        "08901": 1
+        "07060": 31
       },
       "top_source": "Google News",
       "sources": [
@@ -192,16 +172,14 @@
         "start": "2025-02-07T00:00:00+00:00",
         "end": "2026-02-03T00:00:00+00:00"
       },
-      "recency_hours": 131.27415416444444
+      "recency_hours": 556.8615169877778
     },
     {
       "word": "over",
       "count": 30,
       "top_location": "07060",
       "locations": {
-        "07060": 23,
-        "08401": 4,
-        "08101": 1
+        "07060": 30
       },
       "top_source": "Google News",
       "sources": [
@@ -211,16 +189,14 @@
         "start": "2025-04-22T00:00:00+00:00",
         "end": "2026-01-30T00:00:00+00:00"
       },
-      "recency_hours": 227.2741541725
+      "recency_hours": 652.8615169947221
     },
     {
       "word": "policies",
       "count": 27,
       "top_location": "07060",
       "locations": {
-        "07060": 22,
-        "08401": 4,
-        "08901": 1
+        "07060": 27
       },
       "top_source": "Google News",
       "sources": [
@@ -231,16 +207,14 @@
         "start": "2025-02-19T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415418
+      "recency_hours": 532.8615170016667
     },
     {
       "word": "record",
       "count": 26,
       "top_location": "07060",
       "locations": {
-        "07060": 17,
-        "08401": 5,
-        "07960": 3
+        "07060": 26
       },
       "top_source": "Google News",
       "sources": [
@@ -250,16 +224,14 @@
         "start": "2025-03-05T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.2741541886111
+      "recency_hours": 532.8615170116667
     },
     {
       "word": "arrests",
       "count": 24,
       "top_location": "07060",
       "locations": {
-        "07060": 13,
-        "07960": 3,
-        "07102": 2
+        "07060": 24
       },
       "top_source": "Google News",
       "sources": [
@@ -269,16 +241,14 @@
         "start": "2025-02-19T00:00:00+00:00",
         "end": "2026-02-03T00:00:00+00:00"
       },
-      "recency_hours": 131.27415419722223
+      "recency_hours": 556.8615170194445
     },
     {
       "word": "patch",
       "count": 24,
       "top_location": "07060",
       "locations": {
-        "07060": 13,
-        "08401": 3,
-        "07302": 2
+        "07060": 24
       },
       "top_source": "Google News",
       "sources": [
@@ -288,15 +258,14 @@
         "start": "2025-08-05T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.274154205
+      "recency_hours": 532.8615170280556
     },
     {
       "word": "list",
       "count": 23,
       "top_location": "07060",
       "locations": {
-        "07060": 21,
-        "08401": 2
+        "07060": 23
       },
       "top_source": "Google News",
       "sources": [
@@ -306,16 +275,14 @@
         "start": "2025-05-30T00:00:00+00:00",
         "end": "2025-09-18T00:00:00+00:00"
       },
-      "recency_hours": 3443.274154213055
+      "recency_hours": 3868.86151704
     },
     {
       "word": "bergen",
       "count": 22,
       "top_location": "07060",
       "locations": {
-        "07060": 14,
-        "08401": 6,
-        "07960": 1
+        "07060": 22
       },
       "top_source": "Google News",
       "sources": [
@@ -325,16 +292,14 @@
         "start": "2025-03-05T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.2741542211111
+      "recency_hours": 532.8615170519445
     },
     {
       "word": "governor",
       "count": 21,
       "top_location": "07060",
       "locations": {
-        "07060": 11,
-        "08401": 9,
-        "07102": 1
+        "07060": 21
       },
       "top_source": "Google News",
       "sources": [
@@ -345,16 +310,14 @@
         "start": "2025-03-13T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415422861112
+      "recency_hours": 532.8615170638889
     },
     {
       "word": "khalil",
       "count": 21,
       "top_location": "07060",
       "locations": {
-        "07060": 18,
-        "08401": 2,
-        "07102": 1
+        "07060": 21
       },
       "top_source": "Google News",
       "sources": [
@@ -364,14 +327,14 @@
         "start": "2025-03-19T00:00:00+00:00",
         "end": "2026-01-15T00:00:00+00:00"
       },
-      "recency_hours": 587.2741542358333
+      "recency_hours": 1012.8615170755555
     },
     {
       "word": "morristown",
       "count": 21,
-      "top_location": "07960",
+      "top_location": "07060",
       "locations": {
-        "07960": 21
+        "07060": 21
       },
       "top_source": "Google News",
       "sources": [
@@ -381,16 +344,14 @@
         "start": "2026-01-11T00:00:00+00:00",
         "end": "2026-01-21T00:00:00+00:00"
       },
-      "recency_hours": 443.2741542427778
+      "recency_hours": 868.8615170866666
     },
     {
       "word": "mahmoud",
       "count": 20,
       "top_location": "07060",
       "locations": {
-        "07060": 17,
-        "08401": 2,
-        "07102": 1
+        "07060": 20
       },
       "top_source": "Google News",
       "sources": [
@@ -400,16 +361,14 @@
         "start": "2025-03-19T00:00:00+00:00",
         "end": "2026-01-15T00:00:00+00:00"
       },
-      "recency_hours": 587.2741542497222
+      "recency_hours": 1012.8615170977778
     },
     {
       "word": "raids",
       "count": 19,
       "top_location": "07060",
       "locations": {
-        "07060": 13,
-        "08401": 2,
-        "08540": 2
+        "07060": 19
       },
       "top_source": "Google News",
       "sources": [
@@ -419,16 +378,14 @@
         "start": "2025-02-07T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.2741542575
+      "recency_hours": 532.8615171088888
     },
     {
       "word": "detention",
       "count": 19,
       "top_location": "07060",
       "locations": {
-        "07060": 11,
-        "08401": 5,
-        "08901": 1
+        "07060": 19
       },
       "top_source": "Google News",
       "sources": [
@@ -438,16 +395,14 @@
         "start": "2025-02-27T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415426611111
+      "recency_hours": 532.86151712
     },
     {
       "word": "detained",
       "count": 19,
       "top_location": "07060",
       "locations": {
-        "07060": 11,
-        "07960": 2,
-        "07030": 1
+        "07060": 19
       },
       "top_source": "Google News",
       "sources": [
@@ -457,16 +412,14 @@
         "start": "2025-03-28T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415427444444
+      "recency_hours": 532.8615171325
     },
     {
       "word": "out",
       "count": 18,
       "top_location": "07060",
       "locations": {
-        "07060": 13,
-        "08401": 3,
-        "07960": 2
+        "07060": 18
       },
       "top_source": "Google News",
       "sources": [
@@ -476,16 +429,14 @@
         "start": "2025-04-01T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415428249999
+      "recency_hours": 532.8615171441667
     },
     {
       "word": "court",
       "count": 17,
       "top_location": "07060",
       "locations": {
-        "07060": 11,
-        "08401": 4,
-        "07102": 2
+        "07060": 17
       },
       "top_source": "Google News",
       "sources": [
@@ -496,16 +447,14 @@
         "start": "2025-03-28T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415428972222
+      "recency_hours": 532.8615171522222
     },
     {
       "word": "mayor",
       "count": 17,
-      "top_location": "07030",
+      "top_location": "07060",
       "locations": {
-        "07030": 7,
-        "07060": 7,
-        "08401": 1
+        "07060": 17
       },
       "top_source": "Google News",
       "sources": [
@@ -516,16 +465,14 @@
         "start": "2025-03-13T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.2741542975
+      "recency_hours": 532.8615171602778
     },
     {
       "word": "hoboken",
       "count": 16,
-      "top_location": "07302",
+      "top_location": "07060",
       "locations": {
-        "07302": 8,
-        "07030": 7,
-        "07102": 1
+        "07060": 16
       },
       "top_source": "Google News",
       "sources": [
@@ -536,15 +483,14 @@
         "start": "2025-05-23T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415430555556
+      "recency_hours": 532.86151717
     },
     {
       "word": "times",
       "count": 16,
       "top_location": "07060",
       "locations": {
-        "07060": 13,
-        "08401": 3
+        "07060": 16
       },
       "top_source": "Google News",
       "sources": [
@@ -554,16 +500,14 @@
         "start": "2025-02-27T00:00:00+00:00",
         "end": "2026-01-31T00:00:00+00:00"
       },
-      "recency_hours": 203.2741543125
+      "recency_hours": 628.8615171819445
     },
     {
       "word": "against",
       "count": 16,
       "top_location": "07060",
       "locations": {
-        "07060": 12,
-        "08401": 3,
-        "07960": 1
+        "07060": 16
       },
       "top_source": "Google News",
       "sources": [
@@ -573,7 +517,7 @@
         "start": "2025-05-23T00:00:00+00:00",
         "end": "2026-02-04T00:00:00+00:00"
       },
-      "recency_hours": 107.27415432527778
+      "recency_hours": 532.8615171938889
     }
   ],
   "top_keywords": [
@@ -671,100 +615,100 @@
   },
   "related_terms": {
     "enforcement": [
-      "including",
-      "economies",
-      "rocks",
-      "platkin",
-      "apartment",
-      "thugs",
-      "feds",
-      "friends",
-      "diligence",
-      "survival"
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "released",
+      "fought",
+      "transferred",
+      "congress"
     ],
     "community": [
-      "including",
-      "economies",
-      "rocks",
-      "thugs",
-      "apartment",
-      "feds",
-      "friends",
-      "diligence",
-      "survival",
-      "violates"
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "fought",
+      "released",
+      "congress"
     ],
     "legal": [
-      "including",
-      "economies",
-      "rocks",
-      "platkin",
-      "thugs",
-      "apartment",
-      "feds",
-      "friends",
-      "diligence",
-      "survival"
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "fought",
+      "released",
+      "play"
     ],
     "safety": [
-      "including",
-      "economies",
-      "rocks",
-      "platkin",
-      "thugs",
-      "apartment",
-      "feds",
-      "friends",
-      "diligence",
-      "survival"
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "fought",
+      "released",
+      "congress"
     ],
     "response": [
-      "including",
-      "economies",
-      "rocks",
-      "platkin",
-      "apartment",
-      "thugs",
-      "feds",
-      "friends",
-      "survival",
-      "suspect"
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "fought",
+      "released",
+      "congress"
     ],
     "education": [
-      "including",
-      "economies",
-      "rocks",
-      "platkin",
-      "thugs",
-      "apartment",
-      "feds",
-      "friends",
-      "diligence",
-      "survival"
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "released",
+      "fought",
+      "transferred",
+      "congress"
     ],
     "workplace": [
-      "including",
-      "economies",
-      "platkin",
-      "thugs",
-      "apartment",
-      "feds",
-      "friends",
-      "diligence",
-      "survival",
-      "violates"
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "released",
+      "congress",
+      "play"
     ],
     "government": [
-      "including",
-      "economies",
-      "rocks",
-      "platkin",
-      "apartment",
-      "thugs",
-      "feds",
-      "friends",
-      "diligence",
-      "survival"
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "fought",
+      "released",
+      "play"
     ]
   }
 }

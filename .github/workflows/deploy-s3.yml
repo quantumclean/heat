@@ -1,11 +1,26 @@
-name: Deploy HEAT to S3
+# ==========================================================================
+# DEPRECATED: This workflow deployed to AWS S3 + CloudFront (paid service).
+# It has been replaced by deploy-gh-pages.yml (free GitHub Pages hosting).
+# Kept for reference only. To re-enable, uncomment the 'on:' triggers below.
+# ==========================================================================
+name: Deploy HEAT to S3 (DEPRECATED)
 
+# on:
+#   push:
+#     branches: [main]
+#   schedule:
+#     - cron: '0 */6 * * *'
+#   workflow_dispatch:
+
+# Disabled — manual-only trigger to re-enable AWS deployment
 on:
-  push:
-    branches: [main]
-  schedule:
-    - cron: '0 */6 * * *'  # Update data every 6 hours
-  workflow_dispatch:  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Re-enable AWS deploy? This incurs AWS costs.'
+        required: true
+        default: false
+        type: boolean
 
 env:
   AWS_REGION: us-east-1

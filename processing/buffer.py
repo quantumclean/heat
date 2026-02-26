@@ -6,6 +6,7 @@ CRITICAL: These thresholds are NON-NEGOTIABLE for production.
 - Prevents single-source claims from surfacing
 - Enforces corroboration across multiple sources
 - Ensures temporal delay for safety
+- Composite quality score (when available) augments volume filtering
 """
 import os
 import pandas as pd
@@ -22,6 +23,7 @@ MIN_CLUSTER_SIZE = 2          # Production minimum for data quality
 MIN_SOURCES = 2               # Production minimum for source corroboration
 DELAY_HOURS = 24              # Production delay (24 hours for Tier 1)
 MIN_VOLUME_SCORE = 1.0        # Production minimum volume threshold
+MIN_QUALITY_SCORE = 0.4       # Composite quality floor (0-1), applied when available
 
 # DEVELOPMENT MODE: Enable only when explicitly requested
 # WARNING: Never enable in production deployments
@@ -50,7 +52,8 @@ if DEVELOPMENT_MODE:
     MIN_CLUSTER_SIZE = 2      # Reduced for testing
     MIN_SOURCES = 1           # Allow single-source for development
     DELAY_HOURS = 0           # No delay for development
-    MIN_VOLUME_SCORE = 0.5    # More lenient volume threshold
+    MIN_VOLUME_SCORE = 0.001  # Very lenient volume threshold for old test data
+    MIN_QUALITY_SCORE = 0.2   # More lenient quality threshold for development
 
 # For Tier 0 (public), use stricter thresholds
 TIER0_DELAY_HOURS = 72        # 72-hour delay for public tier
@@ -83,8 +86,9 @@ def apply_buffer(stats_df: pd.DataFrame, tier: int = 1) -> pd.DataFrame:
     
     # Parse sources if it's a string (best-effort)
     if "sources" in stats_df.columns and stats_df["sources"].dtype == object:
+        import ast
         stats_df["sources"] = stats_df["sources"].apply(
-            lambda x: eval(x) if isinstance(x, str) else x
+            lambda x: ast.literal_eval(x) if isinstance(x, str) else x
         )
 
     # Strengthen source corroboration by using clustered records when available
@@ -139,10 +143,23 @@ def apply_buffer(stats_df: pd.DataFrame, tier: int = 1) -> pd.DataFrame:
     volume_mask = stats_df["volume_score"] >= MIN_VOLUME_SCORE
     filter_log.append(f"Volume >= {MIN_VOLUME_SCORE}: {volume_mask.sum()}/{initial_count}")
     
+    # Quality score filter (augments volume — applied when signal_quality has run)
+    has_quality = "quality_score" in stats_df.columns and stats_df["quality_score"].notna().any()
+    if has_quality:
+        quality_mask = stats_df["quality_score"] >= MIN_QUALITY_SCORE
+        filter_log.append(f"Quality >= {MIN_QUALITY_SCORE}: {quality_mask.sum()}/{initial_count}")
+    else:
+        quality_mask = pd.Series([True] * len(stats_df), index=stats_df.index)
+        filter_log.append("Quality score: N/A (signal_quality not yet run)")
+    
     # Combine all filters
     eligible = stats_df[
-        size_mask & source_mask & date_mask & volume_mask
+        size_mask & source_mask & date_mask & volume_mask & quality_mask
     ].copy()
+    
+    # Sort by quality_score descending when available (prioritise strongest signals)
+    if has_quality:
+        eligible = eligible.sort_values("quality_score", ascending=False)
     
     # Log filtering decisions (audit trail)
     audit_entry = {
@@ -155,7 +172,8 @@ def apply_buffer(stats_df: pd.DataFrame, tier: int = 1) -> pd.DataFrame:
             "min_size": min_size,
             "min_sources": MIN_SOURCES,
             "delay_hours": delay_hours,
-            "min_volume": MIN_VOLUME_SCORE
+            "min_volume": MIN_VOLUME_SCORE,
+            "min_quality": MIN_QUALITY_SCORE if has_quality else None
         }
     }
     

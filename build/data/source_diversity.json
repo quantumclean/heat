@@ -1,0 +1,1061 @@
+{
+  "generated_at": "2026-02-26T04:08:49.150813+00:00",
+  "description": "Source diversity scoring per cluster",
+  "clusters": [
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 7
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 10
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 19
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "official_government": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 1.0,
+      "composite_quality": 0.3,
+      "cluster_id": 1
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "official_government": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 1.0,
+      "composite_quality": 0.3,
+      "cluster_id": 13
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "official_government": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 1.0,
+      "composite_quality": 0.3,
+      "cluster_id": 0
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "official_government": 4
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 1.0,
+      "composite_quality": 0.3,
+      "cluster_id": 4
+    },
+    {
+      "source_diversity_index": 0.4,
+      "shannon_entropy": 0.7219,
+      "category_counts": {
+        "single_report": 4,
+        "community_verified": 1
+      },
+      "unique_categories": 2,
+      "reliability_weighted_score": 0.38,
+      "composite_quality": 0.4906,
+      "cluster_id": 70
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "official_government": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 1.0,
+      "composite_quality": 0.3,
+      "cluster_id": 7
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 81
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 60
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 49
+    },
+    {
+      "source_diversity_index": 1.0,
+      "shannon_entropy": 1.0,
+      "category_counts": {
+        "single_report": 1,
+        "official_government": 1
+      },
+      "unique_categories": 2,
+      "reliability_weighted_score": 0.65,
+      "composite_quality": 0.895,
+      "cluster_id": 55
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 6
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 30
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 11
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 5
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 47
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 8
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 29
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 5
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 80
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 9
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 65
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 18
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 62
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 20
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 14
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 41
+    },
+    {
+      "source_diversity_index": 0.5,
+      "shannon_entropy": 0.8113,
+      "category_counts": {
+        "single_report": 3,
+        "community_verified": 1
+      },
+      "unique_categories": 2,
+      "reliability_weighted_score": 0.4,
+      "composite_quality": 0.5634,
+      "cluster_id": 31
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 45
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 3
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 51
+    },
+    {
+      "source_diversity_index": 1.0,
+      "shannon_entropy": 1.0,
+      "category_counts": {
+        "single_report": 1,
+        "community_verified": 1
+      },
+      "unique_categories": 2,
+      "reliability_weighted_score": 0.5,
+      "composite_quality": 0.85,
+      "cluster_id": 35
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 46
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 23
+    },
+    {
+      "source_diversity_index": 1.0,
+      "shannon_entropy": 1.0,
+      "category_counts": {
+        "community_verified": 1,
+        "single_report": 1
+      },
+      "unique_categories": 2,
+      "reliability_weighted_score": 0.5,
+      "composite_quality": 0.85,
+      "cluster_id": 74
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 50
+    },
+    {
+      "source_diversity_index": 0.6667,
+      "shannon_entropy": 0.9183,
+      "category_counts": {
+        "community_verified": 1,
+        "single_report": 2
+      },
+      "unique_categories": 2,
+      "reliability_weighted_score": 0.4333,
+      "composite_quality": 0.6722,
+      "cluster_id": 75
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 52
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 28
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 48
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 61
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 26
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "community_verified": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.7,
+      "composite_quality": 0.21,
+      "cluster_id": 73
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 69
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 34
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 25
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 79
+    },
+    {
+      "source_diversity_index": 1.0,
+      "shannon_entropy": 1.0,
+      "category_counts": {
+        "single_report": 1,
+        "community_verified": 1
+      },
+      "unique_categories": 2,
+      "reliability_weighted_score": 0.5,
+      "composite_quality": 0.85,
+      "cluster_id": 44
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 4
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 27
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 76
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 71
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 16
+    },
+    {
+      "source_diversity_index": 1.0,
+      "shannon_entropy": 1.0,
+      "category_counts": {
+        "single_report": 1,
+        "community_verified": 1
+      },
+      "unique_categories": 2,
+      "reliability_weighted_score": 0.5,
+      "composite_quality": 0.85,
+      "cluster_id": 5
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 56
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 68
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 89
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 86
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 90
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 92
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 94
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 67
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 72
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 64
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 53
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 21
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 84
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 83
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 93
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 82
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 54
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 17
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 77
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 63
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 85
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 87
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 2
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 91
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 88
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 6
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 78
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "community_verified": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.7,
+      "composite_quality": 0.21,
+      "cluster_id": 57
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 12
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "community_verified": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.7,
+      "composite_quality": 0.21,
+      "cluster_id": 36
+    },
+    {
+      "source_diversity_index": 0.4,
+      "shannon_entropy": 0.7219,
+      "category_counts": {
+        "single_report": 1,
+        "community_verified": 4
+      },
+      "unique_categories": 2,
+      "reliability_weighted_score": 0.62,
+      "composite_quality": 0.5626,
+      "cluster_id": 37
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 5
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 58
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 15
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "community_verified": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.7,
+      "composite_quality": 0.21,
+      "cluster_id": 32
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 24
+    },
+    {
+      "source_diversity_index": 0.3333,
+      "shannon_entropy": 0.65,
+      "category_counts": {
+        "single_report": 5,
+        "community_verified": 1
+      },
+      "unique_categories": 2,
+      "reliability_weighted_score": 0.3667,
+      "composite_quality": 0.4383,
+      "cluster_id": 43
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 59
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 66
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 42
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 22
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 33
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 39
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 2
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 40
+    },
+    {
+      "source_diversity_index": 0.0,
+      "shannon_entropy": -0.0,
+      "category_counts": {
+        "single_report": 3
+      },
+      "unique_categories": 1,
+      "reliability_weighted_score": 0.3,
+      "composite_quality": 0.09,
+      "cluster_id": 38
+    }
+  ]
+}

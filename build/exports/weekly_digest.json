@@ -1,6 +1,6 @@
 {
   "type": "weekly_digest",
-  "week_of": "2026-02-05",
+  "week_of": "2026-02-25",
   "summary": "Community Attention Update",
   "trend": {
     "direction": "increasing",
@@ -15,10 +15,10 @@
     },
     {
       "class": "B",
-      "title": "Sustained Civic Focus Detected",
+      "title": "Sustained Community Focus",
       "body": "ICE-related topics have remained elevated in your area over the past day.\n\nPatterns are based on aggregated public information and opt-in reports."
     }
   ],
   "context": "This digest reflects patterns in aggregated public information. It does not indicate specific events, locations, or activities.",
-  "generated_at": "2026-02-05T13:16:23.011332"
+  "generated_at": "2026-02-25T23:52:10.606804"
 }

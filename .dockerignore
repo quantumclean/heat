@@ -1,0 +1,18 @@
+# HEAT Docker ignore
+.venv/
+__pycache__/
+*.pyc
+.git/
+.github/
+*.md
+tests/
+docs/
+watchos/
+data/archive/
+data/logs/
+*.bat
+*.ps1
+node_modules/
+.env
+.env.*
+*.backup.json

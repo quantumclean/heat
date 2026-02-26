@@ -34,8 +34,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Paths
-VENV_PYTHON = Path(__file__).parent.parent / ".venv" / "Scripts" / "python.exe"
+# Paths — cross-platform venv detection
+_venv_dir = Path(__file__).parent / ".venv"
+if sys.platform == "win32":
+    _venv_candidate = _venv_dir / "Scripts" / "python.exe"
+else:
+    _venv_candidate = _venv_dir / "bin" / "python"
+
+VENV_PYTHON = _venv_candidate if _venv_candidate.exists() else Path(sys.executable)
 PROCESSING_DIR = Path(__file__).parent / "processing"
 
 # Test mode flag (shorter intervals for testing)
@@ -108,6 +114,29 @@ def run_processing_pipeline():
             success_count += 1
 
     logger.info(f"Pipeline complete: {success_count}/{len(steps)} steps succeeded")
+
+    # Publish scheduler result to AgentBus and flush agent_status.json
+    # so the frontend panel reflects the latest run without needing Prefect.
+    try:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from processing.agent_bus import get_bus
+        bus = get_bus()
+        run_id = datetime.now().strftime("sched-%Y%m%dT%H%M%S")
+        event_type = "complete" if success_count == len(steps) else "error"
+        bus.publish(
+            "ops", "scheduler", event_type,
+            {
+                "steps_succeeded": success_count,
+                "steps_total": len(steps),
+                "trigger": "scheduler",
+                "timestamp": datetime.now().isoformat(),
+            },
+            run_id=run_id,
+        )
+        bus.flush_to_file()
+        logger.info("Agent bus flushed → build/data/agent_status.json")
+    except Exception as _bus_err:
+        logger.warning(f"Agent bus flush skipped (non-critical): {_bus_err}")
 
 
 # ============================================================================
@@ -219,6 +248,64 @@ def job_full_refresh():
 
 
 # ============================================================================
+# Report Generation Jobs (Shift 19 — Scheduled Intelligence Briefs)
+# ============================================================================
+
+def _generate_and_distribute(template: str, tier: int, subject_prefix: str):
+    """Helper: generate a report and distribute via notifier + email."""
+    try:
+        sys.path.insert(0, str(PROCESSING_DIR))
+        from report_engine import generate_report
+        report_dict, html_str, report_id = generate_report(template=template, tier=tier)
+        logger.info(f"Generated report {report_id} (template={template}, tier={tier})")
+
+        # SMS summary via notifier
+        try:
+            from notifier import send_sms_alerts
+            sms_alert = {
+                "zip": "07060",
+                "priority": "high" if tier >= 1 else "normal",
+                "body": f"New {template} report available: {report_id}",
+                "sources": ["HEAT Report Engine"],
+            }
+            send_sms_alerts([sms_alert])
+        except Exception as e:
+            logger.warning(f"SMS notification failed: {e}")
+
+        # Email distribution via email_distributor
+        try:
+            from email_distributor import distribute_report
+            results = distribute_report(report_dict, html_str, subject_prefix=subject_prefix)
+            for r in results:
+                logger.info(f"  Email to {r['email']}: {r['status']}")
+        except Exception as e:
+            logger.warning(f"Email distribution failed: {e}")
+
+    except Exception as e:
+        logger.error(f"Report generation failed ({template}, tier {tier}): {e}")
+        import traceback
+        traceback.print_exc()
+
+
+def job_daily_summary():
+    """Daily summary brief — Tier 2 only, runs at 06:00."""
+    logger.info("JOB: Daily Summary Brief (Tier 2)")
+    _generate_and_distribute("weekly", tier=2, subject_prefix="HEAT Daily Summary")
+
+
+def job_weekly_digest():
+    """Weekly digest — Tier 1+, runs Mondays at 08:00."""
+    logger.info("JOB: Weekly Digest (Tier 1+)")
+    _generate_and_distribute("weekly", tier=1, subject_prefix="HEAT Weekly Digest")
+
+
+def job_monthly_trend():
+    """Monthly trend report — all tiers, runs 1st of month at 08:00."""
+    logger.info("JOB: Monthly Trend Report (All Tiers)")
+    for tier in [0, 1, 2]:
+        _generate_and_distribute("trend", tier=tier, subject_prefix="HEAT Monthly Trend")
+
+# ============================================================================
 # Scheduler Setup
 # ============================================================================
 
@@ -274,6 +361,21 @@ def setup_scheduler():
             IntervalTrigger(minutes=30),
             id='facebook',
             name='Facebook (test: every 30 min)'
+        )
+
+        # Test mode report jobs
+        scheduler.add_job(
+            job_daily_summary,
+            IntervalTrigger(minutes=10),
+            id='daily_summary',
+            name='Daily Summary (test: every 10 min)'
+        )
+
+        scheduler.add_job(
+            job_weekly_digest,
+            IntervalTrigger(minutes=20),
+            id='weekly_digest',
+            name='Weekly Digest (test: every 20 min)'
         )
 
         logger.info("Test jobs scheduled - will run at shortened intervals")
@@ -351,6 +453,32 @@ def setup_scheduler():
             CronTrigger(day_of_week='sun', hour=3, minute=0),
             id='full_refresh',
             name='Full Refresh (Sun 3 AM)'
+        )
+
+        # ===== Report Generation Jobs (Shift 19) =====
+
+        # Daily at 06:00: Summary brief (Tier 2 only)
+        scheduler.add_job(
+            job_daily_summary,
+            CronTrigger(hour=6, minute=0),
+            id='daily_summary',
+            name='Daily Summary Brief (daily 6 AM, Tier 2)'
+        )
+
+        # Weekly on Mondays at 08:00: Digest (Tier 1+)
+        scheduler.add_job(
+            job_weekly_digest,
+            CronTrigger(day_of_week='mon', hour=8, minute=0),
+            id='weekly_digest',
+            name='Weekly Digest (Mon 8 AM, Tier 1+)'
+        )
+
+        # Monthly on 1st at 08:00: Trend report (all tiers)
+        scheduler.add_job(
+            job_monthly_trend,
+            CronTrigger(day=1, hour=8, minute=0),
+            id='monthly_trend',
+            name='Monthly Trend Report (1st 8 AM, All Tiers)'
         )
 
     return scheduler

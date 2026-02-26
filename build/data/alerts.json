@@ -1,56 +1,24 @@
 {
-  "generated_at": "2026-02-05T13:16:23.015982",
+  "generated_at": "2026-02-25T23:52:10.611174",
   "pattern_alerts": [
     {
       "class": "A",
       "title": "Community Attention Update",
       "body": "ICE-related discussion intensity increased in your area today compared to recent baseline.\n\nThis reflects a change in public conversation, not confirmation of specific events or locations.",
       "trigger": "rate_spike",
-      "metric": "z=7.62",
-      "generated_at": "2026-02-05T13:16:23.010244"
+      "metric": "z=7.91",
+      "generated_at": "2026-02-25T23:52:10.605205"
     },
     {
       "class": "B",
-      "title": "Sustained Civic Focus Detected",
+      "title": "Sustained Community Focus",
       "body": "ICE-related topics have remained elevated in your area over the past day.\n\nPatterns are based on aggregated public information and opt-in reports.",
       "trigger": "sustained_threshold",
       "metric": "above threshold for 2+ periods",
-      "generated_at": "2026-02-05T13:16:23.010416"
+      "generated_at": "2026-02-25T23:52:10.605476"
     }
   ],
-  "cluster_alerts": [
-    {
-      "id": 10,
-      "zip": "07060",
-      "title": "Attention in ZIP 07060",
-      "body": "Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown - Patch. Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown Patch",
-      "priority": "high",
-      "tier": 2,
-      "sources": [
-        "Google News"
-      ],
-      "size": 7,
-      "volume_score": 3.47,
-      "last_seen": "2026-02-04T00:00:00",
-      "generated_at": "2026-02-05T13:16:23.015426"
-    },
-    {
-      "id": 69,
-      "zip": "07030",
-      "title": "Attention in ZIP 07030",
-      "body": "Hoboken mayor: ICE fails \u2018to make community safe\u2019 - NJ Spotlight News. Hoboken mayor: ICE fails \u2018to make community safe\u2019 NJ Spotlight News",
-      "priority": "normal",
-      "tier": 1,
-      "sources": [
-        "Google News",
-        "NJ Spotlight News"
-      ],
-      "size": 5,
-      "volume_score": 2.59,
-      "last_seen": "2026-02-04T00:00:00",
-      "generated_at": "2026-02-05T13:16:23.015718"
-    }
-  ],
+  "cluster_alerts": [],
   "alerts": [
     {
       "id": "pattern_A",
@@ -61,49 +29,18 @@
       "tier": 1,
       "type": "pattern",
       "class": "A",
-      "generated_at": "2026-02-05T13:16:23.010244"
+      "generated_at": "2026-02-25T23:52:10.605205"
     },
     {
       "id": "pattern_B",
       "zip": "any",
-      "title": "Sustained Civic Focus Detected",
+      "title": "Sustained Community Focus",
       "body": "ICE-related topics have remained elevated in your area over the past day.\n\nPatterns are based on aggregated public information and opt-in reports.",
       "priority": "normal",
       "tier": 1,
       "type": "pattern",
       "class": "B",
-      "generated_at": "2026-02-05T13:16:23.010416"
-    },
-    {
-      "id": 10,
-      "zip": "07060",
-      "title": "Attention in ZIP 07060",
-      "body": "Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown - Patch. Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown Patch",
-      "priority": "high",
-      "tier": 2,
-      "sources": [
-        "Google News"
-      ],
-      "size": 7,
-      "volume_score": 3.47,
-      "last_seen": "2026-02-04T00:00:00",
-      "generated_at": "2026-02-05T13:16:23.015426"
-    },
-    {
-      "id": 69,
-      "zip": "07030",
-      "title": "Attention in ZIP 07030",
-      "body": "Hoboken mayor: ICE fails \u2018to make community safe\u2019 - NJ Spotlight News. Hoboken mayor: ICE fails \u2018to make community safe\u2019 NJ Spotlight News",
-      "priority": "normal",
-      "tier": 1,
-      "sources": [
-        "Google News",
-        "NJ Spotlight News"
-      ],
-      "size": 5,
-      "volume_score": 2.59,
-      "last_seen": "2026-02-04T00:00:00",
-      "generated_at": "2026-02-05T13:16:23.015718"
+      "generated_at": "2026-02-25T23:52:10.605476"
     }
   ]
 }

@@ -129,9 +129,12 @@ def run_clustering():
     
     print(f"Loaded {len(df)} records with valid ZIP codes")
     
-    # Generate embeddings
+    # Generate embeddings and cache to disk for reuse by topic_engine
+    embeddings_cache = PROCESSED_DIR / "embeddings.npy"
     print("Generating embeddings...")
     embeddings = embed_texts(df["text"].tolist())
+    np.save(embeddings_cache, embeddings)
+    print(f"Cached embeddings → {embeddings_cache} ({embeddings.shape})")
     
     # Cluster
     print("Clustering...")
@@ -201,6 +204,54 @@ def run_clustering():
     stats_df.to_csv(PROCESSED_DIR / "cluster_stats.csv", index=False)
     
     print(f"\nSaved cluster stats to {PROCESSED_DIR / 'cluster_stats.csv'}")
+
+    # --- DuckDB dual-write (Shift 14) ---
+    try:
+        from duckdb_store import init_db, store_clusters, store_cluster_stats
+        conn = init_db()
+
+        # Store cluster assignments
+        if not clustered.empty:
+            cluster_assign = clustered.reset_index(drop=True)
+            cluster_assign["signal_id"] = cluster_assign.index + 1
+            cluster_assign = cluster_assign.rename(columns={"cluster": "cluster_id"})
+            store_clusters(
+                cluster_assign[["signal_id", "cluster_id"]].copy(), conn=conn
+            )
+
+        # Store cluster stats
+        if not stats_df.empty:
+            # Map CSV column names to DuckDB schema
+            duck_stats = stats_df.rename(columns={
+                "size": "signal_count",
+                "primary_zip": "zip",
+                "representative_text": "representative",
+            }).copy()
+            # Add missing columns expected by DuckDB schema
+            if "source_count" not in duck_stats.columns:
+                duck_stats["source_count"] = duck_stats.get("sources", "").apply(
+                    lambda s: len(eval(s)) if isinstance(s, str) and s.startswith("[") else 1
+                )
+            if "severity" not in duck_stats.columns:
+                duck_stats["severity"] = "unknown"
+            for col in ["earliest_signal", "latest_signal"]:
+                if col not in duck_stats.columns:
+                    renamed = col.replace("signal", "date")
+                    if renamed in duck_stats.columns:
+                        duck_stats[col] = duck_stats[renamed]
+            keep_cols = [
+                "cluster_id", "signal_count", "source_count",
+                "earliest_signal", "latest_signal", "volume_score",
+                "severity", "representative", "zip",
+            ]
+            present = [c for c in keep_cols if c in duck_stats.columns]
+            store_cluster_stats(duck_stats[present].copy(), conn=conn)
+
+        conn.close()
+        print("DuckDB: cluster data stored")
+    except Exception as exc:
+        print(f"DuckDB dual-write skipped: {exc}")
+
     return stats_df
 
 

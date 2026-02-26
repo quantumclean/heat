@@ -1,0 +1,556 @@
+{
+  "meta": {
+    "report_id": "HEAT-WEEKLY-20260226T033220Z",
+    "template": "weekly",
+    "tier": 1,
+    "generated_at": "2026-02-26T03:32:20.108249Z",
+    "schema_version": "1.0.0",
+    "ruleset_version": "ruleset-2026-02-25",
+    "time_window": {
+      "start": "2026-02-19T03:32:20.080857Z",
+      "end": "2026-02-26T03:32:20.080857Z"
+    },
+    "zips": [
+      "07060",
+      "07062",
+      "07063"
+    ],
+    "topic_filter": null,
+    "inputs_hash": "sha256:de50d2a9775442fd5dbf49ed06a6ee7fa78c8d6a8e5f5ad3798e595f8af1ea22"
+  },
+  "executive_summary": {
+    "heading": "Executive Summary",
+    "body": "Weekly attention summary for 3 ZIP codes covering Feb 19\u2013Feb 26, 2026. Total clusters: 65, total signals: 168. Per-ZIP states: ZIP 07060: QUIET, ZIP 07062: QUIET, ZIP 07063: QUIET.",
+    "data": {
+      "total_clusters": 65,
+      "total_signals": 168,
+      "attention_per_zip": {
+        "07060": {
+          "state": "QUIET",
+          "score": 0.011,
+          "signals": 168
+        },
+        "07062": {
+          "state": "QUIET",
+          "score": 0.0,
+          "signals": 0
+        },
+        "07063": {
+          "state": "QUIET",
+          "score": 0.0,
+          "signals": 0
+        }
+      }
+    },
+    "chart_hint": ""
+  },
+  "methodology": {
+    "heading": "Methodology",
+    "body": "Signals are collected from RSS feeds (news, community, advocacy), clustered using HDBSCAN (min_cluster_size=2, metric=euclidean) on sentence-transformer embeddings (all-MiniLM-L6-v2, 384-dim). Cluster strength uses exponential time-decay (72h half-life). Safety buffer enforces 24h delay, 3+ signals, 2+ sources, volume >= 1.0. This report is tier 1 with 24h delay.",
+    "data": {},
+    "chart_hint": ""
+  },
+  "data": {
+    "heading": "Data",
+    "body": "65 clusters in reporting window.",
+    "data": {
+      "clusters": [
+        {
+          "cluster_id": 10,
+          "zip": "07060",
+          "size": 7,
+          "strength": 1.86,
+          "summary": "Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown - Patch. Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown Patch"
+        },
+        {
+          "cluster_id": 1,
+          "zip": "07060",
+          "size": 3,
+          "strength": 1.07,
+          "summary": "Three Men Charged for Roles in Trafficking, Sexual Assault of Minor, Production of Child Pornography. Jan 29, 2026|aggravated sexual assault of a minor by aiding and abetting|child pornography|DCJ|Div"
+        },
+        {
+          "cluster_id": 81,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.79,
+          "summary": "Do ICE [redacted]s really need a warrant in NJ\u2014Here are the facts - New Jersey 101.5. Do ICE [redacted]s really need a warrant in NJ\u2014Here are the facts New Jersey 101.5"
+        },
+        {
+          "cluster_id": 8,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.64,
+          "summary": "An autistic 19-year-old [redacted]ished. His mom fears he may have been taken by ICE - The Independent. An autistic 19-year-old [redacted]ished. His mom fears he may have been taken by ICE The Independent"
+        },
+        {
+          "cluster_id": 47,
+          "zip": "07060",
+          "size": 5,
+          "strength": 0.59,
+          "summary": "Where Do New Jersey and Virginia Gubernatorial Candidates Stand On Immigration? - America's Voice. Where Do New Jersey and Virginia Gubernatorial Candidates Stand On Immigration? America's Voice"
+        },
+        {
+          "cluster_id": 80,
+          "zip": "07060",
+          "size": 5,
+          "strength": 0.59,
+          "summary": "New details emerge about NJ ICE [redacted]s\u2014NJ Top News - New Jersey 101.5. New details emerge about NJ ICE [redacted]s\u2014NJ Top News New Jersey 101.5"
+        },
+        {
+          "cluster_id": 30,
+          "zip": "07060",
+          "size": 6,
+          "strength": 0.36,
+          "summary": "NJ lawmakers want to ban masks for ICE [redacted]s - NJ Spotlight News. NJ lawmakers want to ban masks for ICE [redacted]s NJ Spotlight News"
+        },
+        {
+          "cluster_id": 9,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.36,
+          "summary": "Today\u2019s audio update: N.J. man accused of driving suspect to Mexico border, child speaks out against ICE [redacted]s - NJ.com. Today\u2019s audio update: N.J. man accused of driving suspect to Mexico border, chi"
+        },
+        {
+          "cluster_id": 60,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.33,
+          "summary": "ICE [redacted]s in N.J. city were \u2018lawless,\u2019 and \u2018reprehensible\u2019 state lawmaker says - NJ.com. ICE [redacted]s in N.J. city were \u2018lawless,\u2019 and \u2018reprehensible\u2019 state lawmaker says NJ.com"
+        },
+        {
+          "cluster_id": 44,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.27,
+          "summary": "N.J. governor wants residents to record ICE [redacted]s, upload videos to new state database - NJ.com. N.J. governor wants residents to record ICE [redacted]s, upload videos to new state database NJ.com"
+        },
+        {
+          "cluster_id": 34,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.23,
+          "summary": "Multiple ICE [redacted]s, NJ Transit Train Smashes Car, Dispensary Fire Hurts 2: NJ Weekend - Patch. Multiple ICE [redacted]s, NJ Transit Train Smashes Car, Dispensary Fire Hurts 2: NJ Weekend Patch"
+        },
+        {
+          "cluster_id": 79,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.11,
+          "summary": "Protests held to keep ICE out of New Jersey - News12 | New Jersey. Protests held to keep ICE out of New Jersey News12 | New Jersey"
+        },
+        {
+          "cluster_id": 23,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.09,
+          "summary": "NJ moves toward restricting ICE co[redacted], but unclear if Murphy will sign bills - Gothamist. NJ moves toward restricting ICE co[redacted], but unclear if Murphy will sign bills Gothamist"
+        },
+        {
+          "cluster_id": 46,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.02,
+          "summary": "On His Way Out, New Jersey Governor Vetoes Legislation to Bar Local Assistance to ICE - boltsmag.org. On His Way Out, New Jersey Governor Vetoes Legislation to Bar Local Assistance to ICE boltsmag.org"
+        },
+        {
+          "cluster_id": 35,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.02,
+          "summary": "Immigrant protection bills await Murphy\u2019s signature as ICE [redacted]s continue in NJ - NJ Spotlight News. Immigrant protection bills await Murphy\u2019s signature as ICE [redacted]s continue in NJ NJ Spotlight News"
+        },
+        {
+          "cluster_id": 69,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.01,
+          "summary": "NJ residents rally against ICE [redacted] aftermath - PIX11. NJ residents rally against ICE [redacted] aftermath PIX11"
+        },
+        {
+          "cluster_id": 20,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.01,
+          "summary": "NJ Democrats demand ICE cease plans for Roxbury detention center - New Jersey Monitor. NJ Democrats demand ICE cease plans for Roxbury detention center New Jersey Monitor"
+        },
+        {
+          "cluster_id": 5,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.01,
+          "summary": "ICE MOVES TO DEPORT RED BANK'S BICYCLING LANDSCAPER - Red Bank Green. ICE MOVES TO DEPORT RED BANK'S BICYCLING LANDSCAPER Red Bank Green"
+        },
+        {
+          "cluster_id": 86,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.01,
+          "summary": "Trump threatening \"significant\" cuts in federal funding to states with sanctuary cities - cbsnews.com. Trump threatening \"significant\" cuts in federal funding to states with sanctuary cities cbsnews.c"
+        },
+        {
+          "cluster_id": 67,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.01,
+          "summary": "Dad [redacted] in ICE [redacted] after dropping kid off at school, 2nd man identified - NJ.com. Dad [redacted] in ICE [redacted] after dropping kid off at school, 2nd man identified NJ.com"
+        },
+        {
+          "cluster_id": 64,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.01,
+          "summary": "High School Student Doing Laundry Among Those [redacted] In Morris Co. ICE [redacted] - Patch. High School Student Doing Laundry Among Those [redacted] In Morris Co. ICE [redacted] Patch"
+        },
+        {
+          "cluster_id": 62,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.0,
+          "summary": "Feds sue 4 N.J. cities over immigration policies, mayors say they won\u2019t back down - NJ.com. Feds sue 4 N.J. cities over immigration policies, mayors say they won\u2019t back down NJ.com"
+        },
+        {
+          "cluster_id": 26,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "NJ governor candidates split on housing immigrant detainees at Fort Dix - New Jersey Monitor. NJ governor candidates split on housing immigrant detainees at Fort Dix New Jersey Monitor"
+        },
+        {
+          "cluster_id": 31,
+          "zip": "07060",
+          "size": 4,
+          "strength": 0.0,
+          "summary": "Contested New Jersey law banning private immigration jails gets its day in court - New Jersey Monitor. Contested New Jersey law banning private immigration jails gets its day in court New Jersey Monit"
+        },
+        {
+          "cluster_id": 65,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "States, sheriffs puzzle over Trump\u2019s error-filled list of immigration sanctuaries - New Jersey Monitor. States, sheriffs puzzle over Trump\u2019s error-filled list of immigration sanctuaries New Jersey Mon"
+        },
+        {
+          "cluster_id": 51,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.0,
+          "summary": "Pair of Immigration [redacted]s Disrupts a New Jersey Shipping Hub - The New York Times. Pair of Immigration [redacted]s Disrupts a New Jersey Shipping Hub The New York Times"
+        },
+        {
+          "cluster_id": 45,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "New Jersey lawmakers pass 3 bills designed to protect immigrants from ICE [redacted]s - WHYY. New Jersey lawmakers pass 3 bills designed to protect immigrants from ICE [redacted]s WHYY"
+        },
+        {
+          "cluster_id": 3,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "A Push to Expand the Rights of Immigrants in Defiance of Trump - The New York Times. A Push to Expand the Rights of Immigrants in Defiance of Trump The New York Times"
+        },
+        {
+          "cluster_id": 41,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.0,
+          "summary": "\u2018They're killing Americans on the street\u2019: NJ lawmakers push anti-ICE bills following fatal Minnesota shooting - Politico. \u2018They're killing Americans on the street\u2019: NJ lawmakers push anti-ICE bills f"
+        },
+        {
+          "cluster_id": 50,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "NJ 2025: The year in immigration - NJ Spotlight News. NJ 2025: The year in immigration NJ Spotlight News"
+        },
+        {
+          "cluster_id": 75,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.0,
+          "summary": "ICE [redacted] at Avenel warehouse leads to 46 [redacted]s - News12 | New Jersey. ICE [redacted] at Avenel warehouse leads to 46 [redacted]s News12 | New Jersey"
+        },
+        {
+          "cluster_id": 28,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "ICE Newark [redacted]s another 4 illegally present child sex offenders as part of ongoing [redacted] - U.S. Immigration and Customs Enforcement (.gov). ICE Newark [redacted]s another 4 illegally present child "
+        },
+        {
+          "cluster_id": 25,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "2 people recaptured after escaping New Jersey immigration detention center - PBS. 2 people recaptured after escaping New Jersey immigration detention center PBS"
+        },
+        {
+          "cluster_id": 90,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.0,
+          "summary": "DOJ files lawsuit against \u2018sanctuary\u2019 cities in New Jersey - NJ Spotlight News. DOJ files lawsuit against \u2018sanctuary\u2019 cities in New Jersey NJ Spotlight News"
+        },
+        {
+          "cluster_id": 92,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.0,
+          "summary": "Trump Administration Sues Adams and New York City Over Sanctuary Laws - The New York Times. Trump Administration Sues Adams and New York City Over Sanctuary Laws The New York Times"
+        },
+        {
+          "cluster_id": 94,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Trump administration sues 4 New Jersey cities over \u2018sanctuary\u2019 policies - AP News. Trump administration sues 4 New Jersey cities over \u2018sanctuary\u2019 policies AP News"
+        },
+        {
+          "cluster_id": 27,
+          "zip": "07060",
+          "size": 4,
+          "strength": 0.0,
+          "summary": "South Jersey military base to temporarily hold immigrant detainees - WHYY. South Jersey military base to temporarily hold immigrant detainees WHYY"
+        },
+        {
+          "cluster_id": 56,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "ICE [redacted]s and protests: Look back at immigration in New Jersey in 2025 - Bergen Record. ICE [redacted]s and protests: Look back at immigration in New Jersey in 2025 Bergen Record"
+        },
+        {
+          "cluster_id": 89,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "21 New Jersey spots included in federal list of targeted sanctuary towns and counties - Bergen Record. 21 New Jersey spots included in federal list of targeted sanctuary towns and counties Bergen Reco"
+        },
+        {
+          "cluster_id": 84,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Justice Department Sues Los Angeles Over Sanctuary City Ordinance - Law Commentary. Justice Department Sues Los Angeles Over Sanctuary City Ordinance Law Commentary"
+        },
+        {
+          "cluster_id": 93,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "New Jersey \u2018Sanctuary Cities\u2019 Sued by Trump Administration Over Immigration Policies - Bloomberg.com. New Jersey \u2018Sanctuary Cities\u2019 Sued by Trump Administration Over Immigration Policies Bloomberg.com"
+        },
+        {
+          "cluster_id": 82,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.0,
+          "summary": "Bergen County town removed from federal list of sanctuary cities. Here's why - Bergen Record. Bergen County town removed from federal list of sanctuary cities. Here's why Bergen Record"
+        },
+        {
+          "cluster_id": 54,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.0,
+          "summary": "Philadelphia stays on the Trump administration\u2019s new, shorter list of sanctuary cities - York Daily Record. Philadelphia stays on the Trump administration\u2019s new, shorter list of sanctuary cities York "
+        },
+        {
+          "cluster_id": 17,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "WATCH: Governors from NY, IL and MN testify at hearing on 'sanctuary' policies and immigration - PBS. WATCH: Governors from NY, IL and MN testify at hearing on 'sanctuary' policies and immigration PBS"
+        },
+        {
+          "cluster_id": 77,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Judge blocks Trump from cutting funding from 34 cities and counties over \u2018sanctuary\u2019 policies - WHYY. Judge blocks Trump from cutting funding from 34 cities and counties over \u2018sanctuary\u2019 policies WHYY"
+        },
+        {
+          "cluster_id": 63,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "DHS removes list of \u2018sanctuary jurisdictions\u2019 - Police1. DHS removes list of \u2018sanctuary jurisdictions\u2019 Police1"
+        },
+        {
+          "cluster_id": 85,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "'Fraud and crime': Trump to halt payments to sanctuary cities beginning Feb. 1 - thenationaldesk.com. 'Fraud and crime': Trump to halt payments to sanctuary cities beginning Feb. 1 thenationaldesk.com"
+        },
+        {
+          "cluster_id": 87,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "DHS names 21 NJ towns, counties as \u2018sanctuary jurisdictions\u2019 - New Jersey 101.5. DHS names 21 NJ towns, counties as \u2018sanctuary jurisdictions\u2019 New Jersey 101.5"
+        },
+        {
+          "cluster_id": 91,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "DOJ publishes list of 'sanctuary jurisdictions,' includes NY and NJ - FOX 5 New York. DOJ publishes list of 'sanctuary jurisdictions,' includes NY and NJ FOX 5 New York"
+        },
+        {
+          "cluster_id": 88,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Trump Targets NJ Sanctuary Cities \u2014 Again - Patch. Trump Targets NJ Sanctuary Cities \u2014 Again Patch"
+        },
+        {
+          "cluster_id": 6,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "McIver, fellow Delaney Hall Dems come to sanctuary cities\u2019 defense in letter to Trump admin - New Jersey Globe. McIver, fellow Delaney Hall Dems come to sanctuary cities\u2019 defense in letter to Trump ad"
+        },
+        {
+          "cluster_id": 78,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Trump administration sues Boston in the latest escalation of its confrontation with sanctuary cities - EL PA\u00cdS English. Trump administration sues Boston in the latest escalation of its confrontation w"
+        },
+        {
+          "cluster_id": 57,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Is your community an immigrant sanctuary? See Trump's new target list - USA Today. Is your community an immigrant sanctuary? See Trump's new target list USA Today"
+        },
+        {
+          "cluster_id": 12,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Dylan Lopez Contreras: NYC high school student has asylum case denied, judge orders he be deported following ICE [redacted] - ABC7 New York. Dylan Lopez Contreras: NYC high school student has asylum case "
+        },
+        {
+          "cluster_id": 15,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Trump\u2019s deportation agenda will destroy millions of jobs - Economic Policy Institute. Trump\u2019s deportation agenda will destroy millions of jobs Economic Policy Institute"
+        },
+        {
+          "cluster_id": 24,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.0,
+          "summary": "Deportation of 6-Year-Old Puts Spotlight on ICE\u2019s Detention of Families - The New York Times. Deportation of 6-Year-Old Puts Spotlight on ICE\u2019s Detention of Families The New York Times"
+        },
+        {
+          "cluster_id": 43,
+          "zip": "07060",
+          "size": 6,
+          "strength": 0.0,
+          "summary": "Immigration judge rules that Columbia student Mahmoud Khalil can be deported - PBS. Immigration judge rules that Columbia student Mahmoud Khalil can be deported PBS"
+        },
+        {
+          "cluster_id": 59,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Our deportation and immigration coverage: Everything you need to know in North Jersey - Bergen Record. Our deportation and immigration coverage: Everything you need to know in North Jersey Bergen Reco"
+        },
+        {
+          "cluster_id": 66,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "N.J. father [redacted] by ICE for 5 months despite deportation stay - NJ.com. N.J. father [redacted] by ICE for 5 months despite deportation stay NJ.com"
+        },
+        {
+          "cluster_id": 42,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "3rd U.S. Circuit Court of Appeals hears Mahmoud Khalil\u2019s appeal against deportation proceedings - Columbia Daily Spectator. 3rd U.S. Circuit Court of Appeals hears Mahmoud Khalil\u2019s appeal against depo"
+        },
+        {
+          "cluster_id": 22,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Trump orders Ice to expand deportation of migrants - BBC. Trump orders Ice to expand deportation of migrants BBC"
+        },
+        {
+          "cluster_id": 33,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Judge rules Mahmoud Khalil\u2019s deportation case must continue in New Jersey - The Guardian. Judge rules Mahmoud Khalil\u2019s deportation case must continue in New Jersey The Guardian"
+        },
+        {
+          "cluster_id": 39,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Judge orders Mahmoud Khalil case to be moved from Louisiana to New Jersey - The Guardian. Judge orders Mahmoud Khalil case to be moved from Louisiana to New Jersey The Guardian"
+        },
+        {
+          "cluster_id": 40,
+          "zip": "07060",
+          "size": 2,
+          "strength": 0.0,
+          "summary": "Mahmoud Khalil's legal case will play out in New Jersey, not Louisiana, judge rules - CBS News. Mahmoud Khalil's legal case will play out in New Jersey, not Louisiana, judge rules CBS News"
+        },
+        {
+          "cluster_id": 38,
+          "zip": "07060",
+          "size": 3,
+          "strength": 0.0,
+          "summary": "Mahmoud Khalil arrives in New Jersey after release from ICE custody - CBS News. Mahmoud Khalil arrives in New Jersey after release from ICE custody CBS News"
+        }
+      ]
+    },
+    "chart_hint": "bar_chart"
+  },
+  "analysis": {
+    "heading": "Analysis",
+    "body": "Top NLP keywords: deportation, cities, raid, judge, immigrant, arrests, morristown, after, detention, list. Trend direction: increasing.",
+    "data": {
+      "keywords": [
+        "deportation",
+        "cities",
+        "raid",
+        "judge",
+        "immigrant",
+        "arrests",
+        "morristown",
+        "after",
+        "detention",
+        "list"
+      ],
+      "trend": {
+        "direction": "increasing",
+        "magnitude": 0.4085067873303167,
+        "change_pct": 132.4294410625346
+      }
+    },
+    "chart_hint": ""
+  },
+  "confidence": {
+    "heading": "Confidence Assessment",
+    "body": "Based on 168 signals from 65 clusters. Confidence is proportional to signal volume and source diversity.",
+    "data": {
+      "signals": 168,
+      "clusters": 65
+    },
+    "chart_hint": ""
+  },
+  "recommendations": {
+    "heading": "Recommendations",
+    "body": "Continue routine monitoring. Review any ELEVATED_ATTENTION or HIGH_ATTENTION ZIPs.",
+    "data": {},
+    "chart_hint": ""
+  }
+}

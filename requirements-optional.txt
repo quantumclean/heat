@@ -1,0 +1,21 @@
+# Optional integrations for HEAT pipeline
+# Install with: pip install -r requirements-optional.txt
+# ---------------------------------------------------------
+# These are NOT required for the core pipeline to run.
+# Each section can be installed independently.
+# ---------------------------------------------------------
+
+# AWS Integration (S3 deploy, SNS SMS alerts, SES email)
+# Only needed if you host on AWS or use SNS for notifications.
+# The pipeline works without AWS — email alerts use stdlib smtplib.
+boto3~=1.42.0
+
+# Orchestration (Prefect DAG runner)
+# The pipeline auto-falls back to the legacy subprocess runner
+# if Prefect is not installed. Only install for observability UI.
+prefect~=3.6.0
+
+# Reddit API scraper
+# Requires free API credentials from https://www.reddit.com/prefs/apps
+# Set REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET env vars.
+praw~=7.8.0
