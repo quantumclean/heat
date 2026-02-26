@@ -57,6 +57,7 @@ jobs:
           restore-keys: hf-models-
 
       - name: Run HEAT pipeline
+        continue-on-error: true  # Deploy with existing data if pipeline fails
         env:
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
@@ -70,6 +71,7 @@ jobs:
           python run_pipeline.py --full --legacy
 
       - name: Commit updated data to main
+        continue-on-error: true  # Don't block deploy if commit/push fails
         run: |
           git config user.name "HEAT Pipeline Bot"
           git config user.email "heat-bot@users.noreply.github.com"
