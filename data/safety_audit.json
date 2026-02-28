@@ -1,0 +1,5002 @@
+[
+  {
+    "timestamp": "2026-02-11T03:26:17.007363+00:00",
+    "audit_hash": "841a7c73a9251d87",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 651.4h meets minimum 0h delay",
+        "value": 651.4380575758333,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.0",
+        "value": 0.01,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.008248+00:00",
+    "audit_hash": "362e80249fa3383e",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 603.4h meets minimum 0h delay",
+        "value": 603.4380578219444,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.0",
+        "value": 0.01,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.010205+00:00",
+    "audit_hash": "fd39ba9cbd16e8d4",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 627.4h meets minimum 0h delay",
+        "value": 627.4380583483334,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.0",
+        "value": 0.01,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.011325+00:00",
+    "audit_hash": "0151ffb321aaf716",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 603.4h meets minimum 0h delay",
+        "value": 603.4380586772222,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.0",
+        "value": 0.01,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.013542+00:00",
+    "audit_hash": "f5d2944b838ece75",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 627.4h meets minimum 0h delay",
+        "value": 627.4380589372222,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.0",
+        "value": 0.01,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.014720+00:00",
+    "audit_hash": "c839ddc52f429d10",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 6339.4h meets minimum 0h delay",
+        "value": 6339.4380596158335,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.016697+00:00",
+    "audit_hash": "0a2e0facc7f93408",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4923.4h meets minimum 0h delay",
+        "value": 4923.438060164444,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.017834+00:00",
+    "audit_hash": "6a3c6850b7e4b59f",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 4 meets minimum 1",
+        "value": 4,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4899.4h meets minimum 0h delay",
+        "value": 4899.4380604758335,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.020591+00:00",
+    "audit_hash": "f02ee42e8ba3d404",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4563.4h meets minimum 0h delay",
+        "value": 4563.438061186389,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.025225+00:00",
+    "audit_hash": "8ab0417f9f7cf25f",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 2019.4h meets minimum 0h delay",
+        "value": 2019.438062521389,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.026932+00:00",
+    "audit_hash": "0b540f4a726c1f23",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 699.4h meets minimum 0h delay",
+        "value": 699.4380629883333,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.027890+00:00",
+    "audit_hash": "7c5830fee6b7ec96",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 699.4h meets minimum 0h delay",
+        "value": 699.4380632777777,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.028617+00:00",
+    "audit_hash": "60aebe8ee2af38b8",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 795.4h meets minimum 0h delay",
+        "value": 795.4380634841667,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.030123+00:00",
+    "audit_hash": "5268b9e3f293c926",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 3411.4h meets minimum 0h delay",
+        "value": 3411.438063810278,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.031079+00:00",
+    "audit_hash": "57583e4ffd54beab",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 675.4h meets minimum 0h delay",
+        "value": 675.4380641641667,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.031900+00:00",
+    "audit_hash": "9a156330f0d6c848",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 1131.4h meets minimum 0h delay",
+        "value": 1131.4380643955556,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.032704+00:00",
+    "audit_hash": "89a1dfc29f6ece07",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 2163.4h meets minimum 0h delay",
+        "value": 2163.4380646155555,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.034901+00:00",
+    "audit_hash": "dcd6b11d2ea375dc",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4179.4h meets minimum 0h delay",
+        "value": 4179.438065205,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.036178+00:00",
+    "audit_hash": "3dbe58f4b0059874",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 1563.4h meets minimum 0h delay",
+        "value": 1563.438065571111,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.037148+00:00",
+    "audit_hash": "ced88f1bda0194c3",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 699.4h meets minimum 0h delay",
+        "value": 699.4380658438888,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.038265+00:00",
+    "audit_hash": "029deec5ca6d9244",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 5763.4h meets minimum 0h delay",
+        "value": 5763.438066155279,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.040218+00:00",
+    "audit_hash": "d2ee288ae0123a0e",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 3843.4h meets minimum 0h delay",
+        "value": 3843.4380666980555,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.041042+00:00",
+    "audit_hash": "c3ccdba3b5a06fcd",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4539.4h meets minimum 0h delay",
+        "value": 4539.4380669327775,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.047840+00:00",
+    "audit_hash": "291de3781704b72e",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4827.4h meets minimum 0h delay",
+        "value": 4827.438068401111,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.049039+00:00",
+    "audit_hash": "a8ce8fdc568aed0c",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 6339.4h meets minimum 0h delay",
+        "value": 6339.438069144167,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.050227+00:00",
+    "audit_hash": "0f6525eb1ee147a7",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 4 meets minimum 1",
+        "value": 4,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4923.4h meets minimum 0h delay",
+        "value": 4923.438069483055,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.051115+00:00",
+    "audit_hash": "ef93a54f34716a50",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4419.4h meets minimum 0h delay",
+        "value": 4419.438069731945,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.054025+00:00",
+    "audit_hash": "523978b2fe661e44",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4179.4h meets minimum 0h delay",
+        "value": 4179.438070521111,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.055746+00:00",
+    "audit_hash": "c50edbed4c67ca32",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 1059.4h meets minimum 0h delay",
+        "value": 1059.4380710041667,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.056858+00:00",
+    "audit_hash": "21c488d98c59a4d3",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 6171.4h meets minimum 0h delay",
+        "value": 6171.438071320277,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.058253+00:00",
+    "audit_hash": "efb30a6d1620994b",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 3219.4h meets minimum 0h delay",
+        "value": 3219.4380717141667,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.059218+00:00",
+    "audit_hash": "f052d4ddcfa0a3fd",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 3195.4h meets minimum 0h delay",
+        "value": 3195.438071981389,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.061209+00:00",
+    "audit_hash": "c2fe8e1bc17b838a",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 6099.4h meets minimum 0h delay",
+        "value": 6099.438072451389,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.062348+00:00",
+    "audit_hash": "5543aeb0e4cdc3de",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 3507.4h meets minimum 0h delay",
+        "value": 3507.438072846944,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.063388+00:00",
+    "audit_hash": "afa9c4dacc1fbe9b",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4563.4h meets minimum 0h delay",
+        "value": 4563.438073133889,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.064755+00:00",
+    "audit_hash": "5dd017d8a84799da",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 5859.4h meets minimum 0h delay",
+        "value": 5859.438073515833,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.066866+00:00",
+    "audit_hash": "0d9a552a42c549ea",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4131.4h meets minimum 0h delay",
+        "value": 4131.438074087778,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.068777+00:00",
+    "audit_hash": "634e96665efbfa64",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4539.4h meets minimum 0h delay",
+        "value": 4539.438074616111,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.071739+00:00",
+    "audit_hash": "2210d4f2ee3f9692",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 699.4h meets minimum 0h delay",
+        "value": 699.4380754505556,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.072785+00:00",
+    "audit_hash": "7e08e7250ae89330",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 6099.4h meets minimum 0h delay",
+        "value": 6099.438075745556,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.073852+00:00",
+    "audit_hash": "ed975ec94a57fe1c",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4035.4h meets minimum 0h delay",
+        "value": 4035.438076035278,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.075170+00:00",
+    "audit_hash": "839618457b9db7a0",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4563.4h meets minimum 0h delay",
+        "value": 4563.438076405833,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.076080+00:00",
+    "audit_hash": "cd070b517a36065f",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 2043.4h meets minimum 0h delay",
+        "value": 2043.4380766641666,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.077139+00:00",
+    "audit_hash": "14b448bf4de510aa",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 5907.4h meets minimum 0h delay",
+        "value": 5907.438076950833,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.078367+00:00",
+    "audit_hash": "2fe40c1793383126",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 3819.4h meets minimum 0h delay",
+        "value": 3819.4380772986115,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.079652+00:00",
+    "audit_hash": "8ed61e73bc702548",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4371.4h meets minimum 0h delay",
+        "value": 4371.438077656944,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.080679+00:00",
+    "audit_hash": "e3d167a32703c5d7",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 3339.4h meets minimum 0h delay",
+        "value": 3339.4380779391668,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.082505+00:00",
+    "audit_hash": "974eca8c6d6545b3",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4899.4h meets minimum 0h delay",
+        "value": 4899.438078235556,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.083702+00:00",
+    "audit_hash": "beaa3d50c4c7110b",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 5 meets minimum 1",
+        "value": 5,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 5835.4h meets minimum 0h delay",
+        "value": 5835.438078776666,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.084929+00:00",
+    "audit_hash": "c96f6f0993da550a",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 5 meets minimum 1",
+        "value": 5,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 843.4h meets minimum 0h delay",
+        "value": 843.4380791033334,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.086214+00:00",
+    "audit_hash": "dfdbe51f9449c83b",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 5187.4h meets minimum 0h delay",
+        "value": 5187.438079471111,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.088183+00:00",
+    "audit_hash": "0a028345fef9f135",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 5667.4h meets minimum 0h delay",
+        "value": 5667.438079991944,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.090091+00:00",
+    "audit_hash": "de595979e0fc6dbf",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 963.4h meets minimum 0h delay",
+        "value": 963.4380805141666,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.092208+00:00",
+    "audit_hash": "8c71077a189ab363",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 6 meets minimum 1",
+        "value": 6,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 3507.4h meets minimum 0h delay",
+        "value": 3507.4380811372225,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.093503+00:00",
+    "audit_hash": "ff056485ecd61e09",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 7443.4h meets minimum 0h delay",
+        "value": 7443.438081501667,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.094673+00:00",
+    "audit_hash": "4c4a43d5495341a6",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 4083.4h meets minimum 0h delay",
+        "value": 4083.4380818033333,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.095662+00:00",
+    "audit_hash": "c3aa9ccc5364c5d5",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 2691.4h meets minimum 0h delay",
+        "value": 2691.4380820711112,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.096608+00:00",
+    "audit_hash": "5d8be9c301f747e0",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 1491.4h meets minimum 0h delay",
+        "value": 1491.438082365,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.097726+00:00",
+    "audit_hash": "60c522a2f254f3ea",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 7587.4h meets minimum 0h delay",
+        "value": 7587.438082671944,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.098799+00:00",
+    "audit_hash": "a126477bfb7795cb",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 7899.4h meets minimum 0h delay",
+        "value": 7899.438082969723,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.100365+00:00",
+    "audit_hash": "74810e8da4b9f2cc",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 7587.4h meets minimum 0h delay",
+        "value": 7587.438083384722,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-11T03:26:17.101921+00:00",
+    "audit_hash": "e040c491440205c7",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 1",
+        "value": 3,
+        "threshold": 1
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 5643.4h meets minimum 0h delay",
+        "value": 5643.438083839167,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.00 meets minimum 0.0",
+        "value": 0.0,
+        "threshold": 0.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.266343+00:00",
+    "audit_hash": "a887433d9c66764a",
+    "passed": false,
+    "blocked_reason": "Volume score 0.01 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 556.2h meets minimum 24h delay",
+        "value": 556.2147958908333,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.01 below minimum 1.0",
+        "value": 0.01,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.266803+00:00",
+    "audit_hash": "569ab741e6478c78",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.01 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 556.2h meets minimum 24h delay",
+        "value": 556.2147962922222,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.01 below minimum 1.0",
+        "value": 0.01,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.267248+00:00",
+    "audit_hash": "8100b572df7e0c66",
+    "passed": false,
+    "blocked_reason": "Volume score 0.02 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 5 meets minimum 2",
+        "value": 5,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.2h meets minimum 24h delay",
+        "value": 532.2147964172223,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.02 below minimum 1.0",
+        "value": 0.02,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.267628+00:00",
+    "audit_hash": "e9a86b8f705e1456",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.01 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.2h meets minimum 24h delay",
+        "value": 532.2147965283334,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.01 below minimum 1.0",
+        "value": 0.01,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.267941+00:00",
+    "audit_hash": "ec30664179d8bf6d",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.02 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.2h meets minimum 24h delay",
+        "value": 532.2147966205556,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.02 below minimum 1.0",
+        "value": 0.02,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.268245+00:00",
+    "audit_hash": "555eabac15f08cee",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.01 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 604.2h meets minimum 24h delay",
+        "value": 604.2147967063889,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.01 below minimum 1.0",
+        "value": 0.01,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.268608+00:00",
+    "audit_hash": "e87c5e634b0ae434",
+    "passed": false,
+    "blocked_reason": "Volume score 0.01 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.2h meets minimum 24h delay",
+        "value": 532.2147967983334,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.01 below minimum 1.0",
+        "value": 0.01,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.269033+00:00",
+    "audit_hash": "d291904c3132d166",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.02 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 436.2h meets minimum 24h delay",
+        "value": 436.21479691277773,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.02 below minimum 1.0",
+        "value": 0.02,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.269388+00:00",
+    "audit_hash": "247e7eca995dea1b",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.02 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 436.2h meets minimum 24h delay",
+        "value": 436.21479701694443,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.02 below minimum 1.0",
+        "value": 0.02,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.269813+00:00",
+    "audit_hash": "bb6cbedc048ddafd",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.01 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 556.2h meets minimum 24h delay",
+        "value": 556.2147971288889,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.01 below minimum 1.0",
+        "value": 0.01,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.270256+00:00",
+    "audit_hash": "5953978c07a31379",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.01 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 580.2h meets minimum 24h delay",
+        "value": 580.2147972575,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.01 below minimum 1.0",
+        "value": 0.01,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.270588+00:00",
+    "audit_hash": "eaedb70c2857b019",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.01 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.2h meets minimum 24h delay",
+        "value": 532.2147973533333,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.01 below minimum 1.0",
+        "value": 0.01,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.270957+00:00",
+    "audit_hash": "12ec8c1714f7607e",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.01 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 6 meets minimum 2",
+        "value": 6,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.2h meets minimum 24h delay",
+        "value": 532.2147974497223,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.01 below minimum 1.0",
+        "value": 0.01,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.271374+00:00",
+    "audit_hash": "b529836e47515cae",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.02 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.2h meets minimum 24h delay",
+        "value": 532.2147975644444,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.02 below minimum 1.0",
+        "value": 0.02,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.271669+00:00",
+    "audit_hash": "506e8491fc6c1e79",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.03 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 7 meets minimum 2",
+        "value": 7,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.2h meets minimum 24h delay",
+        "value": 532.2147976583334,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.03 below minimum 1.0",
+        "value": 0.03,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.271961+00:00",
+    "audit_hash": "b6cfb3f7a4fe7713",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.02 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.2h meets minimum 24h delay",
+        "value": 532.2147977391667,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.02 below minimum 1.0",
+        "value": 0.02,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.272258+00:00",
+    "audit_hash": "3d530ab80a5e3fcd",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.01 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 5 meets minimum 2",
+        "value": 5,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 556.2h meets minimum 24h delay",
+        "value": 556.2147978197222,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.01 below minimum 1.0",
+        "value": 0.01,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.272553+00:00",
+    "audit_hash": "a57206cd722fd30d",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.02 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 4 meets minimum 2",
+        "value": 4,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.2h meets minimum 24h delay",
+        "value": 532.2147979038889,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.02 below minimum 1.0",
+        "value": 0.02,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:12:53.272845+00:00",
+    "audit_hash": "07f7d76fc45b0ac3",
+    "passed": false,
+    "blocked_reason": "Source count 1 below minimum 2; Volume score 0.01 below minimum 1.0",
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 5 meets minimum 2",
+        "value": 5,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.2h meets minimum 24h delay",
+        "value": 532.2147979855556,
+        "threshold": 24
+      },
+      {
+        "name": "source_corroboration",
+        "passed": false,
+        "reason": "Source count 1 below minimum 2",
+        "value": 1,
+        "threshold": 2
+      },
+      {
+        "name": "volume_score",
+        "passed": false,
+        "reason": "Volume score 0.01 below minimum 1.0",
+        "value": 0.01,
+        "threshold": 1.0
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.417008+00:00",
+    "audit_hash": "d9f880d16a0ed2f6",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 556.3h meets minimum 0h delay",
+        "value": 556.2856710472222,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.001",
+        "value": 0.01,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.418408+00:00",
+    "audit_hash": "5992bcb8e908ff33",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 556.3h meets minimum 0h delay",
+        "value": 556.2856717619445,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.001",
+        "value": 0.01,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.418917+00:00",
+    "audit_hash": "b614f1b2af072107",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 5 meets minimum 2",
+        "value": 5,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.3h meets minimum 0h delay",
+        "value": 532.2856719083334,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.02 meets minimum 0.001",
+        "value": 0.02,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.419431+00:00",
+    "audit_hash": "2fbe5bfa3b9d1f2d",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.3h meets minimum 0h delay",
+        "value": 532.28567205,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.001",
+        "value": 0.01,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.419920+00:00",
+    "audit_hash": "f03cda12f2897ddf",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.3h meets minimum 0h delay",
+        "value": 532.2856721855555,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.02 meets minimum 0.001",
+        "value": 0.02,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.420431+00:00",
+    "audit_hash": "df4875ff8894ac7c",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 604.3h meets minimum 0h delay",
+        "value": 604.2856723261111,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.001",
+        "value": 0.01,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.420926+00:00",
+    "audit_hash": "25e68addff190b4a",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.3h meets minimum 0h delay",
+        "value": 532.2856724663889,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 2 meets minimum 1",
+        "value": 2,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.001",
+        "value": 0.01,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.421390+00:00",
+    "audit_hash": "5f0fb726ef1970f3",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 436.3h meets minimum 0h delay",
+        "value": 436.28567259527773,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.02 meets minimum 0.001",
+        "value": 0.02,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.421845+00:00",
+    "audit_hash": "3cb99e667ddb30b5",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 436.3h meets minimum 0h delay",
+        "value": 436.2856727202778,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.02 meets minimum 0.001",
+        "value": 0.02,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.422337+00:00",
+    "audit_hash": "da19e662c01c9962",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 556.3h meets minimum 0h delay",
+        "value": 556.2856728558334,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.001",
+        "value": 0.01,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.422829+00:00",
+    "audit_hash": "878737800daf7f2a",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 580.3h meets minimum 0h delay",
+        "value": 580.2856729938889,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.001",
+        "value": 0.01,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.423332+00:00",
+    "audit_hash": "6ff630cdb0a74a71",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 2 meets minimum 2",
+        "value": 2,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.3h meets minimum 0h delay",
+        "value": 532.2856731311111,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.001",
+        "value": 0.01,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.423836+00:00",
+    "audit_hash": "d04e76f4395521cf",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 6 meets minimum 2",
+        "value": 6,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.3h meets minimum 0h delay",
+        "value": 532.285673275,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.001",
+        "value": 0.01,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.424321+00:00",
+    "audit_hash": "4bc6b93da6b9f599",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.3h meets minimum 0h delay",
+        "value": 532.2856734086112,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.02 meets minimum 0.001",
+        "value": 0.02,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.424951+00:00",
+    "audit_hash": "af119e68a574ab8b",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 7 meets minimum 2",
+        "value": 7,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.3h meets minimum 0h delay",
+        "value": 532.2856735777777,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.03 meets minimum 0.001",
+        "value": 0.03,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.425608+00:00",
+    "audit_hash": "580d141a0f770b74",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 3 meets minimum 2",
+        "value": 3,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.3h meets minimum 0h delay",
+        "value": 532.2856737638889,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.02 meets minimum 0.001",
+        "value": 0.02,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.426118+00:00",
+    "audit_hash": "7122377444f27e9f",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 5 meets minimum 2",
+        "value": 5,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 556.3h meets minimum 0h delay",
+        "value": 556.2856739072222,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.001",
+        "value": 0.01,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.426624+00:00",
+    "audit_hash": "e69a00a91e4061ff",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 4 meets minimum 2",
+        "value": 4,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.3h meets minimum 0h delay",
+        "value": 532.2856740452778,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.02 meets minimum 0.001",
+        "value": 0.02,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-02-26T04:17:08.427203+00:00",
+    "audit_hash": "55e88b07243d40cc",
+    "passed": true,
+    "blocked_reason": null,
+    "gates": [
+      {
+        "name": "k_anonymity",
+        "passed": true,
+        "reason": "Cluster size 5 meets minimum 2",
+        "value": 5,
+        "threshold": 2
+      },
+      {
+        "name": "time_delay",
+        "passed": true,
+        "reason": "Data age 532.3h meets minimum 0h delay",
+        "value": 532.2856742080556,
+        "threshold": 0
+      },
+      {
+        "name": "source_corroboration",
+        "passed": true,
+        "reason": "Source count 1 meets minimum 1",
+        "value": 1,
+        "threshold": 1
+      },
+      {
+        "name": "volume_score",
+        "passed": true,
+        "reason": "Volume score 0.01 meets minimum 0.001",
+        "value": 0.01,
+        "threshold": 0.001
+      },
+      {
+        "name": "no_pinpointing",
+        "passed": true,
+        "reason": "No location pinpointing",
+        "value": null,
+        "threshold": null
+      },
+      {
+        "name": "prohibited_fields",
+        "passed": true,
+        "reason": "No prohibited fields",
+        "value": null,
+        "threshold": null
+      }
+    ]
+  }
+]

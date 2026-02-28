@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEAT Analytics - Integration Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .test-section h2 {
+            margin-top: 0;
+            color: #ff6b35;
+        }
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-left: 0.5rem;
+        }
+        .status.pass { background: #d4edda; color: #155724; }
+        .status.fail { background: #f8d7da; color: #721c24; }
+        .status.pending { background: #fff3cd; color: #856404; }
+        .test-item {
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border-left: 3px solid #dee2e6;
+            border-radius: 4px;
+        }
+        .test-item.pass { border-left-color: #28a745; }
+        .test-item.fail { border-left-color: #dc3545; }
+        button {
+            padding: 0.5rem 1rem;
+            background: #ff6b35;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        button:hover {
+            background: #e55a28;
+        }
+        #test-output {
+            background: #263238;
+            color: #aed581;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔥 HEAT Analytics - Integration Test Suite</h1>
+    
+    <div class="test-section">
+        <h2>Module Loading <span class="status pending" id="status-modules">PENDING</span></h2>
+        <div id="module-tests"></div>
+        <button onclick="testModules()">Run Module Tests</button>
+    </div>
+
+    <div class="test-section">
+        <h2>FilterEngine Tests <span class="status pending" id="status-filter">PENDING</span></h2>
+        <div id="filter-tests"></div>
+        <button onclick="testFilterEngine()">Run Filter Tests</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Stats Calculator Tests <span class="status pending" id="status-stats">PENDING</span></h2>
+        <div id="stats-tests"></div>
+        <button onclick="testStatsCalculator()">Run Stats Tests</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Query Builder Tests <span class="status pending" id="status-query">PENDING</span></h2>
+        <div id="query-tests"></div>
+        <button onclick="testQueryBuilder()">Run Query Tests</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Output</h2>
+        <div id="test-output">Waiting for tests to run...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Quick Actions</h2>
+        <button onclick="runAllTests()">Run All Tests</button>
+        <button onclick="clearOutput()">Clear Output</button>
+        <button onclick="window.location.href='index.html'">Open Main App</button>
+    </div>
+
+    <!-- Load Analytics Modules -->
+    <script src="filter-engine.js"></script>
+    <script src="stats-calculator.js"></script>
+    <script src="query-builder.js"></script>
+    <script src="filter-presets.js"></script>
+
+    <script>
+        let testOutput = [];
+
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const prefix = type === 'error' ? '❌' : type === 'success' ? '✓' : '→';
+            testOutput.push(`[${timestamp}] ${prefix} ${message}`);
+            updateOutput();
+        }
+
+        function updateOutput() {
+            document.getElementById('test-output').textContent = testOutput.join('\n');
+        }
+
+        function clearOutput() {
+            testOutput = [];
+            updateOutput();
+        }
+
+        function updateStatus(id, passed, total) {
+            const statusEl = document.getElementById(id);
+            if (passed === total) {
+                statusEl.textContent = 'PASS';
+                statusEl.className = 'status pass';
+            } else {
+                statusEl.textContent = `FAIL (${passed}/${total})`;
+                statusEl.className = 'status fail';
+            }
+        }
+
+        function testItem(container, name, result) {
+            const div = document.createElement('div');
+            div.className = `test-item ${result ? 'pass' : 'fail'}`;
+            div.textContent = `${result ? '✓' : '✗'} ${name}`;
+            document.getElementById(container).appendChild(div);
+            return result;
+        }
+
+        // Sample test data
+        const sampleClusters = [
+            { id: 1, zip: '07060', strength: 7, size: 5, date: '2026-02-10', sources: ['news', 'reddit'] },
+            { id: 2, zip: '07062', strength: 4, size: 3, date: '2026-02-11', sources: ['twitter'] },
+            { id: 3, zip: '08817', strength: 9, size: 8, date: '2026-02-12', sources: ['news', 'community'] },
+            { id: 4, zip: '07060', strength: 3, size: 2, date: '2026-02-13', sources: ['reddit'] }
+        ];
+
+        function testModules() {
+            document.getElementById('module-tests').innerHTML = '';
+            log('Starting module tests...', 'info');
+            
+            let passed = 0;
+            const total = 5;
+
+            passed += testItem('module-tests', 'FilterEngine loaded', typeof window.FilterEngine === 'function');
+            passed += testItem('module-tests', 'StatsCalculator loaded', typeof window.statsCalculator === 'object');
+            passed += testItem('module-tests', 'QueryBuilder loaded', typeof window.QueryBuilder === 'function');
+            passed += testItem('module-tests', 'FilterPresets loaded', typeof window.FilterPresets === 'function');
+            passed += testItem('module-tests', 'filterEngine instance exists', window.filterEngine instanceof window.FilterEngine);
+
+            updateStatus('status-modules', passed, total);
+            log(`Module tests complete: ${passed}/${total} passed`, passed === total ? 'success' : 'error');
+        }
+
+        function testFilterEngine() {
+            document.getElementById('filter-tests').innerHTML = '';
+            log('Starting FilterEngine tests...', 'info');
+            
+            let passed = 0;
+            const total = 8;
+
+            try {
+                // Initialize
+                window.filterEngine.initialize(sampleClusters, { keepFilters: false });
+                passed += testItem('filter-tests', 'Initialize with data', true);
+
+                // Get initial state
+                const state1 = window.filterEngine.getState();
+                passed += testItem('filter-tests', 'Get state returns correct structure', 
+                    state1.originalData.length === 4 && state1.filteredData.length === 4);
+
+                // Set ZIP filter
+                window.filterEngine.setFilter('zips', ['07060']);
+                const state2 = window.filterEngine.getState();
+                passed += testItem('filter-tests', 'ZIP filter works', state2.filteredData.length === 2);
+
+                // Set strength filter
+                window.filterEngine.setFilters({ strengthMin: 5 });
+                const state3 = window.filterEngine.getState();
+                passed += testItem('filter-tests', 'Strength filter works', state3.filteredData.length === 2);
+
+                // Clear filters
+                window.filterEngine.resetFilters();
+                const state4 = window.filterEngine.getState();
+                passed += testItem('filter-tests', 'Reset filters works', state4.filteredData.length === 4);
+
+                // Undo
+                window.filterEngine.setFilter('zips', ['07060']);
+                window.filterEngine.undo();
+                const state5 = window.filterEngine.getState();
+                passed += testItem('filter-tests', 'Undo works', state5.filters.zips.length === 0);
+
+                // Get active filters
+                window.filterEngine.setFilter('strengthMin', 5);
+                const active = window.filterEngine.getActiveFilters();
+                passed += testItem('filter-tests', 'Get active filters works', 
+                    Object.keys(active).length > 0);
+
+                // Active filter count
+                const count = window.filterEngine.getActiveFilterCount();
+                passed += testItem('filter-tests', 'Active filter count correct', count > 0);
+
+            } catch (error) {
+                log(`FilterEngine test error: ${error.message}`, 'error');
+            }
+
+            updateStatus('status-filter', passed, total);
+            log(`FilterEngine tests complete: ${passed}/${total} passed`, passed === total ? 'success' : 'error');
+        }
+
+        function testStatsCalculator() {
+            document.getElementById('stats-tests').innerHTML = '';
+            log('Starting StatsCalculator tests...', 'info');
+            
+            let passed = 0;
+            const total = 6;
+
+            try {
+                const calc = window.statsCalculator;
+
+                // Mean
+                const mean = calc.mean([1, 2, 3, 4, 5]);
+                passed += testItem('stats-tests', 'Mean calculation', mean === 3);
+
+                // Median
+                const median = calc.median([1, 2, 3, 4, 5]);
+                passed += testItem('stats-tests', 'Median calculation', median === 3);
+
+                // Cluster summary
+                const summary = calc.clusterSummary(sampleClusters);
+                passed += testItem('stats-tests', 'Cluster summary returns data', 
+                    summary.totalClusters === 4);
+
+                // Group by ZIP
+                const byZip = calc.groupByZip(sampleClusters);
+                passed += testItem('stats-tests', 'Group by ZIP works', byZip.length > 0);
+
+                // Source breakdown
+                const sources = calc.sourceBreakdown(sampleClusters);
+                passed += testItem('stats-tests', 'Source breakdown works', sources.length > 0);
+
+                // Strength distribution
+                const dist = calc.strengthDistribution(sampleClusters);
+                passed += testItem('stats-tests', 'Strength distribution works', 
+                    typeof dist.low === 'number');
+
+            } catch (error) {
+                log(`StatsCalculator test error: ${error.message}`, 'error');
+            }
+
+            updateStatus('status-stats', passed, total);
+            log(`StatsCalculator tests complete: ${passed}/${total} passed`, passed === total ? 'success' : 'error');
+        }
+
+        function testQueryBuilder() {
+            document.getElementById('query-tests').innerHTML = '';
+            log('Starting QueryBuilder tests...', 'info');
+            
+            let passed = 0;
+            const total = 5;
+
+            try {
+                const qb = window.queryBuilder || new window.QueryBuilder();
+
+                // Add row
+                qb.addRow();
+                passed += testItem('query-tests', 'Add row works', qb.rows.length > 0);
+
+                // Get query
+                const query = qb.getQuery();
+                passed += testItem('query-tests', 'Get query returns structure', 
+                    query.hasOwnProperty('logic') && query.hasOwnProperty('conditions'));
+
+                // Set logic
+                qb.logic = 'OR';
+                passed += testItem('query-tests', 'Set logic works', qb.logic === 'OR');
+
+                // Remove row
+                const initialLength = qb.rows.length;
+                qb.removeRow(0);
+                passed += testItem('query-tests', 'Remove row works', qb.rows.length <= initialLength);
+
+                // Clear
+                qb.clear();
+                passed += testItem('query-tests', 'Clear works', qb.rows.length === 1 && qb.logic === 'AND');
+
+            } catch (error) {
+                log(`QueryBuilder test error: ${error.message}`, 'error');
+            }
+
+            updateStatus('status-query', passed, total);
+            log(`QueryBuilder tests complete: ${passed}/${total} passed`, passed === total ? 'success' : 'error');
+        }
+
+        function runAllTests() {
+            clearOutput();
+            log('=== Running All Tests ===', 'info');
+            setTimeout(() => testModules(), 100);
+            setTimeout(() => testFilterEngine(), 500);
+            setTimeout(() => testStatsCalculator(), 1000);
+            setTimeout(() => testQueryBuilder(), 1500);
+            setTimeout(() => {
+                log('=== All Tests Complete ===', 'success');
+            }, 2000);
+        }
+
+        // Auto-run on load
+        window.addEventListener('DOMContentLoaded', () => {
+            log('Page loaded. Ready to run tests.', 'info');
+            setTimeout(runAllTests, 500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+{
+  "weeks": [
+    {
+      "week": "2025-02-03/2025-02-09",
+      "count": 1,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-02-17/2025-02-23",
+      "count": 1,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-02-24/2025-03-02",
+      "count": 3,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-03-03/2025-03-09",
+      "count": 2,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-03-10/2025-03-16",
+      "count": 2,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-03-17/2025-03-23",
+      "count": 7,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-03-24/2025-03-30",
+      "count": 3,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-03-31/2025-04-06",
+      "count": 4,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-04-07/2025-04-13",
+      "count": 11,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-04-14/2025-04-20",
+      "count": 2,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-04-21/2025-04-27",
+      "count": 1,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-04-28/2025-05-04",
+      "count": 3,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-05-05/2025-05-11",
+      "count": 1,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-05-12/2025-05-18",
+      "count": 3,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-05-19/2025-05-25",
+      "count": 16,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-05-26/2025-06-01",
+      "count": 11,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-06-02/2025-06-08",
+      "count": 9,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-06-09/2025-06-15",
+      "count": 10,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-06-16/2025-06-22",
+      "count": 8,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-06-23/2025-06-29",
+      "count": 2,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-06-30/2025-07-06",
+      "count": 3,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-07-07/2025-07-13",
+      "count": 5,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-07-14/2025-07-20",
+      "count": 12,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-07-21/2025-07-27",
+      "count": 14,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-07-28/2025-08-03",
+      "count": 5,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-08-04/2025-08-10",
+      "count": 18,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-08-11/2025-08-17",
+      "count": 8,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-08-18/2025-08-24",
+      "count": 18,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-08-25/2025-08-31",
+      "count": 6,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-09-01/2025-09-07",
+      "count": 7,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-09-08/2025-09-14",
+      "count": 2,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-09-15/2025-09-21",
+      "count": 7,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-09-22/2025-09-28",
+      "count": 6,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-09-29/2025-10-05",
+      "count": 3,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-10-06/2025-10-12",
+      "count": 2,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-10-13/2025-10-19",
+      "count": 3,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-10-20/2025-10-26",
+      "count": 2,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-10-27/2025-11-02",
+      "count": 8,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-11-03/2025-11-09",
+      "count": 1,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-11-10/2025-11-16",
+      "count": 2,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-11-17/2025-11-23",
+      "count": 12,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-11-24/2025-11-30",
+      "count": 2,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-12-08/2025-12-14",
+      "count": 8,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-12-15/2025-12-21",
+      "count": 4,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-12-22/2025-12-28",
+      "count": 1,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2025-12-29/2026-01-04",
+      "count": 2,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2026-01-05/2026-01-11",
+      "count": 13,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2026-01-12/2026-01-18",
+      "count": 67,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2026-01-19/2026-01-25",
+      "count": 15,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2026-01-26/2026-02-01",
+      "count": 30,
+      "sources": [
+        "Google News"
+      ]
+    },
+    {
+      "week": "2026-02-02/2026-02-08",
+      "count": 89,
+      "sources": [
+        "NJ Attorney General",
+        "Google News",
+        "NJ Spotlight News"
+      ]
+    }
+  ],
+  "trend": {
+    "direction": "increasing",
+    "magnitude": 0.4085067873303167,
+    "change_pct": 132.4294410625346
+  },
+  "burst_score": 0.9978947368421053
+}

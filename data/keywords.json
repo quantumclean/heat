@@ -1,0 +1,714 @@
+{
+  "generated_at": "2026-02-26T04:51:41.462895+00:00",
+  "keywords": [
+    {
+      "word": "monitor",
+      "count": 61,
+      "top_location": "07060",
+      "locations": {
+        "07060": 61
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-02-07T00:00:00+00:00",
+        "end": "2026-02-03T00:00:00+00:00"
+      },
+      "recency_hours": 556.861516895
+    },
+    {
+      "word": "cities",
+      "count": 56,
+      "top_location": "07060",
+      "locations": {
+        "07060": 56
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-04-28T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615169197222
+    },
+    {
+      "word": "deportation",
+      "count": 48,
+      "top_location": "07060",
+      "locations": {
+        "07060": 48
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News",
+        "NJ Spotlight News"
+      ],
+      "date_range": {
+        "start": "2025-02-07T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615169308333
+    },
+    {
+      "word": "com",
+      "count": 41,
+      "top_location": "07060",
+      "locations": {
+        "07060": 41
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-04-28T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615169388888
+    },
+    {
+      "word": "york",
+      "count": 40,
+      "top_location": "07060",
+      "locations": {
+        "07060": 40
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News",
+        "NJ Attorney General"
+      ],
+      "date_range": {
+        "start": "2025-02-27T00:00:00+00:00",
+        "end": "2026-02-08T00:00:00+00:00"
+      },
+      "recency_hours": 436.86151694666665
+    },
+    {
+      "word": "raid",
+      "count": 38,
+      "top_location": "07060",
+      "locations": {
+        "07060": 38
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-07-09T00:00:00+00:00",
+        "end": "2026-01-17T00:00:00+00:00"
+      },
+      "recency_hours": 964.8615169541667
+    },
+    {
+      "word": "spotlight",
+      "count": 35,
+      "top_location": "07060",
+      "locations": {
+        "07060": 35
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News",
+        "NJ Spotlight News"
+      ],
+      "date_range": {
+        "start": "2025-03-07T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.861516963611
+    },
+    {
+      "word": "after",
+      "count": 34,
+      "top_location": "07060",
+      "locations": {
+        "07060": 34
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-03-12T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615169733333
+    },
+    {
+      "word": "judge",
+      "count": 33,
+      "top_location": "07060",
+      "locations": {
+        "07060": 33
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-03-19T00:00:00+00:00",
+        "end": "2026-01-29T00:00:00+00:00"
+      },
+      "recency_hours": 676.8615169808334
+    },
+    {
+      "word": "immigrant",
+      "count": 31,
+      "top_location": "07060",
+      "locations": {
+        "07060": 31
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-02-07T00:00:00+00:00",
+        "end": "2026-02-03T00:00:00+00:00"
+      },
+      "recency_hours": 556.8615169877778
+    },
+    {
+      "word": "over",
+      "count": 30,
+      "top_location": "07060",
+      "locations": {
+        "07060": 30
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-04-22T00:00:00+00:00",
+        "end": "2026-01-30T00:00:00+00:00"
+      },
+      "recency_hours": 652.8615169947221
+    },
+    {
+      "word": "policies",
+      "count": 27,
+      "top_location": "07060",
+      "locations": {
+        "07060": 27
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News",
+        "NJ Attorney General"
+      ],
+      "date_range": {
+        "start": "2025-02-19T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615170016667
+    },
+    {
+      "word": "record",
+      "count": 26,
+      "top_location": "07060",
+      "locations": {
+        "07060": 26
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-03-05T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615170116667
+    },
+    {
+      "word": "arrests",
+      "count": 24,
+      "top_location": "07060",
+      "locations": {
+        "07060": 24
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-02-19T00:00:00+00:00",
+        "end": "2026-02-03T00:00:00+00:00"
+      },
+      "recency_hours": 556.8615170194445
+    },
+    {
+      "word": "patch",
+      "count": 24,
+      "top_location": "07060",
+      "locations": {
+        "07060": 24
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-08-05T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615170280556
+    },
+    {
+      "word": "list",
+      "count": 23,
+      "top_location": "07060",
+      "locations": {
+        "07060": 23
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-05-30T00:00:00+00:00",
+        "end": "2025-09-18T00:00:00+00:00"
+      },
+      "recency_hours": 3868.86151704
+    },
+    {
+      "word": "bergen",
+      "count": 22,
+      "top_location": "07060",
+      "locations": {
+        "07060": 22
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-03-05T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615170519445
+    },
+    {
+      "word": "governor",
+      "count": 21,
+      "top_location": "07060",
+      "locations": {
+        "07060": 21
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News",
+        "NJ Attorney General"
+      ],
+      "date_range": {
+        "start": "2025-03-13T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615170638889
+    },
+    {
+      "word": "khalil",
+      "count": 21,
+      "top_location": "07060",
+      "locations": {
+        "07060": 21
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-03-19T00:00:00+00:00",
+        "end": "2026-01-15T00:00:00+00:00"
+      },
+      "recency_hours": 1012.8615170755555
+    },
+    {
+      "word": "morristown",
+      "count": 21,
+      "top_location": "07060",
+      "locations": {
+        "07060": 21
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2026-01-11T00:00:00+00:00",
+        "end": "2026-01-21T00:00:00+00:00"
+      },
+      "recency_hours": 868.8615170866666
+    },
+    {
+      "word": "mahmoud",
+      "count": 20,
+      "top_location": "07060",
+      "locations": {
+        "07060": 20
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-03-19T00:00:00+00:00",
+        "end": "2026-01-15T00:00:00+00:00"
+      },
+      "recency_hours": 1012.8615170977778
+    },
+    {
+      "word": "raids",
+      "count": 19,
+      "top_location": "07060",
+      "locations": {
+        "07060": 19
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-02-07T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615171088888
+    },
+    {
+      "word": "detention",
+      "count": 19,
+      "top_location": "07060",
+      "locations": {
+        "07060": 19
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-02-27T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.86151712
+    },
+    {
+      "word": "detained",
+      "count": 19,
+      "top_location": "07060",
+      "locations": {
+        "07060": 19
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-03-28T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615171325
+    },
+    {
+      "word": "out",
+      "count": 18,
+      "top_location": "07060",
+      "locations": {
+        "07060": 18
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-04-01T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615171441667
+    },
+    {
+      "word": "court",
+      "count": 17,
+      "top_location": "07060",
+      "locations": {
+        "07060": 17
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News",
+        "NJ Attorney General"
+      ],
+      "date_range": {
+        "start": "2025-03-28T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615171522222
+    },
+    {
+      "word": "mayor",
+      "count": 17,
+      "top_location": "07060",
+      "locations": {
+        "07060": 17
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News",
+        "NJ Spotlight News"
+      ],
+      "date_range": {
+        "start": "2025-03-13T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615171602778
+    },
+    {
+      "word": "hoboken",
+      "count": 16,
+      "top_location": "07060",
+      "locations": {
+        "07060": 16
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News",
+        "NJ Spotlight News"
+      ],
+      "date_range": {
+        "start": "2025-05-23T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.86151717
+    },
+    {
+      "word": "times",
+      "count": 16,
+      "top_location": "07060",
+      "locations": {
+        "07060": 16
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-02-27T00:00:00+00:00",
+        "end": "2026-01-31T00:00:00+00:00"
+      },
+      "recency_hours": 628.8615171819445
+    },
+    {
+      "word": "against",
+      "count": 16,
+      "top_location": "07060",
+      "locations": {
+        "07060": 16
+      },
+      "top_source": "Google News",
+      "sources": [
+        "Google News"
+      ],
+      "date_range": {
+        "start": "2025-05-23T00:00:00+00:00",
+        "end": "2026-02-04T00:00:00+00:00"
+      },
+      "recency_hours": 532.8615171938889
+    }
+  ],
+  "top_keywords": [
+    [
+      "deportation",
+      48
+    ],
+    [
+      "cities",
+      44
+    ],
+    [
+      "raid",
+      38
+    ],
+    [
+      "judge",
+      24
+    ],
+    [
+      "immigrant",
+      21
+    ],
+    [
+      "arrests",
+      20
+    ],
+    [
+      "morristown",
+      20
+    ],
+    [
+      "after",
+      19
+    ],
+    [
+      "detention",
+      19
+    ],
+    [
+      "list",
+      19
+    ],
+    [
+      "policies",
+      18
+    ],
+    [
+      "over",
+      18
+    ],
+    [
+      "court",
+      17
+    ],
+    [
+      "mayor",
+      17
+    ],
+    [
+      "residents",
+      15
+    ],
+    [
+      "governor",
+      15
+    ],
+    [
+      "school",
+      15
+    ],
+    [
+      "mahmoud",
+      15
+    ],
+    [
+      "khalil",
+      15
+    ],
+    [
+      "detained",
+      14
+    ]
+  ],
+  "categories": {
+    "enforcement": 360,
+    "community": 50,
+    "government": 130,
+    "safety": 26,
+    "legal": 58,
+    "education": 29,
+    "response": 174,
+    "general": 18,
+    "workplace": 16
+  },
+  "related_terms": {
+    "enforcement": [
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "released",
+      "fought",
+      "transferred",
+      "congress"
+    ],
+    "community": [
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "fought",
+      "released",
+      "congress"
+    ],
+    "legal": [
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "fought",
+      "released",
+      "play"
+    ],
+    "safety": [
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "fought",
+      "released",
+      "congress"
+    ],
+    "response": [
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "fought",
+      "released",
+      "congress"
+    ],
+    "education": [
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "released",
+      "fought",
+      "transferred",
+      "congress"
+    ],
+    "workplace": [
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "released",
+      "congress",
+      "play"
+    ],
+    "government": [
+      "notification",
+      "princeton",
+      "cammie",
+      "hillsborough",
+      "latest",
+      "bass",
+      "transferred",
+      "fought",
+      "released",
+      "play"
+    ]
+  }
+}
