@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HEAT Weekly Brief</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         max-width: 800px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
+  h1 { border-bottom: 2px solid #1a73e8; padding-bottom: .5rem; }
+  h2 { color: #1a73e8; margin-top: 2rem; }
+  .meta { background: #f0f4f8; padding: 1rem; border-radius: 8px; font-size: .9rem; }
+  .meta dt { font-weight: 600; }
+  .section { margin-bottom: 1.5rem; }
+  pre { background: #f5f5f5; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: .85rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { border: 1px solid #ddd; padding: .5rem; text-align: left; }
+  th { background: #f0f4f8; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: .8rem; font-weight: 600; }
+  .badge-quiet { background: #E8F5E9; color: #2E7D32; }
+  .badge-moderate { background: #FFF9C4; color: #F57F17; }
+  .badge-elevated { background: #FFE0B2; color: #E65100; }
+  .badge-high { background: #FFCDD2; color: #C62828; }
+  footer { margin-top: 3rem; font-size: .8rem; color: #666; border-top: 1px solid #ddd; padding-top: 1rem; }
+</style>
+</head>
+<body>
+<h1>HEAT Weekly Brief</h1>
+<dl class="meta">
+  <dt>Report ID</dt><dd>HEAT-WEEKLY-20260226T033220Z</dd>
+  <dt>Template</dt><dd>weekly</dd>
+  <dt>Tier</dt><dd>1</dd>
+  <dt>Generated</dt><dd>2026-02-26T03:32:20.108249Z</dd>
+  <dt>Schema</dt><dd>1.0.0</dd>
+  <dt>Inputs Hash</dt><dd><code>sha256:de50d2a9775442fd5...</code></dd>
+</dl>
+<div class="section">
+  <h2>Executive Summary</h2>
+  <p>Weekly attention summary for 3 ZIP codes covering Feb 19–Feb 26, 2026. Total clusters: 65, total signals: 168. Per-ZIP states: ZIP 07060: QUIET, ZIP 07062: QUIET, ZIP 07063: QUIET.</p>
+  <table><thead><tr><th>ZIP</th><th>State</th><th>Score</th><th>Signals</th></tr></thead><tbody><tr><td>07060</td><td><span class='badge badge-quiet'>QUIET</span></td><td>0.011</td><td>168</td></tr><tr><td>07062</td><td><span class='badge badge-quiet'>QUIET</span></td><td>0.0</td><td>0</td></tr><tr><td>07063</td><td><span class='badge badge-quiet'>QUIET</span></td><td>0.0</td><td>0</td></tr></tbody></table>
+</div>
+<div class="section">
+  <h2>Methodology</h2>
+  <p>Signals are collected from RSS feeds (news, community, advocacy), clustered using HDBSCAN (min_cluster_size=2, metric=euclidean) on sentence-transformer embeddings (all-MiniLM-L6-v2, 384-dim). Cluster strength uses exponential time-decay (72h half-life). Safety buffer enforces 24h delay, 3+ signals, 2+ sources, volume >= 1.0. This report is tier 1 with 24h delay.</p>
+  
+</div>
+<div class="section">
+  <h2>Data</h2>
+  <p>65 clusters in reporting window.</p>
+  <table><thead><tr><th>cluster_id</th><th>zip</th><th>size</th><th>strength</th><th>summary</th></tr></thead><tbody><tr><td>10</td><td>07060</td><td>7</td><td>1.86</td><td>Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown - Patch. Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown Patch</td></tr><tr><td>1</td><td>07060</td><td>3</td><td>1.07</td><td>Three Men Charged for Roles in Trafficking, Sexual Assault of Minor, Production of Child Pornography. Jan 29, 2026|aggravated sexual assault of a minor by aiding and abetting|child pornography|DCJ|Div</td></tr><tr><td>81</td><td>07060</td><td>3</td><td>0.79</td><td>Do ICE [redacted]s really need a warrant in NJ—Here are the facts - New Jersey 101.5. Do ICE [redacted]s really need a warrant in NJ—Here are the facts New Jersey 101.5</td></tr><tr><td>8</td><td>07060</td><td>2</td><td>0.64</td><td>An autistic 19-year-old [redacted]ished. His mom fears he may have been taken by ICE - The Independent. An autistic 19-year-old [redacted]ished. His mom fears he may have been taken by ICE The Independent</td></tr><tr><td>47</td><td>07060</td><td>5</td><td>0.59</td><td>Where Do New Jersey and Virginia Gubernatorial Candidates Stand On Immigration? - America's Voice. Where Do New Jersey and Virginia Gubernatorial Candidates Stand On Immigration? America's Voice</td></tr><tr><td>80</td><td>07060</td><td>5</td><td>0.59</td><td>New details emerge about NJ ICE [redacted]s—NJ Top News - New Jersey 101.5. New details emerge about NJ ICE [redacted]s—NJ Top News New Jersey 101.5</td></tr><tr><td>30</td><td>07060</td><td>6</td><td>0.36</td><td>NJ lawmakers want to ban masks for ICE [redacted]s - NJ Spotlight News. NJ lawmakers want to ban masks for ICE [redacted]s NJ Spotlight News</td></tr><tr><td>9</td><td>07060</td><td>2</td><td>0.36</td><td>Today’s audio update: N.J. man accused of driving suspect to Mexico border, child speaks out against ICE [redacted]s - NJ.com. Today’s audio update: N.J. man accused of driving suspect to Mexico border, chi</td></tr><tr><td>60</td><td>07060</td><td>2</td><td>0.33</td><td>ICE [redacted]s in N.J. city were ‘lawless,’ and ‘reprehensible’ state lawmaker says - NJ.com. ICE [redacted]s in N.J. city were ‘lawless,’ and ‘reprehensible’ state lawmaker says NJ.com</td></tr><tr><td>44</td><td>07060</td><td>2</td><td>0.27</td><td>N.J. governor wants residents to record ICE [redacted]s, upload videos to new state database - NJ.com. N.J. governor wants residents to record ICE [redacted]s, upload videos to new state database NJ.com</td></tr><tr><td>34</td><td>07060</td><td>2</td><td>0.23</td><td>Multiple ICE [redacted]s, NJ Transit Train Smashes Car, Dispensary Fire Hurts 2: NJ Weekend - Patch. Multiple ICE [redacted]s, NJ Transit Train Smashes Car, Dispensary Fire Hurts 2: NJ Weekend Patch</td></tr><tr><td>79</td><td>07060</td><td>2</td><td>0.11</td><td>Protests held to keep ICE out of New Jersey - News12 | New Jersey. Protests held to keep ICE out of New Jersey News12 | New Jersey</td></tr><tr><td>23</td><td>07060</td><td>3</td><td>0.09</td><td>NJ moves toward restricting ICE co[redacted], but unclear if Murphy will sign bills - Gothamist. NJ moves toward restricting ICE co[redacted], but unclear if Murphy will sign bills Gothamist</td></tr><tr><td>46</td><td>07060</td><td>2</td><td>0.02</td><td>On His Way Out, New Jersey Governor Vetoes Legislation to Bar Local Assistance to ICE - boltsmag.org. On His Way Out, New Jersey Governor Vetoes Legislation to Bar Local Assistance to ICE boltsmag.org</td></tr><tr><td>35</td><td>07060</td><td>2</td><td>0.02</td><td>Immigrant protection bills await Murphy’s signature as ICE [redacted]s continue in NJ - NJ Spotlight News. Immigrant protection bills await Murphy’s signature as ICE [redacted]s continue in NJ NJ Spotlight News</td></tr><tr><td>69</td><td>07060</td><td>2</td><td>0.01</td><td>NJ residents rally against ICE [redacted] aftermath - PIX11. NJ residents rally against ICE [redacted] aftermath PIX11</td></tr><tr><td>20</td><td>07060</td><td>2</td><td>0.01</td><td>NJ Democrats demand ICE cease plans for Roxbury detention center - New Jersey Monitor. NJ Democrats demand ICE cease plans for Roxbury detention center New Jersey Monitor</td></tr><tr><td>5</td><td>07060</td><td>2</td><td>0.01</td><td>ICE MOVES TO DEPORT RED BANK'S BICYCLING LANDSCAPER - Red Bank Green. ICE MOVES TO DEPORT RED BANK'S BICYCLING LANDSCAPER Red Bank Green</td></tr><tr><td>86</td><td>07060</td><td>3</td><td>0.01</td><td>Trump threatening "significant" cuts in federal funding to states with sanctuary cities - cbsnews.com. Trump threatening "significant" cuts in federal funding to states with sanctuary cities cbsnews.c</td></tr><tr><td>67</td><td>07060</td><td>2</td><td>0.01</td><td>Dad [redacted] in ICE [redacted] after dropping kid off at school, 2nd man identified - NJ.com. Dad [redacted] in ICE [redacted] after dropping kid off at school, 2nd man identified NJ.com</td></tr><tr><td>64</td><td>07060</td><td>3</td><td>0.01</td><td>High School Student Doing Laundry Among Those [redacted] In Morris Co. ICE [redacted] - Patch. High School Student Doing Laundry Among Those [redacted] In Morris Co. ICE [redacted] Patch</td></tr><tr><td>62</td><td>07060</td><td>3</td><td>0.0</td><td>Feds sue 4 N.J. cities over immigration policies, mayors say they won’t back down - NJ.com. Feds sue 4 N.J. cities over immigration policies, mayors say they won’t back down NJ.com</td></tr><tr><td>26</td><td>07060</td><td>2</td><td>0.0</td><td>NJ governor candidates split on housing immigrant detainees at Fort Dix - New Jersey Monitor. NJ governor candidates split on housing immigrant detainees at Fort Dix New Jersey Monitor</td></tr><tr><td>31</td><td>07060</td><td>4</td><td>0.0</td><td>Contested New Jersey law banning private immigration jails gets its day in court - New Jersey Monitor. Contested New Jersey law banning private immigration jails gets its day in court New Jersey Monit</td></tr><tr><td>65</td><td>07060</td><td>2</td><td>0.0</td><td>States, sheriffs puzzle over Trump’s error-filled list of immigration sanctuaries - New Jersey Monitor. States, sheriffs puzzle over Trump’s error-filled list of immigration sanctuaries New Jersey Mon</td></tr><tr><td>51</td><td>07060</td><td>3</td><td>0.0</td><td>Pair of Immigration [redacted]s Disrupts a New Jersey Shipping Hub - The New York Times. Pair of Immigration [redacted]s Disrupts a New Jersey Shipping Hub The New York Times</td></tr><tr><td>45</td><td>07060</td><td>2</td><td>0.0</td><td>New Jersey lawmakers pass 3 bills designed to protect immigrants from ICE [redacted]s - WHYY. New Jersey lawmakers pass 3 bills designed to protect immigrants from ICE [redacted]s WHYY</td></tr><tr><td>3</td><td>07060</td><td>2</td><td>0.0</td><td>A Push to Expand the Rights of Immigrants in Defiance of Trump - The New York Times. A Push to Expand the Rights of Immigrants in Defiance of Trump The New York Times</td></tr><tr><td>41</td><td>07060</td><td>3</td><td>0.0</td><td>‘They're killing Americans on the street’: NJ lawmakers push anti-ICE bills following fatal Minnesota shooting - Politico. ‘They're killing Americans on the street’: NJ lawmakers push anti-ICE bills f</td></tr><tr><td>50</td><td>07060</td><td>2</td><td>0.0</td><td>NJ 2025: The year in immigration - NJ Spotlight News. NJ 2025: The year in immigration NJ Spotlight News</td></tr><tr><td>75</td><td>07060</td><td>3</td><td>0.0</td><td>ICE [redacted] at Avenel warehouse leads to 46 [redacted]s - News12 | New Jersey. ICE [redacted] at Avenel warehouse leads to 46 [redacted]s News12 | New Jersey</td></tr><tr><td>28</td><td>07060</td><td>2</td><td>0.0</td><td>ICE Newark [redacted]s another 4 illegally present child sex offenders as part of ongoing [redacted] - U.S. Immigration and Customs Enforcement (.gov). ICE Newark [redacted]s another 4 illegally present child </td></tr><tr><td>25</td><td>07060</td><td>2</td><td>0.0</td><td>2 people recaptured after escaping New Jersey immigration detention center - PBS. 2 people recaptured after escaping New Jersey immigration detention center PBS</td></tr><tr><td>90</td><td>07060</td><td>3</td><td>0.0</td><td>DOJ files lawsuit against ‘sanctuary’ cities in New Jersey - NJ Spotlight News. DOJ files lawsuit against ‘sanctuary’ cities in New Jersey NJ Spotlight News</td></tr><tr><td>92</td><td>07060</td><td>3</td><td>0.0</td><td>Trump Administration Sues Adams and New York City Over Sanctuary Laws - The New York Times. Trump Administration Sues Adams and New York City Over Sanctuary Laws The New York Times</td></tr><tr><td>94</td><td>07060</td><td>2</td><td>0.0</td><td>Trump administration sues 4 New Jersey cities over ‘sanctuary’ policies - AP News. Trump administration sues 4 New Jersey cities over ‘sanctuary’ policies AP News</td></tr><tr><td>27</td><td>07060</td><td>4</td><td>0.0</td><td>South Jersey military base to temporarily hold immigrant detainees - WHYY. South Jersey military base to temporarily hold immigrant detainees WHYY</td></tr><tr><td>56</td><td>07060</td><td>2</td><td>0.0</td><td>ICE [redacted]s and protests: Look back at immigration in New Jersey in 2025 - Bergen Record. ICE [redacted]s and protests: Look back at immigration in New Jersey in 2025 Bergen Record</td></tr><tr><td>89</td><td>07060</td><td>2</td><td>0.0</td><td>21 New Jersey spots included in federal list of targeted sanctuary towns and counties - Bergen Record. 21 New Jersey spots included in federal list of targeted sanctuary towns and counties Bergen Reco</td></tr><tr><td>84</td><td>07060</td><td>2</td><td>0.0</td><td>Justice Department Sues Los Angeles Over Sanctuary City Ordinance - Law Commentary. Justice Department Sues Los Angeles Over Sanctuary City Ordinance Law Commentary</td></tr><tr><td>93</td><td>07060</td><td>2</td><td>0.0</td><td>New Jersey ‘Sanctuary Cities’ Sued by Trump Administration Over Immigration Policies - Bloomberg.com. New Jersey ‘Sanctuary Cities’ Sued by Trump Administration Over Immigration Policies Bloomberg.com</td></tr><tr><td>82</td><td>07060</td><td>3</td><td>0.0</td><td>Bergen County town removed from federal list of sanctuary cities. Here's why - Bergen Record. Bergen County town removed from federal list of sanctuary cities. Here's why Bergen Record</td></tr><tr><td>54</td><td>07060</td><td>3</td><td>0.0</td><td>Philadelphia stays on the Trump administration’s new, shorter list of sanctuary cities - York Daily Record. Philadelphia stays on the Trump administration’s new, shorter list of sanctuary cities York </td></tr><tr><td>17</td><td>07060</td><td>2</td><td>0.0</td><td>WATCH: Governors from NY, IL and MN testify at hearing on 'sanctuary' policies and immigration - PBS. WATCH: Governors from NY, IL and MN testify at hearing on 'sanctuary' policies and immigration PBS</td></tr><tr><td>77</td><td>07060</td><td>2</td><td>0.0</td><td>Judge blocks Trump from cutting funding from 34 cities and counties over ‘sanctuary’ policies - WHYY. Judge blocks Trump from cutting funding from 34 cities and counties over ‘sanctuary’ policies WHYY</td></tr><tr><td>63</td><td>07060</td><td>2</td><td>0.0</td><td>DHS removes list of ‘sanctuary jurisdictions’ - Police1. DHS removes list of ‘sanctuary jurisdictions’ Police1</td></tr><tr><td>85</td><td>07060</td><td>2</td><td>0.0</td><td>'Fraud and crime': Trump to halt payments to sanctuary cities beginning Feb. 1 - thenationaldesk.com. 'Fraud and crime': Trump to halt payments to sanctuary cities beginning Feb. 1 thenationaldesk.com</td></tr><tr><td>87</td><td>07060</td><td>2</td><td>0.0</td><td>DHS names 21 NJ towns, counties as ‘sanctuary jurisdictions’ - New Jersey 101.5. DHS names 21 NJ towns, counties as ‘sanctuary jurisdictions’ New Jersey 101.5</td></tr><tr><td>91</td><td>07060</td><td>2</td><td>0.0</td><td>DOJ publishes list of 'sanctuary jurisdictions,' includes NY and NJ - FOX 5 New York. DOJ publishes list of 'sanctuary jurisdictions,' includes NY and NJ FOX 5 New York</td></tr><tr><td>88</td><td>07060</td><td>2</td><td>0.0</td><td>Trump Targets NJ Sanctuary Cities — Again - Patch. Trump Targets NJ Sanctuary Cities — Again Patch</td></tr></tbody></table>
+</div>
+<div class="section">
+  <h2>Analysis</h2>
+  <p>Top NLP keywords: deportation, cities, raid, judge, immigrant, arrests, morristown, after, detention, list. Trend direction: increasing.</p>
+  <pre>{
+  "keywords": [
+    "deportation",
+    "cities",
+    "raid",
+    "judge",
+    "immigrant",
+    "arrests",
+    "morristown",
+    "after",
+    "detention",
+    "list"
+  ],
+  "trend": {
+    "direction": "increasing",
+    "magnitude": 0.4085067873303167,
+    "change_pct": 132.4294410625346
+  }
+}</pre>
+</div>
+<div class="section">
+  <h2>Confidence Assessment</h2>
+  <p>Based on 168 signals from 65 clusters. Confidence is proportional to signal volume and source diversity.</p>
+  <pre>{
+  "signals": 168,
+  "clusters": 65
+}</pre>
+</div>
+<div class="section">
+  <h2>Recommendations</h2>
+  <p>Continue routine monitoring. Review any ELEVATED_ATTENTION or HIGH_ATTENTION ZIPs.</p>
+  
+</div>
+
+<footer>
+  Generated by HEAT Report Engine &middot; Schema 1.0.0 &middot; 2026-02-26T03:32:20.108249Z
+</footer>
+</body>
+</html>

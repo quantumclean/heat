@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <!-- Apple HIG Viewport: viewport-fit=cover enables safe-area-inset support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="HEAT — They Are Here">
+    <meta name="theme-color" content="#ffffff" id="theme-color-meta">
+    <title>HEAT — They Are Here | Community Awareness Map | New Jersey</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🔥</text></svg>">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Chart.js (pinned to prevent silent CDN breaking changes) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="analytics.css">
+    <link rel="stylesheet" href="emergency-mode.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-brand">
+                <img src="logo.svg" alt="HEAT — They Are Here" class="header-logo">
+                <h1>HEAT — They Are Here <span class="version-tag">v4</span></h1>
+            </div>
+            <div class="header-controls">
+                <select id="lang-select" class="lang-select" title="Language">
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                </select>
+                <button id="theme-toggle" class="glass-btn" title="Toggle Light/Dark Mode">◐</button>
+                <button id="location-btn" class="glass-btn" title="Use My Location">⊙</button>
+                <button id="teams-toggle" class="glass-btn" title="Toggle Agent Teams Panel">⚙ Teams</button>
+            </div>
+        </div>
+        <p class="subtitle" data-i18n="subtitle">ICE-Related Reports Across New Jersey</p>
+        
+        <!-- Quick Region Navigation -->
+        <div class="region-nav">
+            <button class="region-btn glass-btn active" data-region="statewide" title="All New Jersey">
+                <span class="region-label">Statewide</span>
+                <small>All NJ</small>
+            </button>
+            <button class="region-btn glass-btn" data-region="north" title="North Jersey: Edison, Metuchen, New Brunswick">
+                <span class="region-label">North</span>
+                <small>Edison · Metuchen</small>
+            </button>
+            <button class="region-btn glass-btn" data-region="central" title="Central Jersey: Plainfield, Piscataway, Somerset">
+                <span class="region-label">Central</span>
+                <small>Plainfield · Piscataway</small>
+            </button>
+            <button class="region-btn glass-btn" data-region="south" title="South Jersey: Trenton, Princeton">
+                <span class="region-label">South</span>
+                <small>Trenton · Princeton</small>
+            </button>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-box">
+                <span class="search-icon">⌕</span>
+                <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Search ZIP, street, or topic..." autocomplete="off">
+                <button id="search-clear" class="search-clear hidden">×</button>
+            </div>
+            <div class="precision-note">Precision: ZIP-level only. Markers are placed within ZIP boundaries, never addresses.</div>
+            <div id="search-results" class="search-results hidden"></div>
+        </div>
+        
+        <!-- Your Location (if detected) -->
+        <div id="user-location" class="location-badge hidden">
+            <span>📍 Your area: <strong id="user-zip">--</strong></span>
+        </div>
+
+        <!-- Quick Stats: Recent Reports -->
+        <div class="quick-stats glass-card">
+            <div class="quick-stat" title="Reports this week">
+                <span class="quick-stat-label">This Week:</span>
+                <span class="quick-stat-value" id="stat-24h">--</span>
+            </div>
+            <div class="quick-stat" title="Last 7 days">
+                <span class="quick-stat-label">Last 7d:</span>
+                <span class="quick-stat-value" id="stat-7d">--</span>
+            </div>
+            <div class="quick-stat">
+                <span class="quick-stat-label">Recent:</span>
+                <span class="quick-stat-value" id="stat-today">--</span>
+            </div>
+            <div class="quick-stat">
+                <span class="quick-stat-label">Prior Week:</span>
+                <span class="quick-stat-value" id="stat-yesterday">--</span>
+            </div>
+        </div>
+
+        <!-- Check Your Area ZIP Check -->
+        <div class="am-i-safe glass-card">
+            <button id="safe-check-toggle" class="glass-btn safe-check-btn">🛡️ Check Your Area</button>
+            <div id="safe-check-panel" class="safe-check-panel hidden">
+                <div class="safe-check-input">
+                    <input type="text" id="safe-check-zip" placeholder="Enter ZIP code" maxlength="5" pattern="[0-9]{5}">
+                    <button id="safe-check-go" class="glass-btn">Check</button>
+                </div>
+                <div id="safe-check-result" class="safe-check-result"></div>
+                <p class="safe-check-note">Shows ICE-related reports in this ZIP code for the past 14 days. Always verify with additional sources.</p>
+            </div>
+        </div>
+
+        <div class="signal-summary">
+            <strong>What changed:</strong> ICE-related reports <span id="trend-summary">loading...</span>
+            based on verified news and community sources. This tool shows where topics are being discussed, not live tracking.
+        </div>
+
+        <div class="rolling-banner glass-card" aria-live="polite">
+            <div class="rolling-track">
+                <div class="rolling-item">Shows reports, not live tracking • verify independently</div>
+                <div class="rolling-item">72-hour delay • ZIP code areas only • no personal info stored</div>
+                <div class="rolling-item">News sources shown first • community reports labeled</div>
+                <div class="rolling-item">ICE-related reports <span class="rolling-emphasis trend-summary-inline">loading...</span></div>
+            </div>
+        </div>
+        
+        <!-- Trust & Safety Badge -->
+        <div class="trust-badge glass-card">
+            <div data-i18n="trustNote">🔒 No tracking • 🗺️ ZIP codes only • ⏱️ 72-hour delay • 🧬 No personal info stored</div>
+            <div style="font-size: 0.75rem; margin-top: 0.5rem;"><span data-i18n="lastUpdated">Last updated</span>: <strong id="last-updated">Loading...</strong></div>
+        </div>
+    </header>
+
+    <!-- MOBILE ONLY: ZIP Check Bar -->
+    <div id="mobile-zip-bar" class="mobile-zip-bar">
+        <span class="mzb-icon">🛡️</span>
+        <input type="text" id="mobile-zip-input" placeholder="Enter your ZIP code..."
+               maxlength="5" inputmode="numeric" pattern="[0-9]*" autocomplete="postal-code">
+        <button id="mobile-zip-go" class="mzb-btn">Check</button>
+    </div>
+
+    <main>
+        <div id="location-alert" class="alert-banner glass-card hidden" aria-live="polite">
+            <div class="alert-banner__label">Area Update</div>
+            <div id="location-alert-body" class="alert-banner__body">No alerts for your area right now.</div>
+        </div>
+
+        <!-- Quick Stats Dashboard - Clickable Cards -->
+        <section id="quick-dashboard" class="dashboard-grid">
+            <div class="dash-card glass-card" data-target="map-section">
+                <div class="dash-icon">🗺️</div>
+                <div class="dash-value" id="dash-clusters">--</div>
+                <div class="dash-label" data-i18n="activeClusters">Active Reports</div>
+                <div class="dash-ring"></div>
+            </div>
+            <div class="dash-card glass-card" data-target="timeline-section">
+                <div class="dash-icon">↗</div>
+                <div class="dash-value" id="dash-trend">--</div>
+                <div class="dash-label" data-i18n="trend">Trend</div>
+                <div class="dash-ring"></div>
+            </div>
+            <div class="dash-card glass-card" data-target="keywords-section">
+                <div class="dash-icon">⊞</div>
+                <div class="dash-value" id="dash-keywords">--</div>
+                <div class="dash-label" data-i18n="keywords">Keywords</div>
+                <div class="dash-ring"></div>
+            </div>
+            <div class="dash-card glass-card intensity-card" data-target="clusters-section">
+                <div class="dash-icon">▪</div>
+                <div class="dash-value"><span id="dash-intensity">--</span></div>
+                <div class="dash-label" data-i18n="intensity">Heat Level</div>
+                <div class="intensity-bar">
+                    <div class="intensity-fill" id="intensity-fill"></div>
+                </div>
+            </div>
+            <div class="dash-card glass-card entropy-card" data-target="map-section">
+                <div class="dash-icon">⊘</div>
+                <div class="dash-value"><span id="dash-entropy">--</span></div>
+                <div class="dash-label" data-i18n="entropy">Topic Spread</div>
+                <div class="entropy-gauge">
+                    <svg viewBox="0 0 36 18" class="entropy-arc">
+                        <path d="M2 18 A16 16 0 0 1 34 18" fill="none" stroke="var(--glass-border)" stroke-width="3" stroke-linecap="round"/>
+                        <path id="entropy-arc-fill" d="M2 18 A16 16 0 0 1 34 18" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 100"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mobile Submit Button -->
+        <a href="submit.html" class="submit-signal-btn glass-btn" title="Submit Signal">+</a>
+
+        <!-- Two-column: Map + News Sidebar -->
+        <div class="map-layout">
+            <div class="map-column">
+                <section id="map-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Where Reports Are Coming From</h2>
+                        <div class="btn-group">
+                            <button id="reset-map" class="glass-btn" title="Reset map to NJ overview" aria-label="Reset map view">
+                                <span aria-hidden="true">🎯</span> Reset View
+                            </button>
+                            <button id="toggle-heatmap" class="glass-btn" aria-label="Toggle heatmap overlay">Heatmap</button>
+                            <button id="toggle-kde" class="glass-btn" aria-label="Toggle KDE density overlay">Density</button>
+                            <button id="toggle-hotspots" class="glass-btn" aria-label="Toggle hotspot zones">Hotspots</button>
+                            <button id="toggle-clusters-geo" class="glass-btn" aria-label="Toggle spatial cluster centroids">Clusters</button>
+                            <button id="toggle-propagation" class="glass-btn" aria-label="Toggle propagation waves">Waves</button>
+                            <button id="toggle-vulnerability" class="glass-btn" aria-label="Toggle vulnerability overlay">Vulnerability</button>
+                            <button id="toggle-stability" class="glass-btn" aria-label="Toggle stability visualization mode">Stability</button>
+                            <button id="toggle3d" class="glass-btn" aria-label="Toggle 3D view">3D</button>
+                        </div>
+                    </div>
+                    <p class="section-note">
+                        Circles show where ICE-related concerns are being reported. Larger and redder circles mean more reports in that area.
+                    </p>
+
+                    <!-- Silence-as-Signal Warning -->
+                    <div class="silence-warning glass-card" id="silence-warning">
+                        <div class="warning-icon">⚠️</div>
+                        <div class="warning-text">
+                            <strong>No Reports ≠ Nothing Happening</strong><br>
+                            <small>Like weather radar — blank areas don't mean nothing is happening, just nothing reported yet.</small>
+                            <details style="margin-top: 0.75rem;">
+                                <summary style="cursor: pointer; color: var(--accent); font-weight: 600;">Why might reports be missing?</summary>
+                                <ul style="margin: 0.5rem 0 0 1.5rem; line-height: 1.6; font-size: 0.9rem;">
+                                    <li><strong>Time delay:</strong> We wait 72 hours before showing data for safety</li>
+                                    <li><strong>Limited sources:</strong> We only know what's publicly reported or in the news</li>
+                                    <li><strong>Multiple reports needed:</strong> We need several reports before showing an area</li>
+                                    <li><strong>Reporting gaps:</strong> Not everything gets reported publicly</li>
+                                </ul>
+                                <p style="margin-top: 0.5rem; font-size: 0.85rem; font-style: italic; color: var(--text-muted);">This tool shows <em>where ICE-related topics are being discussed or reported</em> in the news and community.</p>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div id="map" class="glass-card" role="application" aria-label="Interactive map showing ICE-related reports across New Jersey"></div>
+                    
+                    <!-- Loading Overlay -->
+                    <div id="loading-overlay" class="loading-overlay hidden" role="status" aria-live="polite">
+                        <div class="loading-spinner"></div>
+                        <p class="loading-text">Loading map data...</p>
+                    </div>
+                    
+                    <!-- Error State -->
+                    <div id="error-state" class="error-state glass-card hidden" role="alert">
+                        <div class="error-icon">⚠️</div>
+                        <h3>Unable to Load Data</h3>
+                        <p id="error-message">Something went wrong while loading the map.</p>
+                        <button id="retry-btn" class="glass-btn retry-btn">🔄 Try Again</button>
+                    </div>
+
+                    <!-- Timeline Slider Controls -->
+                    <div class="timeline-slider-container glass-card">
+                        <div class="timeline-header">
+                            <span>🕐 Timeline View</span>
+                            <span id="slider-current" class="accent-text">Current</span>
+                        </div>
+                        <div class="timeline-controls">
+                            <span id="slider-start" class="muted-text">Start</span>
+                            <input type="range" id="date-range-slider" />
+                            <span id="slider-end" class="muted-text">End</span>
+                            <button id="timeline-play-btn" class="play-btn">▶ Play</button>
+                        </div>
+                        <p class="timeline-hint">Drag slider to see reports over time, or press Play to animate.</p>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="legend glass-card">
+                        <div class="legend-item" data-level="low">
+                            <div class="legend-dot low pulse"></div>
+                            <div class="legend-info">
+                                <span class="legend-label">Quiet</span>
+                                <span class="legend-desc">1-2 signals</span>
+                            </div>
+                        </div>
+                        <div class="legend-item" data-level="medium">
+                            <div class="legend-dot medium pulse"></div>
+                            <div class="legend-info">
+                                <span class="legend-label">Active</span>
+                                <span class="legend-desc">3-5 signals</span>
+                            </div>
+                        </div>
+                        <div class="legend-item" data-level="high">
+                            <div class="legend-dot high pulse"></div>
+                            <div class="legend-info">
+                                <span class="legend-label">Elevated</span>
+                                <span class="legend-desc">6+ signals</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- News Sidebar -->
+            <aside class="news-sidebar" id="news-sidebar">
+                <div class="sidebar-header glass-card">
+                    <h3>Recent Reports</h3>
+                    <span class="sidebar-count" id="sidebar-count">0 reports</span>
+                </div>
+                <div class="sidebar-sources" id="sidebar-sources"></div>
+                <div class="sidebar-articles" id="sidebar-articles">
+                    <div id="latest-news-list" class="sidebar-news-list" role="feed" aria-label="Latest ICE-related reports" aria-live="polite">
+                        <div class="skeleton-loader">
+                            <div class="skeleton-item"></div>
+                            <div class="skeleton-item"></div>
+                            <div class="skeleton-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Analytics Panel Section -->
+        <section id="analytics-section" class="content-section">
+            <div class="section-header">
+                <h2>📊 Advanced Analytics</h2>
+                <button id="analytics-toggle" class="glass-btn">Toggle Analytics</button>
+            </div>
+            <div id="analytics-panel-container" class="hidden"></div>
+        </section>
+
+        <section id="download-section" class="content-section">
+            <div class="section-header">
+                <h2>⬇ Download & Explore Data</h2>
+            </div>
+            <div class="download-card glass-card">
+                <h3>📊 Interactive Data Dashboard</h3>
+                <p>Browse data with charts, filters, and source information</p>
+                <div class="download-actions">
+                    <a href="data-export.html" class="glass-btn" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                        Open Interactive Dashboard →
+                    </a>
+                </div>
+                
+                <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
+                
+                <h3>📥 Direct Downloads</h3>
+                <p>ZIP code reports with sources and quality ratings</p>
+                <div class="download-meta">
+                    <span>Records: <strong id="download-count">--</strong></span>
+                    <span>Updated: <strong id="download-updated">--</strong></span>
+                </div>
+                <div class="download-actions">
+                    <a href="data/comprehensive_data_export.csv" download class="glass-btn">
+                        📊 Comprehensive CSV (Multi-Section)
+                    </a>
+                    <a id="download-json" class="glass-btn" href="data/reported_locations.json" download>
+                        📄 Simple JSON
+                    </a>
+                    <a href="data/visualization_metadata.json" download class="glass-btn">
+                        📈 Chart Metadata
+                    </a>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1rem; background: var(--bg-secondary); border-radius: var(--radius-md);">
+                    <h4>What's in the CSV file:</h4>
+                    <ul style="line-height: 1.8; margin-left: 1.5rem;">
+                        <li>📋 Summary statistics</li>
+                        <li>🗺️ Report groups with quality ratings</li>
+                        <li>📊 Timeline and trends</li>
+                        <li>🌍 Reports by ZIP code</li>
+                        <li>📰 Source names and reliability</li>
+                        <li>✓ Data quality info</li>
+                        <li>📖 How we collect data</li>
+                    </ul>
+                </div>
+                
+                <small class="muted-text" style="display: block; margin-top: 1rem;">
+                    All exports include sources, media links, and full provenance tracking. 
+                    No personal identities stored. Released under Ethical Use License.
+                </small>
+            </div>
+        </section>
+        
+        <section id="timeline-section">
+            <h2>📊 Reports Over Time</h2>
+            <p class="section-note">
+                Weekly view of ICE-related reports from news and community sources.
+            </p>
+            <div class="trend-indicators">
+                <span id="trend-direction" class="trend-badge">—</span>
+                <span id="burst-indicator" class="burst-badge hidden">📈 Increased Discussion</span>
+            </div>
+            <div class="chart-container">
+                <canvas id="timeline-chart"></canvas>
+            </div>
+        </section>
+        
+        <section id="keywords-section">
+            <div class="section-header-with-controls">
+                <h2>🏷️ Top Keywords</h2>
+                <div class="keyword-controls">
+                    <button id="keyword-refresh" class="glass-btn" title="Randomize keywords">
+                        🔄 Refresh
+                    </button>
+                    <span id="keyword-region-display" class="region-display">
+                        Showing keywords for: <strong id="keyword-current-region">Statewide</strong>
+                    </span>
+                </div>
+            </div>
+            <p class="section-note">
+                Common words from reports, showing where they appear most.
+                <span id="keywords-last-updated" class="muted-text"></span>
+            </p>
+            <div id="keyword-cloud" class="keyword-cloud">
+                <p class="loading">Loading keywords...</p>
+            </div>
+            <div id="category-distribution" class="category-grid"></div>
+        </section>
+        
+        <section id="clusters-section">
+            <h2>💬 Current Report Groups</h2>
+            <p class="section-note">
+                Topics appearing in multiple reports from different sources. This shows what's being talked about, not real-time tracking.
+            </p>
+            <div id="cluster-cards">
+                <p class="loading">Loading report groups...</p>
+            </div>
+        </section>
+        
+        <section id="sources-section">
+            <h2>📚 Data Sources</h2>
+            <ul>
+                <li>Local news archives (NJ.com, TAPinto, News 12 NJ, Courier News)</li>
+                <li>Reddit r/newjersey community discussions</li>
+                <li>City council meeting minutes</li>
+                <li>Advocacy organization reports (ACLU NJ, NJ Alliance for Immigrant Justice)</li>
+                <li>Public statements and press releases</li>
+                <li>Qualified community submissions (buffered)</li>
+            </ul>
+            <div class="transparency">
+                <p>News sources appear first. Community reports appear after we verify them and wait 72 hours.</p>
+                <p>We never store names or personal information.</p>
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                    <a href="#" class="donate-btn" style="display: inline-block; background: var(--accent); color: #000; padding: 0.5rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none;">Support HEAT — They Are Here</a>
+                    <span style="color: var(--text-muted); font-size: 0.875rem; margin-left: 1rem;">Help keep this tool free and independent</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources + Emergency Prep (consolidated) -->
+        <section id="resources-section">
+            <h2>Community Resources + Know Your Rights</h2>
+
+            <div class="footer-resources">
+                <strong>Organizations</strong>
+                <div class="footer-resources-links">
+                    <a href="https://www.aclu-nj.org/know-your-rights" target="_blank" rel="noopener">Know Your Rights (ACLU NJ)</a>
+                    <a href="https://www.aclu.org/know-your-rights/immigration" target="_blank" rel="noopener noreferrer">ACLU — Know Your Rights (Immigration)</a>
+                    <a href="https://www.immigrantjusticenj.org/" target="_blank" rel="noopener">NJ Alliance for Immigrant Justice</a>
+                    <a href="https://www.nilc.org" target="_blank" rel="noopener noreferrer">National Immigration Law Center (NILC)</a>
+                    <a href="https://www.informedimmigrant.com" target="_blank" rel="noopener noreferrer">Informed Immigrant</a>
+                    <a href="https://www.immigrantdefenseproject.org" target="_blank" rel="noopener noreferrer">Immigrant Defense Project</a>
+                    <a href="https://www.lawyerscommittee.org" target="_blank" rel="noopener noreferrer">Lawyers' Committee for Civil Rights</a>
+                    <a href="https://www.plainfieldnj.gov/" target="_blank" rel="noopener">City of Plainfield Official Website</a>
+                </div>
+            </div>
+
+            <div class="footer-emergency">
+                <strong>Emergency Preparedness — Know Your Rights</strong>
+                <details>
+                    <summary>If ICE Approaches You at Home</summary>
+                    <ul>
+                        <li>You have the right to remain silent</li>
+                        <li>You do NOT have to open the door unless they have a warrant signed by a judge</li>
+                        <li>Ask to see the warrant through a window or under the door before opening</li>
+                        <li>A deportation warrant or administrative warrant is NOT enough to enter</li>
+                        <li>State clearly: "I do not consent to your entry or to any search of this home"</li>
+                        <li>Do not lie or show false documents — you can simply decline to answer</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>If Stopped in Public</summary>
+                    <ul>
+                        <li>Ask calmly: "Am I free to leave?" If yes, walk away</li>
+                        <li>You have the right to remain silent — you do not have to answer questions about where you were born or your immigration status</li>
+                        <li>You do not have to consent to a search of yourself or your belongings</li>
+                        <li>If you are not a U.S. citizen and do not have immigration documents, ask for a lawyer immediately</li>
+                        <li>Do not sign anything or make statements without legal counsel</li>
+                        <li>Carry a "Know Your Rights" card or contact information for a lawyer</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Emergency Preparedness Kit</summary>
+                    <ul>
+                        <li>Keep copies of important documents (birth certificates, consular IDs, immigration paperwork) in a safe place</li>
+                        <li>Have an emergency contact list with family, friends, and immigration attorney numbers</li>
+                        <li>Consider creating a power of attorney for child care or financial decisions</li>
+                        <li>Print and carry a "Red Card" or "Know Your Rights" card from ACLU or NILC</li>
+                        <li>Have a family emergency plan and discuss it with children</li>
+                        <li>Know your A-number (alien registration number) if applicable</li>
+                    </ul>
+                </details>
+                <p style="margin-top: 1rem; font-size: 0.9em; color: var(--text-muted); font-style: italic;">
+                    This information is for educational purposes only and does not constitute legal advice. Consult an immigration attorney for guidance specific to your situation.
+                </p>
+            </div>
+        </section>
+
+        <section id="about-section">
+            <h2>About This Tool</h2>
+            <div class="about-content">
+                <p>
+                    <strong>HEAT — They Are Here</strong> helps you see when ICE-related reports increase in your area—without exposing anyone's personal information. We collect news and community reports, not real-time data.
+                </p>
+                <div class="comparison-box">
+                    <div class="comparison-item this-is">
+                        <h4>What HEAT Shows</h4>
+                        <ul>
+                            <li>When ICE reports increase</li>
+                            <li>Which areas have more reports</li>
+                            <li>Trends over time</li>
+                            <li>Whether reports are rising or falling</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item design-note">
+                        <h4>How We Keep You Safe</h4>
+                        <ul>
+                            <li>72-hour delay before showing data</li>
+                            <li>Group reports together (not individuals)</li>
+                            <li>ZIP codes only (no street addresses)</li>
+                            <li>News articles and verified community reports</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="about-note">
+                    Unlike alert apps, HEAT waits 72 hours and groups reports together to protect people's safety. This is a tool to understand trends, not to track individuals.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>HEAT — They Are Here</strong></p>
+            <p class="tagline">Community awareness map built from news and community reports.</p>
+            <div class="footer-principles">
+                <span>Shows trends</span>
+                <span>72-hour delay</span>
+                <span>ZIP codes only</span>
+                <span>No personal info stored</span>
+            </div>
+
+            <div class="footer-tiers">
+                <strong>Access Tiers</strong>
+                <div class="footer-tiers-links">
+                    <span>You are viewing: <strong>Tier 0 (Public)</strong></span>
+                    <a href="submit.html" style="color: var(--accent);">Submit Report</a>
+                    <a href="contributor.html" style="color: var(--success, #34a853);">Contributor Dashboard</a>
+                </div>
+            </div>
+
+            <div class="footer-disclaimer">
+                <strong>Disclaimer</strong>
+                <p>
+                    HEAT collects ICE-related reports from news articles, advocacy groups, and community members.
+                    We show <em>where ICE-related topics are being reported</em>, not real-time data. We cannot guarantee that all information is accurate or complete.
+                    We wait 72 hours before showing data and only show ZIP codes (not addresses) to protect people's safety.
+                </p>
+                <p>
+                    <strong>HEAT claims no ownership of source material.</strong> All rights to original news articles, reports, and content
+                    remain with their respective publishers and contributors. This tool is provided for informational and educational purposes only.
+                </p>
+            </div>
+
+            <p class="footer-note">
+                This tool shows where ICE-related topics are being reported and discussed. We don't track real-time data. Always verify with additional sources.
+            </p>
+            <p class="meta">
+                &copy; 2026 HEAT Project. All rights reserved.<br>
+                Licensed under HEAT Ethical Use License v1.0 — Built to keep communities safe.
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Persistent Latency Badge -->
+    <div id="latency-badge" class="latency-badge glass-card" style="position: fixed; bottom: 1rem; right: 1rem; z-index: 999; max-width: 280px; padding: 0.75rem 1rem; font-size: 0.85rem; line-height: 1.5; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+            <span style="font-size: 1.2rem;">🕐</span>
+            <strong style="font-size: 0.9rem;">Data Timestamp</strong>
+        </div>
+        <div style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.5rem;">
+            Current: <strong id="latency-current-date" style="color: var(--text);">Loading...</strong>
+        </div>
+        <div style="padding: 0.5rem; background: var(--bg-secondary); border-radius: 6px; border-left: 3px solid var(--accent);">
+            <div style="font-weight: 600; margin-bottom: 0.25rem;">⏱️ Safety Delay Active</div>
+            <div style="font-size: 0.8rem;">72-hour public safety delay</div>
+            <div style="margin-top: 0.4rem; font-style: italic; font-size: 0.75rem;">
+                Viewing events before <strong id="latency-viewing-before" style="color: var(--accent);">--</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE ONLY: Bottom Sheet Panel -->
+    <div id="mobile-panel" class="mobile-panel">
+        <div class="mobile-panel-handle" id="mobile-panel-handle"></div>
+        <div class="mobile-panel-tabs">
+            <button class="panel-tab active" data-tab="safety">🛡️ Safety</button>
+            <button class="panel-tab" data-tab="feed">📰 Feed</button>
+            <button class="panel-tab" data-tab="info">📋 Info</button>
+        </div>
+        <div class="mobile-panel-content">
+            <div id="mpanel-safety" class="mpanel active">
+                <div class="panel-idle-prompt">
+                    <div class="pip-icon">🗺️</div>
+                    <p>Enter a ZIP code above to check report level in your area</p>
+                </div>
+            </div>
+            <div id="mpanel-feed" class="mpanel">
+                <div id="mobile-feed-items">
+                    <p style="color:var(--text-muted);font-size:0.85rem;">Loading feed...</p>
+                </div>
+            </div>
+            <div id="mpanel-info" class="mpanel">
+                <div class="mobile-info-links">
+                    <a href="https://www.aclu-nj.org/know-your-rights" target="_blank" rel="noopener" class="mil">⚖️ Know Your Rights (ACLU NJ)</a>
+                    <a href="https://www.immigrantjusticenj.org/" target="_blank" rel="noopener" class="mil">🤝 NJ Alliance for Immigrant Justice</a>
+                    <a href="https://www.nilc.org" target="_blank" rel="noopener" class="mil">📋 National Immigration Law Center</a>
+                    <a href="submit.html" class="mil">📤 Submit a Report</a>
+                </div>
+                <p class="mobile-info-note">72-hour delay • ZIP-level only • No data stored</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Error & Data Management (load first for global error capture) -->
+    <script src="error-manager.js"></script>
+    <script src="data-manager.js"></script>
+
+    <!-- Data Validation & UI Enhancement System -->
+    <script src="data-validator.js"></script>
+    <script src="ui-enhancements.js"></script>
+    
+    <!-- Analytics System -->
+    <script src="filter-engine.js"></script>
+    <script src="stats-calculator.js"></script>
+    <script src="filter-presets.js"></script>
+    <script src="query-builder.js"></script>
+    <script src="analytics-panel.js"></script>
+    <script src="analytics-integration.js"></script>
+    
+    <script src="emergency-mode.js"></script>
+    <script src="platform-identity.js"></script>
+    <script src="websocket-client.js"></script>
+    <script src="app.js"></script>
+    <script>
+    // Populate latency badge with current data
+    (function() {
+        const now = new Date();
+        const bufferHours = 72;
+        const viewingBefore = new Date(now.getTime() - (bufferHours * 60 * 60 * 1000));
+        
+        const formatDate = (date) => {
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+        };
+        
+        document.getElementById('latency-current-date').textContent = formatDate(now);
+        document.getElementById('latency-viewing-before').textContent = formatDate(viewingBefore);
+    })();
+    </script>
+
+    <!-- Agent Team Communication Bus -->
+    <script type="module">
+        import { agentBus } from './agent-team.js';
+        import { AgentStatusPanel } from './agent-status.js';
+
+        // Mount real-time team status panel (collapsed by default, no event log)
+        const agentPanel = new AgentStatusPanel({
+            collapsed: true,
+            showEventLog: false,
+        });
+        agentPanel.mount();
+
+        // Expose globally so other scripts can interact with the bus
+        window._agentPanel = agentPanel;
+
+        // Wire the header toggle button to show/hide the agent panel
+        const teamsBtn = document.getElementById('teams-toggle');
+        if (teamsBtn) {
+            teamsBtn.addEventListener('click', () => {
+                if (!agentPanel._el) return;
+                const wasCollapsed = agentPanel._el.classList.contains('collapsed');
+                agentPanel._el.classList.toggle('collapsed', !wasCollapsed);
+                agentPanel.collapsed = !wasCollapsed;
+                agentPanel._scheduleRender();
+            });
+        }
+
+        // Connect to WebSocket for live updates — silently falls back to polling
+        try {
+            agentBus.connectWebSocket('ws://localhost:8765');
+        } catch (e) {
+            console.info('[HEAT] WS unavailable, using polling fallback');
+        }
+    </script>
+</body>
+</html>

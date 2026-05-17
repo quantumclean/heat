@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-02-26T04:09:19.196875+00:00",
+  "system": {
+    "source_entropy": 0.23,
+    "topic_entropy": 0.7714,
+    "temporal_entropy": 0.4186,
+    "geographic_entropy": 0.9412,
+    "cei": 59.0
+  },
+  "per_zip": {
+    "07060": {
+      "source_entropy": 0.23,
+      "topic_entropy": 0.7714,
+      "temporal_entropy": 0.4186,
+      "geographic_entropy": 0.9412,
+      "cei": 59.0
+    }
+  }
+}

@@ -1,0 +1,4243 @@
+{
+  "generated_at": "2026-02-26T04:51:49.003718+00:00",
+  "topics_tracked": 95,
+  "drift_events": 105,
+  "mutations_detected": 55,
+  "drift_threshold": 0.25,
+  "timeline": [
+    {
+      "topic_id": 2,
+      "date": "2025-07-25",
+      "prev_date": "2025-06-17",
+      "drift_distance": 0.4422,
+      "emerging_terms": [
+        "agenda",
+        "american",
+        "council",
+        "local",
+        "months",
+        "six",
+        "snapshot",
+        "state"
+      ],
+      "decaying_terms": [
+        "charts",
+        "com",
+        "five",
+        "impact",
+        "inquirer",
+        "policy",
+        "show",
+        "that",
+        "the"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 2,
+      "date": "2025-08-27",
+      "prev_date": "2025-07-25",
+      "drift_distance": 0.3409,
+      "emerging_terms": [
+        "actions",
+        "are",
+        "data",
+        "economies",
+        "far",
+        "here",
+        "says",
+        "taking",
+        "the",
+        "toll"
+      ],
+      "decaying_terms": [
+        "agenda",
+        "and",
+        "months",
+        "six",
+        "snapshot",
+        "state"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 3,
+      "date": "2026-01-13",
+      "prev_date": "2025-06-06",
+      "drift_distance": 0.4449,
+      "emerging_terms": [
+        "defiance",
+        "expand",
+        "immigrants",
+        "new",
+        "push",
+        "rights",
+        "the",
+        "times",
+        "york"
+      ],
+      "decaying_terms": [
+        "agenda",
+        "american",
+        "civil",
+        "day",
+        "extreme",
+        "from",
+        "grown",
+        "has",
+        "immigration",
+        "liberties"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 5,
+      "date": "2026-01-17",
+      "prev_date": "2026-01-12",
+      "drift_distance": 0.3503,
+      "emerging_terms": [
+        "arrests",
+        "community",
+        "river",
+        "times",
+        "two",
+        "unsettle"
+      ],
+      "decaying_terms": [
+        "bicycling",
+        "deport",
+        "green",
+        "landscaper",
+        "moves"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 6,
+      "date": "2025-06-10",
+      "prev_date": "2025-05-29",
+      "drift_distance": 0.4254,
+      "emerging_terms": [
+        "admin",
+        "cities",
+        "come",
+        "defense",
+        "dems",
+        "fellow",
+        "globe",
+        "letter",
+        "mciver",
+        "sanctuary"
+      ],
+      "decaying_terms": [
+        "campaign",
+        "deportation",
+        "epitomizing",
+        "monde",
+        "prison",
+        "the"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 7,
+      "date": "2026-02-08",
+      "prev_date": "2026-02-04",
+      "drift_distance": 0.2044,
+      "emerging_terms": [
+        "along",
+        "audio",
+        "city",
+        "identity",
+        "investigation",
+        "jersey",
+        "with"
+      ],
+      "decaying_terms": [
+        "accountability",
+        "identities",
+        "integrity",
+        "jan",
+        "january",
+        "newark",
+        "public"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 8,
+      "date": "2026-02-04",
+      "prev_date": "2026-02-03",
+      "drift_distance": 0.2287,
+      "emerging_terms": [
+        "autistic",
+        "been",
+        "independent",
+        "mom",
+        "taken",
+        "the"
+      ],
+      "decaying_terms": [
+        "and",
+        "autism",
+        "com",
+        "him",
+        "mother",
+        "now",
+        "out",
+        "pajamas",
+        "walked",
+        "with"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 9,
+      "date": "2026-02-04",
+      "prev_date": "2025-11-21",
+      "drift_distance": 0.4005,
+      "emerging_terms": [
+        "accused",
+        "against",
+        "border",
+        "child",
+        "driving",
+        "man",
+        "mexico",
+        "out",
+        "speaks",
+        "suspect"
+      ],
+      "decaying_terms": [
+        "body",
+        "business",
+        "for",
+        "found",
+        "nature",
+        "preserve",
+        "second",
+        "time"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 10,
+      "date": "2026-02-03",
+      "prev_date": "2026-01-29",
+      "drift_distance": 0.2392,
+      "emerging_terms": [
+        "activity",
+        "after",
+        "anti",
+        "bloomfield",
+        "class",
+        "crackdown",
+        "edge",
+        "hold",
+        "immigration",
+        "jersey"
+      ],
+      "decaying_terms": [
+        "high",
+        "hillsborough",
+        "raids",
+        "school"
+      ],
+      "is_mutation": false,
+      "window_size": 5
+    },
+    {
+      "topic_id": 10,
+      "date": "2026-02-04",
+      "prev_date": "2026-02-03",
+      "drift_distance": 0.1667,
+      "emerging_terms": [
+        "give",
+        "inside",
+        "look",
+        "photos",
+        "student"
+      ],
+      "decaying_terms": [
+        "activity",
+        "after",
+        "class",
+        "crackdown",
+        "edge",
+        "hold",
+        "immigration",
+        "jersey",
+        "new",
+        "out"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 11,
+      "date": "2026-01-31",
+      "prev_date": "2026-01-30",
+      "drift_distance": 0.2966,
+      "emerging_terms": [
+        "action",
+        "phones",
+        "record",
+        "residents",
+        "the",
+        "their",
+        "times",
+        "urges",
+        "york"
+      ],
+      "decaying_terms": [
+        "activity",
+        "announces",
+        "get",
+        "gov",
+        "out",
+        "phone",
+        "portal",
+        "track",
+        "your"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 11,
+      "date": "2026-02-01",
+      "prev_date": "2026-01-31",
+      "drift_distance": 0.4611,
+      "emerging_terms": [
+        "agents",
+        "comes",
+        "federal",
+        "gov",
+        "out",
+        "swinging",
+        "tapinto"
+      ],
+      "decaying_terms": [
+        "action",
+        "phones",
+        "record",
+        "residents",
+        "the",
+        "their",
+        "times",
+        "urges",
+        "york"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 12,
+      "date": "2025-09-25",
+      "prev_date": "2025-09-24",
+      "drift_distance": 0.3475,
+      "emerging_terms": [
+        "arrest",
+        "asylum",
+        "case",
+        "contreras",
+        "denied",
+        "deported",
+        "dylan",
+        "following",
+        "has",
+        "lopez"
+      ],
+      "decaying_terms": [
+        "amnewyork",
+        "bronx",
+        "custody",
+        "deportation",
+        "lawyers",
+        "say"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 13,
+      "date": "2026-02-08",
+      "prev_date": "2026-02-04",
+      "drift_distance": 0.0831,
+      "emerging_terms": [
+        "acting",
+        "attorney",
+        "davenport",
+        "general",
+        "jennifer",
+        "update"
+      ],
+      "decaying_terms": [
+        "attacks",
+        "from",
+        "out",
+        "protecting",
+        "release"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 14,
+      "date": "2026-02-03",
+      "prev_date": "2025-04-11",
+      "drift_distance": 0.3403,
+      "emerging_terms": [
+        "billion",
+        "communities",
+        "expansion",
+        "faces",
+        "from",
+        "immigrant",
+        "nbc",
+        "news",
+        "pushback",
+        "sites"
+      ],
+      "decaying_terms": [
+        "accelerates",
+        "deportation",
+        "expands",
+        "for",
+        "his",
+        "immigration",
+        "plans",
+        "profit",
+        "stateline"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 15,
+      "date": "2025-07-10",
+      "prev_date": "2025-04-18",
+      "drift_distance": 0.3193,
+      "emerging_terms": [
+        "agenda",
+        "deportation",
+        "destroy",
+        "economic",
+        "institute",
+        "jobs",
+        "millions",
+        "policy",
+        "will"
+      ],
+      "decaying_terms": [
+        "administration",
+        "amazon",
+        "business",
+        "deportations",
+        "efficient",
+        "into",
+        "like",
+        "mass",
+        "pbs",
+        "seeks"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 18,
+      "date": "2026-01-11",
+      "prev_date": "2026-01-07",
+      "drift_distance": 0.2835,
+      "emerging_terms": [
+        "can",
+        "families",
+        "fight",
+        "laws",
+        "opinion",
+        "terrorizes"
+      ],
+      "decaying_terms": [
+        "against",
+        "and",
+        "bold",
+        "fighting",
+        "proposals"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 18,
+      "date": "2026-01-13",
+      "prev_date": "2026-01-11",
+      "drift_distance": 0.4369,
+      "emerging_terms": [
+        "about",
+        "cooperation",
+        "even",
+        "limited",
+        "more",
+        "new",
+        "proposals",
+        "under"
+      ],
+      "decaying_terms": [
+        "back",
+        "can",
+        "families",
+        "fight",
+        "laws",
+        "opinion",
+        "terrorizes",
+        "trump"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 19,
+      "date": "2026-02-04",
+      "prev_date": "2026-02-03",
+      "drift_distance": 0.3061,
+      "emerging_terms": [
+        "announces",
+        "democracy",
+        "james",
+        "legal",
+        "now",
+        "raids"
+      ],
+      "decaying_terms": [
+        "across",
+        "deploys",
+        "deportation",
+        "efforts",
+        "enforcement",
+        "from",
+        "ice",
+        "monitor",
+        "nyc",
+        "office"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 21,
+      "date": "2025-09-04",
+      "prev_date": "2025-08-05",
+      "drift_distance": 0.3268,
+      "emerging_terms": [
+        "awarded",
+        "deportation",
+        "diligence",
+        "driver",
+        "for",
+        "hit",
+        "locating",
+        "officer",
+        "run"
+      ],
+      "decaying_terms": [
+        "arrests",
+        "criminal",
+        "long",
+        "noncitizens",
+        "operation",
+        "surge",
+        "week"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 22,
+      "date": "2025-12-11",
+      "prev_date": "2025-06-15",
+      "drift_distance": 0.1714,
+      "emerging_terms": [
+        "cases",
+        "give",
+        "goals",
+        "misses",
+        "pushes",
+        "reuters",
+        "their"
+      ],
+      "decaying_terms": [
+        "bbc",
+        "expand",
+        "orders"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 23,
+      "date": "2026-01-12",
+      "prev_date": "2026-01-08",
+      "drift_distance": 0.1885,
+      "emerging_terms": [
+        "bills",
+        "but",
+        "moves",
+        "restricting",
+        "sign",
+        "toward",
+        "unclear",
+        "will"
+      ],
+      "decaying_terms": [
+        "clamp",
+        "days",
+        "down",
+        "final",
+        "lawmakers",
+        "look",
+        "with"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 23,
+      "date": "2026-01-29",
+      "prev_date": "2026-01-12",
+      "drift_distance": 0.3357,
+      "emerging_terms": [
+        "agents",
+        "block",
+        "com",
+        "create",
+        "law",
+        "other",
+        "rejects",
+        "safe",
+        "signs",
+        "zones"
+      ],
+      "decaying_terms": [
+        "cooperation",
+        "gothamist",
+        "moves",
+        "restricting",
+        "sign",
+        "toward",
+        "unclear",
+        "will"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 24,
+      "date": "2025-08-20",
+      "prev_date": "2025-08-19",
+      "drift_distance": 0.26,
+      "emerging_terms": [
+        "deportation",
+        "detention",
+        "families",
+        "puts",
+        "spotlight",
+        "the",
+        "times"
+      ],
+      "decaying_terms": [
+        "after",
+        "and",
+        "being",
+        "deported",
+        "detained",
+        "ecuador",
+        "her",
+        "mother",
+        "nyc",
+        "public"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 24,
+      "date": "2026-01-02",
+      "prev_date": "2025-08-20",
+      "drift_distance": 0.3094,
+      "emerging_terms": [
+        "and",
+        "deportations",
+        "more",
+        "one",
+        "than"
+      ],
+      "decaying_terms": [
+        "deportation",
+        "detention",
+        "families",
+        "ice",
+        "old",
+        "puts",
+        "spotlight"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 25,
+      "date": "2025-06-16",
+      "prev_date": "2025-06-13",
+      "drift_distance": 0.2653,
+      "emerging_terms": [
+        "after",
+        "escaping",
+        "people",
+        "recaptured"
+      ],
+      "decaying_terms": [
+        "detainees",
+        "dhs",
+        "escaped",
+        "from",
+        "says"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 26,
+      "date": "2025-07-21",
+      "prev_date": "2025-07-18",
+      "drift_distance": 0.3113,
+      "emerging_terms": [
+        "candidates",
+        "governor",
+        "housing",
+        "split"
+      ],
+      "decaying_terms": [
+        "democrats",
+        "house",
+        "move",
+        "oppose"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 27,
+      "date": "2025-07-21",
+      "prev_date": "2025-07-18",
+      "drift_distance": 0.2907,
+      "emerging_terms": [
+        "and",
+        "bases",
+        "detain",
+        "expanded",
+        "immigrants",
+        "indiana",
+        "new",
+        "npr",
+        "will"
+      ],
+      "decaying_terms": [
+        "administration",
+        "base",
+        "com",
+        "detainees",
+        "detention",
+        "for",
+        "hold",
+        "immigrant",
+        "immigration",
+        "inquirer"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 28,
+      "date": "2025-12-08",
+      "prev_date": "2025-08-08",
+      "drift_distance": 0.2326,
+      "emerging_terms": [
+        "aliens",
+        "children",
+        "convicted",
+        "criminal",
+        "endangering",
+        "illegal"
+      ],
+      "decaying_terms": [
+        "another",
+        "child",
+        "illegally",
+        "newark",
+        "offenders",
+        "ongoing",
+        "operation",
+        "part",
+        "present",
+        "sex"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 30,
+      "date": "2025-11-20",
+      "prev_date": "2025-10-21",
+      "drift_distance": 0.4506,
+      "emerging_terms": [
+        "about",
+        "concerns",
+        "masked",
+        "more",
+        "news",
+        "officers",
+        "raises",
+        "spotlight",
+        "tactics",
+        "video"
+      ],
+      "decaying_terms": [
+        "agents",
+        "ban",
+        "democrat",
+        "for",
+        "from",
+        "governor",
+        "jersey",
+        "masks",
+        "monitor",
+        "new"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 30,
+      "date": "2025-11-24",
+      "prev_date": "2025-11-20",
+      "drift_distance": 0.3966,
+      "emerging_terms": [
+        "agents",
+        "ban",
+        "bill",
+        "from",
+        "jersey",
+        "masks",
+        "monitor",
+        "new",
+        "wearing",
+        "would"
+      ],
+      "decaying_terms": [
+        "about",
+        "concerns",
+        "masked",
+        "more",
+        "news",
+        "officers",
+        "raises",
+        "spotlight",
+        "tactics",
+        "video"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 30,
+      "date": "2025-12-12",
+      "prev_date": "2025-11-24",
+      "drift_distance": 0.1153,
+      "emerging_terms": [
+        "banning",
+        "first",
+        "for",
+        "lawmakers",
+        "news",
+        "spotlight",
+        "step",
+        "take",
+        "want"
+      ],
+      "decaying_terms": [
+        "bill",
+        "would"
+      ],
+      "is_mutation": false,
+      "window_size": 2
+    },
+    {
+      "topic_id": 30,
+      "date": "2026-02-04",
+      "prev_date": "2025-12-12",
+      "drift_distance": 0.2607,
+      "emerging_terms": [
+        "grows",
+        "masked",
+        "support"
+      ],
+      "decaying_terms": [
+        "banning",
+        "first",
+        "from",
+        "lawmakers",
+        "masks",
+        "monitor",
+        "news",
+        "spotlight",
+        "step",
+        "take"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 31,
+      "date": "2025-05-01",
+      "prev_date": "2025-04-28",
+      "drift_distance": 0.2687,
+      "emerging_terms": [
+        "banning",
+        "contested",
+        "day",
+        "gets",
+        "immigration",
+        "its",
+        "jails",
+        "law",
+        "private"
+      ],
+      "decaying_terms": [
+        "appeals",
+        "case",
+        "detention",
+        "federal",
+        "hear",
+        "immigrant"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 31,
+      "date": "2025-06-27",
+      "prev_date": "2025-05-01",
+      "drift_distance": 0.3399,
+      "emerging_terms": [
+        "advocates",
+        "call",
+        "for",
+        "immigrant",
+        "more",
+        "protections",
+        "renew",
+        "ruling",
+        "supreme",
+        "wake"
+      ],
+      "decaying_terms": [
+        "banning",
+        "contested",
+        "day",
+        "gets",
+        "immigration",
+        "its",
+        "jails",
+        "law",
+        "private"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 31,
+      "date": "2025-07-22",
+      "prev_date": "2025-06-27",
+      "drift_distance": 0.3464,
+      "emerging_terms": [
+        "appeals",
+        "ban",
+        "cannot",
+        "companies",
+        "detaining",
+        "from",
+        "immigrants",
+        "rules"
+      ],
+      "decaying_terms": [
+        "advocates",
+        "call",
+        "for",
+        "immigrant",
+        "more",
+        "protections",
+        "renew",
+        "ruling",
+        "supreme",
+        "wake"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 32,
+      "date": "2025-06-20",
+      "prev_date": "2025-03-28",
+      "drift_distance": 0.1369,
+      "emerging_terms": [
+        "after",
+        "detention",
+        "facing",
+        "from",
+        "order",
+        "released"
+      ],
+      "decaying_terms": [
+        "before",
+        "case",
+        "closely",
+        "newark",
+        "watched"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 33,
+      "date": "2025-04-01",
+      "prev_date": "2025-03-19",
+      "drift_distance": 0.1827,
+      "emerging_terms": [
+        "continue",
+        "guardian",
+        "mahmoud",
+        "must",
+        "rules"
+      ],
+      "decaying_terms": [
+        "can",
+        "heard",
+        "says",
+        "times",
+        "york"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 34,
+      "date": "2026-02-02",
+      "prev_date": "2026-01-12",
+      "drift_distance": 0.3077,
+      "emerging_terms": [
+        "car",
+        "dispensary",
+        "fire",
+        "hurts",
+        "multiple",
+        "raids",
+        "smashes",
+        "train",
+        "transit"
+      ],
+      "decaying_terms": [
+        "apartment",
+        "fires",
+        "massive",
+        "raid",
+        "shootings"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 35,
+      "date": "2026-01-22",
+      "prev_date": "2026-01-16",
+      "drift_distance": 0.3183,
+      "emerging_terms": [
+        "advocates",
+        "after",
+        "blocks",
+        "call",
+        "immigration",
+        "limiting",
+        "sherrill",
+        "tactics"
+      ],
+      "decaying_terms": [
+        "await",
+        "continue",
+        "immigrant",
+        "protection",
+        "raids",
+        "signature"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 36,
+      "date": "2025-07-22",
+      "prev_date": "2025-05-29",
+      "drift_distance": 0.2402,
+      "emerging_terms": [
+        "battle",
+        "deportation",
+        "halt",
+        "order",
+        "over"
+      ],
+      "decaying_terms": [
+        "bid",
+        "constitution",
+        "deport",
+        "likely",
+        "says",
+        "university",
+        "violated"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 37,
+      "date": "2025-04-01",
+      "prev_date": "2025-03-19",
+      "drift_distance": 0.1493,
+      "emerging_terms": [
+        "activist",
+        "remain",
+        "rules",
+        "should",
+        "university"
+      ],
+      "decaying_terms": [
+        "student",
+        "transfers"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 37,
+      "date": "2025-04-11",
+      "prev_date": "2025-04-01",
+      "drift_distance": 0.1189,
+      "emerging_terms": [
+        "eligible",
+        "for"
+      ],
+      "decaying_terms": [
+        "case",
+        "facing",
+        "remain",
+        "should"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 37,
+      "date": "2025-06-11",
+      "prev_date": "2025-04-11",
+      "drift_distance": 0.1378,
+      "emerging_terms": [
+        "facing",
+        "freed",
+        "says",
+        "should"
+      ],
+      "decaying_terms": [
+        "eligible",
+        "for",
+        "rules"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 37,
+      "date": "2025-06-13",
+      "prev_date": "2025-06-11",
+      "drift_distance": 0.2187,
+      "emerging_terms": [
+        "feds",
+        "order",
+        "refuse",
+        "release"
+      ],
+      "decaying_terms": [
+        "columbia",
+        "freed",
+        "says",
+        "should",
+        "university"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 38,
+      "date": "2025-06-21",
+      "prev_date": "2025-03-19",
+      "drift_distance": 0.2364,
+      "emerging_terms": [
+        "arrives",
+        "cbs",
+        "cbsnews",
+        "com",
+        "custody",
+        "from",
+        "news",
+        "release"
+      ],
+      "decaying_terms": [
+        "arrest",
+        "case",
+        "columbia",
+        "detainment",
+        "grad",
+        "transferred",
+        "york"
+      ],
+      "is_mutation": false,
+      "window_size": 2
+    },
+    {
+      "topic_id": 41,
+      "date": "2026-01-09",
+      "prev_date": "2026-01-08",
+      "drift_distance": 0.3312,
+      "emerging_terms": [
+        "com",
+        "cooperation",
+        "fight",
+        "limit",
+        "pass",
+        "plan",
+        "with"
+      ],
+      "decaying_terms": [
+        "anti",
+        "bills",
+        "fatal",
+        "following",
+        "jersey",
+        "key",
+        "minnesota",
+        "monitor",
+        "new",
+        "push"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 42,
+      "date": "2025-10-22",
+      "prev_date": "2025-03-28",
+      "drift_distance": 0.2113,
+      "emerging_terms": [
+        "against",
+        "appeal",
+        "appeals",
+        "circuit",
+        "daily",
+        "hears",
+        "proceedings",
+        "spectator"
+      ],
+      "decaying_terms": [
+        "activist",
+        "case",
+        "detained",
+        "fight",
+        "lawyers",
+        "new",
+        "newark",
+        "stop",
+        "student",
+        "university"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 43,
+      "date": "2025-04-11",
+      "prev_date": "2025-04-08",
+      "drift_distance": 0.2389,
+      "emerging_terms": [
+        "but",
+        "can",
+        "deported",
+        "hurdles",
+        "immigration",
+        "judge",
+        "legal",
+        "new",
+        "remain",
+        "rules"
+      ],
+      "decaying_terms": [
+        "case",
+        "court",
+        "deportation",
+        "evidence",
+        "government",
+        "justifying",
+        "over",
+        "provide",
+        "tells"
+      ],
+      "is_mutation": false,
+      "window_size": 3
+    },
+    {
+      "topic_id": 43,
+      "date": "2025-04-13",
+      "prev_date": "2025-04-11",
+      "drift_distance": 0.2262,
+      "emerging_terms": [
+        "activist",
+        "clears",
+        "cnn",
+        "comes",
+        "deportation",
+        "for",
+        "next",
+        "way",
+        "what"
+      ],
+      "decaying_terms": [
+        "but",
+        "can",
+        "columbia",
+        "deported",
+        "hurdles",
+        "legal",
+        "new",
+        "pbs",
+        "remain",
+        "rules"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 43,
+      "date": "2025-09-18",
+      "prev_date": "2025-04-13",
+      "drift_distance": 0.1974,
+      "emerging_terms": [
+        "deported",
+        "pbs",
+        "rules",
+        "should"
+      ],
+      "decaying_terms": [
+        "activist",
+        "clears",
+        "cnn",
+        "comes",
+        "deportation",
+        "for",
+        "next",
+        "way",
+        "what"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 44,
+      "date": "2026-02-01",
+      "prev_date": "2026-01-29",
+      "drift_distance": 0.2973,
+      "emerging_terms": [
+        "activity",
+        "advocates",
+        "but",
+        "jersey",
+        "more",
+        "phillyvoice",
+        "proposes",
+        "track",
+        "want",
+        "website"
+      ],
+      "decaying_terms": [
+        "agents",
+        "com",
+        "database",
+        "record",
+        "residents",
+        "state",
+        "upload",
+        "videos",
+        "wants"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 45,
+      "date": "2026-01-13",
+      "prev_date": "2026-01-12",
+      "drift_distance": 0.2547,
+      "emerging_terms": [
+        "designed",
+        "from",
+        "immigrants",
+        "pass",
+        "protect",
+        "raids",
+        "whyy"
+      ],
+      "decaying_terms": [
+        "faces",
+        "governor",
+        "immigrant",
+        "nationwide",
+        "politico",
+        "pro",
+        "scrutiny",
+        "send"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 47,
+      "date": "2025-10-28",
+      "prev_date": "2025-10-18",
+      "drift_distance": 0.3198,
+      "emerging_terms": [
+        "america",
+        "and",
+        "candidates",
+        "gubernatorial",
+        "stand",
+        "virginia",
+        "voice",
+        "where"
+      ],
+      "decaying_terms": [
+        "aims",
+        "distance",
+        "for",
+        "from",
+        "gop",
+        "governor",
+        "latinos",
+        "pitch",
+        "race",
+        "some"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 47,
+      "date": "2026-01-27",
+      "prev_date": "2025-10-28",
+      "drift_distance": 0.3409,
+      "emerging_terms": [
+        "debate",
+        "dividing",
+        "the",
+        "you"
+      ],
+      "decaying_terms": [
+        "america",
+        "and",
+        "candidates",
+        "gubernatorial",
+        "virginia",
+        "voice"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 47,
+      "date": "2026-02-01",
+      "prev_date": "2026-01-27",
+      "drift_distance": 0.3959,
+      "emerging_terms": [
+        "center",
+        "election",
+        "politico",
+        "special",
+        "stage",
+        "takes"
+      ],
+      "decaying_terms": [
+        "debate",
+        "dividing",
+        "stand",
+        "the",
+        "where",
+        "you"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 47,
+      "date": "2026-02-04",
+      "prev_date": "2026-02-01",
+      "drift_distance": 0.2863,
+      "emerging_terms": [
+        "congressional",
+        "debate",
+        "devdiscourse",
+        "intensifies"
+      ],
+      "decaying_terms": [
+        "center",
+        "politico",
+        "stage",
+        "takes"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 48,
+      "date": "2025-08-21",
+      "prev_date": "2025-08-20",
+      "drift_distance": 0.2768,
+      "emerging_terms": [
+        "administration",
+        "fight",
+        "news",
+        "over",
+        "spotlight",
+        "vows"
+      ],
+      "decaying_terms": [
+        "admin",
+        "bend",
+        "demand",
+        "its",
+        "jersey",
+        "knee",
+        "monitor",
+        "new",
+        "says",
+        "won"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 50,
+      "date": "2025-12-26",
+      "prev_date": "2025-05-27",
+      "drift_distance": 0.2983,
+      "emerging_terms": [
+        "the",
+        "year"
+      ],
+      "decaying_terms": [
+        "again",
+        "for",
+        "jersey",
+        "new",
+        "policies",
+        "targeted"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 51,
+      "date": "2025-08-22",
+      "prev_date": "2025-08-21",
+      "drift_distance": 0.2974,
+      "emerging_terms": [
+        "disrupts",
+        "hub",
+        "pair",
+        "raids",
+        "shipping",
+        "times",
+        "york"
+      ],
+      "decaying_terms": [
+        "detained",
+        "dozens",
+        "guardian",
+        "raid",
+        "warehouse",
+        "workers"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 51,
+      "date": "2025-11-19",
+      "prev_date": "2025-08-22",
+      "drift_distance": 0.2947,
+      "emerging_terms": [
+        "agents",
+        "conduct",
+        "market",
+        "monitor",
+        "newark",
+        "raid",
+        "seafood",
+        "second"
+      ],
+      "decaying_terms": [
+        "disrupts",
+        "hub",
+        "pair",
+        "raids",
+        "shipping",
+        "the",
+        "times",
+        "york"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 52,
+      "date": "2026-01-16",
+      "prev_date": "2026-01-15",
+      "drift_distance": 0.2143,
+      "emerging_terms": [
+        "activity",
+        "recent",
+        "respond"
+      ],
+      "decaying_terms": [
+        "arrests",
+        "custody",
+        "into",
+        "local",
+        "men",
+        "news",
+        "planet",
+        "residents",
+        "say",
+        "taken"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 53,
+      "date": "2026-01-16",
+      "prev_date": "2026-01-15",
+      "drift_distance": 0.1483,
+      "emerging_terms": [
+        "daily",
+        "detains",
+        "first",
+        "princetonian",
+        "the",
+        "two"
+      ],
+      "decaying_terms": [
+        "patch",
+        "taken"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 54,
+      "date": "2025-06-02",
+      "prev_date": "2025-05-30",
+      "drift_distance": 0.3634,
+      "emerging_terms": [
+        "among",
+        "area",
+        "cbsnews",
+        "cities",
+        "com",
+        "list",
+        "named",
+        "now",
+        "nyc",
+        "policies"
+      ],
+      "decaying_terms": [
+        "including",
+        "increases",
+        "jurisdictions",
+        "listing",
+        "philadelphia",
+        "pressure",
+        "public",
+        "with"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 54,
+      "date": "2025-08-05",
+      "prev_date": "2025-06-02",
+      "drift_distance": 0.2731,
+      "emerging_terms": [
+        "daily",
+        "new",
+        "philadelphia",
+        "record",
+        "shorter",
+        "stays",
+        "the",
+        "york"
+      ],
+      "decaying_terms": [
+        "among",
+        "area",
+        "cbsnews",
+        "com",
+        "named",
+        "now",
+        "nyc",
+        "policies",
+        "removed",
+        "state"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 56,
+      "date": "2025-12-29",
+      "prev_date": "2025-08-11",
+      "drift_distance": 0.2589,
+      "emerging_terms": [
+        "and",
+        "back",
+        "immigration",
+        "jersey",
+        "look",
+        "new",
+        "protests"
+      ],
+      "decaying_terms": [
+        "are",
+        "bind",
+        "immigrants",
+        "industries",
+        "putting",
+        "rely",
+        "that"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 57,
+      "date": "2025-08-13",
+      "prev_date": "2025-08-08",
+      "drift_distance": 0.128,
+      "emerging_terms": [
+        "city",
+        "includes",
+        "ledger",
+        "one",
+        "patriot",
+        "the"
+      ],
+      "decaying_terms": [
+        "see",
+        "today",
+        "usa"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 58,
+      "date": "2025-05-21",
+      "prev_date": "2025-04-11",
+      "drift_distance": 0.3877,
+      "emerging_terms": [
+        "adubato",
+        "and",
+        "examines",
+        "impact",
+        "insider",
+        "jersey",
+        "new",
+        "recent",
+        "residents",
+        "steve"
+      ],
+      "decaying_terms": [
+        "could",
+        "fears",
+        "hit",
+        "home",
+        "mass",
+        "news",
+        "nursing",
+        "spotlight",
+        "staffing",
+        "that"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 58,
+      "date": "2025-06-06",
+      "prev_date": "2025-05-21",
+      "drift_distance": 0.3124,
+      "emerging_terms": [
+        "act",
+        "are",
+        "being",
+        "bergen",
+        "citizens",
+        "deportation",
+        "for",
+        "immigrant",
+        "opinion",
+        "pass"
+      ],
+      "decaying_terms": [
+        "adubato",
+        "and",
+        "deportations",
+        "examines",
+        "impact",
+        "insider",
+        "jersey",
+        "new",
+        "recent",
+        "residents"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 58,
+      "date": "2025-08-06",
+      "prev_date": "2025-06-06",
+      "drift_distance": 0.2577,
+      "emerging_terms": [
+        "administration",
+        "agenda",
+        "fights",
+        "its",
+        "news",
+        "obstacles",
+        "spotlight",
+        "trump"
+      ],
+      "decaying_terms": [
+        "act",
+        "are",
+        "being",
+        "bergen",
+        "citizens",
+        "for",
+        "immigrant",
+        "opinion",
+        "pass",
+        "record"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 58,
+      "date": "2026-01-07",
+      "prev_date": "2025-08-06",
+      "drift_distance": 0.2039,
+      "emerging_terms": [
+        "com",
+        "driving",
+        "fear",
+        "for",
+        "how",
+        "immigrant",
+        "protections",
+        "push"
+      ],
+      "decaying_terms": [
+        "administration",
+        "agenda",
+        "fights",
+        "its",
+        "news",
+        "obstacles",
+        "spotlight",
+        "trump"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 59,
+      "date": "2025-04-07",
+      "prev_date": "2025-03-05",
+      "drift_distance": 0.2537,
+      "emerging_terms": [
+        "anti",
+        "deportations",
+        "end",
+        "fervor",
+        "how",
+        "isn",
+        "new",
+        "the",
+        "will"
+      ],
+      "decaying_terms": [
+        "and",
+        "coverage",
+        "deportation",
+        "everything",
+        "jersey",
+        "know",
+        "need",
+        "north",
+        "our",
+        "you"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 60,
+      "date": "2026-02-03",
+      "prev_date": "2026-01-26",
+      "drift_distance": 0.2624,
+      "emerging_terms": [
+        "and",
+        "arrests",
+        "city",
+        "lawmaker",
+        "reprehensible",
+        "says",
+        "state",
+        "were"
+      ],
+      "decaying_terms": [
+        "after",
+        "agents",
+        "another",
+        "deadly",
+        "demands",
+        "gov",
+        "off",
+        "shooting",
+        "streets",
+        "unaccountable"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 61,
+      "date": "2025-05-21",
+      "prev_date": "2025-04-09",
+      "drift_distance": 0.3301,
+      "emerging_terms": [
+        "governor",
+        "hopefuls",
+        "how",
+        "order",
+        "tackle",
+        "would"
+      ],
+      "decaying_terms": [
+        "acting",
+        "attorney",
+        "curb",
+        "effort",
+        "police",
+        "slams",
+        "state"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 61,
+      "date": "2025-09-22",
+      "prev_date": "2025-05-21",
+      "drift_distance": 0.195,
+      "emerging_terms": [
+        "agents",
+        "aid",
+        "allowing",
+        "cops",
+        "stand",
+        "where"
+      ],
+      "decaying_terms": [
+        "enforcement",
+        "how",
+        "order",
+        "tackle",
+        "would"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 63,
+      "date": "2025-08-06",
+      "prev_date": "2025-06-03",
+      "drift_distance": 0.2292,
+      "emerging_terms": [
+        "department",
+        "justice",
+        "new",
+        "releases"
+      ],
+      "decaying_terms": [
+        "dhs",
+        "removes"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 64,
+      "date": "2026-01-13",
+      "prev_date": "2026-01-12",
+      "drift_distance": 0.1664,
+      "emerging_terms": [
+        "jersey",
+        "morristown",
+        "new",
+        "schooler",
+        "was"
+      ],
+      "decaying_terms": [
+        "among",
+        "morris",
+        "patch",
+        "raid",
+        "school",
+        "student",
+        "those"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 64,
+      "date": "2026-01-16",
+      "prev_date": "2026-01-13",
+      "drift_distance": 0.2546,
+      "emerging_terms": [
+        "patch",
+        "released",
+        "school",
+        "student",
+        "taken",
+        "while"
+      ],
+      "decaying_terms": [
+        "detained",
+        "jersey",
+        "morristown",
+        "new",
+        "schooler",
+        "was"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 65,
+      "date": "2025-08-05",
+      "prev_date": "2025-06-09",
+      "drift_distance": 0.274,
+      "emerging_terms": [
+        "enforcement",
+        "feds",
+        "fighting",
+        "places",
+        "they",
+        "trim"
+      ],
+      "decaying_terms": [
+        "error",
+        "filled",
+        "puzzle",
+        "sanctuaries",
+        "sheriffs",
+        "states",
+        "trump"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 66,
+      "date": "2025-08-25",
+      "prev_date": "2025-06-03",
+      "drift_distance": 0.2167,
+      "emerging_terms": [
+        "com",
+        "deportation",
+        "despite",
+        "for",
+        "months",
+        "stay"
+      ],
+      "decaying_terms": [
+        "and",
+        "bergen",
+        "chooses",
+        "deport",
+        "husband",
+        "record",
+        "self"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 67,
+      "date": "2026-01-17",
+      "prev_date": "2026-01-15",
+      "drift_distance": 0.2724,
+      "emerging_terms": [
+        "after",
+        "detained",
+        "dropping",
+        "identified",
+        "man",
+        "raid"
+      ],
+      "decaying_terms": [
+        "detains",
+        "dropped",
+        "including",
+        "just",
+        "men",
+        "suburb",
+        "wealthy",
+        "who"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 68,
+      "date": "2026-01-21",
+      "prev_date": "2026-01-15",
+      "drift_distance": 0.1737,
+      "emerging_terms": [
+        "from",
+        "officials",
+        "patch",
+        "prompt",
+        "warnings"
+      ],
+      "decaying_terms": [
+        "for",
+        "gather",
+        "jersey",
+        "new",
+        "residents",
+        "response",
+        "session"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 69,
+      "date": "2026-01-17",
+      "prev_date": "2026-01-14",
+      "drift_distance": 0.2227,
+      "emerging_terms": [
+        "aftermath",
+        "against",
+        "rally",
+        "residents"
+      ],
+      "decaying_terms": [
+        "communities",
+        "crisis",
+        "morristown",
+        "our",
+        "reacts",
+        "senator"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 70,
+      "date": "2026-02-04",
+      "prev_date": "2026-02-02",
+      "drift_distance": 0.2269,
+      "emerging_terms": [
+        "alone",
+        "community",
+        "fails",
+        "fear",
+        "make",
+        "mile",
+        "news",
+        "others",
+        "safe",
+        "school"
+      ],
+      "decaying_terms": [
+        "agents",
+        "arresting",
+        "detained",
+        "doesn",
+        "jersey",
+        "light",
+        "need",
+        "new",
+        "officer",
+        "people"
+      ],
+      "is_mutation": false,
+      "window_size": 2
+    },
+    {
+      "topic_id": 71,
+      "date": "2026-01-15",
+      "prev_date": "2026-01-12",
+      "drift_distance": 0.1403,
+      "emerging_terms": [
+        "avenue",
+        "custody",
+        "group",
+        "hills",
+        "into",
+        "media",
+        "speedwell",
+        "student",
+        "taken"
+      ],
+      "decaying_terms": [
+        "among",
+        "detained",
+        "senior",
+        "sunday",
+        "those"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 72,
+      "date": "2026-01-15",
+      "prev_date": "2026-01-12",
+      "drift_distance": 0.1795,
+      "emerging_terms": [
+        "arrested",
+        "deportation",
+        "face",
+        "says"
+      ],
+      "decaying_terms": [
+        "arrests",
+        "here",
+        "know",
+        "leads",
+        "multiple",
+        "what"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 74,
+      "date": "2026-01-14",
+      "prev_date": "2026-01-13",
+      "drift_distance": 0.2019,
+      "emerging_terms": [
+        "community",
+        "members",
+        "new",
+        "out",
+        "speak",
+        "york"
+      ],
+      "decaying_terms": [
+        "officials"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 75,
+      "date": "2025-11-13",
+      "prev_date": "2025-10-30",
+      "drift_distance": 0.22,
+      "emerging_terms": [
+        "activists",
+        "after",
+        "custody",
+        "immigration",
+        "into",
+        "protest",
+        "taken"
+      ],
+      "decaying_terms": [
+        "arrested",
+        "arrests",
+        "dhs",
+        "fox",
+        "leads",
+        "people",
+        "says"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 76,
+      "date": "2025-07-17",
+      "prev_date": "2025-07-09",
+      "drift_distance": 0.1751,
+      "emerging_terms": [
+        "after",
+        "custody",
+        "demand",
+        "demonstrators",
+        "from",
+        "new",
+        "release",
+        "york"
+      ],
+      "decaying_terms": [
+        "edge",
+        "families",
+        "leaves",
+        "news",
+        "spotlight"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 76,
+      "date": "2025-08-21",
+      "prev_date": "2025-07-17",
+      "drift_distance": 0.1136,
+      "emerging_terms": [
+        "detained",
+        "dozens",
+        "news",
+        "spotlight"
+      ],
+      "decaying_terms": [
+        "after",
+        "custody",
+        "demand",
+        "demonstrators",
+        "from",
+        "new",
+        "release",
+        "york"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 79,
+      "date": "2026-01-30",
+      "prev_date": "2025-06-12",
+      "drift_distance": 0.2101,
+      "emerging_terms": [
+        "held",
+        "jersey",
+        "keep",
+        "new",
+        "out",
+        "protests"
+      ],
+      "decaying_terms": [
+        "demand",
+        "leave",
+        "news",
+        "protestors",
+        "spotlight"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 80,
+      "date": "2026-01-27",
+      "prev_date": "2025-10-09",
+      "drift_distance": 0.3307,
+      "emerging_terms": [
+        "accused",
+        "arrests",
+        "criminal",
+        "include",
+        "jersey",
+        "kidnapped",
+        "new",
+        "offender",
+        "sex",
+        "violent"
+      ],
+      "decaying_terms": [
+        "arrested",
+        "has",
+        "news",
+        "office",
+        "over",
+        "people",
+        "since",
+        "spotlight",
+        "took",
+        "trump"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 80,
+      "date": "2026-01-28",
+      "prev_date": "2026-01-27",
+      "drift_distance": 0.3224,
+      "emerging_terms": [
+        "active",
+        "agents",
+        "are",
+        "arresting",
+        "look",
+        "take",
+        "they",
+        "who"
+      ],
+      "decaying_terms": [
+        "accused",
+        "arrests",
+        "criminal",
+        "include",
+        "kidnapped",
+        "offender",
+        "sex",
+        "violent"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 80,
+      "date": "2026-02-01",
+      "prev_date": "2026-01-28",
+      "drift_distance": 0.3337,
+      "emerging_terms": [
+        "arrests",
+        "brunswick",
+        "reported"
+      ],
+      "decaying_terms": [
+        "active",
+        "agents",
+        "are",
+        "arresting",
+        "look",
+        "take",
+        "they",
+        "who"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 80,
+      "date": "2026-02-03",
+      "prev_date": "2026-02-01",
+      "drift_distance": 0.2423,
+      "emerging_terms": [
+        "about",
+        "details",
+        "emerge",
+        "news",
+        "top"
+      ],
+      "decaying_terms": [
+        "brunswick",
+        "reported"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 81,
+      "date": "2026-02-03",
+      "prev_date": "2026-02-02",
+      "drift_distance": 0.2064,
+      "emerging_terms": [
+        "are",
+        "bergen",
+        "does",
+        "facts",
+        "for",
+        "here",
+        "jersey",
+        "law",
+        "new",
+        "really"
+      ],
+      "decaying_terms": [
+        "bro",
+        "city",
+        "com",
+        "detain",
+        "don",
+        "residents"
+      ],
+      "is_mutation": false,
+      "window_size": 2
+    },
+    {
+      "topic_id": 82,
+      "date": "2025-09-17",
+      "prev_date": "2025-06-03",
+      "drift_distance": 0.1786,
+      "emerging_terms": [
+        "county",
+        "federal",
+        "from",
+        "removed",
+        "town"
+      ],
+      "decaying_terms": [
+        "down",
+        "jersey",
+        "new",
+        "taken",
+        "towns",
+        "with"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 82,
+      "date": "2025-09-18",
+      "prev_date": "2025-09-17",
+      "drift_distance": 0.1327,
+      "emerging_terms": [
+        "mayor",
+        "patch"
+      ],
+      "decaying_terms": [
+        "here",
+        "record",
+        "why"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 84,
+      "date": "2025-09-30",
+      "prev_date": "2025-07-03",
+      "drift_distance": 0.2362,
+      "emerging_terms": [
+        "guardian",
+        "minnesota",
+        "policies",
+        "the"
+      ],
+      "decaying_terms": [
+        "angeles",
+        "commentary",
+        "law",
+        "los",
+        "ordinance"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 86,
+      "date": "2026-01-14",
+      "prev_date": "2025-04-28",
+      "drift_distance": 0.1643,
+      "emerging_terms": [
+        "also",
+        "but",
+        "cbsnews",
+        "federal",
+        "halt",
+        "money",
+        "month",
+        "next",
+        "not",
+        "only"
+      ],
+      "decaying_terms": [
+        "funding",
+        "inquirer",
+        "order",
+        "president",
+        "signs",
+        "with"
+      ],
+      "is_mutation": false,
+      "window_size": 2
+    },
+    {
+      "topic_id": 87,
+      "date": "2025-06-02",
+      "prev_date": "2025-05-30",
+      "drift_distance": 0.2231,
+      "emerging_terms": [
+        "cited",
+        "cities",
+        "homeland",
+        "security",
+        "tapinto",
+        "three"
+      ],
+      "decaying_terms": [
+        "dhs",
+        "jersey",
+        "names",
+        "new",
+        "towns"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 88,
+      "date": "2025-11-18",
+      "prev_date": "2025-08-05",
+      "drift_distance": 0.1729,
+      "emerging_terms": [
+        "again",
+        "targets"
+      ],
+      "decaying_terms": [
+        "doj",
+        "jurisdictions",
+        "names"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 90,
+      "date": "2025-08-06",
+      "prev_date": "2025-05-23",
+      "drift_distance": 0.2143,
+      "emerging_terms": [
+        "and",
+        "lawsuits",
+        "list",
+        "newsnation",
+        "publishes",
+        "states",
+        "threatens"
+      ],
+      "decaying_terms": [
+        "against",
+        "announces",
+        "dangerous",
+        "files",
+        "four",
+        "grab",
+        "insider",
+        "jersey",
+        "lawsuit",
+        "new"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 92,
+      "date": "2025-07-25",
+      "prev_date": "2025-07-24",
+      "drift_distance": 0.1342,
+      "emerging_terms": [
+        "cnn",
+        "its"
+      ],
+      "decaying_terms": [
+        "adams",
+        "and",
+        "dept",
+        "eric",
+        "justice",
+        "laws",
+        "mayor",
+        "nbc",
+        "nyc",
+        "the"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    },
+    {
+      "topic_id": 93,
+      "date": "2025-06-02",
+      "prev_date": "2025-05-22",
+      "drift_distance": 0.0959,
+      "emerging_terms": [
+        "american",
+        "challenging",
+        "federation",
+        "files",
+        "for",
+        "four",
+        "lawsuit",
+        "reform"
+      ],
+      "decaying_terms": [
+        "bloomberg",
+        "com",
+        "over",
+        "sued"
+      ],
+      "is_mutation": false,
+      "window_size": 1
+    }
+  ],
+  "mutations": [
+    {
+      "topic_id": 2,
+      "date": "2025-07-25",
+      "prev_date": "2025-06-17",
+      "drift_distance": 0.4422,
+      "emerging_terms": [
+        "agenda",
+        "american",
+        "council",
+        "local",
+        "months",
+        "six",
+        "snapshot",
+        "state"
+      ],
+      "decaying_terms": [
+        "charts",
+        "com",
+        "five",
+        "impact",
+        "inquirer",
+        "policy",
+        "show",
+        "that",
+        "the"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 2,
+      "date": "2025-08-27",
+      "prev_date": "2025-07-25",
+      "drift_distance": 0.3409,
+      "emerging_terms": [
+        "actions",
+        "are",
+        "data",
+        "economies",
+        "far",
+        "here",
+        "says",
+        "taking",
+        "the",
+        "toll"
+      ],
+      "decaying_terms": [
+        "agenda",
+        "and",
+        "months",
+        "six",
+        "snapshot",
+        "state"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 3,
+      "date": "2026-01-13",
+      "prev_date": "2025-06-06",
+      "drift_distance": 0.4449,
+      "emerging_terms": [
+        "defiance",
+        "expand",
+        "immigrants",
+        "new",
+        "push",
+        "rights",
+        "the",
+        "times",
+        "york"
+      ],
+      "decaying_terms": [
+        "agenda",
+        "american",
+        "civil",
+        "day",
+        "extreme",
+        "from",
+        "grown",
+        "has",
+        "immigration",
+        "liberties"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 5,
+      "date": "2026-01-17",
+      "prev_date": "2026-01-12",
+      "drift_distance": 0.3503,
+      "emerging_terms": [
+        "arrests",
+        "community",
+        "river",
+        "times",
+        "two",
+        "unsettle"
+      ],
+      "decaying_terms": [
+        "bicycling",
+        "deport",
+        "green",
+        "landscaper",
+        "moves"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 6,
+      "date": "2025-06-10",
+      "prev_date": "2025-05-29",
+      "drift_distance": 0.4254,
+      "emerging_terms": [
+        "admin",
+        "cities",
+        "come",
+        "defense",
+        "dems",
+        "fellow",
+        "globe",
+        "letter",
+        "mciver",
+        "sanctuary"
+      ],
+      "decaying_terms": [
+        "campaign",
+        "deportation",
+        "epitomizing",
+        "monde",
+        "prison",
+        "the"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 9,
+      "date": "2026-02-04",
+      "prev_date": "2025-11-21",
+      "drift_distance": 0.4005,
+      "emerging_terms": [
+        "accused",
+        "against",
+        "border",
+        "child",
+        "driving",
+        "man",
+        "mexico",
+        "out",
+        "speaks",
+        "suspect"
+      ],
+      "decaying_terms": [
+        "body",
+        "business",
+        "for",
+        "found",
+        "nature",
+        "preserve",
+        "second",
+        "time"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 11,
+      "date": "2026-01-31",
+      "prev_date": "2026-01-30",
+      "drift_distance": 0.2966,
+      "emerging_terms": [
+        "action",
+        "phones",
+        "record",
+        "residents",
+        "the",
+        "their",
+        "times",
+        "urges",
+        "york"
+      ],
+      "decaying_terms": [
+        "activity",
+        "announces",
+        "get",
+        "gov",
+        "out",
+        "phone",
+        "portal",
+        "track",
+        "your"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 11,
+      "date": "2026-02-01",
+      "prev_date": "2026-01-31",
+      "drift_distance": 0.4611,
+      "emerging_terms": [
+        "agents",
+        "comes",
+        "federal",
+        "gov",
+        "out",
+        "swinging",
+        "tapinto"
+      ],
+      "decaying_terms": [
+        "action",
+        "phones",
+        "record",
+        "residents",
+        "the",
+        "their",
+        "times",
+        "urges",
+        "york"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 12,
+      "date": "2025-09-25",
+      "prev_date": "2025-09-24",
+      "drift_distance": 0.3475,
+      "emerging_terms": [
+        "arrest",
+        "asylum",
+        "case",
+        "contreras",
+        "denied",
+        "deported",
+        "dylan",
+        "following",
+        "has",
+        "lopez"
+      ],
+      "decaying_terms": [
+        "amnewyork",
+        "bronx",
+        "custody",
+        "deportation",
+        "lawyers",
+        "say"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 14,
+      "date": "2026-02-03",
+      "prev_date": "2025-04-11",
+      "drift_distance": 0.3403,
+      "emerging_terms": [
+        "billion",
+        "communities",
+        "expansion",
+        "faces",
+        "from",
+        "immigrant",
+        "nbc",
+        "news",
+        "pushback",
+        "sites"
+      ],
+      "decaying_terms": [
+        "accelerates",
+        "deportation",
+        "expands",
+        "for",
+        "his",
+        "immigration",
+        "plans",
+        "profit",
+        "stateline"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 15,
+      "date": "2025-07-10",
+      "prev_date": "2025-04-18",
+      "drift_distance": 0.3193,
+      "emerging_terms": [
+        "agenda",
+        "deportation",
+        "destroy",
+        "economic",
+        "institute",
+        "jobs",
+        "millions",
+        "policy",
+        "will"
+      ],
+      "decaying_terms": [
+        "administration",
+        "amazon",
+        "business",
+        "deportations",
+        "efficient",
+        "into",
+        "like",
+        "mass",
+        "pbs",
+        "seeks"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 18,
+      "date": "2026-01-11",
+      "prev_date": "2026-01-07",
+      "drift_distance": 0.2835,
+      "emerging_terms": [
+        "can",
+        "families",
+        "fight",
+        "laws",
+        "opinion",
+        "terrorizes"
+      ],
+      "decaying_terms": [
+        "against",
+        "and",
+        "bold",
+        "fighting",
+        "proposals"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 18,
+      "date": "2026-01-13",
+      "prev_date": "2026-01-11",
+      "drift_distance": 0.4369,
+      "emerging_terms": [
+        "about",
+        "cooperation",
+        "even",
+        "limited",
+        "more",
+        "new",
+        "proposals",
+        "under"
+      ],
+      "decaying_terms": [
+        "back",
+        "can",
+        "families",
+        "fight",
+        "laws",
+        "opinion",
+        "terrorizes",
+        "trump"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 19,
+      "date": "2026-02-04",
+      "prev_date": "2026-02-03",
+      "drift_distance": 0.3061,
+      "emerging_terms": [
+        "announces",
+        "democracy",
+        "james",
+        "legal",
+        "now",
+        "raids"
+      ],
+      "decaying_terms": [
+        "across",
+        "deploys",
+        "deportation",
+        "efforts",
+        "enforcement",
+        "from",
+        "ice",
+        "monitor",
+        "nyc",
+        "office"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 21,
+      "date": "2025-09-04",
+      "prev_date": "2025-08-05",
+      "drift_distance": 0.3268,
+      "emerging_terms": [
+        "awarded",
+        "deportation",
+        "diligence",
+        "driver",
+        "for",
+        "hit",
+        "locating",
+        "officer",
+        "run"
+      ],
+      "decaying_terms": [
+        "arrests",
+        "criminal",
+        "long",
+        "noncitizens",
+        "operation",
+        "surge",
+        "week"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 23,
+      "date": "2026-01-29",
+      "prev_date": "2026-01-12",
+      "drift_distance": 0.3357,
+      "emerging_terms": [
+        "agents",
+        "block",
+        "com",
+        "create",
+        "law",
+        "other",
+        "rejects",
+        "safe",
+        "signs",
+        "zones"
+      ],
+      "decaying_terms": [
+        "cooperation",
+        "gothamist",
+        "moves",
+        "restricting",
+        "sign",
+        "toward",
+        "unclear",
+        "will"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 24,
+      "date": "2025-08-20",
+      "prev_date": "2025-08-19",
+      "drift_distance": 0.26,
+      "emerging_terms": [
+        "deportation",
+        "detention",
+        "families",
+        "puts",
+        "spotlight",
+        "the",
+        "times"
+      ],
+      "decaying_terms": [
+        "after",
+        "and",
+        "being",
+        "deported",
+        "detained",
+        "ecuador",
+        "her",
+        "mother",
+        "nyc",
+        "public"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 24,
+      "date": "2026-01-02",
+      "prev_date": "2025-08-20",
+      "drift_distance": 0.3094,
+      "emerging_terms": [
+        "and",
+        "deportations",
+        "more",
+        "one",
+        "than"
+      ],
+      "decaying_terms": [
+        "deportation",
+        "detention",
+        "families",
+        "ice",
+        "old",
+        "puts",
+        "spotlight"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 25,
+      "date": "2025-06-16",
+      "prev_date": "2025-06-13",
+      "drift_distance": 0.2653,
+      "emerging_terms": [
+        "after",
+        "escaping",
+        "people",
+        "recaptured"
+      ],
+      "decaying_terms": [
+        "detainees",
+        "dhs",
+        "escaped",
+        "from",
+        "says"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 26,
+      "date": "2025-07-21",
+      "prev_date": "2025-07-18",
+      "drift_distance": 0.3113,
+      "emerging_terms": [
+        "candidates",
+        "governor",
+        "housing",
+        "split"
+      ],
+      "decaying_terms": [
+        "democrats",
+        "house",
+        "move",
+        "oppose"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 27,
+      "date": "2025-07-21",
+      "prev_date": "2025-07-18",
+      "drift_distance": 0.2907,
+      "emerging_terms": [
+        "and",
+        "bases",
+        "detain",
+        "expanded",
+        "immigrants",
+        "indiana",
+        "new",
+        "npr",
+        "will"
+      ],
+      "decaying_terms": [
+        "administration",
+        "base",
+        "com",
+        "detainees",
+        "detention",
+        "for",
+        "hold",
+        "immigrant",
+        "immigration",
+        "inquirer"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 30,
+      "date": "2025-11-20",
+      "prev_date": "2025-10-21",
+      "drift_distance": 0.4506,
+      "emerging_terms": [
+        "about",
+        "concerns",
+        "masked",
+        "more",
+        "news",
+        "officers",
+        "raises",
+        "spotlight",
+        "tactics",
+        "video"
+      ],
+      "decaying_terms": [
+        "agents",
+        "ban",
+        "democrat",
+        "for",
+        "from",
+        "governor",
+        "jersey",
+        "masks",
+        "monitor",
+        "new"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 30,
+      "date": "2025-11-24",
+      "prev_date": "2025-11-20",
+      "drift_distance": 0.3966,
+      "emerging_terms": [
+        "agents",
+        "ban",
+        "bill",
+        "from",
+        "jersey",
+        "masks",
+        "monitor",
+        "new",
+        "wearing",
+        "would"
+      ],
+      "decaying_terms": [
+        "about",
+        "concerns",
+        "masked",
+        "more",
+        "news",
+        "officers",
+        "raises",
+        "spotlight",
+        "tactics",
+        "video"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 30,
+      "date": "2026-02-04",
+      "prev_date": "2025-12-12",
+      "drift_distance": 0.2607,
+      "emerging_terms": [
+        "grows",
+        "masked",
+        "support"
+      ],
+      "decaying_terms": [
+        "banning",
+        "first",
+        "from",
+        "lawmakers",
+        "masks",
+        "monitor",
+        "news",
+        "spotlight",
+        "step",
+        "take"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 31,
+      "date": "2025-05-01",
+      "prev_date": "2025-04-28",
+      "drift_distance": 0.2687,
+      "emerging_terms": [
+        "banning",
+        "contested",
+        "day",
+        "gets",
+        "immigration",
+        "its",
+        "jails",
+        "law",
+        "private"
+      ],
+      "decaying_terms": [
+        "appeals",
+        "case",
+        "detention",
+        "federal",
+        "hear",
+        "immigrant"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 31,
+      "date": "2025-06-27",
+      "prev_date": "2025-05-01",
+      "drift_distance": 0.3399,
+      "emerging_terms": [
+        "advocates",
+        "call",
+        "for",
+        "immigrant",
+        "more",
+        "protections",
+        "renew",
+        "ruling",
+        "supreme",
+        "wake"
+      ],
+      "decaying_terms": [
+        "banning",
+        "contested",
+        "day",
+        "gets",
+        "immigration",
+        "its",
+        "jails",
+        "law",
+        "private"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 31,
+      "date": "2025-07-22",
+      "prev_date": "2025-06-27",
+      "drift_distance": 0.3464,
+      "emerging_terms": [
+        "appeals",
+        "ban",
+        "cannot",
+        "companies",
+        "detaining",
+        "from",
+        "immigrants",
+        "rules"
+      ],
+      "decaying_terms": [
+        "advocates",
+        "call",
+        "for",
+        "immigrant",
+        "more",
+        "protections",
+        "renew",
+        "ruling",
+        "supreme",
+        "wake"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 34,
+      "date": "2026-02-02",
+      "prev_date": "2026-01-12",
+      "drift_distance": 0.3077,
+      "emerging_terms": [
+        "car",
+        "dispensary",
+        "fire",
+        "hurts",
+        "multiple",
+        "raids",
+        "smashes",
+        "train",
+        "transit"
+      ],
+      "decaying_terms": [
+        "apartment",
+        "fires",
+        "massive",
+        "raid",
+        "shootings"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 35,
+      "date": "2026-01-22",
+      "prev_date": "2026-01-16",
+      "drift_distance": 0.3183,
+      "emerging_terms": [
+        "advocates",
+        "after",
+        "blocks",
+        "call",
+        "immigration",
+        "limiting",
+        "sherrill",
+        "tactics"
+      ],
+      "decaying_terms": [
+        "await",
+        "continue",
+        "immigrant",
+        "protection",
+        "raids",
+        "signature"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 41,
+      "date": "2026-01-09",
+      "prev_date": "2026-01-08",
+      "drift_distance": 0.3312,
+      "emerging_terms": [
+        "com",
+        "cooperation",
+        "fight",
+        "limit",
+        "pass",
+        "plan",
+        "with"
+      ],
+      "decaying_terms": [
+        "anti",
+        "bills",
+        "fatal",
+        "following",
+        "jersey",
+        "key",
+        "minnesota",
+        "monitor",
+        "new",
+        "push"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 44,
+      "date": "2026-02-01",
+      "prev_date": "2026-01-29",
+      "drift_distance": 0.2973,
+      "emerging_terms": [
+        "activity",
+        "advocates",
+        "but",
+        "jersey",
+        "more",
+        "phillyvoice",
+        "proposes",
+        "track",
+        "want",
+        "website"
+      ],
+      "decaying_terms": [
+        "agents",
+        "com",
+        "database",
+        "record",
+        "residents",
+        "state",
+        "upload",
+        "videos",
+        "wants"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 45,
+      "date": "2026-01-13",
+      "prev_date": "2026-01-12",
+      "drift_distance": 0.2547,
+      "emerging_terms": [
+        "designed",
+        "from",
+        "immigrants",
+        "pass",
+        "protect",
+        "raids",
+        "whyy"
+      ],
+      "decaying_terms": [
+        "faces",
+        "governor",
+        "immigrant",
+        "nationwide",
+        "politico",
+        "pro",
+        "scrutiny",
+        "send"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 47,
+      "date": "2025-10-28",
+      "prev_date": "2025-10-18",
+      "drift_distance": 0.3198,
+      "emerging_terms": [
+        "america",
+        "and",
+        "candidates",
+        "gubernatorial",
+        "stand",
+        "virginia",
+        "voice",
+        "where"
+      ],
+      "decaying_terms": [
+        "aims",
+        "distance",
+        "for",
+        "from",
+        "gop",
+        "governor",
+        "latinos",
+        "pitch",
+        "race",
+        "some"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 47,
+      "date": "2026-01-27",
+      "prev_date": "2025-10-28",
+      "drift_distance": 0.3409,
+      "emerging_terms": [
+        "debate",
+        "dividing",
+        "the",
+        "you"
+      ],
+      "decaying_terms": [
+        "america",
+        "and",
+        "candidates",
+        "gubernatorial",
+        "virginia",
+        "voice"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 47,
+      "date": "2026-02-01",
+      "prev_date": "2026-01-27",
+      "drift_distance": 0.3959,
+      "emerging_terms": [
+        "center",
+        "election",
+        "politico",
+        "special",
+        "stage",
+        "takes"
+      ],
+      "decaying_terms": [
+        "debate",
+        "dividing",
+        "stand",
+        "the",
+        "where",
+        "you"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 47,
+      "date": "2026-02-04",
+      "prev_date": "2026-02-01",
+      "drift_distance": 0.2863,
+      "emerging_terms": [
+        "congressional",
+        "debate",
+        "devdiscourse",
+        "intensifies"
+      ],
+      "decaying_terms": [
+        "center",
+        "politico",
+        "stage",
+        "takes"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 48,
+      "date": "2025-08-21",
+      "prev_date": "2025-08-20",
+      "drift_distance": 0.2768,
+      "emerging_terms": [
+        "administration",
+        "fight",
+        "news",
+        "over",
+        "spotlight",
+        "vows"
+      ],
+      "decaying_terms": [
+        "admin",
+        "bend",
+        "demand",
+        "its",
+        "jersey",
+        "knee",
+        "monitor",
+        "new",
+        "says",
+        "won"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 50,
+      "date": "2025-12-26",
+      "prev_date": "2025-05-27",
+      "drift_distance": 0.2983,
+      "emerging_terms": [
+        "the",
+        "year"
+      ],
+      "decaying_terms": [
+        "again",
+        "for",
+        "jersey",
+        "new",
+        "policies",
+        "targeted"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 51,
+      "date": "2025-08-22",
+      "prev_date": "2025-08-21",
+      "drift_distance": 0.2974,
+      "emerging_terms": [
+        "disrupts",
+        "hub",
+        "pair",
+        "raids",
+        "shipping",
+        "times",
+        "york"
+      ],
+      "decaying_terms": [
+        "detained",
+        "dozens",
+        "guardian",
+        "raid",
+        "warehouse",
+        "workers"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 51,
+      "date": "2025-11-19",
+      "prev_date": "2025-08-22",
+      "drift_distance": 0.2947,
+      "emerging_terms": [
+        "agents",
+        "conduct",
+        "market",
+        "monitor",
+        "newark",
+        "raid",
+        "seafood",
+        "second"
+      ],
+      "decaying_terms": [
+        "disrupts",
+        "hub",
+        "pair",
+        "raids",
+        "shipping",
+        "the",
+        "times",
+        "york"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 54,
+      "date": "2025-06-02",
+      "prev_date": "2025-05-30",
+      "drift_distance": 0.3634,
+      "emerging_terms": [
+        "among",
+        "area",
+        "cbsnews",
+        "cities",
+        "com",
+        "list",
+        "named",
+        "now",
+        "nyc",
+        "policies"
+      ],
+      "decaying_terms": [
+        "including",
+        "increases",
+        "jurisdictions",
+        "listing",
+        "philadelphia",
+        "pressure",
+        "public",
+        "with"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 54,
+      "date": "2025-08-05",
+      "prev_date": "2025-06-02",
+      "drift_distance": 0.2731,
+      "emerging_terms": [
+        "daily",
+        "new",
+        "philadelphia",
+        "record",
+        "shorter",
+        "stays",
+        "the",
+        "york"
+      ],
+      "decaying_terms": [
+        "among",
+        "area",
+        "cbsnews",
+        "com",
+        "named",
+        "now",
+        "nyc",
+        "policies",
+        "removed",
+        "state"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 56,
+      "date": "2025-12-29",
+      "prev_date": "2025-08-11",
+      "drift_distance": 0.2589,
+      "emerging_terms": [
+        "and",
+        "back",
+        "immigration",
+        "jersey",
+        "look",
+        "new",
+        "protests"
+      ],
+      "decaying_terms": [
+        "are",
+        "bind",
+        "immigrants",
+        "industries",
+        "putting",
+        "rely",
+        "that"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 58,
+      "date": "2025-05-21",
+      "prev_date": "2025-04-11",
+      "drift_distance": 0.3877,
+      "emerging_terms": [
+        "adubato",
+        "and",
+        "examines",
+        "impact",
+        "insider",
+        "jersey",
+        "new",
+        "recent",
+        "residents",
+        "steve"
+      ],
+      "decaying_terms": [
+        "could",
+        "fears",
+        "hit",
+        "home",
+        "mass",
+        "news",
+        "nursing",
+        "spotlight",
+        "staffing",
+        "that"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 58,
+      "date": "2025-06-06",
+      "prev_date": "2025-05-21",
+      "drift_distance": 0.3124,
+      "emerging_terms": [
+        "act",
+        "are",
+        "being",
+        "bergen",
+        "citizens",
+        "deportation",
+        "for",
+        "immigrant",
+        "opinion",
+        "pass"
+      ],
+      "decaying_terms": [
+        "adubato",
+        "and",
+        "deportations",
+        "examines",
+        "impact",
+        "insider",
+        "jersey",
+        "new",
+        "recent",
+        "residents"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 58,
+      "date": "2025-08-06",
+      "prev_date": "2025-06-06",
+      "drift_distance": 0.2577,
+      "emerging_terms": [
+        "administration",
+        "agenda",
+        "fights",
+        "its",
+        "news",
+        "obstacles",
+        "spotlight",
+        "trump"
+      ],
+      "decaying_terms": [
+        "act",
+        "are",
+        "being",
+        "bergen",
+        "citizens",
+        "for",
+        "immigrant",
+        "opinion",
+        "pass",
+        "record"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 59,
+      "date": "2025-04-07",
+      "prev_date": "2025-03-05",
+      "drift_distance": 0.2537,
+      "emerging_terms": [
+        "anti",
+        "deportations",
+        "end",
+        "fervor",
+        "how",
+        "isn",
+        "new",
+        "the",
+        "will"
+      ],
+      "decaying_terms": [
+        "and",
+        "coverage",
+        "deportation",
+        "everything",
+        "jersey",
+        "know",
+        "need",
+        "north",
+        "our",
+        "you"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 60,
+      "date": "2026-02-03",
+      "prev_date": "2026-01-26",
+      "drift_distance": 0.2624,
+      "emerging_terms": [
+        "and",
+        "arrests",
+        "city",
+        "lawmaker",
+        "reprehensible",
+        "says",
+        "state",
+        "were"
+      ],
+      "decaying_terms": [
+        "after",
+        "agents",
+        "another",
+        "deadly",
+        "demands",
+        "gov",
+        "off",
+        "shooting",
+        "streets",
+        "unaccountable"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 61,
+      "date": "2025-05-21",
+      "prev_date": "2025-04-09",
+      "drift_distance": 0.3301,
+      "emerging_terms": [
+        "governor",
+        "hopefuls",
+        "how",
+        "order",
+        "tackle",
+        "would"
+      ],
+      "decaying_terms": [
+        "acting",
+        "attorney",
+        "curb",
+        "effort",
+        "police",
+        "slams",
+        "state"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 64,
+      "date": "2026-01-16",
+      "prev_date": "2026-01-13",
+      "drift_distance": 0.2546,
+      "emerging_terms": [
+        "patch",
+        "released",
+        "school",
+        "student",
+        "taken",
+        "while"
+      ],
+      "decaying_terms": [
+        "detained",
+        "jersey",
+        "morristown",
+        "new",
+        "schooler",
+        "was"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 65,
+      "date": "2025-08-05",
+      "prev_date": "2025-06-09",
+      "drift_distance": 0.274,
+      "emerging_terms": [
+        "enforcement",
+        "feds",
+        "fighting",
+        "places",
+        "they",
+        "trim"
+      ],
+      "decaying_terms": [
+        "error",
+        "filled",
+        "puzzle",
+        "sanctuaries",
+        "sheriffs",
+        "states",
+        "trump"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 67,
+      "date": "2026-01-17",
+      "prev_date": "2026-01-15",
+      "drift_distance": 0.2724,
+      "emerging_terms": [
+        "after",
+        "detained",
+        "dropping",
+        "identified",
+        "man",
+        "raid"
+      ],
+      "decaying_terms": [
+        "detains",
+        "dropped",
+        "including",
+        "just",
+        "men",
+        "suburb",
+        "wealthy",
+        "who"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 80,
+      "date": "2026-01-27",
+      "prev_date": "2025-10-09",
+      "drift_distance": 0.3307,
+      "emerging_terms": [
+        "accused",
+        "arrests",
+        "criminal",
+        "include",
+        "jersey",
+        "kidnapped",
+        "new",
+        "offender",
+        "sex",
+        "violent"
+      ],
+      "decaying_terms": [
+        "arrested",
+        "has",
+        "news",
+        "office",
+        "over",
+        "people",
+        "since",
+        "spotlight",
+        "took",
+        "trump"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 80,
+      "date": "2026-01-28",
+      "prev_date": "2026-01-27",
+      "drift_distance": 0.3224,
+      "emerging_terms": [
+        "active",
+        "agents",
+        "are",
+        "arresting",
+        "look",
+        "take",
+        "they",
+        "who"
+      ],
+      "decaying_terms": [
+        "accused",
+        "arrests",
+        "criminal",
+        "include",
+        "kidnapped",
+        "offender",
+        "sex",
+        "violent"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    },
+    {
+      "topic_id": 80,
+      "date": "2026-02-01",
+      "prev_date": "2026-01-28",
+      "drift_distance": 0.3337,
+      "emerging_terms": [
+        "arrests",
+        "brunswick",
+        "reported"
+      ],
+      "decaying_terms": [
+        "active",
+        "agents",
+        "are",
+        "arresting",
+        "look",
+        "take",
+        "they",
+        "who"
+      ],
+      "is_mutation": true,
+      "window_size": 1
+    }
+  ]
+}

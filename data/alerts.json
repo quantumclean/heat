@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-02-25T23:52:10.611174",
+  "pattern_alerts": [
+    {
+      "class": "A",
+      "title": "Community Attention Update",
+      "body": "ICE-related discussion intensity increased in your area today compared to recent baseline.\n\nThis reflects a change in public conversation, not confirmation of specific events or locations.",
+      "trigger": "rate_spike",
+      "metric": "z=7.91",
+      "generated_at": "2026-02-25T23:52:10.605205"
+    },
+    {
+      "class": "B",
+      "title": "Sustained Community Focus",
+      "body": "ICE-related topics have remained elevated in your area over the past day.\n\nPatterns are based on aggregated public information and opt-in reports.",
+      "trigger": "sustained_threshold",
+      "metric": "above threshold for 2+ periods",
+      "generated_at": "2026-02-25T23:52:10.605476"
+    }
+  ],
+  "cluster_alerts": [],
+  "alerts": [
+    {
+      "id": "pattern_A",
+      "zip": "any",
+      "title": "Community Attention Update",
+      "body": "ICE-related discussion intensity increased in your area today compared to recent baseline.\n\nThis reflects a change in public conversation, not confirmation of specific events or locations.",
+      "priority": "normal",
+      "tier": 1,
+      "type": "pattern",
+      "class": "A",
+      "generated_at": "2026-02-25T23:52:10.605205"
+    },
+    {
+      "id": "pattern_B",
+      "zip": "any",
+      "title": "Sustained Community Focus",
+      "body": "ICE-related topics have remained elevated in your area over the past day.\n\nPatterns are based on aggregated public information and opt-in reports.",
+      "priority": "normal",
+      "tier": 1,
+      "type": "pattern",
+      "class": "B",
+      "generated_at": "2026-02-25T23:52:10.605476"
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "generated_at": "2026-02-26T04:09:15.844867+00:00",
+  "ema_span_days": 28,
+  "thresholds": {
+    "07062": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08901": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "07030": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08610": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08837": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08902": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08817": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08820": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08608": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "07060": {
+      "burst_threshold": 24.9765,
+      "sustained_threshold": 20.41,
+      "z_score_today": -0.9483,
+      "baseline": {
+        "ema": 6.7105,
+        "std": 9.133,
+        "weekday_factor": 1.2907,
+        "weekend_factor": 0.2843,
+        "days": 367,
+        "sufficient": true
+      }
+    },
+    "08618": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08619": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08906": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "07063": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08609": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08903": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    },
+    "08611": {
+      "burst_threshold": 2.0,
+      "sustained_threshold": 1.5,
+      "z_score_today": 0.0,
+      "baseline": {
+        "ema": 0.0,
+        "std": 1.0,
+        "weekday_factor": 1.0,
+        "weekend_factor": 1.0,
+        "days": 0,
+        "sufficient": false
+      }
+    }
+  },
+  "baselines": {
+    "07060": {
+      "ema": 6.7105,
+      "std": 9.133,
+      "weekday_factor": 1.2907,
+      "weekend_factor": 0.2843,
+      "days": 367,
+      "sufficient": true
+    }
+  }
+}

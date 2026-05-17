@@ -1,0 +1,702 @@
+/* ========================================
+   HEAT — Emergency Mode Styles
+   High contrast, large targets, offline-ready
+   ======================================== */
+
+/* ==========================================
+   EMERGENCY MODE ACTIVATION
+   ========================================== */
+
+/* Emergency button in normal mode */
+.heat-emergency-btn {
+    position: fixed;
+    bottom: calc(var(--safe-bottom, 0px) + 20px);
+    right: calc(var(--safe-right, 0px) + 20px);
+    z-index: 9999;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: 3px solid #ff5252;
+    box-shadow: 0 4px 20px rgba(211, 47, 47, 0.5);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.heat-emergency-btn:hover,
+.heat-emergency-btn:focus-visible {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(211, 47, 47, 0.7);
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+}
+
+.heat-emergency-btn:active {
+    transform: scale(0.95);
+}
+
+.heat-emergency-btn[aria-label] {
+    font-size: 0;
+}
+
+.heat-emergency-btn::before {
+    content: "🆘";
+    font-size: 1.75rem;
+}
+
+/* ==========================================
+   EMERGENCY MODE OVERLAY — HIGH CONTRAST
+   ========================================== */
+
+.heat-emergency-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: #0a0a0a;
+    color: #f5f5f5;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+}
+
+.heat-emergency-overlay *:focus-visible {
+    outline: 3px solid #ffd600;
+    outline-offset: 3px;
+}
+
+/* Emergency header */
+.emergency-header {
+    position: sticky;
+    top: 0;
+    z-index: 10001;
+    background: #1a1a1a;
+    border-bottom: 3px solid #d32f2f;
+    padding: 12px 16px;
+    padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.emergency-header__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ff5252;
+    margin: 0;
+    flex: 1;
+}
+
+.emergency-header__close {
+    min-width: 48px;
+    min-height: 48px;
+    background: #333;
+    color: #fff;
+    border: 2px solid #666;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+}
+
+.emergency-header__close:hover,
+.emergency-header__close:focus-visible {
+    background: #555;
+    border-color: #ffd600;
+}
+
+.emergency-header__lang {
+    min-width: 48px;
+    min-height: 48px;
+    background: #333;
+    color: #fff;
+    border: 2px solid #666;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    touch-action: manipulation;
+    padding: 0 12px;
+}
+
+/* Emergency body */
+.emergency-body {
+    padding: 16px;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   EMERGENCY ACTION BUTTONS
+   ========================================== */
+
+.emergency-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.emergency-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 64px;
+    padding: 14px 20px;
+    background: #1e1e1e;
+    color: #f5f5f5;
+    border: 2px solid #444;
+    border-radius: 16px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    touch-action: manipulation;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.emergency-action-btn:hover,
+.emergency-action-btn:focus-visible {
+    background: #2a2a2a;
+    border-color: #ffd600;
+}
+
+.emergency-action-btn:active {
+    background: #333;
+}
+
+.emergency-action-btn .action-icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    width: 40px;
+    text-align: center;
+}
+
+.emergency-action-btn .action-text {
+    flex: 1;
+}
+
+.emergency-action-btn .action-text small {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #aaa;
+    margin-top: 2px;
+}
+
+/* Primary emergency action (call/SMS) */
+.emergency-action-btn--primary {
+    background: #b71c1c;
+    border-color: #ff5252;
+    color: #fff;
+}
+
+.emergency-action-btn--primary:hover,
+.emergency-action-btn--primary:focus-visible {
+    background: #c62828;
+    border-color: #ffd600;
+}
+
+/* ==========================================
+   EMERGENCY CONTACTS SECTION
+   ========================================== */
+
+.emergency-section {
+    margin-bottom: 28px;
+}
+
+.emergency-section__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffd600;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #333;
+}
+
+.emergency-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.emergency-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 56px;
+    padding: 10px 16px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+}
+
+.emergency-contact-item__name {
+    flex: 1;
+    font-weight: 600;
+}
+
+.emergency-contact-item__phone {
+    color: #64b5f6;
+    font-weight: 600;
+    text-decoration: none;
+    min-width: 48px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a237e;
+    border-radius: 12px;
+    padding: 0 14px;
+}
+
+.emergency-contact-item__phone:hover,
+.emergency-contact-item__phone:focus-visible {
+    background: #283593;
+}
+
+.emergency-contact-item__remove {
+    min-width: 48px;
+    min-height: 48px;
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 10px;
+    color: #f44336;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Add contact form */
+.emergency-add-contact {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.emergency-add-contact input {
+    flex: 1;
+    min-width: 120px;
+    min-height: 48px;
+    padding: 10px 14px;
+    background: #1e1e1e;
+    color: #f5f5f5;
+    border: 2px solid #444;
+    border-radius: 12px;
+    font-size: 1rem;
+}
+
+.emergency-add-contact input:focus {
+    border-color: #ffd600;
+    outline: none;
+}
+
+.emergency-add-contact button {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0 20px;
+    background: #1b5e20;
+    color: #fff;
+    border: 2px solid #4caf50;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ==========================================
+   SMS MESSAGE TEMPLATES
+   ========================================== */
+
+.emergency-sms-templates {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.emergency-sms-btn {
+    min-height: 56px;
+    padding: 12px 16px;
+    background: #0d47a1;
+    color: #fff;
+    border: 2px solid #1976d2;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: background 0.15s ease;
+}
+
+.emergency-sms-btn:hover,
+.emergency-sms-btn:focus-visible {
+    background: #1565c0;
+    border-color: #ffd600;
+}
+
+.emergency-sms-btn small {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #90caf9;
+    margin-top: 4px;
+}
+
+/* Custom SMS textarea */
+.emergency-custom-sms {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    background: #1e1e1e;
+    color: #f5f5f5;
+    border: 2px solid #444;
+    border-radius: 12px;
+    font-size: 1rem;
+    resize: vertical;
+    margin-top: 8px;
+}
+
+.emergency-custom-sms:focus {
+    border-color: #ffd600;
+    outline: none;
+}
+
+/* ==========================================
+   KNOW YOUR RIGHTS CARDS
+   ========================================== */
+
+.kyr-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.kyr-card {
+    background: #1e1e1e;
+    border: 2px solid #444;
+    border-radius: 16px;
+    padding: 20px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.kyr-card__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffd600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kyr-card__body {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+}
+
+.kyr-card__body ul {
+    margin: 8px 0;
+    padding-left: 20px;
+}
+
+.kyr-card__body li {
+    margin-bottom: 6px;
+}
+
+.kyr-card__body .kyr-es {
+    display: block;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+    color: #b0bec5;
+    font-style: italic;
+}
+
+/* ==========================================
+   SAFE LOCATIONS
+   ========================================== */
+
+.emergency-locations {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.emergency-location-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 56px;
+    padding: 12px 16px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+}
+
+.emergency-location-item__icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
+}
+
+.emergency-location-item__info {
+    flex: 1;
+}
+
+.emergency-location-item__name {
+    font-weight: 600;
+    color: #f5f5f5;
+}
+
+.emergency-location-item__addr {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 2px;
+}
+
+/* ==========================================
+   OFFLINE INDICATOR
+   ========================================== */
+
+.emergency-offline-badge {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: #e65100;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.emergency-offline-badge.visible {
+    display: inline-flex;
+}
+
+.emergency-offline-badge::before {
+    content: "●";
+    color: #ff6e40;
+    animation: offline-pulse 1.5s infinite;
+}
+
+@keyframes offline-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* ==========================================
+   PRINT STYLES — Know Your Rights Cards
+   ========================================== */
+
+@media print {
+    /* Hide everything except KYR content */
+    body > *:not(.heat-emergency-overlay) {
+        display: none !important;
+    }
+
+    .heat-emergency-overlay {
+        position: static;
+        background: #fff;
+        color: #000;
+        overflow: visible;
+        padding: 0;
+    }
+
+    .emergency-header,
+    .emergency-actions,
+    .emergency-section:not(.emergency-section--kyr),
+    .emergency-offline-badge,
+    .heat-emergency-btn,
+    .emergency-add-contact,
+    .emergency-sms-templates,
+    .emergency-custom-sms,
+    .emergency-contact-item__remove,
+    .emergency-header__close,
+    .emergency-header__lang,
+    .kyr-print-btn {
+        display: none !important;
+    }
+
+    .emergency-section--kyr {
+        display: block !important;
+    }
+
+    .emergency-body {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .kyr-card {
+        background: #fff;
+        border: 2px solid #000;
+        color: #000;
+        padding: 16px;
+        margin-bottom: 16px;
+        page-break-inside: avoid;
+    }
+
+    .kyr-card__title {
+        color: #000;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #000;
+        padding-bottom: 6px;
+    }
+
+    .kyr-card__body {
+        color: #000;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .kyr-card__body .kyr-es {
+        color: #333;
+        border-top-color: #999;
+    }
+
+    .emergency-section__title {
+        color: #000;
+        border-bottom-color: #000;
+        font-size: 1.3rem;
+    }
+}
+
+/* ==========================================
+   iOS SAFE AREA SUPPORT
+   ========================================== */
+
+@supports (padding: env(safe-area-inset-top)) {
+    .heat-emergency-overlay {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+
+    .emergency-header {
+        padding-top: calc(env(safe-area-inset-top) + 12px);
+        padding-left: calc(env(safe-area-inset-left) + 16px);
+        padding-right: calc(env(safe-area-inset-right) + 16px);
+    }
+
+    .emergency-body {
+        padding-left: calc(env(safe-area-inset-left) + 16px);
+        padding-right: calc(env(safe-area-inset-right) + 16px);
+        padding-bottom: calc(env(safe-area-inset-bottom) + 24px);
+    }
+
+    .heat-emergency-btn {
+        bottom: calc(env(safe-area-inset-bottom) + 20px);
+        right: calc(env(safe-area-inset-right) + 20px);
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .heat-emergency-btn,
+    .emergency-action-btn,
+    .emergency-sms-btn,
+    .emergency-header__close,
+    .emergency-contact-item__phone {
+        transition: none;
+    }
+
+    .heat-emergency-btn:hover {
+        transform: none;
+    }
+
+    @keyframes offline-pulse {
+        0%, 100% { opacity: 1; }
+    }
+}
+
+/* ==========================================
+   HIGH CONTRAST FORCED COLORS
+   ========================================== */
+
+@media (forced-colors: active) {
+    .heat-emergency-btn {
+        border: 3px solid ButtonText;
+    }
+
+    .emergency-action-btn,
+    .emergency-sms-btn,
+    .kyr-card {
+        border: 2px solid ButtonText;
+    }
+
+    .kyr-card__title,
+    .emergency-section__title {
+        color: Highlight;
+    }
+}
+
+/* ==========================================
+   LANDSCAPE ADJUSTMENTS
+   ========================================== */
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .emergency-header {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .emergency-action-btn {
+        min-height: 52px;
+    }
+}
+
+/* ==========================================
+   STABILITY MODE — Emergency CSS Overrides
+   When stability mode is active alongside
+   emergency mode, ensure calm colours
+   do not conflict with emergency red palette.
+   ========================================== */
+
+body.stability-mode .heat-emergency-overlay {
+    /* Emergency overlay retains its high-contrast style
+       regardless of stability mode colour changes. */
+    --heat-low: #81c995;
+    --heat-medium: #f9ab00;
+    --heat-high: #ee675c;
+}
+
+body.stability-mode .heat-emergency-btn {
+    /* Emergency button keeps red appearance */
+    background: #d32f2f;
+    border-color: #ff5252;
+}
+
+/* Stability calm cards inside emergency overlay are hidden */
+body.stability-mode .heat-emergency-overlay .stability-calm-container {
+    display: none;
+}

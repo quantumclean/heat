@@ -1,0 +1,16 @@
+{
+  "current_7d_avg": null,
+  "current_14d_avg": null,
+  "previous_7d_avg": null,
+  "trend": "no_data",
+  "trend_pct": 0.0,
+  "trend_icon": "\u274c",
+  "data_quality": "insufficient",
+  "days_of_data": 0,
+  "total_clusters": 0,
+  "daily_counts": [],
+  "rolling_7d_values": [],
+  "calculated_at": "2026-02-25T23:52:09.717303",
+  "methodology": "7-day rolling average with \u00b115% trend thresholds",
+  "note": "Rolling averages smooth RSS feed timing artifacts and source reporting patterns to reveal actual trends in ICE deportation flight activity."
+}

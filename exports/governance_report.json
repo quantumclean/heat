@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-02-26T04:52:09.626631+00:00",
+  "threshold_info": {
+    "base_threshold": 3,
+    "dynamic_range": "2-4 (varies daily)",
+    "rationale": "Prevents threshold gaming"
+  },
+  "gaming_detection": {
+    "alerts_last_30_days": 0,
+    "types_detected": []
+  },
+  "uncertainty_policy": {
+    "all_clusters_have_confidence_intervals": true,
+    "limitations_disclosed": true,
+    "authority_disclaimers": true
+  },
+  "silence_policy": {
+    "inactive_zips_get_context": true,
+    "no_data_not_equal_safe": true
+  },
+  "anti_gaming": {
+    "coordination_detection": "active",
+    "source_diversity_scoring": "active",
+    "dynamic_thresholds": "active"
+  }
+}

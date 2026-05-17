@@ -1,0 +1,328 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4178,
+          40.6161
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 55,
+        "timestamp": "2026-02-03T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41850000000001,
+          40.6152
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 81,
+        "timestamp": "2026-02-03T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4144,
+          40.611000000000004
+        ]
+      },
+      "properties": {
+        "weight": 0.02,
+        "zip": "07060",
+        "cluster_id": 70,
+        "timestamp": "2026-02-04T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4158,
+          40.6096
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 8,
+        "timestamp": "2026-02-04T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41510000000001,
+          40.6184
+        ]
+      },
+      "properties": {
+        "weight": 0.02,
+        "zip": "07060",
+        "cluster_id": 19,
+        "timestamp": "2026-02-04T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41210000000001,
+          40.6116
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 11,
+        "timestamp": "2026-02-01T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41120000000001,
+          40.6164
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 29,
+        "timestamp": "2026-02-04T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4144,
+          40.6147
+        ]
+      },
+      "properties": {
+        "weight": 0.02,
+        "zip": "07060",
+        "cluster_id": 13,
+        "timestamp": "2026-02-08T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41430000000001,
+          40.6176
+        ]
+      },
+      "properties": {
+        "weight": 0.02,
+        "zip": "07060",
+        "cluster_id": 7,
+        "timestamp": "2026-02-08T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41340000000001,
+          40.6173
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 60,
+        "timestamp": "2026-02-03T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.42,
+          40.609300000000005
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 49,
+        "timestamp": "2026-02-02T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4128,
+          40.612700000000004
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 9,
+        "timestamp": "2026-02-04T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4179,
+          40.6128
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 30,
+        "timestamp": "2026-02-04T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4107,
+          40.6175
+        ]
+      },
+      "properties": {
+        "weight": 0.02,
+        "zip": "07060",
+        "cluster_id": 1,
+        "timestamp": "2026-02-04T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4116,
+          40.618
+        ]
+      },
+      "properties": {
+        "weight": 0.03,
+        "zip": "07060",
+        "cluster_id": 10,
+        "timestamp": "2026-02-04T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41420000000001,
+          40.6109
+        ]
+      },
+      "properties": {
+        "weight": 0.02,
+        "zip": "07060",
+        "cluster_id": 0,
+        "timestamp": "2026-02-04T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.41890000000001,
+          40.6156
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 80,
+        "timestamp": "2026-02-03T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4133,
+          40.6111
+        ]
+      },
+      "properties": {
+        "weight": 0.02,
+        "zip": "07060",
+        "cluster_id": 4,
+        "timestamp": "2026-02-04T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4116,
+          40.6167
+        ]
+      },
+      "properties": {
+        "weight": 0.01,
+        "zip": "07060",
+        "cluster_id": 47,
+        "timestamp": "2026-02-04T00:00:00",
+        "spatial_cluster_id": 0
+      }
+    }
+  ]
+}

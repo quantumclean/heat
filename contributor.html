@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>HEAT — Contributor Dashboard (Tier 1)</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+    <style>
+        .dash-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+            min-height: 100vh;
+        }
+
+        .dash-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            padding-top: var(--space-lg);
+        }
+
+        .dash-header h1 { margin-bottom: 0; }
+
+        .tier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: var(--text-sm);
+            background: rgba(38, 166, 65, 0.12);
+            color: var(--success);
+            border: 1px solid rgba(38, 166, 65, 0.25);
+        }
+
+        .dash-controls {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+        }
+
+        /* Auth gate */
+        .auth-gate {
+            max-width: 460px;
+            margin: 15vh auto;
+            padding: var(--space-xl);
+            text-align: center;
+        }
+
+        .auth-gate h2 { margin-bottom: var(--space-md); }
+
+        .auth-gate input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: var(--text-base);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--bg);
+            color: var(--text);
+            margin-bottom: var(--space-sm);
+        }
+
+        .auth-gate input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
+        }
+
+        .auth-error { color: var(--danger); font-size: var(--text-sm); min-height: 1.5em; }
+
+        /* Dashboard grid */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .stat-card {
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: var(--blur-subtle);
+        }
+
+        .stat-card .stat-value {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-card .stat-label {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Pattern alerts */
+        .alerts-section { margin-bottom: var(--space-xl); }
+
+        .alert-card {
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--warning);
+            margin-bottom: var(--space-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .alert-card:hover { background: var(--bg-tertiary); }
+
+        .alert-card.class-a { border-left-color: var(--danger); }
+        .alert-card.class-b { border-left-color: var(--warning); }
+        .alert-card.class-c { border-left-color: var(--text-muted); }
+
+        .alert-meta {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Trend table */
+        .trend-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--text-sm);
+            margin-top: var(--space-md);
+        }
+
+        .trend-table th, .trend-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trend-table th {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .trend-up { color: var(--danger); }
+        .trend-down { color: var(--success); }
+        .trend-flat { color: var(--text-muted); }
+
+        /* Chart area */
+        .chart-wrap {
+            position: relative;
+            height: 300px;
+            margin-bottom: var(--space-xl);
+        }
+
+        /* Digest card */
+        .digest-card {
+            padding: var(--space-lg);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+
+        .digest-card h3 { margin-bottom: var(--space-sm); }
+
+        .digest-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: var(--text-sm);
+        }
+
+        .digest-item:last-child { border-bottom: none; }
+
+        /* WS status */
+        .ws-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+        }
+
+        .ws-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-muted);
+        }
+
+        .ws-dot.connected { background: var(--success); }
+        .ws-dot.connecting { background: var(--warning); animation: pulse-dot 1s infinite; }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hidden { display: none !important; }
+
+        .footer-minimal {
+            text-align: center;
+            padding: var(--space-xl) var(--space-md);
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: var(--space-xl);
+        }
+
+        .footer-minimal a { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <!-- Auth Gate -->
+    <div id="auth-gate" class="auth-gate glass-card">
+        <h2>🔑 Contributor Access</h2>
+        <p style="color: var(--text-muted); margin-bottom: var(--space-md);">
+            Tier 1 access requires a contributor token. This dashboard shows pattern alerts,
+            trend direction, and weekly digests with a 24-hour delay.
+        </p>
+        <input type="password" id="auth-token" placeholder="Enter contributor token" autocomplete="off">
+        <button class="glass-btn" id="auth-submit" style="width:100%; min-height:48px; font-weight:700; background:var(--accent); color:#fff;">
+            Authenticate
+        </button>
+        <p class="auth-error" id="auth-error"></p>
+        <p style="margin-top: var(--space-md); font-size: var(--text-xs); color: var(--text-muted);">
+            <a href="index.html">← Back to Public Map</a>
+        </p>
+    </div>
+
+    <!-- Dashboard (hidden until auth) -->
+    <div id="dashboard" class="dash-container hidden">
+        <header class="dash-header">
+            <div>
+                <h1>🔥 HEAT — Contributor Dashboard</h1>
+                <span class="tier-badge">🟢 Tier 1 · 24-hour delay</span>
+            </div>
+            <div class="dash-controls">
+                <span class="ws-indicator">
+                    <span class="ws-dot" id="ws-dot"></span>
+                    <span id="ws-label">Disconnected</span>
+                </span>
+                <button id="theme-toggle" class="glass-btn" title="Toggle Theme">◐</button>
+                <button class="glass-btn" id="refresh-btn" title="Refresh Data">🔄</button>
+                <a href="index.html" class="glass-btn">← Map</a>
+            </div>
+        </header>
+
+        <!-- Quick Stats -->
+        <section class="stats-row" id="stats-row">
+            <div class="stat-card">
+                <div class="stat-value" id="stat-clusters">--</div>
+                <div class="stat-label">Active Clusters (24h)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-signals">--</div>
+                <div class="stat-label">Total Signals</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-sources">--</div>
+                <div class="stat-label">Unique Sources</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-trend">—</div>
+                <div class="stat-label">7-Day Trend</div>
+            </div>
+        </section>
+
+        <!-- Pattern Alerts -->
+        <section class="alerts-section">
+            <h2>⚡ Pattern Alerts</h2>
+            <p style="color: var(--text-muted); font-size: var(--text-sm); margin-bottom: var(--space-md);">
+                Automatically generated when volume spikes, sustained focus, or decaying patterns are detected.
+            </p>
+            <div id="alerts-list">
+                <p class="loading" style="color: var(--text-muted);">Loading alerts...</p>
+            </div>
+        </section>
+
+        <!-- Trend Chart -->
+        <section>
+            <h2>📈 Trend Direction (30 days)</h2>
+            <div class="chart-wrap">
+                <canvas id="trend-chart"></canvas>
+            </div>
+        </section>
+
+        <!-- ZIP Trend Table -->
+        <section>
+            <h2>🗺️ Trends by ZIP</h2>
+            <div class="glass-card" style="padding: var(--space-md); overflow-x: auto;">
+                <table class="trend-table" id="zip-trends">
+                    <thead>
+                        <tr>
+                            <th>ZIP</th>
+                            <th>Signals (24h)</th>
+                            <th>Sources</th>
+                            <th>7-Day Δ</th>
+                            <th>Attention</th>
+                        </tr>
+                    </thead>
+                    <tbody id="zip-trends-body">
+                        <tr><td colspan="5" style="color: var(--text-muted);">Loading…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Weekly Digest -->
+        <section style="margin-top: var(--space-xl);">
+            <h2>📋 Weekly Digest</h2>
+            <div class="digest-card" id="weekly-digest">
+                <p style="color: var(--text-muted);">Loading digest...</p>
+            </div>
+        </section>
+
+        <footer class="footer-minimal">
+            <p>
+                <a href="index.html">← Public Map</a> &nbsp;·&nbsp;
+                <a href="submit.html">Submit Report</a> &nbsp;·&nbsp;
+                <strong>HEAT — Tier 1 Contributor</strong> &nbsp;·&nbsp;
+                24-hour delay · Pattern alerts · Weekly digest
+            </p>
+            <p style="margin-top: 0.5rem;">
+                &copy; 2026 HEAT Project. Licensed under HEAT Ethical Use License v1.0
+            </p>
+        </footer>
+    </div>
+
+    <script src="websocket-client.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        // ------- Theme toggle -------
+        var stored = localStorage.getItem('heat-theme');
+        if (stored) document.documentElement.setAttribute('data-theme', stored);
+
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'theme-toggle' || e.target.closest('#theme-toggle')) {
+                var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('heat-theme', next);
+            }
+        });
+
+        // ------- Auth gate -------
+        var gate = document.getElementById('auth-gate');
+        var dash = document.getElementById('dashboard');
+        var tokenInput = document.getElementById('auth-token');
+        var authBtn = document.getElementById('auth-submit');
+        var authErr = document.getElementById('auth-error');
+
+        // Check stored session
+        var sessionToken = sessionStorage.getItem('heat-contributor-token');
+        if (sessionToken) {
+            unlockDashboard(sessionToken);
+        }
+
+        authBtn.addEventListener('click', function () {
+            var token = tokenInput.value.trim();
+            if (!token) {
+                authErr.textContent = 'Please enter a token.';
+                return;
+            }
+            // In production this would validate against the server;
+            // for now, any non-empty token with length >= 8 is accepted.
+            if (token.length < 8) {
+                authErr.textContent = 'Invalid token. Tokens are at least 8 characters.';
+                return;
+            }
+            sessionStorage.setItem('heat-contributor-token', token);
+            unlockDashboard(token);
+        });
+
+        tokenInput.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') authBtn.click();
+        });
+
+        function unlockDashboard(token) {
+            gate.classList.add('hidden');
+            dash.classList.remove('hidden');
+            loadDashboardData(token);
+            connectWebSocket(token);
+        }
+
+        // ------- Data loading -------
+        function getBaseUrl() {
+            return './';
+        }
+
+        function loadDashboardData(token) {
+            // Load tier-1 data from exports if available, else fall back to standard data
+            var base = getBaseUrl();
+
+            // Attempt to load tier1 export
+            fetch(base + 'exports/tier1_contributor.json')
+                .then(function (r) { return r.ok ? r.json() : Promise.reject('no tier1'); })
+                .then(function (data) { renderFromTier1(data); })
+                .catch(function () {
+                    // Fall back: assemble from standard data files
+                    Promise.all([
+                        fetch(base + 'data/reported_locations.json').then(function(r){return r.json()}).catch(function(){return [];}),
+                        fetch(base + 'data/timeline.json').then(function(r){return r.json()}).catch(function(){return [];}),
+                        fetch(base + 'data/alerts.json').then(function(r){return r.json()}).catch(function(){return [];}),
+                        fetch(base + 'exports/weekly_digest.json').then(function(r){return r.json()}).catch(function(){return null;})
+                    ]).then(function (results) {
+                        renderFromRaw(results[0], results[1], results[2], results[3]);
+                    });
+                });
+        }
+
+        // ------- Render from tier-1 export -------
+        function renderFromTier1(data) {
+            var meta = data.meta || data;
+            updateStats({
+                clusters: (data.clusters || data.zips || []).length,
+                signals: meta.total_signals || meta.signal_count || '--',
+                sources: meta.unique_sources || '--',
+                trend: meta.trend_direction || '—'
+            });
+            renderAlerts(data.alerts || []);
+            renderTrendChart(data.timeline || []);
+            renderZipTrends(data.zips || data.clusters || []);
+            renderDigest(data.digest || null);
+        }
+
+        // ------- Render from raw data files -------
+        function renderFromRaw(locations, timeline, alerts, digest) {
+            // Stats: Apply 24h delay filter
+            var cutoff = Date.now() - 24 * 60 * 60 * 1000;
+            var recent = (locations || []).filter(function (r) {
+                var d = r.date || r.timestamp;
+                return d && new Date(d).getTime() <= cutoff;
+            });
+
+            var sources = {};
+            recent.forEach(function (r) {
+                (r.sources || [r.source || 'unknown']).forEach(function (s) { sources[s] = true; });
+            });
+
+            // Trend: compare this week vs last week
+            var weekAgo = cutoff - 7 * 24 * 60 * 60 * 1000;
+            var thisWeek = recent.filter(function (r) { return new Date(r.date || r.timestamp).getTime() > weekAgo; });
+            var twoWeeksAgo = cutoff - 14 * 24 * 60 * 60 * 1000;
+            var lastWeek = recent.filter(function (r) {
+                var t = new Date(r.date || r.timestamp).getTime();
+                return t > twoWeeksAgo && t <= weekAgo;
+            });
+            var trendDir = thisWeek.length > lastWeek.length ? '↑' :
+                           thisWeek.length < lastWeek.length ? '↓' : '→';
+
+            updateStats({
+                clusters: recent.length,
+                signals: recent.reduce(function (n, r) { return n + (r.count || r.size || 1); }, 0),
+                sources: Object.keys(sources).length,
+                trend: trendDir
+            });
+
+            renderAlerts(alerts || []);
+            renderTrendChart(timeline || []);
+            renderZipTrendsFromLocations(recent);
+            renderDigest(digest);
+        }
+
+        function updateStats(s) {
+            document.getElementById('stat-clusters').textContent = s.clusters;
+            document.getElementById('stat-signals').textContent = s.signals;
+            document.getElementById('stat-sources').textContent = s.sources;
+            var trendEl = document.getElementById('stat-trend');
+            trendEl.textContent = s.trend;
+            trendEl.className = 'stat-value ' +
+                (s.trend === '↑' ? 'trend-up' : s.trend === '↓' ? 'trend-down' : 'trend-flat');
+        }
+
+        // ------- Alerts -------
+        function renderAlerts(alerts) {
+            var container = document.getElementById('alerts-list');
+            if (!alerts || alerts.length === 0) {
+                container.innerHTML = '<p style="color:var(--text-muted);">No active pattern alerts.</p>';
+                return;
+            }
+            container.innerHTML = alerts.map(function (a) {
+                var cls = a.class || a.alert_class || 'class-b';
+                var icon = cls === 'class_a' || cls === 'class-a' ? '🔴' :
+                           cls === 'class_c' || cls === 'class-c' ? '⚪' : '🟡';
+                return '<div class="alert-card ' + cls.replace('_', '-') + '">' +
+                       '<strong>' + icon + ' ' + escHtml(a.title || a.message || 'Alert') + '</strong>' +
+                       '<p style="margin-top:0.5rem;">' + escHtml(a.body || a.description || '') + '</p>' +
+                       '<div class="alert-meta">' +
+                       (a.zip ? 'ZIP ' + a.zip + ' · ' : '') +
+                       (a.generated_at || a.date || '') +
+                       '</div></div>';
+            }).join('');
+        }
+
+        // ------- Trend chart -------
+        var trendChart = null;
+        function renderTrendChart(timeline) {
+            var ctx = document.getElementById('trend-chart');
+            if (!ctx) return;
+            var labels = timeline.map(function (d) { return d.date || d.week || d.label || ''; });
+            var values = timeline.map(function (d) { return d.count || d.total || d.value || 0; });
+
+            if (trendChart) trendChart.destroy();
+            trendChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels.slice(-30),
+                    datasets: [{
+                        label: 'Signals',
+                        data: values.slice(-30),
+                        borderColor: '#ff6b35',
+                        backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { maxRotation: 45 } },
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+
+        // ------- ZIP trends -------
+        function renderZipTrends(zips) {
+            var body = document.getElementById('zip-trends-body');
+            if (!zips || zips.length === 0) {
+                body.innerHTML = '<tr><td colspan="5" style="color:var(--text-muted);">No ZIP-level data available.</td></tr>';
+                return;
+            }
+            body.innerHTML = zips.map(function (z) {
+                var delta = z.delta || z.trend_delta || 0;
+                var trendCls = delta > 0 ? 'trend-up' : delta < 0 ? 'trend-down' : 'trend-flat';
+                var arrow = delta > 0 ? '↑' : delta < 0 ? '↓' : '→';
+                return '<tr>' +
+                    '<td><strong>' + (z.zip || z.zip_code || '--') + '</strong></td>' +
+                    '<td>' + (z.signals || z.count || 0) + '</td>' +
+                    '<td>' + (z.sources || z.unique_sources || 0) + '</td>' +
+                    '<td class="' + trendCls + '">' + arrow + ' ' + Math.abs(delta) + '</td>' +
+                    '<td>' + (z.attention || z.level || 'low') + '</td>' +
+                    '</tr>';
+            }).join('');
+        }
+
+        function renderZipTrendsFromLocations(locations) {
+            var zips = {};
+            locations.forEach(function (r) {
+                var z = r.zip || r.zip_code || 'unknown';
+                if (!zips[z]) zips[z] = { zip: z, signals: 0, sources: {} };
+                zips[z].signals += (r.count || r.size || 1);
+                (r.sources || [r.source || 'unknown']).forEach(function (s) { zips[z].sources[s] = true; });
+            });
+            var rows = Object.values(zips).map(function (z) {
+                return { zip: z.zip, signals: z.signals, sources: Object.keys(z.sources).length, delta: 0, attention: 'low' };
+            }).sort(function (a, b) { return b.signals - a.signals; });
+            renderZipTrends(rows);
+        }
+
+        // ------- Weekly digest -------
+        function renderDigest(digest) {
+            var el = document.getElementById('weekly-digest');
+            if (!digest) {
+                el.innerHTML = '<p style="color:var(--text-muted);">No weekly digest available yet. Digests are generated once per week.</p>';
+                return;
+            }
+            var items = digest.items || digest.entries || digest.highlights || [];
+            if (items.length === 0 && digest.summary) {
+                el.innerHTML = '<h3>📋 Weekly Summary</h3><p>' + escHtml(digest.summary) + '</p>';
+                return;
+            }
+            el.innerHTML = '<h3>📋 Week of ' + escHtml(digest.week || digest.period || '--') + '</h3>' +
+                items.map(function (item) {
+                    return '<div class="digest-item">' +
+                           '<strong>' + escHtml(item.title || item.zip || '') + '</strong> — ' +
+                           escHtml(item.summary || item.text || '') +
+                           '</div>';
+                }).join('');
+        }
+
+        // ------- WebSocket -------
+        function connectWebSocket(token) {
+            if (typeof HeatWebSocket === 'undefined') return;
+
+            var dot = document.getElementById('ws-dot');
+            var label = document.getElementById('ws-label');
+
+            HeatWebSocket.on('open', function () {
+                dot.className = 'ws-dot connected';
+                label.textContent = 'Connected';
+            });
+            HeatWebSocket.on('close', function () {
+                dot.className = 'ws-dot';
+                label.textContent = 'Disconnected';
+            });
+            HeatWebSocket.on('auth_ok', function (msg) {
+                label.textContent = 'Tier ' + (msg.tier || 1) + ' · ' + (msg.delay_hours || 24) + 'h';
+            });
+
+            // Live updates
+            HeatWebSocket.on('cluster_update', function (data) { loadDashboardData(token); });
+            HeatWebSocket.on('alert', function (data) {
+                // Prepend new alert
+                var container = document.getElementById('alerts-list');
+                var loading = container.querySelector('.loading');
+                if (loading) loading.remove();
+                var card = document.createElement('div');
+                card.className = 'alert-card class-a';
+                card.innerHTML = '<strong>🔴 ' + escHtml(data.title || 'New Alert') + '</strong>' +
+                                 '<p style="margin-top:0.5rem;">' + escHtml(data.body || data.message || '') + '</p>' +
+                                 '<div class="alert-meta">Just now</div>';
+                container.insertBefore(card, container.firstChild);
+            });
+
+            HeatWebSocket.connect({ tier: 1, token: token });
+        }
+
+        // ------- Refresh -------
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'refresh-btn' || e.target.closest('#refresh-btn')) {
+                var token = sessionStorage.getItem('heat-contributor-token');
+                if (token) loadDashboardData(token);
+            }
+        });
+
+        function escHtml(s) {
+            var el = document.createElement('span');
+            el.textContent = s || '';
+            return el.innerHTML;
+        }
+    })();
+    </script>
+</body>
+</html>

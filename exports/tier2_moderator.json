@@ -1,0 +1,830 @@
+{
+  "tier": 2,
+  "name": "Moderator",
+  "generated_at": "2026-02-25T23:52:10.865986",
+  "delay_hours": 0,
+  "warning": "FOR REVIEW ONLY. DO NOT AUTO-PUBLISH.",
+  "total_records": 475,
+  "submissions": [
+    {
+      "id": "5a0900ea6ae9",
+      "text": "Immigration takes center stage in New Jersey special election - Politico. Immigration takes center stage in New Jersey special election Politico",
+      "source": "Google News",
+      "date": "2026-02-01T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "d38ebbc30535",
+      "text": "Reported ICE activity in Hoboken and Jersey City, N.J. leaves many residents on edge - cbsnews.com. Reported ICE activity in Hoboken and Jersey City, N.J. leaves many residents on edge cbsnews.com",
+      "source": "Google News",
+      "date": "2026-02-02T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "ddc586252300",
+      "text": "Fear lingers across NJ Haitian community as TPS is scheduled to end on Tuesday - ABC7 New York. Fear lingers across NJ Haitian community as TPS is scheduled to end on Tuesday ABC7 New York",
+      "source": "Google News",
+      "date": "2026-02-02T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "c23130b48d7d",
+      "text": "Daytime ICE action in Jersey City prompts know-your-rights push - NJ Spotlight News. Daytime ICE action in Jersey City prompts know-your-rights push NJ Spotlight News",
+      "source": "Google News",
+      "date": "2026-02-03T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "f507762de2b4",
+      "text": "We\u2019re going to prosecute ICE agents who break N.J. laws, acting attorney general says - NJ.com. We\u2019re going to prosecute ICE agents who break N.J. laws, acting attorney general says NJ.com",
+      "source": "Google News",
+      "date": "2026-02-03T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "1bca74e1cf60",
+      "text": "New Jersey officials warn of ICE arrests with no federal notice - NewsNation. New Jersey officials warn of ICE arrests with no federal notice NewsNation",
+      "source": "Google News",
+      "date": "2026-02-03T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "bc4986a94990",
+      "text": "Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown - Patch. Bloomfield Students Hold Anti-ICE Walkout To Protest Immigration Crackdown Patch",
+      "source": "Google News",
+      "date": "2026-02-03T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "7bb2fd2ae901",
+      "text": "Fearing ICE, some NJ residents carry passport cards, seek training - Bergen Record. Fearing ICE, some NJ residents carry passport cards, seek training Bergen Record",
+      "source": "Google News",
+      "date": "2026-02-04T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "e80f564c8584",
+      "text": "Support grows for ban on masked ICE agents in New Jersey - New Jersey 101.5. Support grows for ban on masked ICE agents in New Jersey New Jersey 101.5",
+      "source": "Google News",
+      "date": "2026-02-04T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "eef5eb447db3",
+      "text": "Plainfield students walk out of class to protest ICE activity - News12 | New Jersey. Plainfield students walk out of class to protest ICE activity News12 | New Jersey",
+      "source": "Google News",
+      "date": "2026-02-03T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "2c8ace6fe966",
+      "text": "New Jersey lawmakers pass 3 bills designed to protect immigrants from ICE raids - WHYY. New Jersey lawmakers pass 3 bills designed to protect immigrants from ICE raids WHYY",
+      "source": "Google News",
+      "date": "2026-01-13T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "694e710e4024",
+      "text": "Immigrant protection bills await Murphy\u2019s signature as ICE raids continue in NJ - NJ Spotlight News. Immigrant protection bills await Murphy\u2019s signature as ICE raids continue in NJ NJ Spotlight News",
+      "source": "Google News",
+      "date": "2026-01-16T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "45a48a97d4e5",
+      "text": "Bills to Strengthen Privacy, Safety, and Trust for New Jersey Immigrant Communities Sent to Governor - New Jersey Senate Democrats. Bills to Strengthen Privacy, Safety, and Trust for New Jersey Immigrant Communities Sent to Governor New Jersey Senate Democrats",
+      "source": "Google News",
+      "date": "2026-01-12T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "7deb0e0a05af",
+      "text": "Sherrill Urges New Jersey Residents to Record ICE Action on Their Phones - The New York Times. Sherrill Urges New Jersey Residents to Record ICE Action on Their Phones The New York Times",
+      "source": "Google News",
+      "date": "2026-01-31T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "8eded63f012b",
+      "text": "New York Attorney General James Announces Legal Observers to Document Federal Immigration Raids - Democracy Now!. New York Attorney General James Announces Legal Observers to Document Federal Immigration Raids Democracy Now!",
+      "source": "Google News",
+      "date": "2026-02-04T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "11a1474cf4c6",
+      "text": "Divided NJ Legislature gives final passage to three anti-ICE bills - New Jersey Monitor. Divided NJ Legislature gives final passage to three anti-ICE bills New Jersey Monitor",
+      "source": "Google News",
+      "date": "2026-01-12T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "1eb040e6f21d",
+      "text": "Mayors of N.J.\u2019s largest cities push state to take stronger stance against Trump and ICE - NJ.com. Mayors of N.J.\u2019s largest cities push state to take stronger stance against Trump and ICE NJ.com",
+      "source": "Google News",
+      "date": "2026-02-04T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "0cd23b501f3c",
+      "text": "Bucco Urges De-Escalation, Dialogue on Immigration Enforcement - NJ Senate Republicans. Bucco Urges De-Escalation, Dialogue on Immigration Enforcement NJ Senate Republicans",
+      "source": "Google News",
+      "date": "2026-01-30T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "f89b908dcc31",
+      "text": "On His Way Out, New Jersey Governor Vetoes Legislation to Bar Local Assistance to ICE - boltsmag.org. On His Way Out, New Jersey Governor Vetoes Legislation to Bar Local Assistance to ICE boltsmag.org",
+      "source": "Google News",
+      "date": "2026-01-20T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "75357b5b0748",
+      "text": "ICE latest: What immigration agreements are in place in Philadelphia, its suburbs, New Jersey and Delaware? - WHYY. ICE latest: What immigration agreements are in place in Philadelphia, its suburbs, New Jersey and Delaware? WHYY",
+      "source": "Google News",
+      "date": "2026-01-29T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "ff2e02251284",
+      "text": "NJ panel advances bills aimed at shielding immigrants from federal agents - New Jersey Monitor. NJ panel advances bills aimed at shielding immigrants from federal agents New Jersey Monitor",
+      "source": "Google News",
+      "date": "2026-01-05T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "3a40b3a08e6d",
+      "text": "A Push to Expand the Rights of Immigrants in Defiance of Trump - The New York Times. A Push to Expand the Rights of Immigrants in Defiance of Trump The New York Times",
+      "source": "Google News",
+      "date": "2026-01-13T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "ab2fa2e2f3b8",
+      "text": "New Jersey's outgoing governor vetoes anti-ICE bill, saying it could undermine existing protections - Politico. New Jersey's outgoing governor vetoes anti-ICE bill, saying it could undermine existing protections Politico",
+      "source": "Google News",
+      "date": "2026-01-20T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "24c6689e215b",
+      "text": "Immigration agents conduct second raid on Newark seafood market - New Jersey Monitor. Immigration agents conduct second raid on Newark seafood market New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-11-19T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "6ed7a1f9f953",
+      "text": "New Jersey governor names new tech chief, announces ICE incident portal - StateScoop. New Jersey governor names new tech chief, announces ICE incident portal StateScoop",
+      "source": "Google News",
+      "date": "2026-02-02T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "2a722943dd31",
+      "text": "Feds cite \u2018current crisis of illegal immigration\u2019 in push against NJ sanctuary city orders - New Jersey Monitor. Feds cite \u2018current crisis of illegal immigration\u2019 in push against NJ sanctuary city orders New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-09-08T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "fcbf875327a8",
+      "text": "NJ anti-ICE bills win key votes following fatal Minnesota shooting - New Jersey Monitor. NJ anti-ICE bills win key votes following fatal Minnesota shooting New Jersey Monitor",
+      "source": "Google News",
+      "date": "2026-01-08T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "5da747668809",
+      "text": "ICE arrests in N.J. city were \u2018lawless,\u2019 and \u2018reprehensible\u2019 state lawmaker says - NJ.com. ICE arrests in N.J. city were \u2018lawless,\u2019 and \u2018reprehensible\u2019 state lawmaker says NJ.com",
+      "source": "Google News",
+      "date": "2026-02-03T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "9e05750c3098",
+      "text": "Brazilian influencer who defended US immigration crackdown arrested by ICE - The Guardian. Brazilian influencer who defended US immigration crackdown arrested by ICE The Guardian",
+      "source": "Google News",
+      "date": "2026-02-02T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "7ae68db30c82",
+      "text": "Immigration advocates call on Sherrill after Murphy blocks bills limiting ICE tactics - NJ Spotlight News. Immigration advocates call on Sherrill after Murphy blocks bills limiting ICE tactics NJ Spotlight News",
+      "source": "Google News",
+      "date": "2026-01-22T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "af136d058299",
+      "text": "New Jersey leaders demand accountability following Alex Pretti\u2019s killing by federal immigration agents - WHYY. New Jersey leaders demand accountability following Alex Pretti\u2019s killing by federal immigration agents WHYY",
+      "source": "Google News",
+      "date": "2026-01-27T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "3176b0488adc",
+      "text": "Trump's $45 billion expansion of immigrant detention sites faces pushback from communities - NBC News. Trump's $45 billion expansion of immigrant detention sites faces pushback from communities NBC News",
+      "source": "Google News",
+      "date": "2026-02-03T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "f9f0f19ec6f2",
+      "text": "ICE in NYC: Observers from attorney general's office will monitor, document federal immigration enforcement across New York - ABC7 New York. ICE in NYC: Observers from attorney general's office will monitor, document federal immigration enforcement across New York ABC7 New York",
+      "source": "Google News",
+      "date": "2026-02-03T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "196e259946b7",
+      "text": "Murphy signs \u2018Safe Communities Act,\u2019 kills two other New Jersey immigration bills (updated) - The Jersey Vindicator. Murphy signs \u2018Safe Communities Act,\u2019 kills two other New Jersey immigration bills (updated) The Jersey Vindicator",
+      "source": "Google News",
+      "date": "2026-01-20T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "f42d24afff25",
+      "text": "Do ICE agents really need a warrant in NJ\u2014Here are the facts - New Jersey 101.5. Do ICE agents really need a warrant in NJ\u2014Here are the facts New Jersey 101.5",
+      "source": "Google News",
+      "date": "2026-02-03T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "3fd4f0230cb7",
+      "text": "Could New Jersey prosecute ICE agents? What the Constitution says - New Jersey 101.5. Could New Jersey prosecute ICE agents? What the Constitution says New Jersey 101.5",
+      "source": "Google News",
+      "date": "2026-02-04T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "67a29c820c42",
+      "text": "What to know about recording ICE, interacting with immigration enforcement agents - WHYY. What to know about recording ICE, interacting with immigration enforcement agents WHYY",
+      "source": "Google News",
+      "date": "2026-01-16T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "0a6f7482ef1c",
+      "text": "Immigration Protections Are Uncertain in New Jersey even as Democrats Keep Governorship - boltsmag.org. Immigration Protections Are Uncertain in New Jersey even as Democrats Keep Governorship boltsmag.org",
+      "source": "Google News",
+      "date": "2025-11-05T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "dee565a15f69",
+      "text": "NJ Democrats demand ICE cease plans for Roxbury detention center - New Jersey Monitor. NJ Democrats demand ICE cease plans for Roxbury detention center New Jersey Monitor",
+      "source": "Google News",
+      "date": "2026-01-14T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "7121993b3869",
+      "text": "NJ cannot ban companies from detaining immigrants, appeals court rules - New Jersey Monitor. NJ cannot ban companies from detaining immigrants, appeals court rules New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-07-22T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "6862f38dcbbe",
+      "text": "New ICE courthouse tactic: Get immigrants\u2019 cases tossed, then arrest them outside - New Jersey Monitor. New ICE courthouse tactic: Get immigrants\u2019 cases tossed, then arrest them outside New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-08-06T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "2299ef4d1a5f",
+      "text": "Mayor Marty Small: \u2018Atlantic City supports the immigrant community\u2019 - WHYY. Mayor Marty Small: \u2018Atlantic City supports the immigrant community\u2019 WHYY",
+      "source": "Google News",
+      "date": "2026-01-14T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "41506bd1581f",
+      "text": "NJ governor candidates split on housing immigrant detainees at Fort Dix - New Jersey Monitor. NJ governor candidates split on housing immigrant detainees at Fort Dix New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-07-21T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "932c54722293",
+      "text": "Feds trim list of places they\u2019re fighting over immigration enforcement - New Jersey Monitor. Feds trim list of places they\u2019re fighting over immigration enforcement New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-08-05T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "f1ee895e096a",
+      "text": "N.J.\u2019s cooperation with ICE is about to be even more limited under 3 new proposals - NJ.com. N.J.\u2019s cooperation with ICE is about to be even more limited under 3 new proposals NJ.com",
+      "source": "Google News",
+      "date": "2026-01-13T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "d793168bd693",
+      "text": "NJ cities ask judge to reject Trump admin\u2019s push targeting sanctuary city orders - New Jersey Monitor. NJ cities ask judge to reject Trump admin\u2019s push targeting sanctuary city orders New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-10-16T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "68adbdd956cd",
+      "text": "GOP senator urges DOJ to challenge immigration detention contract bill - KOAT. GOP senator urges DOJ to challenge immigration detention contract bill KOAT",
+      "source": "Google News",
+      "date": "2026-02-03T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "41297ffc0879",
+      "text": "In Final Hours as Governor, Murphy Vetoes 2 Immigrant Rights Bills - The New York Times. In Final Hours as Governor, Murphy Vetoes 2 Immigrant Rights Bills The New York Times",
+      "source": "Google News",
+      "date": "2026-01-20T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "04a74ddbb421",
+      "text": "Democrat running for NJ governor wants to ban ICE agents from wearing masks - New Jersey Monitor. Democrat running for NJ governor wants to ban ICE agents from wearing masks New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-10-21T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "b5273908059b",
+      "text": "Judge rejected request to detain immigrant at center of fight between Trump, governor - New Jersey Monitor. Judge rejected request to detain immigrant at center of fight between Trump, governor New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-08-11T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "de4faff16559",
+      "text": "Advocates fear immigrant workers are targeted at warehouses storing imported goods - New Jersey Monitor. Advocates fear immigrant workers are targeted at warehouses storing imported goods New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-11-26T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "3aa389d93d2e",
+      "text": "Feds sue four New Jersey Dem mayors for policies blocking immigration enforcement - New Jersey Monitor. Feds sue four New Jersey Dem mayors for policies blocking immigration enforcement New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-05-23T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "317c5e01e92f",
+      "text": "Opinion: Gov. Murphy Must Meet the Moment and Stand Up for Immigrant Communities One Final Time - New Jersey Globe. Opinion: Gov. Murphy Must Meet the Moment and Stand Up for Immigrant Communities One Final Time New Jersey Globe",
+      "source": "Google News",
+      "date": "2026-01-16T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "5be891718ab4",
+      "text": "Where NJ\u2019s governor hopefuls stand on allowing cops to aid immigration agents - New Jersey Monitor. Where NJ\u2019s governor hopefuls stand on allowing cops to aid immigration agents New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-09-22T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "cb004880cacb",
+      "text": "Hearing delayed for undocumented immigrant at center of fight between Trump, governor - New Jersey Monitor. Hearing delayed for undocumented immigrant at center of fight between Trump, governor New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-08-13T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "6304e376e8ff",
+      "text": "NJ Sens. Probe AG Nominee On Immigration, Accountability - Law360. NJ Sens. Probe AG Nominee On Immigration, Accountability Law360",
+      "source": "Google News",
+      "date": "2026-02-02T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "1cbceeeed0ba",
+      "text": "Hoboken won\u2019t \u2018bend its knee\u2019 to Trump admin demand on sanctuary policy, mayor says - New Jersey Monitor. Hoboken won\u2019t \u2018bend its knee\u2019 to Trump admin demand on sanctuary policy, mayor says New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-08-20T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "a676c66bddeb",
+      "text": "These immigration bills set for vote before NJ Legislature session ends - Bergen Record. These immigration bills set for vote before NJ Legislature session ends Bergen Record",
+      "source": "Google News",
+      "date": "2026-01-09T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "213c378eab67",
+      "text": "Masked officers, no warrant: Video raises more concerns about ICE tactics in NJ - NJ Spotlight News. Masked officers, no warrant: Video raises more concerns about ICE tactics in NJ NJ Spotlight News",
+      "source": "Google News",
+      "date": "2025-11-20T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "999b516a9c52",
+      "text": "Offices of New Americans Visit New York and New Jersey to Learn, Connect, and Inspire - American Immigration Council. Offices of New Americans Visit New York and New Jersey to Learn, Connect, and Inspire American Immigration Council",
+      "source": "Google News",
+      "date": "2025-07-29T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "2cee28091e5d",
+      "text": "Trump administration wants sanctuary city suit to continue - New Jersey Monitor. Trump administration wants sanctuary city suit to continue New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-11-17T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "b7e268c77827",
+      "text": "Anti-ICE protestors target Home Depot to denounce immigration arrests - New Jersey Monitor. Anti-ICE protestors target Home Depot to denounce immigration arrests New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-12-19T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "4370eaf206b0",
+      "text": "41-year-old detainee at Newark migrant jail died in custody, ICE says - New Jersey Monitor. 41-year-old detainee at Newark migrant jail died in custody, ICE says New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-12-19T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "b777b4181d17",
+      "text": "Judges overturn ruling that freed pro-Palestinian activist Mahmoud Khalil - New Jersey Monitor. Judges overturn ruling that freed pro-Palestinian activist Mahmoud Khalil New Jersey Monitor",
+      "source": "Google News",
+      "date": "2026-01-15T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "ad3d25ea0f68",
+      "text": "ICE Newark arrests another 4 illegally present child sex offenders as part of ongoing operation - U.S. Immigration and Customs Enforcement (.gov). ICE Newark arrests another 4 illegally present child sex offenders as part of ongoing operation U.S. Immigration and Customs Enforcement (.gov)",
+      "source": "Google News",
+      "date": "2025-08-08T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "ef3d2525a291",
+      "text": "Sherrill quiet on committing to NJ\u2019s immigrant trust directive - NJ Spotlight News. Sherrill quiet on committing to NJ\u2019s immigrant trust directive NJ Spotlight News",
+      "source": "Google News",
+      "date": "2025-11-17T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "7392a7a1ab20",
+      "text": "2 men taken into custody by ICE in Princeton, New Jersey, officials say - ABC7 New York. 2 men taken into custody by ICE in Princeton, New Jersey, officials say ABC7 New York",
+      "source": "Google News",
+      "date": "2026-01-15T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "401c45a7c73b",
+      "text": "\u2018Kidnapped\u2019 by ICE? NJ arrests include accused sex offender, violent criminal - New Jersey 101.5. \u2018Kidnapped\u2019 by ICE? NJ arrests include accused sex offender, violent criminal New Jersey 101.5",
+      "source": "Google News",
+      "date": "2026-01-27T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "7fa58610dc37",
+      "text": "The Congresswoman Criminalized for Visiting ICE Detainees - The New Yorker. The Congresswoman Criminalized for Visiting ICE Detainees The New Yorker",
+      "source": "Google News",
+      "date": "2026-01-19T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "17861fd3c4e9",
+      "text": "N.J. Dems object to reported ICE detention center plans in Roxbury - New Jersey Globe. N.J. Dems object to reported ICE detention center plans in Roxbury New Jersey Globe",
+      "source": "Google News",
+      "date": "2026-01-14T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "faa569e2038c",
+      "text": "How would N.J. governor hopefuls tackle immigration enforcement order? - New Jersey Monitor. How would N.J. governor hopefuls tackle immigration enforcement order? New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-05-21T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "565994b64191",
+      "text": "Trump claims about sanctuary policies \u2018fail many times over,\u2019 NJ cities tell judge - New Jersey Monitor. Trump claims about sanctuary policies \u2018fail many times over,\u2019 NJ cities tell judge New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-08-28T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "1ed17bd32298",
+      "text": "ICE triples number of people detained in Delaney Hall - NJ Spotlight News. ICE triples number of people detained in Delaney Hall NJ Spotlight News",
+      "source": "Google News",
+      "date": "2025-12-08T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "fde3ef29d320",
+      "text": "N.J. is fighting back against Trump and ICE with 3 bold proposals - NJ.com. N.J. is fighting back against Trump and ICE with 3 bold proposals NJ.com",
+      "source": "Google News",
+      "date": "2026-01-07T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "ceadfa614479",
+      "text": "Florida officials target NJ law that allows migrants to get driver\u2019s licenses - New Jersey Monitor. Florida officials target NJ law that allows migrants to get driver\u2019s licenses New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-08-28T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "d73864907721",
+      "text": "Princeton town council adopts resolution supporting state passage of Immigrant Trust Act - WHYY. Princeton town council adopts resolution supporting state passage of Immigrant Trust Act WHYY",
+      "source": "Google News",
+      "date": "2025-08-12T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "1b2bafa0a121",
+      "text": "ICE arrests 2 criminal illegal aliens convicted of endangering children - U.S. Immigration and Customs Enforcement (.gov). ICE arrests 2 criminal illegal aliens convicted of endangering children U.S. Immigration and Customs Enforcement (.gov)",
+      "source": "Google News",
+      "date": "2025-12-08T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "47807600971e",
+      "text": "NJ ICE raid Woodbridge warehouse immigration Delaney - NJ Spotlight News. NJ ICE raid Woodbridge warehouse immigration Delaney NJ Spotlight News",
+      "source": "Google News",
+      "date": "2025-10-31T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "217d02b95d5d",
+      "text": "Where Do New Jersey and Virginia Gubernatorial Candidates Stand On Immigration? - America's Voice. Where Do New Jersey and Virginia Gubernatorial Candidates Stand On Immigration? America's Voice",
+      "source": "Google News",
+      "date": "2025-10-28T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "fb8240a32243",
+      "text": "Defending communities against ICE in New Jersey - American Friends Service Committee. Defending communities against ICE in New Jersey American Friends Service Committee",
+      "source": "Google News",
+      "date": "2025-07-01T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "41602c8ab223",
+      "text": "Bloomfield Residents On Edge After ICE Arrests In North Jersey, Mayor Says - Patch. Bloomfield Residents On Edge After ICE Arrests In North Jersey, Mayor Says Patch",
+      "source": "Google News",
+      "date": "2026-02-03T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "35632c3cb26a",
+      "text": "Lawmakers take first step in banning ICE agents from wearing masks - New Jersey Monitor. Lawmakers take first step in banning ICE agents from wearing masks New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-12-12T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "9d3f50e85307",
+      "text": "Activists urge NJ governor to condemn escalating immigration tactics - New Jersey Monitor. Activists urge NJ governor to condemn escalating immigration tactics New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-07-17T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "74cb6c75bac5",
+      "text": "Democrats oppose move to house immigrant detainees at Fort Dix - New Jersey Monitor. Democrats oppose move to house immigrant detainees at Fort Dix New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-07-18T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "23991e49ba61",
+      "text": "The immigration debate dividing New Jersey: Where do you stand? - New Jersey 101.5. The immigration debate dividing New Jersey: Where do you stand? New Jersey 101.5",
+      "source": "Google News",
+      "date": "2026-01-27T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "239722cc796f",
+      "text": "ICE warehouse raid: Immigration activists protest after 46 taken into custody in Avenel, New Jersey - ABC7 New York. ICE warehouse raid: Immigration activists protest after 46 taken into custody in Avenel, New Jersey ABC7 New York",
+      "source": "Google News",
+      "date": "2025-11-13T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "5370838c99a4",
+      "text": "New Jersey immigrant advocates renew call for more protections in wake of Supreme Court ruling - New Jersey Monitor. New Jersey immigrant advocates renew call for more protections in wake of Supreme Court ruling New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-06-27T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "10dcb5ae965d",
+      "text": "Inside New Jersey\u2019s troubled immigration detention center: \u2018It\u2019s designed to break people\u2019 - The Jersey Vindicator. Inside New Jersey\u2019s troubled immigration detention center: \u2018It\u2019s designed to break people\u2019 The Jersey Vindicator",
+      "source": "Google News",
+      "date": "2025-09-25T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "67a1117e7564",
+      "text": "NJ 2025: The year in immigration - NJ Spotlight News. NJ 2025: The year in immigration NJ Spotlight News",
+      "source": "Google News",
+      "date": "2025-12-26T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "ab1e2302d375",
+      "text": "NJ bill would ban ICE agents from wearing masks - New Jersey Monitor. NJ bill would ban ICE agents from wearing masks New Jersey Monitor",
+      "source": "Google News",
+      "date": "2025-11-24T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "9ab6ce7f73b4",
+      "text": "ICE agents raid Morristown, NJ laundromat; community members speak out - ABC7 New York. ICE agents raid Morristown, NJ laundromat; community members speak out ABC7 New York",
+      "source": "Google News",
+      "date": "2026-01-14T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "92b4dde55c5c",
+      "text": "Pair of Immigration Raids Disrupts a New Jersey Shipping Hub - The New York Times. Pair of Immigration Raids Disrupts a New Jersey Shipping Hub The New York Times",
+      "source": "Google News",
+      "date": "2025-08-22T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "3ad0346615d3",
+      "text": "\u2018They\u2019re killing Americans.\u2019 N.J. lawmakers fight to pass plan to limit cooperation with ICE. - NJ.com. \u2018They\u2019re killing Americans.\u2019 N.J. lawmakers fight to pass plan to limit cooperation with ICE. NJ.com",
+      "source": "Google News",
+      "date": "2026-01-09T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "97053cdb3583",
+      "text": "NJ lawmakers look to clamp down on cooperation with ICE in Murphy's final days - Gothamist. NJ lawmakers look to clamp down on cooperation with ICE in Murphy's final days Gothamist",
+      "source": "Google News",
+      "date": "2026-01-08T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "315366daf7b9",
+      "text": "New Jersey again targeted for immigration policies - NJ Spotlight News. New Jersey again targeted for immigration policies NJ Spotlight News",
+      "source": "Google News",
+      "date": "2025-05-27T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "54d76d0bec14",
+      "text": "Feds keep up pressure to overturn immigrant protections in NJ - NJ Spotlight News. Feds keep up pressure to overturn immigrant protections in NJ NJ Spotlight News",
+      "source": "Google News",
+      "date": "2025-09-09T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "07e4b1d12152",
+      "text": "2 people recaptured after escaping New Jersey immigration detention center - PBS. 2 people recaptured after escaping New Jersey immigration detention center PBS",
+      "source": "Google News",
+      "date": "2025-06-16T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "c14be43d0b93",
+      "text": "NJ moves toward restricting ICE cooperation, but unclear if Murphy will sign bills - Gothamist. NJ moves toward restricting ICE cooperation, but unclear if Murphy will sign bills Gothamist",
+      "source": "Google News",
+      "date": "2026-01-12T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "1427b396c3ea",
+      "text": "4 detainees escaped from an immigration detention center in New Jersey, DHS says - PBS. 4 detainees escaped from an immigration detention center in New Jersey, DHS says PBS",
+      "source": "Google News",
+      "date": "2025-06-13T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    },
+    {
+      "id": "2eab0635b150",
+      "text": "South Jersey military base to temporarily hold immigrant detainees - WHYY. South Jersey military base to temporarily hold immigrant detainees WHYY",
+      "source": "Google News",
+      "date": "2025-07-18T00:00:00",
+      "zip": 7060,
+      "category": "news"
+    }
+  ],
+  "source_breakdown": {
+    "Google News": 448,
+    "NJ Attorney General": 19,
+    "NJ Spotlight News": 8
+  },
+  "diagnostics": {
+    "total_clusters": 0,
+    "total_records": 475
+  },
+  "false_positive_candidates": [],
+  "_schema_version": "1.0.0",
+  "_provenance": {
+    "generated_at": "2026-02-26T04:52:10.866173Z",
+    "generator": "tiers.py",
+    "tier": 2,
+    "ruleset_version": "ruleset-2026-02-25",
+    "inputs_hash": "sha256:empty",
+    "signals_n": 475
+  },
+  "attention_results": []
+}

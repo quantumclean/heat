@@ -1,0 +1,353 @@
+{
+  "generated_at": "2026-02-26T04:55:13.919552+00:00",
+  "pipeline_status": "complete",
+  "pipeline_run_id": "run-20260226T045513",
+  "pipeline_started": 1772081713.897234,
+  "teams": {
+    "ingestion": {
+      "team_id": "ingestion",
+      "label": "Ingestion",
+      "icon": "\ud83d\udce5",
+      "color": "#4fc3f7",
+      "status": "complete",
+      "active_agent": null,
+      "last_run_id": "run-20260226T045513",
+      "last_started": 1772081713.901935,
+      "last_completed": 1772081713.9028864,
+      "last_error": null,
+      "records_in": 0,
+      "records_out": 0,
+      "run_count": 1,
+      "error_count": 0,
+      "duration_s": 0.0,
+      "agents_done": [
+        "ingestion_team"
+      ],
+      "roster": [
+        "rss_scraper",
+        "scraper",
+        "ingest",
+        "reddit_scraper",
+        "twitter_scraper",
+        "facebook_scraper",
+        "council_minutes",
+        "nj_ag_scraper",
+        "fema_ipaws",
+        "gdelt",
+        "community_input"
+      ]
+    },
+    "analysis": {
+      "team_id": "analysis",
+      "label": "Analysis",
+      "icon": "\ud83d\udd0d",
+      "color": "#81c784",
+      "status": "complete",
+      "active_agent": null,
+      "last_run_id": "run-20260226T045513",
+      "last_started": 1772081713.9035106,
+      "last_completed": 1772081713.904395,
+      "last_error": null,
+      "records_in": 0,
+      "records_out": 0,
+      "run_count": 1,
+      "error_count": 0,
+      "duration_s": 0.0,
+      "agents_done": [
+        "analysis_team"
+      ],
+      "roster": [
+        "cluster",
+        "nlp_analysis",
+        "topic_engine",
+        "ner_engine",
+        "semantic_drift",
+        "signal_quality",
+        "source_diversity",
+        "accuracy_ranker"
+      ]
+    },
+    "safety": {
+      "team_id": "safety",
+      "label": "Safety",
+      "icon": "\ud83d\udee1\ufe0f",
+      "color": "#ffb74d",
+      "status": "complete",
+      "active_agent": null,
+      "last_run_id": "run-20260226T045513",
+      "last_started": 1772081713.9054906,
+      "last_completed": 1772081713.907522,
+      "last_error": null,
+      "records_in": 0,
+      "records_out": 0,
+      "run_count": 1,
+      "error_count": 0,
+      "duration_s": 0.0,
+      "agents_done": [
+        "safety_team"
+      ],
+      "roster": [
+        "buffer",
+        "compliance",
+        "pii_watermark",
+        "presidio_guard",
+        "safety",
+        "validator",
+        "geo_validator"
+      ]
+    },
+    "intelligence": {
+      "team_id": "intelligence",
+      "label": "Intelligence",
+      "icon": "\ud83e\udde0",
+      "color": "#ce93d8",
+      "status": "complete",
+      "active_agent": null,
+      "last_run_id": "run-20260226T045513",
+      "last_started": 1772081713.9081628,
+      "last_completed": 1772081713.9089308,
+      "last_error": null,
+      "records_in": 0,
+      "records_out": 0,
+      "run_count": 1,
+      "error_count": 0,
+      "duration_s": 0.0,
+      "agents_done": [
+        "intelligence_team"
+      ],
+      "roster": [
+        "heatmap",
+        "geo_intelligence",
+        "entropy",
+        "volatility",
+        "narrative_acceleration",
+        "propagation",
+        "vulnerability_overlay",
+        "polis_sentiment"
+      ]
+    },
+    "export": {
+      "team_id": "export",
+      "label": "Export",
+      "icon": "\ud83d\udce4",
+      "color": "#90a4ae",
+      "status": "complete",
+      "active_agent": null,
+      "last_run_id": "run-20260226T045513",
+      "last_started": 1772081713.9111445,
+      "last_completed": 1772081713.9122884,
+      "last_error": null,
+      "records_in": 0,
+      "records_out": 0,
+      "run_count": 1,
+      "error_count": 0,
+      "duration_s": 0.0,
+      "agents_done": [
+        "export_team"
+      ],
+      "roster": [
+        "export_static",
+        "tiers",
+        "intelligence_exports",
+        "export_text",
+        "comprehensive_export",
+        "report_engine",
+        "dashboard_generator"
+      ]
+    },
+    "ops": {
+      "team_id": "ops",
+      "label": "Ops",
+      "icon": "\u2699\ufe0f",
+      "color": "#ef9a9a",
+      "status": "complete",
+      "active_agent": null,
+      "last_run_id": "run-20260226T045513",
+      "last_started": 1772081713.9154348,
+      "last_completed": 1772081713.9180708,
+      "last_error": null,
+      "records_in": 0,
+      "records_out": 0,
+      "run_count": 1,
+      "error_count": 0,
+      "duration_s": 0.0,
+      "agents_done": [
+        "ops_team"
+      ],
+      "roster": [
+        "pipeline_monitor",
+        "memory",
+        "alerts",
+        "rolling_metrics",
+        "data_quality",
+        "data_lineage",
+        "dead_letter_queue",
+        "governance"
+      ]
+    }
+  },
+  "recent_events": [
+    {
+      "team_id": "ops",
+      "agent_id": "pipeline",
+      "event_type": "pipeline_start",
+      "payload": {
+        "run_id": "run-20260226T045513"
+      },
+      "timestamp": 1772081713.897234,
+      "ts_iso": "2026-02-26T04:55:13.897234+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "ingestion",
+      "agent_id": "ingestion_team",
+      "event_type": "start",
+      "payload": {},
+      "timestamp": 1772081713.901935,
+      "ts_iso": "2026-02-26T04:55:13.901935+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "ingestion",
+      "agent_id": "ingestion_team",
+      "event_type": "complete",
+      "payload": {
+        "duration_s": 0.0,
+        "records": 0,
+        "summary": ""
+      },
+      "timestamp": 1772081713.9028864,
+      "ts_iso": "2026-02-26T04:55:13.902886+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "analysis",
+      "agent_id": "analysis_team",
+      "event_type": "start",
+      "payload": {},
+      "timestamp": 1772081713.9035106,
+      "ts_iso": "2026-02-26T04:55:13.903511+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "analysis",
+      "agent_id": "analysis_team",
+      "event_type": "complete",
+      "payload": {
+        "duration_s": 0.0,
+        "records": 0,
+        "summary": ""
+      },
+      "timestamp": 1772081713.904395,
+      "ts_iso": "2026-02-26T04:55:13.904395+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "safety",
+      "agent_id": "safety_team",
+      "event_type": "start",
+      "payload": {},
+      "timestamp": 1772081713.9054906,
+      "ts_iso": "2026-02-26T04:55:13.905491+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "safety",
+      "agent_id": "safety_team",
+      "event_type": "complete",
+      "payload": {
+        "duration_s": 0.0,
+        "records": 0,
+        "summary": ""
+      },
+      "timestamp": 1772081713.907522,
+      "ts_iso": "2026-02-26T04:55:13.907522+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "intelligence",
+      "agent_id": "intelligence_team",
+      "event_type": "start",
+      "payload": {},
+      "timestamp": 1772081713.9081628,
+      "ts_iso": "2026-02-26T04:55:13.908163+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "intelligence",
+      "agent_id": "intelligence_team",
+      "event_type": "complete",
+      "payload": {
+        "duration_s": 0.0,
+        "records": 0,
+        "summary": ""
+      },
+      "timestamp": 1772081713.9089308,
+      "ts_iso": "2026-02-26T04:55:13.908931+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "export",
+      "agent_id": "export_team",
+      "event_type": "start",
+      "payload": {},
+      "timestamp": 1772081713.9111445,
+      "ts_iso": "2026-02-26T04:55:13.911144+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "export",
+      "agent_id": "export_team",
+      "event_type": "complete",
+      "payload": {
+        "duration_s": 0.0,
+        "records": 0,
+        "summary": ""
+      },
+      "timestamp": 1772081713.9122884,
+      "ts_iso": "2026-02-26T04:55:13.912288+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "ops",
+      "agent_id": "ops_team",
+      "event_type": "start",
+      "payload": {},
+      "timestamp": 1772081713.9154348,
+      "ts_iso": "2026-02-26T04:55:13.915435+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "ops",
+      "agent_id": "ops_team",
+      "event_type": "complete",
+      "payload": {
+        "duration_s": 0.0,
+        "records": 0,
+        "summary": ""
+      },
+      "timestamp": 1772081713.9180708,
+      "ts_iso": "2026-02-26T04:55:13.918071+00:00",
+      "run_id": "run-20260226T045513"
+    },
+    {
+      "team_id": "ops",
+      "agent_id": "pipeline",
+      "event_type": "pipeline_complete",
+      "payload": {
+        "run_id": "run-20260226T045513"
+      },
+      "timestamp": 1772081713.918681,
+      "ts_iso": "2026-02-26T04:55:13.918681+00:00",
+      "run_id": "run-20260226T045513"
+    }
+  ],
+  "team_order": [
+    "ingestion",
+    "analysis",
+    "safety",
+    "intelligence",
+    "export",
+    "ops"
+  ]
+}
